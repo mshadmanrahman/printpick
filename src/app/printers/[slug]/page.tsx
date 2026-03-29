@@ -91,16 +91,16 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           </nav>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
-            {/* Product Image — Big, clean, centered */}
-            <div className="flex-1 flex items-center justify-center">
-              <div className="relative w-full max-w-md aspect-square">
+            {/* Product Image — Big, clean, fills the space */}
+            <div className="flex-1">
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
                 <Image
                   src={printer.image}
                   alt={printer.name}
                   fill
-                  className="object-contain drop-shadow-xl"
+                  className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, 448px"
+                  sizes="(max-width: 768px) 100vw, 512px"
                 />
               </div>
             </div>

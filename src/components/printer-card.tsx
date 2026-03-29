@@ -13,7 +13,7 @@ interface PrinterCardProps {
 
 function PrinterThumbnail({ printer, rank }: { readonly printer: Printer; readonly rank?: number }) {
   return (
-    <div className="relative shrink-0 w-24 sm:w-28 rounded-xl overflow-hidden self-stretch bg-zinc-50">
+    <div className="relative shrink-0 w-24 sm:w-28 rounded-xl overflow-hidden self-stretch">
       {rank !== undefined && rank <= 3 && (
         <span className="absolute top-1.5 left-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm z-10">
           #{rank}
@@ -28,9 +28,10 @@ function PrinterThumbnail({ printer, rank }: { readonly printer: Printer; readon
         src={printer.image}
         alt={printer.name}
         fill
-        className="object-contain p-2 transition-transform group-hover:scale-105"
+        className="object-cover transition-transform group-hover:scale-105"
         sizes="(max-width: 640px) 96px, 112px"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
       <span className="absolute bottom-1.5 left-1.5 rounded bg-black/50 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
         {printer.type}
       </span>

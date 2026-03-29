@@ -1,6 +1,7 @@
-import { Search, DollarSign, Layers, GitCompare, ChevronRight, Star, Quote, MessageCircle, Users } from "lucide-react";
+import { Search, DollarSign, Layers, GitCompare, ChevronRight, Star, MessageCircle, Users } from "lucide-react";
 import { printers, getOverallScore, CATEGORIES } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
+import { ReviewCarousel } from "@/components/review-carousel";
 
 const topPrinters = [...printers]
   .sort((a, b) => getOverallScore(b) - getOverallScore(a))
@@ -11,12 +12,16 @@ const stats = {
   brands: new Set(printers.map((p) => p.brand)).size,
 };
 
-// Curated "pro" reviews for the homepage — one per featured printer
+// Curated "pro" reviews for the homepage carousel
 const FEATURED_REVIEWS = [
-  { quote: "The A1 Combo is the printer I recommend to literally everyone who asks.", source: "r/3Dprinting", printer: "Bambu Lab A1 Combo" },
-  { quote: "Refreshing a best seller. The P1S is the strong choice for anyone wanting to print ABS.", source: "Tom's Hardware", printer: "Bambu Lab P1S" },
-  { quote: "The V3 SE sets a new baseline for cheap 3D printing.", source: "All3DP", printer: "Creality Ender 3 V3 SE" },
-  { quote: "14K resolution means you can print things FDM users can only dream about.", source: "Uncle Jessy (YouTube)", printer: "Elegoo Mars 5 Ultra" },
+  { quote: "The A1 Combo is the printer I recommend to literally everyone who asks.", source: "r/3Dprinting", printer: "Bambu Lab A1 Combo", slug: "bambu-lab-a1-combo" },
+  { quote: "Refreshing a best seller. The P1S is the strong choice for anyone wanting to print ABS.", source: "Tom's Hardware", printer: "Bambu Lab P1S", slug: "bambu-lab-p1s" },
+  { quote: "The V3 SE sets a new baseline for cheap 3D printing.", source: "All3DP", printer: "Creality Ender 3 V3 SE", slug: "creality-ender-3-v3-se" },
+  { quote: "14K resolution means you can print things FDM users can only dream about.", source: "Uncle Jessy (YouTube)", printer: "Elegoo Mars 5 Ultra", slug: "elegoo-mars-5-ultra" },
+  { quote: "For $199, this thing is a miracle. Print quality rivals machines 3x the price.", source: "r/BambuLab", printer: "Bambu Lab A1 Mini", slug: "bambu-lab-a1-mini" },
+  { quote: "Voron performance without spending months sourcing parts. Sign me up.", source: "Nero3D (YouTube)", printer: "Sovol SV08", slug: "sovol-sv08" },
+  { quote: "Active chamber heating to 60C at this price? QIDI is quietly winning.", source: "r/3Dprinting", printer: "QIDI X-Plus 3", slug: "qidi-x-plus-3" },
+  { quote: "My MK3 ran for 5 years without a single failed print. The MK4S continues that legacy.", source: "r/prusa3d", printer: "Prusa MK4S", slug: "prusa-mk4s" },
 ];
 
 const CATEGORY_ICONS: Record<string, string> = {
@@ -128,24 +133,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* What the Pros Are Saying — Bambu Lab style */}
+        {/* What the Community Says — horizontal carousel */}
         <section className="py-12 border-t border-border/50">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold tracking-tight">What the Community Says</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Real opinions from Reddit, YouTube reviewers, and tech publications.</p>
+            <h2 className="text-2xl font-bold tracking-tight flex items-center justify-center gap-2">
+              <MessageCircle className="h-5 w-5 text-primary" />
+              What the Community Says
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">Real opinions from Reddit, YouTube reviewers, and tech publications. Click to view the printer.</p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {FEATURED_REVIEWS.map((review) => (
-              <div key={review.quote} className="rounded-xl border border-border/60 bg-card p-5 flex flex-col">
-                <Quote className="h-5 w-5 text-primary/40 mb-2 shrink-0" />
-                <p className="text-sm leading-relaxed flex-1">&ldquo;{review.quote}&rdquo;</p>
-                <div className="mt-3 pt-3 border-t border-border/50">
-                  <p className="text-xs font-medium text-primary">{review.printer}</p>
-                  <p className="text-xs text-muted-foreground">{review.source}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewCarousel reviews={FEATURED_REVIEWS} />
         </section>
 
         {/* Categories */}
