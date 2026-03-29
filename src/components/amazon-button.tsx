@@ -22,7 +22,7 @@ export function AmazonButton({ asin, printerName, label = "Check Price on Amazon
 
   return (
     <a
-      href={getAmazonUrl(asin)}
+      href={getAmazonUrl(asin, printerName)}
       target="_blank"
       rel="noopener noreferrer nofollow sponsored"
       onClick={handleClick}

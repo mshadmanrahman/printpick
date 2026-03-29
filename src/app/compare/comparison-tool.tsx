@@ -100,7 +100,7 @@ export function ComparisonTool() {
                 Score: <span className="font-bold text-primary">{getOverallScore(printerA)}</span>
               </p>
               <div className="mt-2 flex justify-end">
-                <AmazonButton asin={printerA.amazonAsin} label="Buy" className="text-xs px-3 py-1.5" />
+                <AmazonButton asin={printerA.amazonAsin} printerName={printerA.name} label="Buy" className="text-xs px-3 py-1.5" />
               </div>
             </div>
             <div className="flex items-center justify-center">
@@ -113,7 +113,7 @@ export function ComparisonTool() {
                 Score: <span className="font-bold text-primary">{getOverallScore(printerB)}</span>
               </p>
               <div className="mt-2">
-                <AmazonButton asin={printerB.amazonAsin} label="Buy" className="text-xs px-3 py-1.5" />
+                <AmazonButton asin={printerB.amazonAsin} printerName={printerB.name} label="Buy" className="text-xs px-3 py-1.5" />
               </div>
             </div>
           </div>

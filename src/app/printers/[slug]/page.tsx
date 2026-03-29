@@ -86,7 +86,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
             </span>
           </div>
           <div className="mt-4">
-            <AmazonButton asin={printer.amazonAsin} className="w-full justify-center" />
+            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} className="w-full justify-center" />
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           <p className="text-sm leading-relaxed">{printer.verdict}</p>
         </div>
         <div className="mt-4">
-          <AmazonButton asin={printer.amazonAsin} label={`Buy ${printer.name} on Amazon`} />
+          <AmazonButton asin={printer.amazonAsin} printerName={printer.name} label={`Buy ${printer.name} on Amazon`} />
         </div>
       </section>
 
