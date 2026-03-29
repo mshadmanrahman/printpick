@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { printers, type Printer, getOverallScore, getAmazonUrl } from "@/data/printers";
 import { AmazonButton } from "@/components/amazon-button";
 
@@ -91,28 +92,34 @@ export function ComparisonTool() {
 
       {printerA && printerB && (
         <div className="mt-8">
-          {/* Header */}
+          {/* Header with images */}
           <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="text-right">
-              <h3 className="font-bold text-lg">{printerA.name}</h3>
-              <p className="text-2xl font-bold mt-1">${printerA.price}</p>
+            <div className="text-center">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
+                <Image src={printerA.image} alt={printerA.name} fill className="object-cover" sizes="200px" />
+              </div>
+              <a href={`/printers/${printerA.slug}`} className="font-bold text-sm sm:text-lg hover:text-primary transition-colors">{printerA.name}</a>
+              <p className="text-xl sm:text-2xl font-bold mt-1">${printerA.price}</p>
               <p className="text-sm text-muted-foreground mt-1">
                 Score: <span className="font-bold text-primary">{getOverallScore(printerA)}</span>
               </p>
-              <div className="mt-2 flex justify-end">
+              <div className="mt-2 flex justify-center">
                 <AmazonButton asin={printerA.amazonAsin} printerName={printerA.name} label="Buy" className="text-xs px-3 py-1.5" />
               </div>
             </div>
             <div className="flex items-center justify-center">
               <span className="text-2xl font-bold text-muted-foreground">VS</span>
             </div>
-            <div>
-              <h3 className="font-bold text-lg">{printerB.name}</h3>
-              <p className="text-2xl font-bold mt-1">${printerB.price}</p>
+            <div className="text-center">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
+                <Image src={printerB.image} alt={printerB.name} fill className="object-cover" sizes="200px" />
+              </div>
+              <a href={`/printers/${printerB.slug}`} className="font-bold text-sm sm:text-lg hover:text-primary transition-colors">{printerB.name}</a>
+              <p className="text-xl sm:text-2xl font-bold mt-1">${printerB.price}</p>
               <p className="text-sm text-muted-foreground mt-1">
                 Score: <span className="font-bold text-primary">{getOverallScore(printerB)}</span>
               </p>
-              <div className="mt-2">
+              <div className="mt-2 flex justify-center">
                 <AmazonButton asin={printerB.amazonAsin} printerName={printerB.name} label="Buy" className="text-xs px-3 py-1.5" />
               </div>
             </div>
@@ -219,12 +226,20 @@ export function ComparisonTool() {
                 <button
                   key={`${slugA}-${slugB}`}
                   type="button"
-                  onClick={() => { setPrinterA(a); setPrinterB(b); }}
-                  className="rounded-lg border border-border/50 p-3 text-left text-sm hover:border-border hover:bg-muted/50 transition-colors"
+                  onClick={() => { setPrinterA(a); setPrinterB(b); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  className="group rounded-xl border border-border/50 p-3 text-left text-sm hover:border-primary/30 hover:shadow-sm transition-all flex items-center gap-3"
                 >
-                  <span className="font-medium">{a.name}</span>
-                  <span className="text-muted-foreground"> vs </span>
-                  <span className="font-medium">{b.name}</span>
+                  <div className="relative h-12 w-12 rounded-lg overflow-hidden shrink-0">
+                    <Image src={a.image} alt={a.name} fill className="object-cover" sizes="48px" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="font-medium group-hover:text-primary transition-colors">{a.name}</span>
+                    <span className="text-muted-foreground"> vs </span>
+                    <span className="font-medium group-hover:text-primary transition-colors">{b.name}</span>
+                  </div>
+                  <div className="relative h-12 w-12 rounded-lg overflow-hidden shrink-0">
+                    <Image src={b.image} alt={b.name} fill className="object-cover" sizes="48px" />
+                  </div>
                 </button>
               );
             })}

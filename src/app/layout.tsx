@@ -4,6 +4,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
+import { SearchCommand } from "@/components/search-command";
 import "./globals.css";
 
 const inter = Inter({
@@ -82,10 +83,14 @@ export default function RootLayout({
               <Logo />
               <span>Print<span className="text-primary">Pick</span></span>
             </a>
-            {/* Desktop nav — highlights based on current path */}
-            <DesktopNav links={NAV_LINKS} />
-            {/* Mobile nav */}
-            <MobileNav links={NAV_LINKS} />
+            <div className="flex items-center gap-2">
+              {/* Desktop nav — highlights based on current path */}
+              <DesktopNav links={NAV_LINKS} />
+              {/* Search */}
+              <SearchCommand />
+              {/* Mobile nav */}
+              <MobileNav links={NAV_LINKS} />
+            </div>
           </nav>
         </header>
         <Analytics />
