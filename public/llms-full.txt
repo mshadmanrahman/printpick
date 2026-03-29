@@ -1,0 +1,158 @@
+# PrintPick — Complete 3D Printer Database
+
+> This file contains the full printer database for AI systems that need detailed product information.
+
+## Printer Database (24 printers)
+
+### Bambu Lab A1 Combo — $399 — Score: 9.2/10
+- Type: FDM | Build: 256x256x256mm | Speed: 500mm/s
+- Best for: beginners, multi-color, speed
+- The best all-around 3D printer for most people. Comes with AMS Lite for multi-color printing out of the box.
+- Buy: https://printpick.dev/printers/bambu-lab-a1-combo
+
+### Bambu Lab A1 Mini — $199 — Score: 9.2/10
+- Type: FDM | Build: 180x180x180mm | Speed: 500mm/s
+- Best for: beginners, budget, compact
+- The best sub-$200 printer. Bambu quality in a compact package that fits on any desk.
+- Buy: https://printpick.dev/printers/bambu-lab-a1-mini
+
+### Bambu Lab P1S — $599 — Score: 9.0/10
+- Type: FDM | Build: 256x256x256mm | Speed: 500mm/s
+- Best for: engineering, ABS, enclosed
+- Enclosed CoreXY with HEPA filter. Handles ABS, ASA, and engineering filaments with ease.
+- Buy: https://printpick.dev/printers/bambu-lab-p1s
+
+### Bambu Lab X1 Carbon — $1,199 — Score: 8.6/10
+- Type: FDM | Build: 256x256x256mm | Speed: 500mm/s
+- Best for: engineering, carbon-fiber, professional
+- The prosumer benchmark. Hardened nozzle handles carbon fiber and glass-filled filaments.
+- Buy: https://printpick.dev/printers/bambu-lab-x1-carbon
+
+### Creality Ender 3 V3 SE — $218 — Score: 8.0/10
+- Type: FDM | Build: 220x220x250mm | Speed: 250mm/s
+- Best for: beginners, budget
+- Best budget printer. Auto-leveling and direct drive at under $220.
+- Buy: https://printpick.dev/printers/creality-ender-3-v3-se
+
+### Creality Ender 3 V3 — $289 — Score: 8.4/10
+- Type: FDM | Build: 220x220x250mm | Speed: 600mm/s
+- Best for: beginners, budget, speed
+- The budget speed demon. CoreXZ kinematics with Klipper firmware for under $300.
+- Buy: https://printpick.dev/printers/creality-ender-3-v3
+
+### Creality K1 Max — $599 — Score: 8.0/10
+- Type: FDM | Build: 300x300x300mm | Speed: 600mm/s
+- Best for: large-prints, speed, cosplay
+- Massive 300mm build volume with 600mm/s speed.
+- Buy: https://printpick.dev/printers/creality-k1-max
+
+### Creality K2 Plus — $899 — Score: 7.8/10
+- Type: FDM | Build: 350x350x350mm | Speed: 600mm/s
+- Best for: large-prints, professional, multi-color
+- The largest enclosed consumer printer. 350mm cube with multi-color.
+- Buy: https://printpick.dev/printers/creality-k2-plus
+
+### Elegoo Mars 5 Ultra — $284 — Score: 8.2/10
+- Type: Resin | Build: 153x89x200mm | Speed: 150mm/s
+- Best for: miniatures, resin, detail
+- 14K resolution delivers insane detail for miniature painters.
+- Buy: https://printpick.dev/printers/elegoo-mars-5-ultra
+
+### Elegoo Saturn 4 Ultra — $459 — Score: 7.8/10
+- Type: Resin | Build: 218x123x220mm | Speed: 150mm/s
+- Best for: resin, miniatures, large prints
+- The Mars 5 Ultra's bigger sibling. Same detail, larger build plate.
+- Buy: https://printpick.dev/printers/elegoo-saturn-4-ultra
+
+### Elegoo Neptune 4 Pro — $259 — Score: 8.0/10
+- Type: FDM | Build: 225x225x265mm | Speed: 500mm/s
+- Best for: budget, speed
+- Linear rails and Klipper at $259.
+- Buy: https://printpick.dev/printers/elegoo-neptune-4-pro
+
+### Anycubic Photon Mono 4 — $159 — Score: 7.4/10
+- Type: Resin | Build: 134x75x130mm | Speed: 100mm/s
+- Best for: miniatures, resin, budget
+- Cheapest high-detail resin printer.
+- Buy: https://printpick.dev/printers/anycubic-photon-mono-4
+
+### Anycubic Kobra 3 Combo — $399 — Score: 8.0/10
+- Type: FDM | Build: 250x250x260mm | Speed: 600mm/s
+- Best for: multi-color, speed, beginners
+- Anycubic's multi-color competitor to the Bambu A1 Combo.
+- Buy: https://printpick.dev/printers/anycubic-kobra-3-combo
+
+### Flashforge Adventurer 5M Pro — $379 — Score: 8.6/10
+- Type: FDM | Build: 220x220x220mm | Speed: 600mm/s
+- Best for: beginners, enclosed, speed
+- Best enclosed printer under $400.
+- Buy: https://printpick.dev/printers/flashforge-adventurer-5m-pro
+
+### Prusa MK4S — $799 — Score: 7.8/10
+- Type: FDM | Build: 250x210x220mm | Speed: 200mm/s
+- Best for: reliability, open-source
+- Legendary reliability. Open source. Best customer support.
+- Buy: https://printpick.dev/printers/prusa-mk4s
+
+### Prusa XL — $1,999 — Score: 6.8/10
+- Type: FDM | Build: 360x360x360mm | Speed: 200mm/s
+- Best for: professional, large-prints, multi-color
+- 5-tool changer with 360mm build volume.
+- Buy: https://printpick.dev/printers/prusa-xl
+
+### Sovol SV08 — $479 — Score: 7.8/10
+- Type: FDM | Build: 350x350x400mm | Speed: 700mm/s
+- Best for: large-prints, speed, DIY
+- Voron-inspired speed machine at fraction of DIY cost.
+- Buy: https://printpick.dev/printers/sovol-sv08
+
+### QIDI X-Plus 3 — $499 — Score: 8.4/10
+- Type: FDM | Build: 280x280x270mm | Speed: 600mm/s
+- Best for: engineering, ABS, enclosed, speed
+- Best enclosed printer under $500. Active chamber heating to 60°C.
+- Buy: https://printpick.dev/printers/qidi-x-plus-3
+
+### QIDI X-Max 3 — $799 — Score: 8.0/10
+- Type: FDM | Build: 325x325x315mm | Speed: 600mm/s
+- Best for: large-prints, engineering, professional
+- Large-format enclosed CoreXY with active chamber heating.
+- Buy: https://printpick.dev/printers/qidi-x-max-3
+
+### Phrozen Sonic Mini 8K S — $329 — Score: 7.2/10
+- Type: Resin | Build: 165x72x180mm | Speed: 80mm/s
+- Best for: miniatures, detail, resin
+- 22-micron resolution. The finest detail possible.
+- Buy: https://printpick.dev/printers/phrozen-sonic-mini-8k-s
+
+### Longer Orange 4K — $129 — Score: 6.4/10
+- Type: Resin | Build: 118x66x190mm | Speed: 80mm/s
+- Best for: budget, resin
+- The absolute cheapest way into resin printing.
+- Buy: https://printpick.dev/printers/longer-orange-4k
+
+### Voxelab Aquila X2 — $179 — Score: 6.6/10
+- Type: FDM | Build: 220x220x250mm | Speed: 180mm/s
+- Best for: budget, beginners
+- Budget Ender 3 alternative.
+- Buy: https://printpick.dev/printers/voxelab-aquila-x2
+
+### Artillery Sidewinder X4 Plus — $349 — Score: 7.4/10
+- Type: FDM | Build: 300x300x400mm | Speed: 500mm/s
+- Best for: large-prints, budget, speed
+- 300x300x400mm at $349. Cheapest way to print large.
+- Buy: https://printpick.dev/printers/artillery-sidewinder-x4-plus
+
+### Kingroon KP3S Pro V2 — $159 — Score: 7.2/10
+- Type: FDM | Build: 200x200x200mm | Speed: 250mm/s
+- Best for: budget, compact
+- Linear rails and direct drive for $159. Hidden gem.
+- Buy: https://printpick.dev/printers/kingroon-kp3s-pro-v2
+
+---
+
+## Interactive Tools
+
+- **Printer Finder Quiz**: https://printpick.dev/tools/finder — 6-question guided recommendation
+- **Print Cost Estimator**: https://printpick.dev/tools/cost-estimator — Filament + electricity + depreciation calculator
+- **FDM vs Resin Quiz**: https://printpick.dev/tools/fdm-vs-resin — Technology decision tool
+- **Compare Printers**: https://printpick.dev/compare — Head-to-head comparison
