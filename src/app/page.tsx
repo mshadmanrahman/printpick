@@ -1,65 +1,127 @@
-import Image from "next/image";
+import { printers, getOverallScore } from "@/data/printers";
+import { PrinterCard } from "@/components/printer-card";
+
+const sortedPrinters = [...printers].sort((a, b) => getOverallScore(b) - getOverallScore(a));
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <div className="mx-auto max-w-6xl px-4 py-12">
+      {/* Hero */}
+      <section className="text-center">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          Find Your Perfect 3D Printer
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          Data-driven comparisons, interactive tools, and honest reviews.
+          We score every printer across 5 dimensions so you don&apos;t have to guess.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/tools/cost-estimator"
+            className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Print Cost Estimator
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/best"
+            className="rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
           >
-            Documentation
+            Browse Best Picks
           </a>
         </div>
-      </main>
+      </section>
+
+      {/* Interactive Tools */}
+      <section className="mt-20">
+        <h2 className="text-2xl font-bold tracking-tight">Interactive Tools</h2>
+        <p className="mt-1 text-muted-foreground">Calculators and tools to help you decide.</p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <ToolCard
+            href="/tools/cost-estimator"
+            title="Print Cost Estimator"
+            description="Calculate the real cost per print including filament, electricity, and wear."
+          />
+          <ToolCard
+            href="/tools/fdm-vs-resin"
+            title="FDM vs Resin Quiz"
+            description="Answer 5 questions and we'll tell you which technology is right for you."
+            coming
+          />
+          <ToolCard
+            href="/tools/build-volume"
+            title="Build Volume Calculator"
+            description="Check if your model fits a specific printer's build plate."
+            coming
+          />
+        </div>
+      </section>
+
+      {/* Top Rated */}
+      <section className="mt-20">
+        <h2 className="text-2xl font-bold tracking-tight">Top Rated Printers</h2>
+        <p className="mt-1 text-muted-foreground">
+          Scored across value, beginner-friendliness, print quality, speed, and reliability.
+        </p>
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          {sortedPrinters.map((printer, i) => (
+            <PrinterCard key={printer.slug} printer={printer} rank={i + 1} />
+          ))}
+        </div>
+      </section>
+
+      {/* Best For Categories */}
+      <section className="mt-20">
+        <h2 className="text-2xl font-bold tracking-tight">Best Printers By Category</h2>
+        <p className="mt-1 text-muted-foreground">Quick picks for specific use cases.</p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { tag: "beginners", label: "Best for Beginners", emoji: "1" },
+            { tag: "budget", label: "Best Budget Printers", emoji: "$" },
+            { tag: "miniatures", label: "Best for Miniatures", emoji: "M" },
+            { tag: "speed", label: "Fastest Printers", emoji: "S" },
+            { tag: "large-prints", label: "Best for Large Prints", emoji: "L" },
+            { tag: "engineering", label: "Best for Engineering", emoji: "E" },
+          ].map(({ tag, label, emoji }) => (
+            <a
+              key={tag}
+              href={`/best/${tag}`}
+              className="flex items-center gap-3 rounded-lg border border-border/50 p-4 transition-colors hover:border-border hover:bg-muted/50"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-muted font-mono text-sm font-bold">
+                {emoji}
+              </span>
+              <span className="font-medium text-sm">{label}</span>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
+  );
+}
+
+function ToolCard({
+  href,
+  title,
+  description,
+  coming,
+}: {
+  readonly href: string;
+  readonly title: string;
+  readonly description: string;
+  readonly coming?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      className="group relative rounded-lg border border-border/50 p-5 transition-colors hover:border-border hover:bg-muted/50"
+    >
+      {coming && (
+        <span className="absolute top-3 right-3 rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+          Coming soon
+        </span>
+      )}
+      <h3 className="font-semibold text-sm">{title}</h3>
+      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{description}</p>
+    </a>
   );
 }
