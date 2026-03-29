@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold tracking-tight">Tools &amp; Calculators</h1>
       <p className="mt-2 text-muted-foreground">
         Free interactive tools to help you make smarter 3D printing decisions.
@@ -38,7 +38,7 @@ export default function ToolsPage() {
         />
       </div>
 
-      <section className="mt-12 rounded-lg border border-border bg-card p-6">
+      <section className="mt-12 rounded-xl border border-border/60 bg-muted/20 p-6">
         <h2 className="text-lg font-semibold">Coming Soon</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           <ComingSoon title="Build Volume Calculator" description="Check if your model fits a specific printer's build plate." />
@@ -65,15 +65,15 @@ function ToolLink({
   return (
     <a
       href={href}
-      className="group relative rounded-lg border border-border/50 p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
+      className="group relative rounded-xl border border-border/60 bg-card p-5 transition-all hover:border-primary/30 hover:shadow-md"
     >
       {badge && (
         <span className="absolute top-3 right-3 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
           {badge}
         </span>
       )}
-      <h2 className="font-semibold text-sm">{title}</h2>
-      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{description}</p>
+      <h2 className="font-semibold text-sm group-hover:text-primary transition-colors">{title}</h2>
+      <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{description}</p>
     </a>
   );
 }

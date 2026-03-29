@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ChevronRight } from "lucide-react";
 import { CATEGORIES, getPrintersByBestFor, getOverallScore } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
 
@@ -27,7 +28,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ tag: 
   );
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       <nav className="text-xs text-muted-foreground mb-6">
         <a href="/" className="hover:text-foreground">Home</a>
         <span className="mx-1">/</span>
@@ -56,9 +57,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ tag: 
             <a
               key={c.tag}
               href={`/best/${c.tag}`}
-              className="rounded-lg border border-border/50 p-3 text-sm hover:border-border hover:bg-muted/50 transition-colors"
+              className="group flex items-center justify-between rounded-xl border border-border/60 bg-card px-4 py-3 text-sm transition-all hover:border-primary/30 hover:shadow-sm"
             >
-              <span className="font-medium">{c.label}</span>
+              <span className="font-medium group-hover:text-primary transition-colors">{c.label}</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
             </a>
           ))}
         </div>

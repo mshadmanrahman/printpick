@@ -47,7 +47,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
     .slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Breadcrumb */}
       <nav className="text-xs text-muted-foreground mb-6">
         <a href="/" className="hover:text-foreground">Home</a>
@@ -77,7 +77,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
             ))}
           </div>
         </div>
-        <div className="shrink-0 rounded-lg border border-border bg-card p-6 text-center lg:w-64">
+        <div className="shrink-0 rounded-xl border border-border/60 bg-card p-6 text-center lg:w-64 shadow-sm">
           <div className="text-4xl font-bold">${printer.price}</div>
           <div className="mt-2 flex items-center justify-center gap-2">
             <span className="text-sm text-muted-foreground">Overall Score</span>
@@ -94,7 +94,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
       {/* Scores */}
       <section className="mt-10">
         <h2 className="text-xl font-bold">PrintPick Scores</h2>
-        <div className="mt-4 rounded-lg border border-border bg-card p-5 space-y-3">
+        <div className="mt-4 rounded-xl border border-border/60 bg-card p-5 space-y-3">
           <ScoreRow label="Value" score={printer.scores.value} />
           <ScoreRow label="Beginner" score={printer.scores.beginner} />
           <ScoreRow label="Print Quality" score={printer.scores.printQuality} />
@@ -105,24 +105,24 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
       {/* Pros & Cons */}
       <section className="mt-10 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-5">
-          <h3 className="font-semibold text-emerald-400">Pros</h3>
+        <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 p-5">
+          <h3 className="font-semibold text-emerald-700">Pros</h3>
           <ul className="mt-3 space-y-2">
             {printer.pros.map((pro) => (
               <li key={pro} className="flex gap-2 text-sm">
-                <span className="text-emerald-500 shrink-0">+</span>
-                <span>{pro}</span>
+                <span className="text-emerald-600 shrink-0 font-bold">+</span>
+                <span className="text-emerald-900">{pro}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-5">
-          <h3 className="font-semibold text-red-400">Cons</h3>
+        <div className="rounded-xl border border-red-600/20 bg-red-50 p-5">
+          <h3 className="font-semibold text-red-700">Cons</h3>
           <ul className="mt-3 space-y-2">
             {printer.cons.map((con) => (
               <li key={con} className="flex gap-2 text-sm">
-                <span className="text-red-500 shrink-0">-</span>
-                <span>{con}</span>
+                <span className="text-red-600 shrink-0 font-bold">-</span>
+                <span className="text-red-900">{con}</span>
               </li>
             ))}
           </ul>
@@ -132,7 +132,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
       {/* Specs */}
       <section className="mt-10">
         <h2 className="text-xl font-bold">Specifications</h2>
-        <div className="mt-4 rounded-lg border border-border bg-card overflow-hidden">
+        <div className="mt-4 rounded-xl border border-border/60 bg-card overflow-hidden">
           <table className="w-full text-sm">
             <tbody>
               <SpecRow label="Build Volume" value={`${printer.buildVolume.x} x ${printer.buildVolume.y} x ${printer.buildVolume.z} mm`} />

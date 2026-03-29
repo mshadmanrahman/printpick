@@ -12,7 +12,7 @@ const sorted = [...printers].sort((a, b) => getOverallScore(b) - getOverallScore
 
 export default function BestPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold tracking-tight">
         Best 3D Printers in 2026
       </h1>
