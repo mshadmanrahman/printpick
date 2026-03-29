@@ -27,7 +27,7 @@ export function AmazonButton({ asin, printerName, label = "Check Price on Amazon
       rel="noopener noreferrer nofollow sponsored"
       onClick={handleClick}
       className={cn(
-        "inline-flex items-center gap-2 rounded-md bg-[#FF9900] px-4 py-2 text-sm font-medium text-black transition-all hover:bg-[#e68a00] hover:shadow-md hover:shadow-[#FF9900]/20 active:scale-[0.97]",
+        "inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary/15 hover:border-primary/50 active:scale-[0.97]",
         className,
       )}
     >
