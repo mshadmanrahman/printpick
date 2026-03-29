@@ -1,3 +1,5 @@
+"use client";
+
 import { type Printer, getOverallScore } from "@/data/printers";
 import { AmazonButton } from "./amazon-button";
 
@@ -6,17 +8,39 @@ interface PrinterCardProps {
   readonly rank?: number;
 }
 
-function ScoreBar({ label, score }: { readonly label: string; readonly score: number }) {
+function ScoreRing({ score }: { readonly score: number }) {
+  const radius = 20;
+  const circumference = 2 * Math.PI * radius;
+  const progress = (score / 10) * circumference;
+
   return (
-    <div className="flex items-center gap-2 text-xs">
-      <span className="w-16 sm:w-20 text-muted-foreground shrink-0">{label}</span>
-      <div className="flex-1 h-1.5 rounded-full bg-muted">
-        <div
-          className="h-full rounded-full bg-primary transition-all"
-          style={{ width: `${score * 10}%` }}
+    <div className="relative flex items-center justify-center">
+      <svg width="52" height="52" className="-rotate-90">
+        <circle cx="26" cy="26" r={radius} fill="none" stroke="currentColor" strokeWidth="3" className="text-muted/50" />
+        <circle
+          cx="26" cy="26" r={radius} fill="none" strokeWidth="3"
+          stroke="url(#scoreGradient)"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference - progress}
+          strokeLinecap="round"
         />
-      </div>
-      <span className="w-5 text-right font-mono text-muted-foreground">{score}</span>
+        <defs>
+          <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="oklch(0.7 0.18 195)" />
+            <stop offset="100%" stopColor="oklch(0.65 0.2 230)" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span className="absolute text-sm font-bold">{score}</span>
+    </div>
+  );
+}
+
+function TopStat({ label, value }: { readonly label: string; readonly value: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-xs text-muted-foreground">{label}</div>
+      <div className="text-sm font-semibold font-mono">{value}</div>
     </div>
   );
 }
@@ -24,68 +48,76 @@ function ScoreBar({ label, score }: { readonly label: string; readonly score: nu
 export function PrinterCard({ printer, rank }: PrinterCardProps) {
   const overall = getOverallScore(printer);
 
+  // Pick the printer's strongest dimension to highlight
+  const scores = printer.scores;
+  const bestDimension = Object.entries(scores).reduce((a, b) => a[1] >= b[1] ? a : b);
+  const dimensionLabels: Record<string, string> = {
+    value: "Value", beginner: "Beginner", printQuality: "Quality", speed: "Speed", reliability: "Reliable",
+  };
+
   return (
-    <div className="group rounded-xl border border-border/40 bg-card p-4 sm:p-5 transition-all hover:border-primary/20 hover:shadow-md hover:shadow-primary/5">
-      {/* Top: Name + Price */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <div className="flex items-center gap-2">
-            {rank !== undefined && (
-              <span className="flex h-6 w-6 items-center justify-center rounded-full brand-gradient text-[10px] font-bold text-white shrink-0">
-                {rank}
+    <a
+      href={`/printers/${printer.slug}`}
+      className="group flex gap-4 rounded-xl border border-border/40 bg-card p-4 transition-all hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 cursor-pointer"
+    >
+      {/* Left: Score Ring */}
+      <div className="flex flex-col items-center gap-1 shrink-0">
+        {rank !== undefined && (
+          <span className="text-[10px] font-bold text-muted-foreground">#{rank}</span>
+        )}
+        <ScoreRing score={overall} />
+        <span className="text-[10px] text-primary font-medium mt-0.5">
+          {dimensionLabels[bestDimension[0]]} {bestDimension[1]}
+        </span>
+      </div>
+
+      {/* Right: Content */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <h3 className="font-semibold text-sm sm:text-base truncate group-hover:text-primary transition-colors">
+              {printer.name}
+            </h3>
+            <p className="text-xs text-muted-foreground">
+              {printer.brand} &middot; {printer.type.toUpperCase()} &middot; ${printer.price}
+            </p>
+          </div>
+          <div className="text-xl sm:text-2xl font-bold shrink-0">${printer.price}</div>
+        </div>
+
+        <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          {printer.summary}
+        </p>
+
+        {/* Key Stats Row */}
+        <div className="mt-3 flex items-center gap-4 sm:gap-6">
+          <TopStat label="Build" value={`${printer.buildVolume.x}mm`} />
+          <TopStat label="Speed" value={`${printer.printSpeed}mm/s`} />
+          <TopStat label="Weight" value={`${printer.weight}kg`} />
+          <div className="hidden sm:block">
+            <TopStat label="Resolution" value={`${printer.layerResolution.min}mm`} />
+          </div>
+        </div>
+
+        {/* Features + CTA */}
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <div className="flex flex-wrap gap-1 overflow-hidden max-h-6">
+            {printer.features.slice(0, 2).map((f) => (
+              <span key={f} className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground whitespace-nowrap">
+                {f}
+              </span>
+            ))}
+            {printer.features.length > 2 && (
+              <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
+                +{printer.features.length - 2}
               </span>
             )}
-            <h3 className="font-semibold text-sm sm:text-base truncate">
-              <a href={`/printers/${printer.slug}`} className="hover:text-primary transition-colors">
-                {printer.name}
-              </a>
-            </h3>
           </div>
-          <p className="mt-0.5 text-xs text-muted-foreground">
-            {printer.brand} &middot; {printer.type.toUpperCase()} &middot;{" "}
-            <span className="font-mono">{printer.buildVolume.x}&times;{printer.buildVolume.y}&times;{printer.buildVolume.z}mm</span>
-          </p>
-        </div>
-        <div className="text-right shrink-0">
-          <div className="text-xl sm:text-2xl font-bold">${printer.price}</div>
-          <div className="flex items-center justify-end gap-1 mt-0.5">
-            <span className="rounded-md bg-primary/10 px-2 py-0.5 text-sm font-bold text-primary">
-              {overall}
-            </span>
+          <div onClick={(e) => e.stopPropagation()}>
+            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} label="Buy" className="text-xs px-3 py-1.5" />
           </div>
         </div>
       </div>
-
-      {/* Summary */}
-      <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-2">
-        {printer.summary}
-      </p>
-
-      {/* Scores */}
-      <div className="mt-3 space-y-1">
-        <ScoreBar label="Value" score={printer.scores.value} />
-        <ScoreBar label="Beginner" score={printer.scores.beginner} />
-        <ScoreBar label="Quality" score={printer.scores.printQuality} />
-        <ScoreBar label="Speed" score={printer.scores.speed} />
-        <ScoreBar label="Reliable" score={printer.scores.reliability} />
-      </div>
-
-      {/* Features + CTA */}
-      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap gap-1">
-          {printer.features.slice(0, 3).map((f) => (
-            <span key={f} className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
-              {f}
-            </span>
-          ))}
-          {printer.features.length > 3 && (
-            <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
-              +{printer.features.length - 3}
-            </span>
-          )}
-        </div>
-        <AmazonButton asin={printer.amazonAsin} printerName={printer.name} className="w-full sm:w-auto justify-center text-xs" />
-      </div>
-    </div>
+    </a>
   );
 }
