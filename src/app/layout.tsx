@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { MobileNav } from "@/components/mobile-nav";
+import { DesktopNav } from "@/components/desktop-nav";
 import "./globals.css";
 
 const inter = Inter({
@@ -56,8 +57,8 @@ function Logo({ size = 28 }: { readonly size?: number }) {
   );
 }
 
-const NAV_LINKS: readonly { href: string; label: string; highlight?: boolean }[] = [
-  { href: "/tools/finder", label: "Finder", highlight: true },
+const NAV_LINKS = [
+  { href: "/tools/finder", label: "Finder" },
   { href: "/best", label: "Rankings" },
   { href: "/compare", label: "Compare" },
   { href: "/blog", label: "Blog" },
@@ -81,12 +82,8 @@ export default function RootLayout({
               <Logo />
               <span>Print<span className="text-primary">Pick</span></span>
             </a>
-            {/* Desktop nav */}
-            <div className="hidden sm:flex items-center gap-1">
-              {NAV_LINKS.map((link) => (
-                <NavLink key={link.href} href={link.href} label={link.label} highlight={link.highlight} />
-              ))}
-            </div>
+            {/* Desktop nav — highlights based on current path */}
+            <DesktopNav links={NAV_LINKS} />
             {/* Mobile nav */}
             <MobileNav links={NAV_LINKS} />
           </nav>
@@ -142,17 +139,3 @@ export default function RootLayout({
   );
 }
 
-function NavLink({ href, label, highlight }: { readonly href: string; readonly label: string; readonly highlight?: boolean }) {
-  return (
-    <a
-      href={href}
-      className={`rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-        highlight
-          ? "bg-primary/10 text-primary font-medium hover:bg-primary/15"
-          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-      }`}
-    >
-      {label}
-    </a>
-  );
-}

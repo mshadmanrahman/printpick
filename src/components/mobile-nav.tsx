@@ -1,18 +1,19 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 interface NavLink {
   readonly href: string;
   readonly label: string;
-  readonly highlight?: boolean;
 }
 
 export function MobileNav({ links }: { readonly links: readonly NavLink[] }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return;
@@ -49,20 +50,23 @@ export function MobileNav({ links }: { readonly links: readonly NavLink[] }) {
       {open && (
         <div className="absolute left-0 right-0 top-14 border-b border-border/50 bg-background/95 backdrop-blur-lg shadow-lg animate-in slide-in-from-top-2 duration-200">
           <div className="mx-auto max-w-5xl px-4 py-3 flex flex-col gap-1">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                  link.highlight
-                    ? "bg-primary/10 text-primary"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
