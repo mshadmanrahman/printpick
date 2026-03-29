@@ -111,6 +111,7 @@ export default function RootLayout({
               <p className="text-[11px] text-muted-foreground">
                 As an Amazon Associate, PrintPick earns from qualifying purchases.
                 Product data is updated regularly but prices and availability may change.
+                Photos by talented photographers on Unsplash — <a href="/credits" className="text-primary hover:underline">view credits</a>.
                 &copy; {new Date().getFullYear()} PrintPick. All rights reserved.
               </p>
             </div>

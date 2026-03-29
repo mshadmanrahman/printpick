@@ -15,17 +15,17 @@ const stats = {
 
 const CATEGORY_IMAGES: Record<string, string> = {
   beginners: "/images/beginners.avif",
-  budget: "/images/detail.avif",
+  budget: "/images/budget.jpg",
   miniatures: "/images/miniature.avif",
-  speed: "/images/hero.avif",
+  speed: "/images/speed.jpg",
   "large-prints": "/images/stormtrooper.avif",
   engineering: "/images/tools.avif",
   enclosed: "/images/compare.avif",
   "multi-color": "/images/fdm.avif",
   resin: "/images/resin.avif",
-  professional: "/images/cubes.avif",
-  compact: "/images/detail.avif",
-  diy: "/images/geometric.avif",
+  professional: "/images/printing-closeup.jpg",
+  compact: "/images/compact.jpg",
+  diy: "/images/diy-wires.jpg",
 };
 
 export default function Home() {
@@ -115,13 +115,16 @@ export default function Home() {
         <section className="py-12 border-t border-border/40">
           <h2 className="text-2xl font-bold tracking-tight">What Can You Print?</h2>
           <p className="mt-0.5 text-sm text-muted-foreground">From miniature figures to full-size helmets.</p>
-          <div className="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-2">
+          <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-9 gap-2">
             {[
               { src: "/images/stormtrooper.avif", alt: "Stormtrooper helmet", label: "Cosplay" },
               { src: "/images/miniature.avif", alt: "Tiny miniature chair", label: "Miniatures" },
               { src: "/images/resin.avif", alt: "Resin elephant figurine", label: "Figures" },
-              { src: "/images/beginners.avif", alt: "Colorful planters", label: "Home decor" },
-              { src: "/images/thinker.avif", alt: "Low-poly Thinker sculpture", label: "Art" },
+              { src: "/images/lamp.jpg", alt: "3D printed lamp", label: "Home decor" },
+              { src: "/images/skull.jpg", alt: "3D printed skull on scale", label: "Props" },
+              { src: "/images/wave-art.jpg", alt: "3D printed wave art", label: "Art" },
+              { src: "/images/thinker-modern.jpg", alt: "Thinker statue with phone", label: "Fun prints" },
+              { src: "/images/beginners.avif", alt: "Colorful planters", label: "Planters" },
               { src: "/images/cubes.avif", alt: "Geometric cubes", label: "Functional" },
             ].map((item) => (
               <div key={item.src} className="group relative aspect-square overflow-hidden rounded-lg">
