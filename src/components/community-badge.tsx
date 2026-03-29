@@ -1,16 +1,17 @@
 import { Star, Award, Heart, Gem, Flame, Zap, Shield, Eye } from "lucide-react";
 import type { CommunityBadge as BadgeType } from "@/data/printers";
 
+// Cohesive palette: teal (brand), amber (awards), zinc (neutral)
 const BADGE_CONFIG: Record<BadgeType, { icon: typeof Star; color: string; bg: string }> = {
-  "Reddit Favorite": { icon: Flame, color: "text-orange-600", bg: "bg-orange-50 border-orange-200" },
-  "YouTube Most Reviewed": { icon: Eye, color: "text-red-600", bg: "bg-red-50 border-red-200" },
-  "Editor's Choice": { icon: Award, color: "text-amber-600", bg: "bg-amber-50 border-amber-200" },
-  "Best Value": { icon: Gem, color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" },
-  "Best First Printer": { icon: Star, color: "text-blue-600", bg: "bg-blue-50 border-blue-200" },
-  "Community Pick": { icon: Heart, color: "text-pink-600", bg: "bg-pink-50 border-pink-200" },
-  "Pro Workhorse": { icon: Shield, color: "text-violet-600", bg: "bg-violet-50 border-violet-200" },
-  "Hidden Gem": { icon: Zap, color: "text-cyan-600", bg: "bg-cyan-50 border-cyan-200" },
-  "Detail King": { icon: Gem, color: "text-purple-600", bg: "bg-purple-50 border-purple-200" },
+  "Reddit Favorite":      { icon: Flame, color: "text-primary",   bg: "bg-primary/8 border-primary/20" },
+  "YouTube Most Reviewed": { icon: Eye,   color: "text-primary",   bg: "bg-primary/8 border-primary/20" },
+  "Editor's Choice":      { icon: Award, color: "text-amber-600", bg: "bg-amber-50 border-amber-200" },
+  "Best Value":           { icon: Gem,   color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" },
+  "Best First Printer":   { icon: Star,  color: "text-primary",   bg: "bg-primary/8 border-primary/20" },
+  "Community Pick":       { icon: Heart, color: "text-primary",   bg: "bg-primary/8 border-primary/20" },
+  "Pro Workhorse":        { icon: Shield, color: "text-zinc-600", bg: "bg-zinc-100 border-zinc-200" },
+  "Hidden Gem":           { icon: Zap,   color: "text-amber-600", bg: "bg-amber-50 border-amber-200" },
+  "Detail King":          { icon: Gem,   color: "text-primary",   bg: "bg-primary/8 border-primary/20" },
 };
 
 export function CommunityBadge({ badge, compact }: { readonly badge: BadgeType; readonly compact?: boolean }) {
