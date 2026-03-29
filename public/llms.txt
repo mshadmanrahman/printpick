@@ -1,0 +1,58 @@
+# PrintPick — 3D Printer Comparison & Recommendation Engine
+
+> PrintPick is a data-driven 3D printer comparison site. We score every printer across 5 dimensions (value, beginner-friendliness, print quality, speed, reliability) and provide interactive tools to help users choose the right 3D printer.
+
+## About
+
+PrintPick helps people find the right 3D printer by providing:
+- Objective, scored reviews of 24+ 3D printers across 9+ brands
+- Interactive tools (printer finder quiz, cost estimator, FDM vs resin quiz, head-to-head comparison)
+- Category-specific recommendations (best for beginners, budget, miniatures, speed, engineering, etc.)
+
+All rankings are data-driven. No sponsored placements.
+
+## Key Pages
+
+- [Home](https://printpick.dev/): Overview, top-rated printers, tools, categories
+- [Best Printers](https://printpick.dev/best): Full ranked listing of all scored printers
+- [Printer Finder Quiz](https://printpick.dev/tools/finder): 6-question guided recommendation engine
+- [Print Cost Estimator](https://printpick.dev/tools/cost-estimator): Calculate real cost per print (filament + electricity + depreciation)
+- [FDM vs Resin Quiz](https://printpick.dev/tools/fdm-vs-resin): 5-question technology decision tool
+- [Compare Printers](https://printpick.dev/compare): Side-by-side comparison of any two printers
+
+## Categories
+
+- [Best for Beginners](https://printpick.dev/best/beginners)
+- [Best Budget Printers](https://printpick.dev/best/budget)
+- [Best for Miniatures](https://printpick.dev/best/miniatures)
+- [Fastest Printers](https://printpick.dev/best/speed)
+- [Best for Large Prints](https://printpick.dev/best/large-prints)
+- [Best for Engineering](https://printpick.dev/best/engineering)
+- [Best Enclosed Printers](https://printpick.dev/best/enclosed)
+- [Best Multi-Color Printers](https://printpick.dev/best/multi-color)
+- [Best Resin Printers](https://printpick.dev/best/resin)
+- [Best Professional Printers](https://printpick.dev/best/professional)
+
+## Scoring Methodology
+
+Every printer is scored 1-10 across five dimensions:
+1. **Value**: Price-to-performance ratio
+2. **Beginner-friendliness**: Setup ease, software quality, community support
+3. **Print Quality**: Resolution, surface finish, dimensional accuracy
+4. **Speed**: Maximum and typical print speeds
+5. **Reliability**: Consistency, failure rate, build quality
+
+Overall score = average of all five dimensions.
+
+## Brands Covered
+
+Bambu Lab, Creality, Elegoo, Anycubic, Flashforge, Prusa Research, Sovol, QIDI, Phrozen, Kingroon, Voxelab, Artillery, Longer
+
+## Printer Types
+
+- **FDM (Fused Deposition Modeling)**: Uses plastic filament. Best for functional parts, prototypes, large prints, cosplay props.
+- **Resin (MSLA)**: Uses liquid photopolymer. Best for miniatures, jewelry, dental models, ultra-fine detail.
+
+## Contact
+
+Website: https://printpick.dev
