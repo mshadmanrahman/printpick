@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/cost-estimator`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/fdm-vs-resin`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/finder`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/build-volume`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/materials`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/upgrade`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/noise`, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const printerPages: MetadataRoute.Sitemap = printers.map((p) => ({
