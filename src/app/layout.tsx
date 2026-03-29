@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -68,6 +69,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
+        <Analytics />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-border/40 py-10 mt-16">
           <div className="mx-auto max-w-6xl px-4">

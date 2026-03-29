@@ -84,7 +84,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             </span>
           )}
         </div>
-        <AmazonButton asin={printer.amazonAsin} className="w-full sm:w-auto justify-center text-xs" />
+        <AmazonButton asin={printer.amazonAsin} printerName={printer.name} className="w-full sm:w-auto justify-center text-xs" />
       </div>
     </div>
   );
