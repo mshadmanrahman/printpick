@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { printers, getOverallScore, CATEGORIES } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
 
@@ -12,13 +13,38 @@ const stats = {
   resin: printers.filter((p) => p.type === "resin").length,
 };
 
+const CATEGORY_IMAGES: Record<string, string> = {
+  beginners: "/images/beginners.avif",
+  budget: "/images/detail.avif",
+  miniatures: "/images/miniature.avif",
+  speed: "/images/hero.avif",
+  "large-prints": "/images/stormtrooper.avif",
+  engineering: "/images/tools.avif",
+  enclosed: "/images/compare.avif",
+  "multi-color": "/images/fdm.avif",
+  resin: "/images/resin.avif",
+  professional: "/images/cubes.avif",
+  compact: "/images/detail.avif",
+  diy: "/images/geometric.avif",
+};
+
 export default function Home() {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero with background image */}
       <section className="relative overflow-hidden">
-        <div className="hero-glow mx-auto max-w-6xl px-4 py-16 text-center sm:py-28">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs text-primary mb-8">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero.avif"
+            alt="3D printer with glowing print"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:py-32">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs text-primary mb-8 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -43,7 +69,7 @@ export default function Home() {
             </a>
             <a
               href="/compare"
-              className="w-full sm:w-auto rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
+              className="w-full sm:w-auto rounded-lg border border-border bg-background/50 backdrop-blur-sm px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
             >
               Compare Printers
             </a>
@@ -51,32 +77,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tools Grid */}
-      <section className="border-t border-border/40 bg-card/50">
+      {/* Tools Grid with images */}
+      <section className="border-t border-border/40">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
             <ToolCard
               href="/tools/finder"
-              icon={<QuizIcon />}
+              image="/images/workspace.avif"
               title="Printer Finder"
               description="6 questions. Your perfect match."
               accent
             />
             <ToolCard
               href="/tools/cost-estimator"
-              icon={<DollarIcon />}
+              image="/images/detail.avif"
               title="Cost Estimator"
               description="Real cost per print."
             />
             <ToolCard
               href="/tools/fdm-vs-resin"
-              icon={<VsIcon />}
+              image="/images/geometric.avif"
               title="FDM vs Resin"
               description="Which tech is right for you?"
             />
             <ToolCard
               href="/compare"
-              icon={<CompareIcon />}
+              image="/images/compare.avif"
               title="Compare"
               description="Head-to-head matchups."
             />
@@ -85,8 +111,38 @@ export default function Home() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4">
+        {/* What Can You Print? — Gallery */}
+        <section className="py-12 border-t border-border/40">
+          <h2 className="text-2xl font-bold tracking-tight">What Can You Print?</h2>
+          <p className="mt-0.5 text-sm text-muted-foreground">From miniature figures to full-size helmets.</p>
+          <div className="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {[
+              { src: "/images/stormtrooper.avif", alt: "Stormtrooper helmet", label: "Cosplay" },
+              { src: "/images/miniature.avif", alt: "Tiny miniature chair", label: "Miniatures" },
+              { src: "/images/resin.avif", alt: "Resin elephant figurine", label: "Figures" },
+              { src: "/images/beginners.avif", alt: "Colorful planters", label: "Home decor" },
+              { src: "/images/thinker.avif", alt: "Low-poly Thinker sculpture", label: "Art" },
+              { src: "/images/cubes.avif", alt: "Geometric cubes", label: "Functional" },
+            ].map((item) => (
+              <div key={item.src} className="group relative aspect-square overflow-hidden rounded-lg">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                  sizes="(max-width: 640px) 33vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <span className="absolute bottom-2 left-2 text-[10px] sm:text-xs font-medium text-white">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Top Rated */}
-        <section className="py-12">
+        <section className="py-12 border-t border-border/40">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold tracking-tight">Top Rated</h2>
@@ -105,19 +161,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Categories */}
+        {/* Categories with images */}
         <section className="py-12 border-t border-border/40">
           <h2 className="text-2xl font-bold tracking-tight">Best By Category</h2>
           <p className="mt-0.5 text-sm text-muted-foreground">Quick picks for specific use cases.</p>
-          <div className="mt-6 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
             {CATEGORIES.map((cat) => (
               <a
                 key={cat.tag}
                 href={`/best/${cat.tag}`}
-                className="group rounded-lg border border-border/40 p-3 sm:p-4 transition-all hover:border-primary/30 hover:bg-primary/5 hover:shadow-sm"
+                className="group relative overflow-hidden rounded-xl border border-border/40 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
               >
-                <span className="font-medium text-sm group-hover:text-primary transition-colors">{cat.label}</span>
-                <span className="hidden sm:block mt-0.5 text-xs text-muted-foreground">{cat.description}</span>
+                <div className="relative h-24 sm:h-28">
+                  <Image
+                    src={CATEGORY_IMAGES[cat.tag] ?? "/images/hero.avif"}
+                    alt={cat.label}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                </div>
+                <div className="relative px-3 pb-3 -mt-4">
+                  <span className="font-medium text-sm group-hover:text-primary transition-colors">
+                    {cat.label}
+                  </span>
+                  <span className="hidden sm:block mt-0.5 text-[11px] text-muted-foreground leading-tight">
+                    {cat.description}
+                  </span>
+                </div>
               </a>
             ))}
           </div>
@@ -139,13 +211,13 @@ export default function Home() {
 
 function ToolCard({
   href,
-  icon,
+  image,
   title,
   description,
   accent,
 }: {
   readonly href: string;
-  readonly icon: React.ReactNode;
+  readonly image: string;
   readonly title: string;
   readonly description: string;
   readonly accent?: boolean;
@@ -153,19 +225,31 @@ function ToolCard({
   return (
     <a
       href={href}
-      className={`group rounded-xl border p-4 sm:p-5 transition-all hover:shadow-md ${
+      className={`group relative overflow-hidden rounded-xl border transition-all hover:shadow-lg ${
         accent
-          ? "border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/50"
-          : "border-border/40 hover:border-border hover:bg-muted/50"
+          ? "border-primary/30 hover:border-primary/50 hover:shadow-primary/10"
+          : "border-border/40 hover:border-border hover:shadow-primary/5"
       }`}
     >
-      <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${
-        accent ? "brand-gradient text-white" : "bg-muted text-muted-foreground group-hover:text-primary"
-      } transition-colors`}>
-        {icon}
+      <div className="relative h-28 sm:h-36">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform group-hover:scale-105"
+          sizes="(max-width: 640px) 50vw, 25vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-card/20" />
       </div>
-      <h3 className="mt-3 font-semibold text-sm">{title}</h3>
-      <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed hidden sm:block">{description}</p>
+      <div className="relative px-4 pb-4 -mt-6">
+        {accent && (
+          <span className="inline-block mb-1 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-medium text-primary">
+            Most popular
+          </span>
+        )}
+        <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">{title}</h3>
+        <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed hidden sm:block">{description}</p>
+      </div>
     </a>
   );
 }
@@ -176,42 +260,5 @@ function StatBlock({ value, label }: { readonly value: number; readonly label: s
       <div className="text-3xl font-bold font-mono brand-gradient-text">{value}</div>
       <div className="text-xs text-muted-foreground mt-1">{label}</div>
     </div>
-  );
-}
-
-function QuizIcon() {
-  return (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-      <path d="M12 17h.01" />
-    </svg>
-  );
-}
-
-function DollarIcon() {
-  return (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </svg>
-  );
-}
-
-function VsIcon() {
-  return (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 3l6 18" />
-      <path d="M18 3l-6 18" />
-    </svg>
-  );
-}
-
-function CompareIcon() {
-  return (
-    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="3" width="8" height="18" rx="1" />
-      <rect x="14" y="3" width="8" height="18" rx="1" />
-    </svg>
   );
 }
