@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
 import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersByBestFor } from "@/data/printers";
 import { AmazonButton } from "@/components/amazon-button";
 import { PrinterCard } from "@/components/printer-card";
+import { CommunityBadge } from "@/components/community-badge";
 
 export function generateStaticParams() {
   return printers.map((p) => ({ slug: p.slug }));
@@ -23,13 +25,40 @@ function ScoreRow({ label, score }: { readonly label: string; readonly score: nu
   return (
     <div className="flex items-center gap-3">
       <span className="w-24 text-sm text-muted-foreground">{label}</span>
-      <div className="flex-1 h-2 rounded-full bg-muted">
+      <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden">
         <div
-          className="h-full rounded-full bg-primary transition-all"
+          className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${score * 10}%` }}
         />
       </div>
       <span className="w-8 text-right font-mono text-sm font-bold">{score}</span>
+    </div>
+  );
+}
+
+function StarRating({ score }: { readonly score: number }) {
+  const stars = Math.round(score / 2);
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`h-4 w-4 ${i < stars ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"}`}
+        />
+      ))}
+      <span className="ml-1.5 text-sm font-bold">{score}/10</span>
+    </div>
+  );
+}
+
+function SpecCard({ label, value, unit }: { readonly label: string; readonly value: string; readonly unit?: string }) {
+  return (
+    <div className="rounded-xl border border-border/60 bg-card p-4 text-center">
+      <div className="text-2xl font-bold font-mono tracking-tight">
+        {value}
+        {unit && <span className="text-sm font-normal text-muted-foreground ml-0.5">{unit}</span>}
+      </div>
+      <div className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">{label}</div>
     </div>
   );
 }
@@ -48,145 +77,246 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
     .slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12">
-      {/* Breadcrumb */}
-      <nav className="text-xs text-muted-foreground mb-6">
-        <a href="/" className="hover:text-foreground">Home</a>
-        <span className="mx-1">/</span>
-        <a href="/best" className="hover:text-foreground">Best Printers</a>
-        <span className="mx-1">/</span>
-        <span className="text-foreground">{printer.name}</span>
-      </nav>
+    <div>
+      {/* ── Hero Section — Bambu Lab inspired ── */}
+      <section className="bg-gradient-to-b from-zinc-100 to-background">
+        <div className="mx-auto max-w-5xl px-4 pt-6 pb-10">
+          {/* Breadcrumb */}
+          <nav className="text-xs text-muted-foreground mb-6">
+            <a href="/" className="hover:text-foreground focus-visible:outline-2 focus-visible:outline-primary rounded">Home</a>
+            <span className="mx-1.5">/</span>
+            <a href="/best" className="hover:text-foreground focus-visible:outline-2 focus-visible:outline-primary rounded">Printers</a>
+            <span className="mx-1.5">/</span>
+            <span className="text-foreground font-medium">{printer.name}</span>
+          </nav>
 
-      {/* Hero Image */}
-      <div className="relative h-48 sm:h-64 rounded-2xl overflow-hidden mb-8">
-        <Image
-          src={printer.image}
-          alt={printer.name}
-          fill
-          className="object-cover"
-          priority
-          sizes="(max-width: 1024px) 100vw, 1024px"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute bottom-4 left-4">
-          <span className="rounded-lg bg-white/90 px-3 py-1 text-xs font-bold text-foreground shadow-sm">
-            {printer.type.toUpperCase()} &middot; {printer.brand}
-          </span>
-        </div>
-      </div>
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
+            {/* Product Image — Big, clean, centered */}
+            <div className="flex-1 flex items-center justify-center">
+              <div className="relative w-full max-w-md aspect-square">
+                <Image
+                  src={printer.image}
+                  alt={printer.name}
+                  fill
+                  className="object-contain drop-shadow-xl"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 448px"
+                />
+              </div>
+            </div>
 
-      {/* Header */}
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex-1">
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            {printer.brand} &middot; {printer.type.toUpperCase()}
-          </p>
-          <h1 className="mt-1 text-3xl font-bold tracking-tight">{printer.name}</h1>
-          <p className="mt-3 text-lg text-muted-foreground leading-relaxed">{printer.summary}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {printer.bestFor.map((tag) => (
-              <a
-                key={tag}
-                href={`/best/${tag}`}
-                className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground hover:bg-muted/80 transition-colors"
-              >
-                {tag}
-              </a>
-            ))}
+            {/* Product Info */}
+            <div className="flex-1 lg:max-w-md">
+              {/* Badges */}
+              {printer.communityBadges.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {printer.communityBadges.map((badge) => (
+                    <CommunityBadge key={badge} badge={badge} />
+                  ))}
+                </div>
+              )}
+
+              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                {printer.brand} &middot; {printer.type.toUpperCase()}
+              </p>
+              <h1 className="mt-1 text-3xl sm:text-4xl font-bold tracking-tight">{printer.name}</h1>
+
+              <div className="mt-3 flex items-center gap-3">
+                <StarRating score={overall} />
+                {printer.reviews.length > 0 && (
+                  <span className="text-xs text-muted-foreground">
+                    {printer.reviews.length} review{printer.reviews.length !== 1 ? "s" : ""}
+                  </span>
+                )}
+              </div>
+
+              <p className="mt-4 text-base text-muted-foreground leading-relaxed">{printer.summary}</p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {printer.bestFor.map((tag) => (
+                  <a
+                    key={tag}
+                    href={`/best/${tag}`}
+                    className="rounded-full bg-primary/8 border border-primary/15 px-3 py-1 text-xs text-primary font-medium hover:bg-primary/15 transition-colors focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </div>
+
+              {/* Price + CTA */}
+              <div className="mt-6 rounded-xl border border-border/60 bg-card p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-3xl font-bold">${printer.price}</div>
+                    <p className="text-xs text-muted-foreground mt-0.5">on Amazon</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-muted-foreground">PrintPick Score</div>
+                    <div className="text-2xl font-bold text-primary">{overall}<span className="text-sm font-normal text-muted-foreground">/10</span></div>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <AmazonButton
+                    asin={printer.amazonAsin}
+                    printerName={printer.name}
+                    label={`Buy on Amazon — $${printer.price}`}
+                    className="w-full justify-center py-3 text-base font-semibold"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="shrink-0 rounded-xl border border-border/60 bg-card p-6 text-center lg:w-64 shadow-sm">
-          <div className="text-4xl font-bold">${printer.price}</div>
-          <div className="mt-2 flex items-center justify-center gap-2">
-            <span className="text-sm text-muted-foreground">Overall Score</span>
-            <span className="rounded-lg bg-primary/10 px-3 py-1 text-xl font-bold text-primary">
-              {overall}
-            </span>
+      </section>
+
+      {/* ── Key Specs — Visual cards like Bambu Lab ── */}
+      <section className="border-y border-border/50 bg-muted/20">
+        <div className="mx-auto max-w-5xl px-4 py-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <SpecCard label="Build Volume" value={`${printer.buildVolume.x}³`} unit="mm" />
+            <SpecCard label="Max Speed" value={`${printer.printSpeed}`} unit="mm/s" />
+            <SpecCard label="Resolution" value={`${printer.layerResolution.min}`} unit="mm" />
+            <SpecCard label="Weight" value={`${printer.weight}`} unit="kg" />
           </div>
-          <div className="mt-4">
-            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} className="w-full justify-center" />
-          </div>
-        </div>
-      </div>
-
-      {/* Scores */}
-      <section className="mt-10">
-        <h2 className="text-xl font-bold">PrintPick Scores</h2>
-        <div className="mt-4 rounded-xl border border-border/60 bg-card p-5 space-y-3">
-          <ScoreRow label="Value" score={printer.scores.value} />
-          <ScoreRow label="Beginner" score={printer.scores.beginner} />
-          <ScoreRow label="Print Quality" score={printer.scores.printQuality} />
-          <ScoreRow label="Speed" score={printer.scores.speed} />
-          <ScoreRow label="Reliability" score={printer.scores.reliability} />
         </div>
       </section>
 
-      {/* Pros & Cons */}
-      <section className="mt-10 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 p-5">
-          <h3 className="font-semibold text-emerald-700">Pros</h3>
-          <ul className="mt-3 space-y-2">
-            {printer.pros.map((pro) => (
-              <li key={pro} className="flex gap-2 text-sm">
-                <span className="text-emerald-600 shrink-0 font-bold">+</span>
-                <span className="text-emerald-900">{pro}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-xl border border-red-600/20 bg-red-50 p-5">
-          <h3 className="font-semibold text-red-700">Cons</h3>
-          <ul className="mt-3 space-y-2">
-            {printer.cons.map((con) => (
-              <li key={con} className="flex gap-2 text-sm">
-                <span className="text-red-600 shrink-0 font-bold">-</span>
-                <span className="text-red-900">{con}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Specs */}
-      <section className="mt-10">
-        <h2 className="text-xl font-bold">Specifications</h2>
-        <div className="mt-4 rounded-xl border border-border/60 bg-card overflow-hidden">
-          <table className="w-full text-sm">
-            <tbody>
-              <SpecRow label="Build Volume" value={`${printer.buildVolume.x} x ${printer.buildVolume.y} x ${printer.buildVolume.z} mm`} />
-              <SpecRow label="Layer Resolution" value={`${printer.layerResolution.min}mm - ${printer.layerResolution.max}mm`} />
-              <SpecRow label="Max Print Speed" value={`${printer.printSpeed} mm/s`} />
-              <SpecRow label="Weight" value={`${printer.weight} kg`} />
-              <SpecRow label="Type" value={printer.type === "fdm" ? "FDM (Filament)" : "Resin (MSLA)"} />
-              <SpecRow label="Features" value={printer.features.join(", ")} />
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Verdict */}
-      <section className="mt-10">
-        <h2 className="text-xl font-bold">Our Verdict</h2>
-        <div className="mt-4 rounded-lg border border-primary/20 bg-primary/5 p-5">
-          <p className="text-sm leading-relaxed">{printer.verdict}</p>
-        </div>
-        <div className="mt-4">
-          <AmazonButton asin={printer.amazonAsin} printerName={printer.name} label={`Buy ${printer.name} on Amazon`} />
-        </div>
-      </section>
-
-      {/* Related */}
-      {related.length > 0 && (
-        <section className="mt-14">
-          <h2 className="text-xl font-bold">Similar Printers</h2>
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
-            {related.map((p) => (
-              <PrinterCard key={p.slug} printer={p} />
-            ))}
+      <div className="mx-auto max-w-5xl px-4">
+        {/* ── Scores ── */}
+        <section className="py-10">
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <Award className="h-5 w-5 text-primary" />
+            PrintPick Scores
+          </h2>
+          <div className="mt-4 rounded-xl border border-border/60 bg-card p-5 space-y-3">
+            <ScoreRow label="Value" score={printer.scores.value} />
+            <ScoreRow label="Beginner" score={printer.scores.beginner} />
+            <ScoreRow label="Print Quality" score={printer.scores.printQuality} />
+            <ScoreRow label="Speed" score={printer.scores.speed} />
+            <ScoreRow label="Reliability" score={printer.scores.reliability} />
           </div>
         </section>
-      )}
+
+        {/* ── Pros & Cons ── */}
+        <section className="pb-10 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 p-5">
+            <h3 className="font-semibold text-emerald-700">Pros</h3>
+            <ul className="mt-3 space-y-2">
+              {printer.pros.map((pro) => (
+                <li key={pro} className="flex gap-2 text-sm">
+                  <span className="text-emerald-600 shrink-0 font-bold">+</span>
+                  <span className="text-emerald-900">{pro}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-red-600/20 bg-red-50 p-5">
+            <h3 className="font-semibold text-red-700">Cons</h3>
+            <ul className="mt-3 space-y-2">
+              {printer.cons.map((con) => (
+                <li key={con} className="flex gap-2 text-sm">
+                  <span className="text-red-600 shrink-0 font-bold">-</span>
+                  <span className="text-red-900">{con}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ── Community Reviews — "What the Pros Are Saying" ── */}
+        {printer.reviews.length > 0 && (
+          <section className="py-10 border-t border-border/50">
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <MessageCircle className="h-5 w-5 text-primary" />
+              What the Community Says
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {printer.reviews.map((review) => (
+                <div key={review.quote} className="rounded-xl border border-border/60 bg-card p-5 flex flex-col">
+                  <Quote className="h-5 w-5 text-primary/40 mb-2 shrink-0" />
+                  <p className="text-sm leading-relaxed flex-1">&ldquo;{review.quote}&rdquo;</p>
+                  <p className="mt-3 text-xs font-medium text-muted-foreground">
+                    &mdash; {review.source}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Full Specs Table ── */}
+        <section className="py-10 border-t border-border/50">
+          <h2 className="text-xl font-bold">Full Specifications</h2>
+          <div className="mt-4 rounded-xl border border-border/60 bg-card overflow-hidden">
+            <table className="w-full text-sm">
+              <tbody>
+                <SpecRow label="Build Volume" value={`${printer.buildVolume.x} x ${printer.buildVolume.y} x ${printer.buildVolume.z} mm`} />
+                <SpecRow label="Layer Resolution" value={`${printer.layerResolution.min}mm - ${printer.layerResolution.max}mm`} />
+                <SpecRow label="Max Print Speed" value={`${printer.printSpeed} mm/s`} />
+                <SpecRow label="Weight" value={`${printer.weight} kg`} />
+                <SpecRow label="Type" value={printer.type === "fdm" ? "FDM (Filament)" : "Resin (MSLA)"} />
+                <SpecRow label="Features" value={printer.features.join(", ")} />
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ── Verdict ── */}
+        <section className="py-10 border-t border-border/50">
+          <h2 className="text-xl font-bold">Our Verdict</h2>
+          <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-6">
+            <p className="text-base leading-relaxed">{printer.verdict}</p>
+          </div>
+          <div className="mt-4">
+            <AmazonButton
+              asin={printer.amazonAsin}
+              printerName={printer.name}
+              label={`Buy ${printer.name} on Amazon — $${printer.price}`}
+              className="py-3 text-base"
+            />
+          </div>
+        </section>
+
+        {/* ── What You'll Also Need ── */}
+        {printer.alsoNeed && printer.alsoNeed.length > 0 && (
+          <section className="py-10 border-t border-border/50">
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <ShoppingCart className="h-5 w-5 text-primary" />
+              What You&apos;ll Also Need
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">Essential accessories to get started with this printer.</p>
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              {printer.alsoNeed.map((item) => (
+                <a
+                  key={item}
+                  href={`https://www.amazon.com/s?k=${encodeURIComponent(item + " 3D printer")}&tag=printpick20-20`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card px-4 py-3 transition-all hover:border-primary/30 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-primary"
+                >
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/8 text-primary shrink-0">
+                    <ShoppingCart className="h-4 w-4" />
+                  </div>
+                  <span className="text-sm font-medium group-hover:text-primary transition-colors">{item}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Related Printers ── */}
+        {related.length > 0 && (
+          <section className="py-10 border-t border-border/50">
+            <h2 className="text-xl font-bold">Similar Printers</h2>
+            <div className="mt-4 grid gap-4 lg:grid-cols-2">
+              {related.map((p) => (
+                <PrinterCard key={p.slug} printer={p} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 }

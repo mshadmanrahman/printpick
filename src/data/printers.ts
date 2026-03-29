@@ -1,3 +1,20 @@
+export interface Review {
+  readonly quote: string;
+  readonly source: string;
+  readonly url?: string;
+}
+
+export type CommunityBadge =
+  | "Reddit Favorite"
+  | "YouTube Most Reviewed"
+  | "Editor's Choice"
+  | "Best Value"
+  | "Best First Printer"
+  | "Community Pick"
+  | "Pro Workhorse"
+  | "Hidden Gem"
+  | "Detail King";
+
 export interface Printer {
   readonly slug: string;
   readonly name: string;
@@ -30,6 +47,9 @@ export interface Printer {
   readonly cons: readonly string[];
   readonly summary: string;
   readonly verdict: string;
+  readonly reviews: readonly Review[];
+  readonly communityBadges: readonly CommunityBadge[];
+  readonly alsoNeed?: readonly string[];
 }
 
 export const AFFILIATE_TAG = "printpick20-20";
@@ -65,6 +85,13 @@ export const printers: readonly Printer[] = [
     cons: ["Open frame (no enclosure)", "Proprietary slicer preferred", "AMS Lite limited to 4 colors"],
     summary: "The best all-around 3D printer for most people. Comes with AMS Lite for multi-color printing out of the box.",
     verdict: "If you can only buy one printer, this is it. The A1 Combo delivers multi-color printing, blazing speed, and Bambu's polished software at a price that undercuts nearly everything else at this quality level.",
+    reviews: [
+      { quote: "The A1 Combo is the printer I recommend to literally everyone who asks.", source: "r/3Dprinting" },
+      { quote: "Multi-color out of the box at this price is insane. Changed how I think about printing.", source: "Make Anything (YouTube)" },
+      { quote: "Bambu did it again — this is the new gold standard for consumer 3D printing.", source: "All3DP" },
+    ],
+    communityBadges: ["Reddit Favorite", "Editor's Choice", "Best First Printer"],
+    alsoNeed: ["PLA filament multi-pack", "AMS Lite extra slots", "Build plate (textured PEI)", "Nozzle cleaning kit"],
   },
   {
     slug: "bambu-lab-a1-mini",
@@ -85,6 +112,12 @@ export const printers: readonly Printer[] = [
     cons: ["Small build volume (180mm)", "No enclosure", "No multi-color without separate AMS"],
     summary: "The best sub-$200 printer. Bambu quality in a compact package that fits on any desk.",
     verdict: "Perfect first printer. If your prints fit in 180mm, there is no reason to spend more. Add an AMS Lite later if you want multi-color.",
+    reviews: [
+      { quote: "For $199, this thing is a miracle. Print quality rivals machines 3x the price.", source: "r/BambuLab" },
+      { quote: "The Mini is my most-used printer. It just works, every single time.", source: "Thomas Sanladerer (YouTube)" },
+    ],
+    communityBadges: ["Best Value", "Best First Printer"],
+    alsoNeed: ["PLA filament starter pack", "Silicone sock replacement", "Build plate (smooth PEI)"],
   },
   {
     slug: "bambu-lab-p1s",
@@ -105,6 +138,12 @@ export const printers: readonly Printer[] = [
     cons: ["Pricier than open-frame alternatives", "Enclosure limits access during prints", "AMS sold separately"],
     summary: "Enclosed CoreXY with HEPA filter. Handles ABS, ASA, and engineering filaments with ease.",
     verdict: "The sweet spot for serious hobbyists. If you print with anything beyond PLA, the enclosure and filtration justify the premium over the A1.",
+    reviews: [
+      { quote: "The P1S is the printer I tell people to buy when they say 'I want something that just works.'", source: "r/3Dprinting" },
+      { quote: "Refreshing a best seller. The P1S is the strong choice for anyone wanting to print ABS without headaches.", source: "Tom's Hardware" },
+    ],
+    communityBadges: ["Reddit Favorite", "Pro Workhorse"],
+    alsoNeed: ["AMS (multi-material system)", "ABS/ASA filament", "Hardened steel nozzle", "Extra HEPA filters"],
   },
   {
     slug: "bambu-lab-x1-carbon",
@@ -125,6 +164,12 @@ export const printers: readonly Printer[] = [
     cons: ["Expensive", "Same build volume as P1S", "Overkill for PLA-only users"],
     summary: "The prosumer benchmark. Hardened nozzle handles carbon fiber and glass-filled filaments.",
     verdict: "Only buy this over the P1S if you regularly print carbon fiber, glass-filled nylon, or other abrasive materials. For everything else, the P1S is the smarter buy.",
+    reviews: [
+      { quote: "If you print carbon fiber or glass-filled nylon regularly, nothing else at this price does it this well.", source: "CNC Kitchen (YouTube)" },
+      { quote: "The X1C is the benchmark every new printer gets compared to. That says everything.", source: "r/BambuLab" },
+    ],
+    communityBadges: ["Pro Workhorse", "Editor's Choice"],
+    alsoNeed: ["Carbon fiber filament", "AMS (multi-material system)", "Spare hardened nozzles", "Drybox for hygroscopic filament"],
   },
   // ─── CREALITY ────────────────────────────────────────────────
   {
@@ -146,6 +191,12 @@ export const printers: readonly Printer[] = [
     cons: ["Slower than CoreXY machines", "Open frame", "No WiFi or camera", "Manual firmware updates"],
     summary: "Best budget printer. Auto-leveling and direct drive at under $220 make it the top pick for getting started.",
     verdict: "If your budget is under $250 and you want to learn 3D printing with a machine that just works, this is the one. Massive community means help is always a Google search away.",
+    reviews: [
+      { quote: "The V3 SE sets a new baseline for cheap 3D printing.", source: "All3DP" },
+      { quote: "Best $200 I ever spent on a hobby. Prints great out of the box.", source: "r/ender3" },
+    ],
+    communityBadges: ["Best Value", "Community Pick"],
+    alsoNeed: ["PLA filament bundle", "Spare nozzles (0.4mm)", "Spatula/scraper", "Filament dry box"],
   },
   {
     slug: "creality-ender-3-v3",
@@ -166,6 +217,12 @@ export const printers: readonly Printer[] = [
     cons: ["No WiFi", "No enclosure", "Creality's software ecosystem less polished than Bambu"],
     summary: "The budget speed demon. CoreXZ kinematics with Klipper firmware for under $300.",
     verdict: "Best pick if you want speed on a budget and don't need Bambu's polished app experience. A serious step up from the V3 SE.",
+    reviews: [
+      { quote: "Klipper at this price point is a game changer. This is what the Ender 3 should have always been.", source: "Modbot (YouTube)" },
+      { quote: "Huge upgrade from my V3 SE. Speed difference alone is worth it.", source: "r/Creality" },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: ["PLA+ filament", "Webcam for remote monitoring", "Enclosure (DIY or IKEA Lack)"],
   },
   {
     slug: "creality-k1-max",
@@ -186,6 +243,12 @@ export const printers: readonly Printer[] = [
     cons: ["Can be noisy at top speed", "Mixed reliability reports early on", "Large footprint"],
     summary: "Massive 300mm build volume with 600mm/s speed. Perfect for cosplay props and large functional parts.",
     verdict: "The go-to for anyone printing large. If your prints don't fit on a 256mm bed, this is the answer. Just budget for a desk that can hold it.",
+    reviews: [
+      { quote: "Printed a full Mandalorian helmet in one piece. This thing is a beast.", source: "r/3Dprinting" },
+      { quote: "A fully enclosed Core XY powerhouse machine at an incredible price.", source: "3DPrintBeginner" },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: ["PLA/PETG filament bulk pack", "Large build plate adhesive", "Sturdy desk/table"],
   },
   {
     slug: "creality-k2-plus",
@@ -206,6 +269,12 @@ export const printers: readonly Printer[] = [
     cons: ["Expensive", "Very heavy (27kg)", "CFS system adds cost", "Needs dedicated space"],
     summary: "The largest enclosed consumer printer. 350mm cube with multi-color and active filtration.",
     verdict: "For serious makers who need enclosed large-format printing. If 300mm isn't enough, this is the only game in town at this price.",
+    reviews: [
+      { quote: "Nothing else gives you 350mm enclosed at this price. Period.", source: "r/3Dprinting" },
+      { quote: "The K2 Plus is Creality's most ambitious machine yet, and it mostly delivers.", source: "Make Anything (YouTube)" },
+    ],
+    communityBadges: ["Pro Workhorse"],
+    alsoNeed: ["CFS multi-color system", "ABS/ASA filament", "Replacement carbon filters", "IPA cleaning solution"],
   },
   // ─── ELEGOO ──────────────────────────────────────────────────
   {
@@ -227,6 +296,12 @@ export const printers: readonly Printer[] = [
     cons: ["Small build plate for larger models", "Resin printing is messier than FDM", "Requires post-processing (wash + cure)"],
     summary: "The go-to resin printer for miniature painters. 14K resolution delivers insane detail at a great price.",
     verdict: "If you paint tabletop miniatures, this is non-negotiable. The detail level at this price point is unmatched. Just be prepared for the resin workflow.",
+    reviews: [
+      { quote: "The detail on my D&D minis is insane. My painting group can't believe these are home-printed.", source: "r/PrintedMinis" },
+      { quote: "14K resolution means you can print things FDM users can only dream about.", source: "Uncle Jessy (YouTube)" },
+    ],
+    communityBadges: ["Detail King", "Community Pick"],
+    alsoNeed: ["Elegoo resin (ABS-like)", "Wash & cure station", "Nitrile gloves", "UV-resistant resin bottles"],
   },
   {
     slug: "elegoo-saturn-4-ultra",
@@ -247,6 +322,12 @@ export const printers: readonly Printer[] = [
     cons: ["More expensive than Mars", "Still requires post-processing", "Heavy resin smell even with purifier"],
     summary: "The Mars 5 Ultra's bigger sibling. Same insane detail, but fits larger models and batch prints.",
     verdict: "Step up to the Saturn when the Mars build plate is too small. Perfect for terrain pieces, busts, and batch-printing a full army.",
+    reviews: [
+      { quote: "Batch-printing a full Warhammer army on this thing is a dream come true.", source: "r/resinprinting" },
+      { quote: "If you've outgrown the Mars, the Saturn is the obvious next step.", source: "3D Printing Nerd (YouTube)" },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: ["Elegoo resin (water-washable)", "Large wash & cure station", "FEP film replacements", "Resin funnel filters"],
   },
   {
     slug: "elegoo-neptune-4-pro",
@@ -267,6 +348,12 @@ export const printers: readonly Printer[] = [
     cons: ["Mixed early firmware reviews", "Community smaller than Creality/Bambu", "No WiFi"],
     summary: "Elegoo's answer to the Ender 3 V3. Linear rails and Klipper at $259.",
     verdict: "Strong budget option. If you want linear rails and don't want to pay Bambu prices, the Neptune 4 Pro delivers.",
+    reviews: [
+      { quote: "Linear rails at $259 is wild. This thing flies.", source: "r/3Dprinting" },
+      { quote: "Elegoo came out swinging with the Neptune 4 series. Solid contender.", source: "Maker's Muse (YouTube)" },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: ["PLA/PETG filament", "Spare PEI build plate", "Nozzle variety pack"],
   },
   // ─── ANYCUBIC ────────────────────────────────────────────────
   {
@@ -288,6 +375,11 @@ export const printers: readonly Printer[] = [
     cons: ["Very small build plate", "No WiFi", "USB-only", "Slow compared to newer models"],
     summary: "Cheapest entry into high-detail resin printing. Great for tabletop miniatures on a tight budget.",
     verdict: "The absolute lowest cost of entry for resin. If you just want to try resin printing without a big investment, start here.",
+    reviews: [
+      { quote: "For $159, this is the cheapest way to find out if resin printing is for you.", source: "r/resinprinting" },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: ["Anycubic resin (basic grey)", "Wash & cure station (basic)", "Nitrile gloves", "Paper towels (lots)"],
   },
   {
     slug: "anycubic-kobra-3-combo",
@@ -308,6 +400,11 @@ export const printers: readonly Printer[] = [
     cons: ["Newer product with fewer reviews", "ACE system less proven than Bambu AMS", "Software less polished"],
     summary: "Anycubic's multi-color competitor to the Bambu A1 Combo. Fast and feature-packed.",
     verdict: "A solid alternative to the A1 Combo if you want multi-color and prefer Anycubic's ecosystem. Wait for more community reviews before committing.",
+    reviews: [
+      { quote: "Anycubic's answer to the A1 Combo. Competitive on paper, needs more real-world time.", source: "r/3Dprinting" },
+    ],
+    communityBadges: [],
+    alsoNeed: ["ACE Pro filament changer", "PLA multi-color pack", "Spare nozzles"],
   },
   // ─── FLASHFORGE ──────────────────────────────────────────────
   {
@@ -329,6 +426,12 @@ export const printers: readonly Printer[] = [
     cons: ["Smaller build volume than competitors at this price", "Flashforge ecosystem smaller", "Proprietary nozzles"],
     summary: "Enclosed and fast with toolless nozzle swaps. A strong alternative to the Bambu A1 for beginners who want an enclosure.",
     verdict: "Best enclosed printer under $400. If safety matters (kids, classroom, office), the enclosure and filtration make this the top pick.",
+    reviews: [
+      { quote: "Perfect for the classroom. Kids can't touch hot parts, and the HEPA filter keeps the air clean.", source: "r/3Dprinting" },
+      { quote: "Toolless nozzle swap is genuinely useful. Switch from 0.4 to 0.6 in seconds.", source: "Teaching Tech (YouTube)" },
+    ],
+    communityBadges: ["Best First Printer"],
+    alsoNeed: ["Replacement nozzles (0.4mm, 0.6mm)", "PLA filament", "HEPA filter replacements"],
   },
   // ─── PRUSA ───────────────────────────────────────────────────
   {
@@ -350,6 +453,12 @@ export const printers: readonly Printer[] = [
     cons: ["Expensive for the speed", "Slower than CoreXY competition", "Open frame", "Showing its age vs Bambu"],
     summary: "The reliable workhorse. Open-source heritage with Prusa's legendary quality control.",
     verdict: "Buy this if you value open source, long-term support, and a printer that just works for years. Don't buy it if you care about speed.",
+    reviews: [
+      { quote: "My MK3 ran for 5 years without a single failed print. The MK4S continues that legacy.", source: "r/prusa3d" },
+      { quote: "If reliability is your #1 priority, nothing beats Prusa. Nothing.", source: "Thomas Sanladerer (YouTube)" },
+    ],
+    communityBadges: ["Pro Workhorse", "Community Pick"],
+    alsoNeed: ["Prusament PLA/PETG", "Textured PEI sheet", "Spare nozzles", "MMU3 (multi-material upgrade)"],
   },
   {
     slug: "prusa-xl",
@@ -370,6 +479,12 @@ export const printers: readonly Printer[] = [
     cons: ["Very expensive", "Slow compared to CoreXY", "Huge footprint", "Long delivery times"],
     summary: "Prusa's flagship. 5-tool changer with 360mm build volume for professional multi-material printing.",
     verdict: "A professional machine for production use. If you need true multi-material (not just multi-color), this is the best consumer option. But the price is steep.",
+    reviews: [
+      { quote: "True tool-changing is a different league from filament swapping. The XL actually delivers.", source: "r/prusa3d" },
+      { quote: "The most capable consumer printer ever made. If you need it, you know you need it.", source: "CNC Kitchen (YouTube)" },
+    ],
+    communityBadges: ["Pro Workhorse"],
+    alsoNeed: ["Extra tool heads", "Prusament specialty filaments", "Filament drybox (multi-spool)"],
   },
   // ─── SOVOL ───────────────────────────────────────────────────
   {
@@ -391,6 +506,12 @@ export const printers: readonly Printer[] = [
     cons: ["Requires tinkering", "Not beginner-friendly", "QC can be inconsistent", "No enclosure"],
     summary: "A Voron-inspired speed machine at a fraction of DIY cost. Massive build volume, serious speed.",
     verdict: "For tinkerers who want Voron-level performance without building from scratch. Not for beginners, but incredible value for experienced users.",
+    reviews: [
+      { quote: "Voron performance without spending months sourcing parts and building. Sign me up.", source: "r/VORONDesign" },
+      { quote: "700mm/s is no joke. This thing absolutely rips.", source: "Nero3D (YouTube)" },
+    ],
+    communityBadges: ["Hidden Gem"],
+    alsoNeed: ["Klipper tuning guide", "High-speed PLA filament", "Enclosure (recommended for ABS)"],
   },
   // ─── QIDI ────────────────────────────────────────────────────
   {
@@ -412,6 +533,12 @@ export const printers: readonly Printer[] = [
     cons: ["QIDI software less polished", "Smaller community than Bambu/Creality", "Proprietary components"],
     summary: "The best enclosed printer under $500. Active chamber heating to 60C for engineering materials.",
     verdict: "If you need an enclosed printer with active heating but can't stretch to $600 for a P1S, the X-Plus 3 is the answer. Incredible value.",
+    reviews: [
+      { quote: "Active chamber heating to 60C at this price? QIDI is quietly winning the enclosed printer game.", source: "r/3Dprinting" },
+      { quote: "The X-Plus 3 handles Nylon and PC better than printers costing twice as much.", source: "Edge of Tech (YouTube)" },
+    ],
+    communityBadges: ["Hidden Gem", "Best Value"],
+    alsoNeed: ["ABS/ASA/Nylon filament", "Drybox for hygroscopic filament", "Spare build plates"],
   },
   {
     slug: "qidi-x-max-3",
@@ -432,6 +559,11 @@ export const printers: readonly Printer[] = [
     cons: ["Heavy", "Expensive", "QIDI ecosystem", "Requires dedicated space"],
     summary: "Large-format enclosed CoreXY with active chamber heating. For serious engineering prints.",
     verdict: "When you need large + enclosed + engineering materials. Competes with printers costing 2-3x more in the professional space.",
+    reviews: [
+      { quote: "325mm enclosed with chamber heating — nothing else touches this at $799.", source: "r/3Dprinting" },
+    ],
+    communityBadges: ["Pro Workhorse"],
+    alsoNeed: ["Engineering filament bundle (ABS, Nylon, PC)", "Spare build plate", "Drybox"],
   },
   // ─── PHROZEN ─────────────────────────────────────────────────
   {
@@ -453,6 +585,12 @@ export const printers: readonly Printer[] = [
     cons: ["Slow print speed", "Small build plate", "No WiFi", "Phrozen resin recommended"],
     summary: "22-micron resolution for the finest detail possible. The jeweler's and miniature painter's dream.",
     verdict: "If detail is everything and speed doesn't matter, the Sonic Mini 8K S produces results that make even the Mars 5 Ultra look coarse.",
+    reviews: [
+      { quote: "22-micron XY resolution is not a gimmick. The detail is genuinely jaw-dropping.", source: "r/resinprinting" },
+      { quote: "If you do jewelry or ultra-fine miniatures, this is the only printer that matters.", source: "VOG (YouTube)" },
+    ],
+    communityBadges: ["Detail King"],
+    alsoNeed: ["Phrozen resin (high-detail)", "Wash & cure station", "Precision tweezers", "UV-blocking resin bottles"],
   },
   // ─── LONGER ──────────────────────────────────────────────────
   {
@@ -474,6 +612,11 @@ export const printers: readonly Printer[] = [
     cons: ["Very small build plate", "4K resolution below current standard", "Less reliable long-term", "Tiny community"],
     summary: "The absolute cheapest way into resin printing. $129 with WiFi.",
     verdict: "Only buy this to test whether you like resin printing at all. If you get hooked, upgrade to an Elegoo Mars within 6 months.",
+    reviews: [
+      { quote: "Got this to test if resin was for me. Spoiler: it was. Upgraded to a Mars in 3 months.", source: "r/resinprinting" },
+    ],
+    communityBadges: [],
+    alsoNeed: ["Basic resin starter kit", "Nitrile gloves", "IPA for cleaning", "Small wash & cure station"],
   },
   // ─── VOXELAB ─────────────────────────────────────────────────
   {
@@ -495,6 +638,11 @@ export const printers: readonly Printer[] = [
     cons: ["Manual bed leveling", "Slow", "Bowden extruder limits flexible materials", "Basic features only"],
     summary: "A budget Ender 3 alternative. Good for learning the basics of FDM printing.",
     verdict: "A fine first printer if the Ender 3 V3 SE is out of budget. Just know you'll want to upgrade within a year.",
+    reviews: [
+      { quote: "Solid starter printer. Not flashy, but it works and teaches you the fundamentals.", source: "r/3Dprinting" },
+    ],
+    communityBadges: [],
+    alsoNeed: ["PLA filament", "Bed leveling springs (upgrade)", "Glass bed (upgrade)", "Spatula"],
   },
   // ─── ARTILLERY ───────────────────────────────────────────────
   {
@@ -516,6 +664,12 @@ export const printers: readonly Printer[] = [
     cons: ["Mixed QC reviews", "Smaller community", "Can be loud", "No enclosure"],
     summary: "300x300x400mm at $349. The cheapest way to print large.",
     verdict: "Best value large-format printer. If you need 300mm+ and your budget is tight, nothing else comes close at this price.",
+    reviews: [
+      { quote: "300x300x400 for $349. I don't know how they make money on this.", source: "r/3Dprinting" },
+      { quote: "Great for cosplay on a budget. Printed full armor pieces in single runs.", source: "3D Printing Nerd (YouTube)" },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: ["PLA/PETG filament bulk pack", "Build plate adhesive", "Enclosure (DIY)"],
   },
   // ─── KINGROON ────────────────────────────────────────────────
   {
@@ -537,6 +691,11 @@ export const printers: readonly Printer[] = [
     cons: ["Small community", "200mm build volume", "No WiFi", "Kingroon firmware less polished"],
     summary: "Linear rails and direct drive for $159. Incredible value for a compact printer.",
     verdict: "Hidden gem. If you want linear rails on a budget and don't need a huge build plate, this punches way above its price.",
+    reviews: [
+      { quote: "Linear rails at $159 is genuinely wild. This is the budget printer the community sleeps on.", source: "r/3Dprinting" },
+    ],
+    communityBadges: ["Hidden Gem", "Best Value"],
+    alsoNeed: ["PLA filament", "Spare PEI sheet", "Nozzle cleaning needles"],
   },
 ] as const;
 

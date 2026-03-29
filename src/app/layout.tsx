@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { MobileNav } from "@/components/mobile-nav";
 import "./globals.css";
 
 const inter = Inter({
@@ -55,6 +56,14 @@ function Logo({ size = 28 }: { readonly size?: number }) {
   );
 }
 
+const NAV_LINKS: readonly { href: string; label: string; highlight?: boolean }[] = [
+  { href: "/tools/finder", label: "Finder", highlight: true },
+  { href: "/best", label: "Rankings" },
+  { href: "/compare", label: "Compare" },
+  { href: "/blog", label: "Blog" },
+  { href: "/tools", label: "Tools" },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,17 +77,18 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
           <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-            <a href="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight">
+            <a href="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg">
               <Logo />
               <span>Print<span className="text-primary">Pick</span></span>
             </a>
-            <div className="flex items-center gap-1">
-              <NavLink href="/tools/finder" label="Finder" highlight />
-              <NavLink href="/best" label="Rankings" />
-              <NavLink href="/compare" label="Compare" />
-              <NavLink href="/blog" label="Blog" />
-              <NavLink href="/tools" label="Tools" />
+            {/* Desktop nav */}
+            <div className="hidden sm:flex items-center gap-1">
+              {NAV_LINKS.map((link) => (
+                <NavLink key={link.href} href={link.href} label={link.label} highlight={link.highlight} />
+              ))}
             </div>
+            {/* Mobile nav */}
+            <MobileNav links={NAV_LINKS} />
           </nav>
         </header>
         <Analytics />
@@ -100,19 +110,19 @@ export default function RootLayout({
                 <div>
                   <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Tools</h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/tools/finder" className="text-muted-foreground hover:text-primary transition-colors">Printer Finder</a></li>
-                    <li><a href="/tools/cost-estimator" className="text-muted-foreground hover:text-primary transition-colors">Cost Estimator</a></li>
-                    <li><a href="/tools/fdm-vs-resin" className="text-muted-foreground hover:text-primary transition-colors">FDM vs Resin</a></li>
-                    <li><a href="/compare" className="text-muted-foreground hover:text-primary transition-colors">Compare</a></li>
+                    <li><a href="/tools/finder" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Printer Finder</a></li>
+                    <li><a href="/tools/cost-estimator" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Cost Estimator</a></li>
+                    <li><a href="/tools/fdm-vs-resin" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">FDM vs Resin</a></li>
+                    <li><a href="/compare" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Compare</a></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Categories</h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/best/beginners" className="text-muted-foreground hover:text-primary transition-colors">Best for Beginners</a></li>
-                    <li><a href="/best/budget" className="text-muted-foreground hover:text-primary transition-colors">Best Budget</a></li>
-                    <li><a href="/best/miniatures" className="text-muted-foreground hover:text-primary transition-colors">Best for Miniatures</a></li>
-                    <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors">View All</a></li>
+                    <li><a href="/best/beginners" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best for Beginners</a></li>
+                    <li><a href="/best/budget" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best Budget</a></li>
+                    <li><a href="/best/miniatures" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best for Miniatures</a></li>
+                    <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">View All</a></li>
                   </ul>
                 </div>
               </div>
@@ -136,7 +146,7 @@ function NavLink({ href, label, highlight }: { readonly href: string; readonly l
   return (
     <a
       href={href}
-      className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
+      className={`rounded-lg px-3 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
         highlight
           ? "bg-primary/10 text-primary font-medium hover:bg-primary/15"
           : "text-muted-foreground hover:text-foreground hover:bg-muted"
