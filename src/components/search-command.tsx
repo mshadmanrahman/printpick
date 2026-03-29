@@ -107,9 +107,12 @@ export function SearchCommand() {
 
       {/* Modal overlay */}
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh]">
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div className="relative w-full max-w-lg mx-4 rounded-xl border border-border bg-background shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div
+          className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh]"
+          onMouseDown={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
+        >
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onMouseDown={() => setOpen(false)} />
+          <div className="relative w-full max-w-lg mx-4 rounded-xl border border-border bg-background shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150" onMouseDown={(e) => e.stopPropagation()}>
             {/* Search input */}
             <div className="flex items-center gap-3 border-b border-border px-4 py-3">
               <Search className="h-4 w-4 text-muted-foreground shrink-0" />
