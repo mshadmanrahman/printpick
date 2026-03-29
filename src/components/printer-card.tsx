@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { type Printer, getOverallScore } from "@/data/printers";
 import { AmazonButton } from "./amazon-button";
 
@@ -8,58 +9,28 @@ interface PrinterCardProps {
   readonly rank?: number;
 }
 
-const BRAND_COLORS: Record<string, { bg: string; text: string }> = {
-  "Bambu Lab": { bg: "bg-[#2d8c3c]/10", text: "text-[#2d8c3c]" },
-  "Creality": { bg: "bg-[#0066cc]/10", text: "text-[#0066cc]" },
-  "Elegoo": { bg: "bg-[#ff6b00]/10", text: "text-[#ff6b00]" },
-  "Anycubic": { bg: "bg-[#00a5e0]/10", text: "text-[#00a5e0]" },
-  "Flashforge": { bg: "bg-[#e63946]/10", text: "text-[#e63946]" },
-  "Prusa Research": { bg: "bg-[#fa6831]/10", text: "text-[#fa6831]" },
-  "Sovol": { bg: "bg-[#1a73e8]/10", text: "text-[#1a73e8]" },
-  "QIDI": { bg: "bg-[#6b21a8]/10", text: "text-[#6b21a8]" },
-  "Phrozen": { bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]" },
-  "Longer": { bg: "bg-[#059669]/10", text: "text-[#059669]" },
-  "Voxelab": { bg: "bg-[#7c3aed]/10", text: "text-[#7c3aed]" },
-  "Artillery": { bg: "bg-[#dc2626]/10", text: "text-[#dc2626]" },
-  "Kingroon": { bg: "bg-[#0891b2]/10", text: "text-[#0891b2]" },
-};
-
-const DEFAULT_BRAND = { bg: "bg-muted", text: "text-muted-foreground" };
-
-function BrandThumbnail({ printer, rank }: { readonly printer: Printer; readonly rank?: number }) {
-  const colors = BRAND_COLORS[printer.brand] ?? DEFAULT_BRAND;
-  const isFdm = printer.type === "fdm";
-
+function PrinterThumbnail({ printer, rank }: { readonly printer: Printer; readonly rank?: number }) {
   return (
-    <div className={`relative shrink-0 w-20 sm:w-24 rounded-xl ${colors.bg} flex flex-col items-center justify-center gap-1 self-stretch`}>
+    <div className="relative shrink-0 w-24 sm:w-28 rounded-xl overflow-hidden self-stretch">
       {rank !== undefined && rank <= 3 && (
-        <span className="absolute -top-2 -left-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm z-10">
+        <span className="absolute top-1.5 left-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm z-10">
           #{rank}
         </span>
       )}
       {rank !== undefined && rank > 3 && (
-        <span className="absolute top-1.5 left-1.5 text-[10px] font-bold text-muted-foreground">
-          #{rank}
+        <span className="absolute top-1.5 left-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/50 text-[9px] font-bold text-white z-10">
+          {rank}
         </span>
       )}
-      {/* Printer type icon */}
-      <svg className={`h-8 w-8 sm:h-10 sm:w-10 ${colors.text} opacity-60`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-        {isFdm ? (
-          <>
-            <rect x="4" y="2" width="16" height="6" rx="1" />
-            <path d="M6 8v10a2 2 0 002 2h8a2 2 0 002-2V8" />
-            <path d="M12 8v6" />
-            <path d="M9 14h6" />
-          </>
-        ) : (
-          <>
-            <rect x="3" y="10" width="18" height="10" rx="2" />
-            <path d="M7 10V6a2 2 0 012-2h6a2 2 0 012 2v4" />
-            <circle cx="12" cy="15" r="2" />
-          </>
-        )}
-      </svg>
-      <span className={`text-[9px] font-bold uppercase tracking-wider ${colors.text} opacity-70`}>
+      <Image
+        src={printer.image}
+        alt={printer.name}
+        fill
+        className="object-cover transition-transform group-hover:scale-105"
+        sizes="(max-width: 640px) 96px, 112px"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+      <span className="absolute bottom-1.5 left-1.5 rounded bg-black/50 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
         {printer.type}
       </span>
     </div>
@@ -89,8 +60,8 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
     >
       <a href={`/printers/${printer.slug}`} className="absolute inset-0 z-0" aria-label={`View ${printer.name}`} />
 
-      {/* Brand thumbnail */}
-      <BrandThumbnail printer={printer} rank={rank} />
+      {/* Image thumbnail */}
+      <PrinterThumbnail printer={printer} rank={rank} />
 
       {/* Content */}
       <div className="flex-1 min-w-0">

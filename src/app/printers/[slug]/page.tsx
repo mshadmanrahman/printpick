@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersByBestFor } from "@/data/printers";
 import { AmazonButton } from "@/components/amazon-button";
@@ -56,6 +57,24 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         <span className="mx-1">/</span>
         <span className="text-foreground">{printer.name}</span>
       </nav>
+
+      {/* Hero Image */}
+      <div className="relative h-48 sm:h-64 rounded-2xl overflow-hidden mb-8">
+        <Image
+          src={printer.image}
+          alt={printer.name}
+          fill
+          className="object-cover"
+          priority
+          sizes="(max-width: 1024px) 100vw, 1024px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute bottom-4 left-4">
+          <span className="rounded-lg bg-white/90 px-3 py-1 text-xs font-bold text-foreground shadow-sm">
+            {printer.type.toUpperCase()} &middot; {printer.brand}
+          </span>
+        </div>
+      </div>
 
       {/* Header */}
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
