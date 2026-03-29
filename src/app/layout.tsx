@@ -76,6 +76,7 @@ export default function RootLayout({
               <NavLink href="/tools/finder" label="Finder" highlight />
               <NavLink href="/best" label="Rankings" />
               <NavLink href="/compare" label="Compare" />
+              <NavLink href="/blog" label="Blog" />
               <NavLink href="/tools" label="Tools" />
             </div>
           </nav>

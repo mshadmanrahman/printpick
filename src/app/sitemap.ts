@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { printers, CATEGORIES } from "@/data/printers";
+import { getAllBlogPosts } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://printpick.dev";
@@ -26,5 +27,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...printerPages, ...categoryPages];
+  const blogPages: MetadataRoute.Sitemap = [
+    { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.8 },
+    ...getAllBlogPosts().map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+      lastModified: new Date(p.updatedAt),
+    })),
+  ];
+
+  return [...staticPages, ...printerPages, ...categoryPages, ...blogPages];
 }
