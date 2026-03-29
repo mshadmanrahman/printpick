@@ -1,98 +1,141 @@
-import { printers, getOverallScore } from "@/data/printers";
+import { printers, getOverallScore, CATEGORIES } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
 
-const sortedPrinters = [...printers].sort((a, b) => getOverallScore(b) - getOverallScore(a));
+const topPrinters = [...printers]
+  .sort((a, b) => getOverallScore(b) - getOverallScore(a))
+  .slice(0, 6);
+
+const stats = {
+  total: printers.length,
+  brands: new Set(printers.map((p) => p.brand)).size,
+  fdm: printers.filter((p) => p.type === "fdm").length,
+  resin: printers.filter((p) => p.type === "resin").length,
+};
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto max-w-6xl px-4">
       {/* Hero */}
-      <section className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Find Your Perfect 3D Printer
+      <section className="py-16 text-center sm:py-24">
+        <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground mb-6">
+          <span className="font-mono">{stats.total}</span> printers scored &middot;
+          <span className="font-mono">{stats.brands}</span> brands &middot; Updated 2026
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl leading-[1.1]">
+          Find Your Perfect
+          <br />
+          <span className="text-primary">3D Printer</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          Data-driven comparisons, interactive tools, and honest reviews.
-          We score every printer across 5 dimensions so you don&apos;t have to guess.
+        <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+          Every printer scored across 5 dimensions. Interactive tools to help you decide.
+          No sponsored placements. Just data.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="/tools/cost-estimator"
-            className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            href="/tools/finder"
+            className="rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Print Cost Estimator
+            Find My Printer
           </a>
           <a
-            href="/best"
-            className="rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
+            href="/compare"
+            className="rounded-md border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
           >
-            Browse Best Picks
+            Compare Printers
+          </a>
+          <a
+            href="/tools/cost-estimator"
+            className="rounded-md border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
+          >
+            Cost Estimator
           </a>
         </div>
       </section>
 
       {/* Interactive Tools */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight">Interactive Tools</h2>
-        <p className="mt-1 text-muted-foreground">Calculators and tools to help you decide.</p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      <section className="py-12 border-t border-border/50">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Interactive Tools</h2>
+            <p className="mt-1 text-muted-foreground">Decide with data, not guesswork.</p>
+          </div>
+          <a href="/tools" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            View all &rarr;
+          </a>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ToolCard
+            href="/tools/finder"
+            icon="?"
+            title="Printer Finder"
+            description="6 questions. Your perfect match."
+          />
           <ToolCard
             href="/tools/cost-estimator"
-            title="Print Cost Estimator"
-            description="Calculate the real cost per print including filament, electricity, and wear."
+            icon="$"
+            title="Cost Estimator"
+            description="Real cost per print: filament + power + wear."
           />
           <ToolCard
             href="/tools/fdm-vs-resin"
-            title="FDM vs Resin Quiz"
-            description="Answer 5 questions and we'll tell you which technology is right for you."
-            coming
+            icon="vs"
+            title="FDM vs Resin"
+            description="Which technology fits your needs?"
           />
           <ToolCard
-            href="/tools/build-volume"
-            title="Build Volume Calculator"
-            description="Check if your model fits a specific printer's build plate."
-            coming
+            href="/compare"
+            icon="="
+            title="Compare"
+            description="Any two printers, side by side."
           />
         </div>
       </section>
 
       {/* Top Rated */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight">Top Rated Printers</h2>
-        <p className="mt-1 text-muted-foreground">
-          Scored across value, beginner-friendliness, print quality, speed, and reliability.
-        </p>
+      <section className="py-12 border-t border-border/50">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Top Rated</h2>
+            <p className="mt-1 text-muted-foreground">
+              Scored across value, beginner-friendliness, quality, speed, and reliability.
+            </p>
+          </div>
+          <a href="/best" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            View all {stats.total} &rarr;
+          </a>
+        </div>
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
-          {sortedPrinters.map((printer, i) => (
+          {topPrinters.map((printer, i) => (
             <PrinterCard key={printer.slug} printer={printer} rank={i + 1} />
           ))}
         </div>
       </section>
 
-      {/* Best For Categories */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight">Best Printers By Category</h2>
+      {/* Categories */}
+      <section className="py-12 border-t border-border/50">
+        <h2 className="text-2xl font-bold tracking-tight">Best By Category</h2>
         <p className="mt-1 text-muted-foreground">Quick picks for specific use cases.</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { tag: "beginners", label: "Best for Beginners", emoji: "1" },
-            { tag: "budget", label: "Best Budget Printers", emoji: "$" },
-            { tag: "miniatures", label: "Best for Miniatures", emoji: "M" },
-            { tag: "speed", label: "Fastest Printers", emoji: "S" },
-            { tag: "large-prints", label: "Best for Large Prints", emoji: "L" },
-            { tag: "engineering", label: "Best for Engineering", emoji: "E" },
-          ].map(({ tag, label, emoji }) => (
+          {CATEGORIES.map((cat) => (
             <a
-              key={tag}
-              href={`/best/${tag}`}
-              className="flex items-center gap-3 rounded-lg border border-border/50 p-4 transition-colors hover:border-border hover:bg-muted/50"
+              key={cat.tag}
+              href={`/best/${cat.tag}`}
+              className="rounded-lg border border-border/50 p-4 transition-colors hover:border-border hover:bg-muted/50"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-muted font-mono text-sm font-bold">
-                {emoji}
-              </span>
-              <span className="font-medium text-sm">{label}</span>
+              <span className="font-medium text-sm">{cat.label}</span>
+              <span className="block mt-0.5 text-xs text-muted-foreground">{cat.description}</span>
             </a>
           ))}
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <section className="py-12 border-t border-border/50">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <StatBlock value={stats.total} label="Printers Scored" />
+          <StatBlock value={stats.brands} label="Brands Covered" />
+          <StatBlock value={stats.fdm} label="FDM Printers" />
+          <StatBlock value={stats.resin} label="Resin Printers" />
         </div>
       </section>
     </div>
@@ -101,27 +144,34 @@ export default function Home() {
 
 function ToolCard({
   href,
+  icon,
   title,
   description,
-  coming,
 }: {
   readonly href: string;
+  readonly icon: string;
   readonly title: string;
   readonly description: string;
-  readonly coming?: boolean;
 }) {
   return (
     <a
       href={href}
-      className="group relative rounded-lg border border-border/50 p-5 transition-colors hover:border-border hover:bg-muted/50"
+      className="group rounded-lg border border-border/50 p-5 transition-colors hover:border-primary/30 hover:bg-primary/5"
     >
-      {coming && (
-        <span className="absolute top-3 right-3 rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
-          Coming soon
-        </span>
-      )}
-      <h3 className="font-semibold text-sm">{title}</h3>
+      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-muted font-mono text-sm font-bold group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+        {icon}
+      </span>
+      <h3 className="mt-3 font-semibold text-sm">{title}</h3>
       <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{description}</p>
     </a>
+  );
+}
+
+function StatBlock({ value, label }: { readonly value: number; readonly label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-3xl font-bold font-mono">{value}</div>
+      <div className="text-xs text-muted-foreground mt-1">{label}</div>
+    </div>
   );
 }
