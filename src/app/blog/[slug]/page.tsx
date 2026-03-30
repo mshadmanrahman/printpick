@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import type { BlogPosting, BreadcrumbList, WithContext } from "schema-dts";
 import { notFound } from "next/navigation";
 import { Calendar, ArrowLeft } from "lucide-react";
 import { getAllBlogPosts, getBlogPost, getPostPrinters } from "@/data/blog-posts";
 import { getOverallScore } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
+import { JsonLd } from "@/components/json-ld";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((p) => ({ slug: p.slug }));
@@ -20,12 +22,17 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    alternates: {
+      canonical: `https://printpick.dev/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
+      url: `https://printpick.dev/blog/${slug}`,
+      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.description)}`, width: 1200, height: 630, alt: post.title }],
     },
   };
 }
@@ -41,8 +48,38 @@ export default async function BlogPostPage({
 
   const items = getPostPrinters(post);
 
+  const articleSchema: WithContext<BlogPosting> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: { "@type": "Organization", name: "PrintPick", url: "https://printpick.dev" },
+    publisher: {
+      "@type": "Organization",
+      name: "PrintPick",
+      url: "https://printpick.dev",
+      logo: { "@type": "ImageObject", url: "https://printpick.dev/logo.svg" },
+    },
+    mainEntityOfPage: `https://printpick.dev/blog/${slug}`,
+    image: "https://printpick.dev/og-default.png",
+  };
+
+  const breadcrumbSchema: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://printpick.dev/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://printpick.dev/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://printpick.dev/blog/${slug}` },
+    ],
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
         <a

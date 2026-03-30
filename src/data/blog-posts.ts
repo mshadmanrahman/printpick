@@ -96,17 +96,17 @@ const blogPosts: readonly BlogPost[] = [
         body: "The Ender 3 series made 3D printing mainstream, and the V3 SE is the best version yet. At ~$200, you get auto-leveling and direct drive. Plus, the community support is unmatched — thousands of mods, guides, and upgrade paths.",
       },
       {
-        printerSlug: "elegoo-neptune-4",
+        printerSlug: "elegoo-neptune-4-pro",
         headline: "Best Speed for the Money",
         body: "The base Neptune 4 hits 500mm/s with Klipper out of the box. For under $250, that's absurd. Print quality is good (not great), but for functional parts and prototypes, speed matters more than surface finish.",
       },
       {
-        printerSlug: "kingroon-klp1",
+        printerSlug: "kingroon-kp3s-pro-v2",
         headline: "Best Enclosed Under $300",
         body: "Finding an enclosed printer under $300 is rare. The KLP1 delivers it with linear rails and Klipper firmware. The enclosure means you can print ABS and ASA without worrying about warping from drafts.",
       },
       {
-        printerSlug: "voxelab-aquila-x3",
+        printerSlug: "voxelab-aquila-x2",
         headline: "Best Ultra-Budget Option",
         body: "If you want to spend as little as possible and still get a functional printer, the Aquila X3 gets the job done. It won't win any speed or quality awards, but it prints reliably and costs less than a nice dinner for two.",
       },
@@ -131,12 +131,12 @@ const blogPosts: readonly BlogPost[] = [
         body: "The Saturn 4 Ultra is the resin printer everyone recommends for good reason. 12K resolution on a 10-inch screen means stunning detail at a build volume big enough for multiple miniatures at once. The tilting release system reduces peel force and dramatically improves print success rates.",
       },
       {
-        printerSlug: "anycubic-photon-mono-m7-pro",
+        printerSlug: "anycubic-photon-mono-4",
         headline: "Best for Miniature Painters",
         body: "14K resolution packed into a 10-inch screen gives you the finest detail money can buy. If you're painting D&D miniatures or Warhammer armies, the M7 Pro produces details so fine you'll need a magnifying glass to appreciate them.",
       },
       {
-        printerSlug: "phrozen-sonic-mini-9k",
+        printerSlug: "phrozen-sonic-mini-8k-s",
         headline: "Best Compact Resin Printer",
         body: "Small footprint, incredible detail. The Sonic Mini 9K fits on any desk and delivers 9K resolution on a 7-inch screen. Perfect if you print individual miniatures or small jewelry pieces and don't need a massive build plate.",
       },

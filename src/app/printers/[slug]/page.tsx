@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Product, BreadcrumbList, WithContext } from "schema-dts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
@@ -6,6 +7,7 @@ import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersB
 import { AmazonButton } from "@/components/amazon-button";
 import { PrinterCard } from "@/components/printer-card";
 import { CommunityBadge } from "@/components/community-badge";
+import { JsonLd } from "@/components/json-ld";
 
 export function generateStaticParams() {
   return printers.map((p) => ({ slug: p.slug }));
@@ -18,6 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${printer.name} Review — Score ${getOverallScore(printer)}/10`,
     description: `${printer.summary} Price: $${printer.price}. Scored ${getOverallScore(printer)}/10 across value, beginner-friendliness, print quality, speed, and reliability.`,
+    alternates: {
+      canonical: `https://printpick.dev/printers/${slug}`,
+    },
+    openGraph: {
+      title: `${printer.name} Review — Score ${getOverallScore(printer)}/10`,
+      description: `${printer.summary} Price: $${printer.price}.`,
+      url: `https://printpick.dev/printers/${slug}`,
+      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} — Score ${getOverallScore(printer)}/10 — ${printer.brand}`)}`, width: 1200, height: 630, alt: printer.name }],
+    },
   };
 }
 
@@ -76,8 +87,48 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
     .sort((a, b) => getOverallScore(b) - getOverallScore(a))
     .slice(0, 3);
 
+  const productSchema: WithContext<Product> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: printer.name,
+    description: printer.summary,
+    image: `https://printpick.dev${printer.image}`,
+    brand: { "@type": "Brand", name: printer.brand },
+    offers: {
+      "@type": "Offer",
+      url: getAmazonUrl(printer.amazonAsin, printer.name),
+      priceCurrency: "USD",
+      price: printer.price,
+      availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: overall,
+      bestRating: 10,
+      worstRating: 0,
+      ratingCount: Math.max(printer.reviews.length, 1),
+    },
+    review: printer.reviews.map((r) => ({
+      "@type": "Review",
+      reviewBody: r.quote,
+      author: { "@type": "Person", name: r.source },
+    })),
+  };
+
+  const breadcrumbSchema: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://printpick.dev/" },
+      { "@type": "ListItem", position: 2, name: "Printers", item: "https://printpick.dev/best" },
+      { "@type": "ListItem", position: 3, name: printer.name, item: `https://printpick.dev/printers/${printer.slug}` },
+    ],
+  };
+
   return (
     <div>
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* ── Hero Section — Bambu Lab inspired ── */}
       <section className="bg-gradient-to-b from-zinc-100 to-background">
         <div className="mx-auto max-w-5xl px-4 pt-6 pb-10">

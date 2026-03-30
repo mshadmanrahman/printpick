@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import type { WebSite, WithContext } from "schema-dts";
 import Image from "next/image";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import { SearchCommand } from "@/components/search-command";
+import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,6 +27,9 @@ export const metadata: Metadata = {
   description:
     "Data-driven 3D printer comparisons, interactive tools, and honest reviews. Find the right printer for your budget and use case.",
   metadataBase: new URL("https://printpick.dev"),
+  alternates: {
+    canonical: "https://printpick.dev",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -33,12 +38,21 @@ export const metadata: Metadata = {
     title: "PrintPick — Find Your Perfect 3D Printer",
     description:
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
+    images: [
+      {
+        url: "https://printpick.dev/api/og",
+        width: 1200,
+        height: 630,
+        alt: "PrintPick — Find Your Perfect 3D Printer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PrintPick — Find Your Perfect 3D Printer",
     description:
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
+    images: ["https://printpick.dev/api/og"],
   },
   robots: {
     index: true,
@@ -57,6 +71,21 @@ function Logo({ size = 28 }: { readonly size?: number }) {
     />
   );
 }
+
+const websiteSchema: WithContext<WebSite> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "PrintPick",
+  url: "https://printpick.dev",
+  description:
+    "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
+  publisher: {
+    "@type": "Organization",
+    name: "PrintPick",
+    url: "https://printpick.dev",
+    logo: { "@type": "ImageObject", url: "https://printpick.dev/logo.svg" },
+  },
+};
 
 const NAV_LINKS = [
   { href: "/tools/finder", label: "Finder" },
@@ -77,6 +106,7 @@ export default function RootLayout({
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <JsonLd data={websiteSchema} />
         <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
           <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
             <a href="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg">
