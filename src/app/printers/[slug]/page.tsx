@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import type { Product, BreadcrumbList, WithContext } from "schema-dts";
+import type { Product, BreadcrumbList, FAQPage, WithContext } from "schema-dts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
 import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersByBestFor } from "@/data/printers";
+import { getPostsForPrinter } from "@/data/blog-posts";
 import { AmazonButton } from "@/components/amazon-button";
 import { PrinterCard } from "@/components/printer-card";
 import { CommunityBadge } from "@/components/community-badge";
@@ -80,6 +81,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
   if (!printer) notFound();
 
   const overall = getOverallScore(printer);
+  const featuredInPosts = getPostsForPrinter(printer.slug);
   const related = printer.bestFor
     .flatMap((tag) => getPrintersByBestFor(tag))
     .filter((p) => p.slug !== printer.slug)
@@ -115,6 +117,33 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
     })),
   };
 
+  const faqSchema: WithContext<FAQPage> = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `How much does the ${printer.name} cost?`,
+        acceptedAnswer: { "@type": "Answer", text: `The ${printer.name} costs $${printer.price} on Amazon. It's a ${printer.type.toUpperCase()} printer from ${printer.brand}.` },
+      },
+      {
+        "@type": "Question",
+        name: `What is the build volume of the ${printer.name}?`,
+        acceptedAnswer: { "@type": "Answer", text: `The ${printer.name} has a build volume of ${printer.buildVolume.x} x ${printer.buildVolume.y} x ${printer.buildVolume.z} mm.` },
+      },
+      {
+        "@type": "Question",
+        name: `Is the ${printer.name} good for beginners?`,
+        acceptedAnswer: { "@type": "Answer", text: `The ${printer.name} scores ${printer.scores.beginner}/10 for beginner-friendliness. ${printer.scores.beginner >= 7 ? "It's a great choice for beginners." : printer.scores.beginner >= 5 ? "It's suitable for beginners with some patience." : "It's better suited for experienced users."}` },
+      },
+      {
+        "@type": "Question",
+        name: `What are the pros and cons of the ${printer.name}?`,
+        acceptedAnswer: { "@type": "Answer", text: `Pros: ${printer.pros.join(". ")}. Cons: ${printer.cons.join(". ")}.` },
+      },
+    ],
+  };
+
   const breadcrumbSchema: WithContext<BreadcrumbList> = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -128,6 +157,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
   return (
     <div>
       <JsonLd data={productSchema} />
+      <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
       {/* ── Hero Section — Bambu Lab inspired ── */}
       <section className="bg-gradient-to-b from-zinc-100 to-background">
@@ -350,6 +380,34 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     <ShoppingCart className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-medium group-hover:text-primary transition-colors">{item}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Featured In Blog Posts ── */}
+        {featuredInPosts.length > 0 && (
+          <section className="py-10 border-t border-border/50">
+            <h2 className="text-xl font-bold">Featured In</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Read more about the {printer.name} in our buying guides.
+            </p>
+            <div className="mt-4 grid gap-2">
+              {featuredInPosts.map((post) => (
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex items-center justify-between rounded-xl border border-border/60 bg-card px-4 py-3 transition-all hover:border-primary/30 hover:shadow-sm"
+                >
+                  <div className="min-w-0">
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary/70">
+                      {post.category}
+                    </span>
+                    <h3 className="text-sm font-medium group-hover:text-primary transition-colors truncate">
+                      {post.title}
+                    </h3>
+                  </div>
                 </a>
               ))}
             </div>

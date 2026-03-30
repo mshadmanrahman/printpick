@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { CATEGORIES, getPrintersByBestFor, getOverallScore } from "@/data/printers";
+import { getPostsForCategory } from "@/data/blog-posts";
 import { PrinterCard } from "@/components/printer-card";
 
 export function generateStaticParams() {
@@ -32,6 +33,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ tag: 
   const category = CATEGORIES.find((c) => c.tag === tag);
   if (!category) notFound();
 
+  const relatedBlogPosts = getPostsForCategory(tag);
   const categoryPrinters = [...getPrintersByBestFor(tag)].sort(
     (a, b) => getOverallScore(b) - getOverallScore(a),
   );
@@ -57,6 +59,29 @@ export default async function CategoryPage({ params }: { params: Promise<{ tag: 
             <PrinterCard key={printer.slug} printer={printer} rank={i + 1} />
           ))}
         </div>
+      )}
+
+      {/* Related Blog Posts */}
+      {relatedBlogPosts.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-xl font-bold">Buying Guides</h2>
+          <p className="mt-1 text-sm text-muted-foreground">In-depth guides for {category.label.toLowerCase()} printers.</p>
+          <div className="mt-4 grid gap-2">
+            {relatedBlogPosts.map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex items-center justify-between rounded-xl border border-border/60 bg-card px-4 py-3 text-sm transition-all hover:border-primary/30 hover:shadow-sm"
+              >
+                <div className="min-w-0">
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary/70">{post.category}</span>
+                  <h3 className="font-medium group-hover:text-primary transition-colors truncate">{post.title}</h3>
+                </div>
+                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+              </a>
+            ))}
+          </div>
+        </section>
       )}
 
       <section className="mt-12">

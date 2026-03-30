@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { BlogPosting, BreadcrumbList, WithContext } from "schema-dts";
 import { notFound } from "next/navigation";
 import { Calendar, ArrowLeft } from "lucide-react";
-import { getAllBlogPosts, getBlogPost, getPostPrinters } from "@/data/blog-posts";
+import { getAllBlogPosts, getBlogPost, getPostPrinters, getRelatedPosts } from "@/data/blog-posts";
 import { getOverallScore } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
 import { JsonLd } from "@/components/json-ld";
@@ -47,6 +47,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const items = getPostPrinters(post);
+  const relatedPosts = getRelatedPosts(post, 3);
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -174,6 +175,34 @@ export default async function BlogPostPage({
           {post.conclusion}
         </p>
       </section>
+
+      {/* Related Articles */}
+      {relatedPosts.length > 0 && (
+        <section className="mt-12 pt-8 border-t border-border/50">
+          <h2 className="text-lg font-bold mb-4">Related Articles</h2>
+          <div className="grid gap-3">
+            {relatedPosts.map((related) => (
+              <a
+                key={related.slug}
+                href={`/blog/${related.slug}`}
+                className="group flex items-start gap-4 rounded-xl border border-border/60 bg-card p-4 transition-all hover:border-primary/30 hover:shadow-sm"
+              >
+                <div className="flex-1 min-w-0">
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary/70">
+                    {related.category}
+                  </span>
+                  <h3 className="mt-1 text-sm font-semibold group-hover:text-primary transition-colors line-clamp-2">
+                    {related.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
+                    {related.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Back to blog */}
       <div className="mt-10 pt-8 border-t border-border/50">

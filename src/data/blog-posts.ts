@@ -33,6 +33,35 @@ export function getPostPrinters(post: BlogPost) {
     .filter((item) => item.printer !== undefined);
 }
 
+export function getRelatedPosts(post: BlogPost, limit = 3): readonly BlogPost[] {
+  const postPrinterSlugs = new Set(post.items.map((i) => i.printerSlug));
+  return blogPosts
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => {
+      const overlap = p.items.filter((i) => postPrinterSlugs.has(i.printerSlug)).length;
+      const categoryMatch = p.category === post.category ? 2 : 0;
+      return { post: p, score: overlap + categoryMatch };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((r) => r.post);
+}
+
+export function getPostsForPrinter(printerSlug: string): readonly BlogPost[] {
+  return blogPosts.filter((p) =>
+    p.items.some((i) => i.printerSlug === printerSlug),
+  );
+}
+
+export function getPostsForCategory(tag: string): readonly BlogPost[] {
+  return blogPosts.filter((p) =>
+    p.items.some((i) => {
+      const printer = getPrinterBySlug(i.printerSlug);
+      return printer?.bestFor.includes(tag);
+    }),
+  ).slice(0, 3);
+}
+
 const blogPosts: readonly BlogPost[] = [
   {
     slug: "best-3d-printers-beginners-2026",
