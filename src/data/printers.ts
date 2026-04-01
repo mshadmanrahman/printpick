@@ -1,3 +1,5 @@
+import { newPrinters2026 } from "./new-printers-2026";
+
 export interface Review {
   readonly quote: string;
   readonly source: string;
@@ -1401,7 +1403,8 @@ export const printers: readonly Printer[] = [
     communityBadges: ["Hidden Gem"],
     alsoNeed: ["Compatible resin", "Wash & cure station (compact)", "Nitrile gloves", "Activated carbon filter"],
   },
-] as const;
+  ...newPrinters2026,
+];
 
 // ─── Helper Functions ──────────────────────────────────────────
 

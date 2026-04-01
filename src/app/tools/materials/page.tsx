@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { MaterialFinder } from "./finder";
 
 export const metadata: Metadata = {
-  title: "Material Compatibility Finder — Best Material for Your Project",
-  description: "Find the right 3D printing material for your project. See which printers support PLA, ABS, Nylon, resin, and more.",
+  title: "3D Printer Material Guide — PLA vs PETG vs ABS vs TPU Compared",
+  description: "Which 3D printing filament should you use? Compare PLA, PETG, ABS, Nylon, TPU, and resin — see which materials work with your printer.",
 };
 
 export default function MaterialsPage() {

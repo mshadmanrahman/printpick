@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { UpgradeAdvisor } from "./advisor";
 
 export const metadata: Metadata = {
-  title: "Upgrade Path Advisor — What Should I Upgrade To?",
-  description: "Already have a 3D printer? Tell us which one and we'll recommend the best upgrade based on your needs.",
+  title: "Should I Upgrade My 3D Printer? Take the Quiz",
+  description: "Tell us your current 3D printer and what you wish it did better — we'll recommend the best upgrade based on your needs and budget.",
 };
 
 export default function UpgradePage() {

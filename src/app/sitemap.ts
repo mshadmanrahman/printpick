@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { printers, CATEGORIES } from "@/data/printers";
 import { getAllBlogPosts } from "@/data/blog-posts";
+import { generateComparisonPairs } from "@/lib/comparison-utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://printpick.dev";
@@ -45,5 +46,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...staticPages, ...printerPages, ...categoryPages, ...blogPages];
+  const comparisonPages: MetadataRoute.Sitemap = generateComparisonPairs().map(
+    (slug) => ({
+      url: `${base}/compare/${slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+      lastModified: lastDataUpdate,
+    }),
+  );
+
+  return [
+    ...staticPages,
+    ...printerPages,
+    ...categoryPages,
+    ...blogPages,
+    ...comparisonPages,
+  ];
 }

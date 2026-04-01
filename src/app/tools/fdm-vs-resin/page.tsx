@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { FdmVsResinQuiz } from "./quiz";
 
 export const metadata: Metadata = {
-  title: "FDM vs Resin — Which 3D Printing Technology Is Right for You?",
+  title: "FDM vs Resin Quiz — Which 3D Printing Technology Should You Choose?",
   description:
-    "Answer 5 quick questions and we'll tell you whether FDM (filament) or Resin (MSLA) 3D printing is better for your needs.",
+    "Not sure if you need FDM or resin? Take our 5-question quiz to find out which 3D printing technology matches your projects, space, and budget.",
 };
 
 export default function FdmVsResinPage() {

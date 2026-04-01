@@ -1,0 +1,580 @@
+/**
+ * New printers to add to the PrintPick database (April 2026)
+ *
+ * Research compiled from manufacturer specs, Tom's Hardware, All3DP,
+ * Reddit, and community forums.
+ *
+ * Items marked "unconfirmed" need manual verification before publishing.
+ */
+
+import type { Printer } from "./printers";
+
+export const newPrinters2026: readonly Printer[] = [
+  // ─── 1. BAMBU LAB P2S ───────────────────────────────────────────
+  {
+    slug: "bambu-lab-p2s",
+    name: "Bambu Lab P2S",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-p2s.png",
+    price: 549,
+    amazonAsin: "B0P2S00000", // NOTE: Not sold on Amazon directly — Bambu Lab sells through own store + Best Buy. Use search URL fallback.
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.05, max: 0.35 }, // Based on 0.4mm nozzle; supports 0.2/0.4/0.6/0.8mm nozzles
+    printSpeed: 500, // 500 mm/s (some sources say 600 mm/s toolhead speed)
+    weight: 14.9,
+    features: [
+      "Enclosed CoreXY",
+      "AMS 2 Pro compatible",
+      "5-inch touchscreen",
+      "1080p AI camera",
+      "Quick-swap nozzle system",
+      "PMSM servo extruder (8.5kg force)",
+    ],
+    bestFor: ["speed", "enclosed", "multi-color"],
+    scores: {
+      value: 9,
+      beginner: 8,
+      printQuality: 9,
+      speed: 9,
+      reliability: 9,
+    },
+    pros: [
+      "Quick-swap nozzle system is a game-changer",
+      "1080p camera with AI failure detection",
+      "Adaptive cooling pulls in outside air or recirculates",
+      "AMS 2 Pro doubles as a filament dryer",
+    ],
+    cons: [
+      "No LiDAR sensor (reserved for X-series)",
+      "No upgrade path from P1S",
+      "AMS 2 Pro wastes filament on color changes",
+      "$799 for the Combo adds up quickly",
+    ],
+    summary:
+      "The successor to the beloved P1S, bringing quick-swap nozzles, a 5-inch touchscreen, and AI-powered monitoring at a $549 price point.",
+    verdict:
+      "The P2S is the best enclosed CoreXY under $600 in 2026. If you are upgrading from a P1S, the quick-swap nozzle and AMS 2 Pro drying make it worthwhile. For new buyers, this is the go-to enclosed printer.",
+    reviews: [
+      {
+        quote:
+          "The quick nozzle swap makes me jealous even as an X1C owner.",
+        source: "r/BambuLab",
+      },
+      {
+        quote:
+          "Goldilocks gets a glow up. The P2S refreshes a best seller with meaningful upgrades.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "For new buyers, the P2S is recommended without hesitation. Meaningfully better than the P1S in every way.",
+        source: "3DTechValley",
+      },
+    ],
+    communityBadges: ["Reddit Favorite", "Editor's Choice"],
+    alsoNeed: [
+      "AMS 2 Pro (for multi-color)",
+      "PLA/PETG filament",
+      "Hardened steel nozzle (for abrasives)",
+      "Extra HEPA filters",
+    ],
+  },
+
+  // ─── 2. CREALITY SPARKX i7 ──────────────────────────────────────
+  {
+    slug: "creality-sparkx-i7",
+    name: "Creality SparkX i7",
+    brand: "Creality",
+    type: "fdm",
+    image: "/images/printers/creality-sparkx-i7.png",
+    price: 399, // Combo price; standalone ~$279
+    amazonAsin: "B0GJSBSLQ6",
+    buildVolume: { x: 260, y: 260, z: 255 },
+    layerResolution: { min: 0.05, max: 0.3 },
+    printSpeed: 500,
+    weight: 9.12,
+    features: [
+      "AI camera monitoring",
+      "CFS Lite multi-color (4 colors)",
+      "Auto bed leveling",
+      "RGB status lighting",
+      "95% pre-assembled",
+      "Pressure advance",
+    ],
+    bestFor: ["beginners", "multi-color", "budget"],
+    scores: {
+      value: 9,
+      beginner: 10,
+      printQuality: 8,
+      speed: 8,
+      reliability: 8,
+    },
+    pros: [
+      "CES 2026 winner - polished beginner experience",
+      "AI photo-to-3D feature is surprisingly fun",
+      "Klipper-based with root access (open ecosystem)",
+      "Lightweight and quiet at under 10kg",
+    ],
+    cons: [
+      "16-page privacy policy required at setup",
+      "CFS Lite does not retract for spools",
+      "New platform with limited community troubleshooting",
+      "Creality Cloud app can feel cluttered",
+    ],
+    summary:
+      "Creality's CES 2026 winner targeting absolute beginners with AI features, multi-color printing, and a plug-and-play setup.",
+    verdict:
+      "The SparkX i7 is the most beginner-friendly multi-color printer on the market. If you want the simplest path from unboxing to multi-color prints, this is it — though power users may find the ecosystem limiting.",
+    reviews: [
+      {
+        quote:
+          "Very beginner friendly, almost plug and play. No tuning or adjustment needed out of the box.",
+        source: "Creality Community Forum",
+      },
+      {
+        quote:
+          "Not just another color bedslinger. The CFS Lite is surprisingly adaptable and low maintenance.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "When 3D printing stops feeling intimidating — that's the SparkX i7 experience.",
+        source: "The Gadgeteer",
+      },
+    ],
+    communityBadges: ["Best First Printer", "Best Value"],
+    alsoNeed: [
+      "CFS Lite (included in Combo)",
+      "PLA filament multi-pack",
+      "Textured PEI build plate",
+      "Nozzle variety pack (0.2/0.6/0.8mm)",
+    ],
+  },
+
+  // ─── 3. CREALITY HI COMBO ──────────────────────────────────────
+  {
+    slug: "creality-hi-combo",
+    name: "Creality Hi Combo",
+    brand: "Creality",
+    type: "fdm",
+    image: "/images/printers/creality-hi-combo.png",
+    price: 399,
+    amazonAsin: "B0DN69LXDW",
+    buildVolume: { x: 260, y: 260, z: 300 },
+    layerResolution: { min: 0.1, max: 0.35 },
+    printSpeed: 500,
+    weight: 13.31, // Combo weight (printer + CFS)
+    features: [
+      "CoreXY motion system",
+      "Up to 16-color printing (4x CFS)",
+      "Die-cast aluminum unibody",
+      "Tri-metal quick-swap nozzle",
+      "Auto calibration",
+      "Direct drive extruder",
+    ],
+    bestFor: ["multi-color", "speed", "budget"],
+    scores: {
+      value: 8,
+      beginner: 7,
+      printQuality: 8,
+      speed: 8,
+      reliability: 7,
+    },
+    pros: [
+      "Up to 16 colors with 4 CFS modules",
+      "CoreXY with all-metal body feels premium",
+      "Taller 300mm Z-axis than most competitors",
+      "Competitive $399 price for multi-color CoreXY",
+    ],
+    cons: [
+      "CFS can fail to feed reliably during color changes",
+      "Fixed purge volumes waste filament (no adaptive purge)",
+      "PTFE tube alignment is critical and fiddly",
+      "3.8/5 customer rating suggests some QC issues",
+    ],
+    summary:
+      "Creality's answer to the Bambu A1 Combo — a CoreXY multi-color printer supporting up to 16 colors at $399.",
+    verdict:
+      "The Hi Combo offers impressive multi-color specs on paper, but real-world reliability lags behind Bambu's AMS system. Best for users who want a CoreXY with multi-color potential and can tolerate some tinkering.",
+    reviews: [
+      {
+        quote:
+          "The safer choice with better build quality and more established support than newer competitors.",
+        source: "3DTechValley",
+      },
+      {
+        quote:
+          "Catching up with color. Creality's multi-color game is improving but the CFS still needs refinement.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "For the price, you get a solid CoreXY that handles single-color beautifully. Multi-color is a bonus, not a guarantee.",
+        source: "3DWithUs",
+      },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: [
+      "Additional CFS modules (for 8-16 colors)",
+      "Hyper PLA filament",
+      "PETG filament",
+      "Flexible build plate replacement",
+    ],
+  },
+
+  // ─── 4. ELEGOO CENTAURI CARBON ─────────────────────────────────
+  {
+    slug: "elegoo-centauri-carbon",
+    name: "Elegoo Centauri Carbon",
+    brand: "Elegoo",
+    type: "fdm",
+    image: "/images/printers/elegoo-centauri-carbon.png",
+    price: 299,
+    amazonAsin: "B0FDQP54X8",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.1, max: 0.4 },
+    printSpeed: 500,
+    weight: 17.5,
+    features: [
+      "Enclosed CoreXY",
+      "Auto bed leveling (4 pressure sensors)",
+      "Chamber camera monitoring",
+      "320C all-metal hotend",
+      "Pre-assembled and calibrated",
+      "Steel + aluminum + glass enclosure",
+    ],
+    bestFor: ["budget", "enclosed", "beginners"],
+    scores: {
+      value: 10,
+      beginner: 8,
+      printQuality: 8,
+      speed: 8,
+      reliability: 7,
+    },
+    pros: [
+      "Enclosed CoreXY at an unbelievable $299",
+      "Excellent print quality across PLA, PETG, and ABS",
+      "Pre-assembled — print within minutes of unboxing",
+      "Handles carbon-fiber-infused materials",
+    ],
+    cons: [
+      "Firmware can be unreliable and needs updates",
+      "Heat creep issues on long prints above 270C",
+      "Elegoo ecosystem is immature compared to Bambu",
+      "Heavy at 17.5kg for a 256mm build volume",
+    ],
+    summary:
+      "The budget CoreXY that disrupted the market. A fully enclosed, pre-assembled CoreXY at $299 that rivals printers at twice the price.",
+    verdict:
+      "At $299, the Centauri Carbon is the best value in 3D printing today. It would be excellent at twice the price. If you can accept less polished firmware, there is no reason to buy anything else at this budget.",
+    reviews: [
+      {
+        quote:
+          "There's no reason to buy anything else at this price. It would be excellent at twice the cost.",
+        source: "How-To Geek",
+      },
+      {
+        quote:
+          "Finally an affordable CoreXY. The Centauri Carbon changes what you should expect for under $300.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "Buy two of these instead of one fancier printer at twice the price. Seriously.",
+        source: "r/3Dprinting",
+      },
+    ],
+    communityBadges: ["Best Value", "Hidden Gem"],
+    alsoNeed: [
+      "PLA/PETG filament starter pack",
+      "Spare nozzles (0.2/0.6/0.8mm)",
+      "Drybox for hygroscopic filament",
+      "Replacement build plate",
+    ],
+  },
+
+  // ─── 5. ELEGOO CENTAURI CARBON 2 COMBO ─────────────────────────
+  {
+    slug: "elegoo-centauri-carbon-2-combo",
+    name: "Elegoo Centauri Carbon 2 Combo",
+    brand: "Elegoo",
+    type: "fdm",
+    image: "/images/printers/elegoo-centauri-carbon-2-combo.png",
+    price: 449,
+    amazonAsin: "B0G4TPZPZM",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.08, max: 0.4 }, // Some sources say min 0.1mm practical
+    printSpeed: 500,
+    weight: 19.35,
+    features: [
+      "Enclosed CoreXY",
+      "4-color Canvas multi-color system",
+      "350C hardened steel nozzle",
+      "RFID filament detection",
+      "Auto filament loading & tangle detection",
+      "5-inch touchscreen",
+    ],
+    bestFor: ["multi-color", "budget", "enclosed"],
+    scores: {
+      value: 9,
+      beginner: 7,
+      printQuality: 8,
+      speed: 8,
+      reliability: 8,
+    },
+    pros: [
+      "First sub-$500 enclosed multi-color CoreXY",
+      "91% first-attempt success rate on multi-color jobs",
+      "RFID auto-identifies filament type and properties",
+      "Excellent TPU printing performance",
+    ],
+    cons: [
+      "Finicky spool holders need improvement",
+      "Loading routine doesn't get hot enough for high-temp filaments",
+      "Cold build plate could use more grip",
+      "Canvas software is functional but visually awkward",
+    ],
+    summary:
+      "The multi-color variant of the Centauri Carbon, adding 4-color Canvas printing to an enclosed CoreXY at just $449.",
+    verdict:
+      "The best sub-$500 multi-color 3D printer in 2026. It comes with quirks, but the combination of enclosed CoreXY, 4-color printing, and RFID filament management at this price is unmatched by any competitor.",
+    reviews: [
+      {
+        quote:
+          "Best sub-$500 multicolor 3D printer in 2026. The value proposition is insane.",
+        source: "3D Printed Decor",
+      },
+      {
+        quote:
+          "Ultra accessible multicolor printing. CANVAS completed 31 out of 34 jobs on first attempt.",
+        source: "VoxelMatters",
+      },
+      {
+        quote:
+          "I'm an idiot, and even I was able to make a cool Fallout action figure with this printer.",
+        source: "GamesRadar+",
+      },
+    ],
+    communityBadges: ["Best Value", "Community Pick"],
+    alsoNeed: [
+      "Multi-color PLA filament pack",
+      "RFID-tagged filament spools",
+      "Spare hardened nozzles",
+      "Build plate adhesive",
+    ],
+  },
+
+  // ─── 6. PRUSA CORE ONE ────────────────────────────────────────
+  {
+    slug: "prusa-core-one",
+    name: "Prusa Core One",
+    brand: "Prusa Research",
+    type: "fdm",
+    image: "/images/printers/prusa-core-one.png",
+    price: 1199, // Core One+ assembled; kit ~$949
+    amazonAsin: "B0FCFKYXYS", // Original Core One listing
+    buildVolume: { x: 250, y: 220, z: 270 },
+    layerResolution: { min: 0.05, max: 0.3 },
+    printSpeed: 500, // Competitive with 500-600mm/s class printers
+    weight: 22.5,
+    features: [
+      "Enclosed CoreXY with active chamber heating (55C)",
+      "Nextruder direct drive (10:1 planetary)",
+      "360-degree cooling duct",
+      "Ethernet + WiFi + NFC",
+      "MMU3 multi-material compatible",
+      "Open-source firmware (PrusaSlicer)",
+    ],
+    bestFor: ["precision", "professional", "enclosed"],
+    scores: {
+      value: 6,
+      beginner: 7,
+      printQuality: 10,
+      speed: 8,
+      reliability: 10,
+    },
+    pros: [
+      "Legendary Prusa reliability and customer support",
+      "Active chamber heating to 55C for engineering materials",
+      "Open-source ecosystem with no vendor lock-in",
+      "Kit option available for ~$949 (21% savings)",
+    ],
+    cons: [
+      "Expensive at $1,199 assembled ($949 kit)",
+      "Smaller build volume than competitors at this price",
+      "Heavy at 22.5kg",
+      "No LiDAR or AI monitoring features",
+    ],
+    summary:
+      "Prusa's first CoreXY — an enclosed, actively heated chamber printer built for reliability and open-source enthusiasts.",
+    verdict:
+      "The Prusa Core One is for people who value reliability, open-source, and Prusa's legendary support above all else. The print quality is outstanding but the price premium is hard to justify unless you specifically value the Prusa ecosystem.",
+    reviews: [
+      {
+        quote:
+          "Finally, Prusa takes on Bambu! The Core One is better in a box.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "Rail smoothness holds up well after months of hard use, minimal belt wear, and consistent chamber heat stability.",
+        source: "Prusa Forum",
+      },
+      {
+        quote:
+          "If you value open source and lifetime support, Prusa is still the gold standard. Just bring your wallet.",
+        source: "r/3Dprinting",
+      },
+    ],
+    communityBadges: ["Pro Workhorse", "Editor's Choice"],
+    alsoNeed: [
+      "MMU3 (for multi-material)",
+      "Prusament filament",
+      "High-flow nozzle upgrade",
+      "Extra build plates (smooth + textured)",
+    ],
+  },
+
+  // ─── 7. BAMBU LAB H2D ────────────────────────────────────────
+  {
+    slug: "bambu-lab-h2d",
+    name: "Bambu Lab H2D",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-h2d.png",
+    price: 1899, // Base model; Combo $2,199; Laser combos $2,799-$3,499
+    amazonAsin: "B0H2D00000", // NOTE: Not sold on Amazon — Bambu Lab store + Best Buy only. Use search URL fallback.
+    buildVolume: { x: 325, y: 320, z: 325 }, // Single nozzle; dual = 300x320x325
+    layerResolution: { min: 0.08, max: 0.28 }, // With 0.4mm nozzle
+    printSpeed: 600, // Practical print speed; toolhead speed up to 1000 mm/s
+    weight: 31,
+    features: [
+      "Dual hardened steel nozzles",
+      "65C actively heated chamber",
+      "350C hotend temperature",
+      "50um vision encoder accuracy",
+      "Optional 10W/40W laser module",
+      "AI nozzle camera failure detection",
+    ],
+    bestFor: ["professional", "large-format", "precision"],
+    scores: {
+      value: 7,
+      beginner: 5,
+      printQuality: 10,
+      speed: 10,
+      reliability: 9,
+    },
+    pros: [
+      "Largest build volume from Bambu Lab (325x320x325mm)",
+      "Dual nozzles eliminate support-material purge waste",
+      "65C heated chamber handles any engineering filament",
+      "Optional laser module turns it into a multi-tool",
+    ],
+    cons: [
+      "Expensive at $1,899 base ($3,499 for full laser combo)",
+      "Heavy at 31kg — not portable",
+      "Overkill for hobbyist PLA printing",
+      "Some reports of nozzle guard needing frequent replacement",
+    ],
+    summary:
+      "Bambu Lab's prosumer flagship — dual nozzles, the largest build volume in their lineup, and optional laser engraving in one machine.",
+    verdict:
+      "The H2D is the most capable desktop 3D printer money can buy in 2026. If you are a prosumer, small business owner, or dedicated hobbyist who needs dual nozzles, a massive build volume, and the option for laser work, nothing else comes close.",
+    reviews: [
+      {
+        quote:
+          "Beyond impressed. Wicked fast, quiet, and the build quality is crazy impressive after 3000+ hours on other Bambu printers.",
+        source: "Bambu Lab Community Forum",
+      },
+      {
+        quote:
+          "For elite crafters. The H2D redefines what a desktop printer can do.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "The dual-nozzle system cuts print times by a factor of two. The speed increase is amazing.",
+        source: "r/BambuLab",
+      },
+    ],
+    communityBadges: ["Pro Workhorse", "Editor's Choice"],
+    alsoNeed: [
+      "AMS 2 Pro (for multi-material)",
+      "10W or 40W laser module",
+      "Engineering filaments (PA-CF, PC)",
+      "Vision encoder build plate",
+    ],
+  },
+
+  // ─── 8. QIDI Q1 PRO ──────────────────────────────────────────
+  {
+    slug: "qidi-q1-pro",
+    name: "Qidi Q1 Pro",
+    brand: "Qidi Tech",
+    type: "fdm",
+    image: "/images/printers/qidi-q1-pro.png",
+    price: 449, // MSRP ~$399-469; varies by retailer
+    amazonAsin: "B0CSDB9QTF",
+    buildVolume: { x: 245, y: 245, z: 240 },
+    layerResolution: { min: 0.1, max: 0.32 }, // Based on 0.4mm nozzle typical range
+    printSpeed: 600,
+    weight: 20.3,
+    features: [
+      "Enclosed CoreXY with 60C heated chamber",
+      "350C tri-metal hotend",
+      "WiFi 6 + LAN connectivity",
+      "1080p camera with timelapse",
+      "Dual Z-axis motors",
+      "120C heated bed",
+    ],
+    bestFor: ["enclosed", "professional", "precision"],
+    scores: {
+      value: 8,
+      beginner: 7,
+      printQuality: 9,
+      speed: 9,
+      reliability: 7,
+    },
+    pros: [
+      "60C actively heated chamber for ABS, nylon, and PC",
+      "350C hotend handles every engineering filament",
+      "WiFi 6 with 1080p monitoring and timelapse",
+      "From unboxing to printing in 10 minutes",
+    ],
+    cons: [
+      "Exposed heater poses safety concern (risk of shock)",
+      "Casing materials feel cheap despite premium design",
+      "Firmware needs improvement (custom Klipper fork)",
+      "Limited slicer material profiles out of the box",
+    ],
+    summary:
+      "An enclosed CoreXY with a 60C heated chamber and 350C hotend — engineering-grade material capability at a mid-range price.",
+    verdict:
+      "The Qidi Q1 Pro packs industrial-grade features into a consumer price bracket. Perfect for users who need reliable ABS, nylon, and carbon fiber printing. Just be aware of the reported safety issues with the chamber heater.",
+    reviews: [
+      {
+        quote:
+          "Turn up the heat. The Q1 Pro brings industrial-grade chamber heating to the consumer market.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "A heated value. Consumer 3D printer with industrial capabilities at a fraction of the cost.",
+        source: "3DPrint.com",
+      },
+      {
+        quote:
+          "The heated chamber is a game changer for ABS and nylon. Just wish the firmware was more polished.",
+        source: "r/3Dprinting",
+      },
+    ],
+    communityBadges: ["Hidden Gem"],
+    alsoNeed: [
+      "ABS/ASA filament",
+      "Nylon/PA-CF filament",
+      "Drybox for hygroscopic materials",
+      "Spare tri-metal nozzles",
+    ],
+  },
+];

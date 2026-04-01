@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { NoiseEstimator } from "./estimator";
 
 export const metadata: Metadata = {
-  title: "Noise Level Estimator — Compare 3D Printer Noise",
-  description: "Compare 3D printer noise levels for bedroom, office, and workshop use. Find the quietest printer for your space.",
+  title: "3D Printer Noise Levels Compared — Find the Quietest Printer",
+  description: "Compare 3D printer noise levels for bedrooms, apartments, offices, and workshops. Interactive tool to find the quietest printer for your living space.",
 };
 
 export default function NoisePage() {

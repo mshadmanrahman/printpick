@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PrinterFinder } from "./finder";
 
 export const metadata: Metadata = {
-  title: "3D Printer Finder Quiz — Get a Personalized Recommendation",
+  title: "Which 3D Printer Should I Buy? Take the Free Quiz",
   description:
-    "Answer 6 questions about your budget, experience, and goals. We'll recommend the perfect 3D printer for you.",
+    "Not sure which 3D printer to get? Answer 6 quick questions about your budget, experience, and goals — we'll recommend the perfect printer for you.",
 };
 
 export default function FinderPage() {

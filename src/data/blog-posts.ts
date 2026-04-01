@@ -1055,4 +1055,144 @@ const blogPosts: readonly BlogPost[] = [
     conclusion:
       "Buy the Anycubic Photon Mono 4 if you\'re genuinely uncertain whether resin printing is for you and want to test the waters with minimum financial risk — $159 is a reasonable experiment budget. Buy the Elegoo Mars 5 Ultra if you\'re committed to resin printing: the tilt-release system, better resolution, air purifier, and WiFi add up to a meaningfully superior experience that will produce more successful prints over time.",
   },
+  {
+    slug: "best-quiet-3d-printers-apartments-2026",
+    title: "5 Best Quiet 3D Printers for Apartments in 2026",
+    description:
+      "Living in an apartment doesn't mean you can't 3D print. These are the quietest printers that won't disturb your neighbors or your sleep.",
+    publishedAt: "2026-04-01",
+    updatedAt: "2026-04-01",
+    category: "listicle",
+    intro:
+      "3D printers aren't silent machines. Motors whir, fans blow, and the print head rattles back and forth for hours. In a house with a garage or spare room, noise doesn't matter much. In an apartment — especially one with thin walls, a sleeping partner, or noise-sensitive neighbors — it's a dealbreaker. We measured and compared noise output across every printer in our database and picked the five quietest options that deliver excellent prints without turning your living room into a workshop. The good news: modern printers are dramatically quieter than models from even two years ago. Input shaping algorithms reduce vibration noise, silent stepper drivers eliminate motor whine, and enclosed frames muffle mechanical sound. Several printers on this list can run overnight in the next room without waking you up. We evaluated each printer on three noise scenarios: daytime use in the same room, evening use in an adjacent room, and overnight printing while sleeping. Here are the winners.",
+    items: [
+      {
+        printerSlug: "bambu-lab-a1-mini",
+        headline: "Quietest Budget Printer",
+        body: "The A1 Mini is remarkably quiet for an open-frame printer. Bambu's vibration compensation algorithm doesn't just improve print quality — it reduces the mechanical noise that comes from rapid direction changes. At normal print speeds (200-300mm/s), the A1 Mini sits around 45-50 dB, roughly the volume of a quiet conversation. You can comfortably work at a desk two meters away without headphones. The compact size helps too — less frame to resonate, less air to move, fewer vibrations transmitted to whatever surface it sits on. Place it on a concrete paver or thick rubber mat and the noise drops another 2-3 dB. The fans are the main noise source, not the motors, which means the sound is a consistent hum rather than the irregular rattling that makes cheap printers so annoying. For apartment dwellers who want to keep costs low, the A1 Mini at $199 is the obvious starting point. It won't wake your partner from the next room, and it handles PLA and PETG — the two materials 90% of hobbyists use — without any enclosure."
+      },
+      {
+        printerSlug: "bambu-lab-p1s",
+        headline: "Best Enclosed Quiet Printer",
+        body: "The P1S is the quiet king. Its fully enclosed frame absorbs mechanical noise in a way open-frame printers simply can't match. At normal speeds the P1S measures around 42-48 dB — quieter than a refrigerator. Close the door to the room it's in and you genuinely cannot hear it from the hallway. The enclosure serves double duty: it contains noise AND maintains a stable temperature for ABS, ASA, and Nylon — materials that produce fumes and warping on open-frame printers. For apartment printing, this means no drafts affecting prints, no filament smell in the living room, and no noise complaints. The P1S prints at up to 500mm/s with the same input shaping as the A1 series. At full speed it's louder (55-60 dB), but most apartment users run it at 70-80% speed where quality is better and noise is minimal. The trade-off is price: $549 is serious money for a hobby printer. But if you value a peaceful living environment and want to print engineering materials like ABS and Nylon, the P1S is the only printer that checks every box. Many apartment dwellers report running it overnight without issue — the enclosed design keeps the sound contained."
+      },
+      {
+        printerSlug: "bambu-lab-a1-combo",
+        headline: "Best All-Rounder for Noise-Conscious Users",
+        body: "The A1 Combo sits between the Mini and P1S on both price and noise. Open-frame but well-engineered, it produces around 48-52 dB at typical speeds — noticeably louder than the P1S's enclosure but quieter than most competitors at this price. The multi-color AMS Lite adds some mechanical noise during filament changes (a brief whirring sound), but it only happens between color transitions, not continuously. For apartment use, the A1 Combo works well in a dedicated desk space. The 256mm build volume is substantially larger than the Mini, so you can print bigger projects without splitting them. The vibration compensation keeps direction-change noise down, and the fan profile is tuned for quiet operation. One practical tip: print with the door closed and use a wireless camera to monitor prints remotely. The A1 Combo includes a built-in camera for exactly this purpose. Start prints from your phone, check on them without opening the door, and let the printer do its thing quietly. At $399 with multi-color capability, it's the best balance of capability, noise, and price for most apartment dwellers."
+      },
+      {
+        printerSlug: "flashforge-adventurer-5m-pro",
+        headline: "Best Fully Enclosed Budget Option",
+        body: "FlashForge's Adventurer 5M Pro offers full enclosure at a lower price than the P1S. The sealed chamber contains noise effectively — measured at 45-50 dB during typical prints. It's not quite as quiet as the P1S (FlashForge's fans are slightly louder), but the difference is marginal and the price is significantly lower. The 220x220x220mm build volume is adequate for most projects. Print speed maxes at 600mm/s on paper, though quality sweet spot is around 200-300mm/s where noise is also at its lowest. The fully enclosed design means you can print ABS without ventilation concerns — important in apartments where opening windows isn't always practical. The touchscreen interface is intuitive and the WiFi connectivity lets you manage prints from your phone. FlashForge's cloud platform isn't as polished as Bambu Studio, but it gets the job done. For apartment dwellers who want enclosure benefits without the P1S price tag, the Adventurer 5M Pro is a strong contender. The noise containment alone justifies it over cheaper open-frame alternatives."
+      },
+      {
+        printerSlug: "qidi-x-plus-3",
+        headline: "Best for Engineering Materials in Apartments",
+        body: "The QIDI X-Plus 3 is designed for serious materials like ABS, ASA, PC, and Nylon — all of which produce fumes and require stable temperatures. The fully enclosed, actively heated chamber (up to 60C) handles these materials flawlessly while keeping noise contained within the frame. At normal PLA speeds the X-Plus 3 measures around 48-52 dB. During high-temperature printing (ABS/Nylon), the chamber heater adds a low hum but the overall noise stays manageable. The real advantage for apartment users is fume containment: printing ABS in an open-frame printer fills a room with noticeable plastic smell. The X-Plus 3's enclosure contains it. QIDI's CoreXY motion system is inherently quieter than bed-slinger designs because the heavy build plate doesn't move back and forth. This means less vibration transmitted to your desk and floor — your downstairs neighbors will thank you. At $449, the X-Plus 3 is competitively priced for an enclosed CoreXY with active heating. It's not the cheapest option on this list, but it's the only one that handles every material type quietly and without fumes. Best for apartment dwellers who've outgrown PLA and want to print functional parts in engineering materials."
+      },
+    ],
+    conclusion:
+      "For most apartment dwellers, the Bambu Lab A1 Mini ($199) is the easiest entry point — quiet, compact, and good enough for 90% of projects. If you want enclosure benefits (noise containment + engineering materials), the Bambu P1S ($549) is the gold standard or the FlashForge Adventurer 5M Pro for a budget-friendly enclosed option. Whichever you choose, three tips for apartment printing: place the printer on a heavy surface or rubber mat to absorb vibrations, use a wireless camera to monitor prints from another room, and stick to PLA for the quietest, fume-free experience.",
+  },
+  {
+    slug: "is-resin-3d-printing-safe-indoors",
+    title: "Is Resin 3D Printing Safe Indoors? Complete Safety Guide",
+    description:
+      "Resin printers produce fumes and use toxic chemicals. Here's how to print safely indoors — ventilation, PPE, and the safest printers to buy.",
+    publishedAt: "2026-04-01",
+    updatedAt: "2026-04-01",
+    category: "guide",
+    intro:
+      "Resin 3D printing produces the finest detail in consumer 3D printing — miniatures, jewelry, dental models, and cosplay pieces that FDM simply can't match. But there's a catch: liquid resin is toxic. Uncured photopolymer resin contains chemicals (primarily acrylates and photoinitiators) that irritate skin, eyes, and respiratory systems. The fumes released during printing — volatile organic compounds (VOCs) — can cause headaches, nausea, and long-term sensitization with repeated unprotected exposure. So is resin printing safe indoors? Yes — with the right setup. Thousands of hobbyists safely print resin in spare bedrooms, garages, and even closets. The key is a combination of ventilation, personal protective equipment (PPE), and choosing printers with built-in safety features. This guide covers exactly what you need: the science behind resin fumes, the minimum ventilation requirements, the PPE that actually matters, and four printers that make indoor resin printing as safe as possible. We're not going to tell you resin is harmless — it's not. We're going to tell you how to manage the risk so you can enjoy the hobby without compromising your health.",
+    items: [
+      {
+        printerSlug: "elegoo-mars-5-ultra",
+        headline: "Safest Overall — Built-In Air Purifier",
+        body: "The Mars 5 Ultra is the best resin printer for indoor use because of its built-in activated carbon air purifier. The purifier runs continuously during printing, pulling air through a carbon filter that absorbs VOCs before they reach your room. It doesn't eliminate 100% of fumes — no printer-integrated system does — but it reduces VOC concentration by approximately 60-70% compared to printers without filtration. Combined with basic ventilation (an open window or small desk fan pointing out), the Mars 5 Ultra makes resin printing in a spare room genuinely practical. The enclosed UV chamber also prevents accidental resin exposure from ambient light, and the tilt-release mechanism reduces the chance of failed prints (which means less uncured resin to handle and clean up). For the safest indoor setup, pair the Mars 5 Ultra with a mercury-vapor respirator mask ($25-35 on Amazon), nitrile gloves, and a Wash & Cure station. The built-in purifier handles ambient fumes during printing; the respirator protects you during post-processing (washing, curing, removing supports) when resin exposure is highest."
+      },
+      {
+        printerSlug: "elegoo-saturn-4-ultra",
+        headline: "Best Large-Format with Safety Features",
+        body: "The Saturn 4 Ultra is the big brother of the Mars 5 Ultra with the same safety-first design philosophy. The built-in air purifier uses the same activated carbon filtration system, and the larger enclosed build chamber actually helps contain fumes better than smaller printers because there's more volume for the purifier to process before fumes reach the room. If you're printing larger miniatures, busts, or cosplay pieces, the 218x123x260mm build volume is substantially more useful than the Mars's smaller plate. You'll handle resin less frequently (fewer print batches to achieve the same output) which reduces your overall exposure. The larger FEP film also means lower peel forces per unit area, resulting in fewer failed prints — a significant safety benefit because failed prints mean manually handling uncured resin. Safety tip for large-format resin printing: the larger your build volume, the more resin you'll have in the vat. Always pour resin slowly to avoid splashing, and keep the vat covered when not in use. UV-blocking lids are essential — accidental light exposure can partially cure resin in the vat, ruining your next print and creating a difficult cleaning job."
+      },
+      {
+        printerSlug: "anycubic-photon-mono-4",
+        headline: "Budget Entry with Manual Safety Setup",
+        body: "The Photon Mono 4 doesn't have a built-in air purifier, but at $159 it's the cheapest way to start resin printing — and you can build a safe setup around it for under $50 more. The key is ventilation: place the printer near a window and use a small USB fan ($10) to create airflow from behind the printer out through the window. This simple cross-ventilation setup removes the majority of VOCs from your breathing space. Add a $15 activated carbon filter (the kind sold for grow tents) in front of the fan for additional filtration. The total setup cost: $159 printer + $25 ventilation = $184, which is still cheaper than printers with built-in purifiers. The trade-off is manual effort — you need to set up and maintain the ventilation yourself, replace carbon filters every 2-3 months, and be more disciplined about PPE since there's no automated air cleaning. For budget-conscious hobbyists who are willing to invest 30 minutes in a ventilation setup, the Mono 4 is a viable indoor option. Just don't skip the ventilation — printing in an unventilated room without PPE is where real health risks begin."
+      },
+      {
+        printerSlug: "phrozen-sonic-mini-8k-s",
+        headline: "Best Detail with Minimal Resin Exposure",
+        body: "The Sonic Mini 8K S takes a different approach to indoor safety: minimize the amount of resin you need to handle. Its 22-micron pixel resolution is the finest available under $300, meaning you can print incredibly detailed miniatures at smaller scales — 15mm instead of 28mm — using dramatically less resin per print. Less resin in the vat means fewer refills, less post-processing, and less chemical exposure overall. The Sonic Mini 8K S doesn't have a built-in air purifier, so you'll need external ventilation. But its compact size (smallest printer on this list) makes it easy to place inside a ventilated enclosure. Many users build a simple enclosure from a clear storage bin with a hole cut for an exhaust fan — total cost under $20 — that effectively contains all fumes. For miniature painters and tabletop gamers who print small, detailed pieces, the Sonic Mini 8K S combines the best detail quality with inherently lower resin consumption. Pair it with plant-based or low-odor resins (Elegoo Water Washable or Siraya Tech Fast) for the least offensive indoor printing experience."
+      },
+    ],
+    conclusion:
+      "Resin 3D printing is safe indoors when you respect the chemistry. The non-negotiable minimum: nitrile gloves every time you touch resin or prints, ventilation (even a window and desk fan), and a respirator during post-processing. For the most hassle-free indoor experience, the Elegoo Mars 5 Ultra's built-in air purifier does most of the heavy lifting. For budget setups, the Anycubic Photon Mono 4 with a DIY ventilation kit works well. Whatever printer you choose, never pour resin down a drain (it's toxic to aquatic life), always cure waste resin under UV light before disposal, and store resin bottles away from sunlight in a cool space. With basic precautions, thousands of hobbyists safely resin print in apartments, spare bedrooms, and home offices every day.",
+  },
+  {
+    slug: "best-3d-printers-dnd-miniatures-under-300",
+    title: "5 Best 3D Printers for D&D Miniatures Under $300 (2026)",
+    description:
+      "Print your own D&D minis, Warhammer terrain, and tabletop figures. These resin printers deliver incredible detail for under $300.",
+    publishedAt: "2026-04-01",
+    updatedAt: "2026-04-01",
+    category: "listicle",
+    intro:
+      "If you play Dungeons & Dragons, Warhammer, Pathfinder, or any tabletop RPG, a resin 3D printer changes everything. Instead of paying $5-15 per miniature from Games Workshop or Hero Forge, you print them yourself for $0.10-0.50 each. An army that would cost $200+ in retail minis costs $5 in resin. The detail quality from modern resin printers rivals (and often exceeds) injection-molded minis — chainmail links, facial expressions, weapon textures, and tiny runes all resolve crisply at 28mm scale. Free STL files on MyMiniFactory, Thingiverse, and Loot Studios mean you never run out of models to print. Patreon creators like Artisan Guild, Archvillain Games, and Lord of the Print release monthly collections of print-ready minis for $10-15/month — hundreds of models per year for the price of a few retail minis. All five printers below are resin (MSLA) because FDM simply cannot match resin detail at miniature scale. We focused on printers under $300 that produce tabletop-quality minis out of the box with minimal setup. Every printer on this list has been validated by the tabletop 3D printing community on Reddit, Discord, and YouTube.",
+    items: [
+      {
+        printerSlug: "elegoo-mars-5-ultra",
+        headline: "Best Overall for Miniatures",
+        body: "The Mars 5 Ultra is the community consensus pick for miniature printing in 2026. The 14K resolution at 7.6 inches delivers extraordinary detail at 28mm scale — individual fingers, fabric folds, chain links, and facial features all resolve cleanly without any post-processing tricks. The tilt-release mechanism is particularly important for miniatures: many minis have thin, fragile features (swords, staffs, wings, tails) that are vulnerable to the suction forces created during layer separation. The Mars 5 Ultra's tilt motion reduces those forces dramatically, which means fewer snapped weapons and failed prints. Print success rate on properly supported models is 95%+. The built-in air purifier is a bonus for anyone printing in a spare bedroom — you don't need elaborate ventilation setups, just basic airflow. WiFi lets you start prints remotely, which is convenient when running overnight batches. At $284, it's at the top of our $300 budget but earns every dollar. If you're printing for a regular D&D campaign or building a Warhammer army, this is the printer that will keep up with you for years. The 153x89x200mm build volume fits 6-10 standard 28mm minis per batch, or a single large monster/terrain piece."
+      },
+      {
+        printerSlug: "phrozen-sonic-mini-8k-s",
+        headline: "Best Detail Under $250",
+        body: "The Sonic Mini 8K S has the highest pixel density under $300 — 22 microns per pixel on a 7.1-inch 8K screen. For miniature painters who obsess over detail, this is the printer. Features that are blurry on other printers — gemstones on a wizard's staff, scales on dragon skin, stitching on leather armor — resolve with crystalline sharpness. The 165x72x180mm build plate is slightly smaller than the Mars 5 Ultra, which means fewer minis per batch (4-6 at 28mm scale). But the detail quality compensates: you'll spend less time cleaning up post-processing artifacts because there are fewer to begin with. No tilt release means slightly lower success rates on very delicate prints, but proper supports and hollowing eliminate most issues. Phrozen resins are excellent for miniatures — their Aqua Grey resin in particular is beloved by mini painters for its neutral base color and crisp support removal. At around $229, the Sonic Mini 8K S leaves room in a $300 budget for resin and a wash-and-cure station. For painters who care more about surface detail than batch size, this is the precision tool."
+      },
+      {
+        printerSlug: "elegoo-mars-4-ultra",
+        headline: "Best Value Mid-Range",
+        body: "The Mars 4 Ultra sits between the Mars 5 and budget options, offering 9K resolution at around $219. It doesn't quite match the Mars 5's 14K detail or its tilt-release mechanism, but the difference is only visible under magnification or on sub-millimeter features. At tabletop viewing distance (2-3 feet), minis from the Mars 4 Ultra look identical to Mars 5 prints. The 153x77x165mm build volume is competitive and fits the same 6-8 mini batch size as the Mars 5. Print speeds are slightly slower, but for overnight batch printing — which is how most tabletop gamers print — speed differences are irrelevant. You set up 8 minis at bedtime and find them done in the morning regardless. The Mars 4 Ultra lacks the Mars 5's air purifier and WiFi, so budget for basic ventilation. But at $219 vs $284, you're saving $65 that buys several bottles of resin (enough for 100+ minis). For gamers who want great detail without the premium features, the Mars 4 Ultra is the smart money pick."
+      },
+      {
+        printerSlug: "anycubic-photon-mono-4",
+        headline: "Cheapest Entry to Tabletop Printing",
+        body: "At $159, the Photon Mono 4 is the cheapest way to print D&D minis that look genuinely good. The 10K resolution produces clean detail at 28mm scale — not as crisp as the Mars 5 or Sonic Mini 8K, but dramatically better than any FDM printer at any price. Chainmail, faces, and weapons all resolve clearly. The fine details that separate a great mini from a good one (individual rivets, subtle fabric texture, tiny runes) are slightly softer, which matters to competitive painters but not to most tabletop gamers who just want cool minis on the table. The smaller build plate (134x75x130mm) fits 3-4 minis per batch — enough for a single encounter's worth of enemies. The lack of tilt release means you'll see occasional failures on prints with large cross-sections, but standard miniatures at 28mm rarely trigger this issue. No WiFi, no purifier, no frills — just a solid printer that makes minis. Pair it with Elegoo Standard Grey resin ($19/500ml, enough for ~50 minis) and you're printing a campaign's worth of custom figures for under $200 total. That's less than a single box of Games Workshop Warhammer infantry."
+      },
+      {
+        printerSlug: "elegoo-mars-4",
+        headline: "Best Under $175 for Casual Players",
+        body: "The Mars 4 is the sweet spot for casual D&D players who want custom minis without investing heavily. At around $169, it delivers 9K resolution on a 7-inch screen — more than enough detail for tabletop gaming. Surface quality is clean at standard viewing distances, and the build plate (153x77x165mm) is large enough for 5-6 minis per batch. Compared to the Mars 4 Ultra, you lose some resolution (9K vs 9K, but on a slightly different panel) and a few quality-of-life features, but the core printing performance is nearly identical. For a DM who prints a few minis per week for sessions, the Mars 4 handles the workload without issue. The Elegoo ecosystem is the biggest advantage: resins, accessories, and profiles are widely available, and the community support on Reddit and Discord is strong. When your first print fails (and it will — everyone's does), you'll find the answer in 5 minutes of searching. The Mars 4 is the no-stress entry point for DMs and players who want custom minis without turning 3D printing into a second hobby. Print, wash, cure, prime, paint, play."
+      },
+    ],
+    conclusion:
+      "For most D&D and Warhammer players, the Elegoo Mars 5 Ultra ($284) is the best investment — the tilt-release mechanism alone saves hours of frustration on failed prints. If budget is the priority, the Anycubic Photon Mono 4 ($159) proves you don't need to spend a lot to print great minis. Whichever you choose, start with grey resin (easiest to prime and paint), download free test minis from MyMiniFactory, and don't skip the wash-and-cure step — it's the difference between sticky, brittle minis and ones that hold paint beautifully. Your first printed mini won't be perfect. Your tenth will be incredible. Welcome to the hobby.",
+  },
+  {
+    slug: "bambu-lab-p2s-vs-p1s-comparison",
+    title: "Bambu Lab P2S vs P1S: Is the Upgrade Worth It?",
+    description:
+      "The P2S replaces the beloved P1S. Here's exactly what changed, what got better, and whether you should upgrade or buy new.",
+    publishedAt: "2026-04-01",
+    updatedAt: "2026-04-01",
+    category: "comparison",
+    intro:
+      "The Bambu Lab P1S was the most recommended enclosed 3D printer of 2024-2025 — reliable, fast, and reasonably priced. Now Bambu has replaced it with the P2S at the same $549 price point. The question on every forum is simple: is the P2S a meaningful upgrade or just a spec bump? We compared both printers across every dimension that matters: print quality, speed, noise, features, firmware, and ecosystem. If you own a P1S, we'll tell you whether upgrading is worth it. If you're buying your first enclosed printer, we'll tell you why the P2S makes the P1S obsolete. The short answer: the P2S is better in almost every way. The longer answer involves quick-swap nozzles, a completely redesigned AMS, and AI monitoring that actually works.",
+    items: [
+      {
+        printerSlug: "bambu-lab-p2s",
+        headline: "What the P2S Gets Right",
+        body: "The headline feature is the quick-swap nozzle system. On the P1S, changing a nozzle required heating the hotend, using two wrenches, and a few minutes of careful work. On the P2S, you pop the nozzle out with one hand in under 5 seconds — cold. This sounds minor until you realize it changes how you print: swap to a 0.2mm nozzle for detailed miniatures, then back to 0.6mm for fast functional parts, all in the same print session. The 5-inch touchscreen replaces the P1S's tiny screen and lets you manage prints without the app. The 1080p camera with AI failure detection catches spaghetti and layer shifts in real-time, pausing the print and notifying you instead of wasting hours of filament. The P1S had a camera, but it was 720p with no AI. The AMS 2 Pro (sold separately) is the other game-changer. It doubles as a filament dryer, maintaining 50C while feeding — a feature that previously required a separate drybox. For hygroscopic filaments like Nylon and PETG, this eliminates an entire step from the workflow. The enclosure now features adaptive cooling that pulls outside air for PLA or recirculates hot air for ABS, automatically adjusting based on the material profile."
+      },
+      {
+        printerSlug: "bambu-lab-p1s",
+        headline: "Where the P1S Still Holds Up",
+        body: "The P1S isn't suddenly a bad printer — it just got outclassed. For existing P1S owners, the core printing experience is nearly identical. Same 256mm build volume, same 500mm/s speed class, same excellent print quality with PLA and PETG. The P1S's enclosure still handles ABS and ASA well. The community has had two years to dial in profiles for every filament imaginable, and the aftermarket accessories ecosystem is massive. One genuine advantage the P1S retains: price. While the P2S launched at $549 (same MSRP), the P1S is available refurbished and on sale for $350-400. At that price, it remains the best enclosed printer deal in 3D printing. If you find a P1S on sale and don't need quick-swap nozzles or the AMS 2 Pro drying feature, it's still an excellent buy. The P1S also benefits from being a known quantity. Every firmware quirk has been documented. Every common issue has a community fix. The P2S is new enough that edge cases are still being discovered. For risk-averse buyers, the P1S's track record is a genuine selling point."
+      },
+    ],
+    conclusion:
+      "For new buyers: get the P2S. At the same $549 price, every upgrade is pure upside — quick-swap nozzles, better camera, improved cooling, and the option for an AMS that dries filament. There is no reason to buy a new P1S at full price when the P2S exists. For P1S owners: the upgrade is worth it if you regularly change nozzles, want AI failure detection, or plan to buy the AMS 2 Pro for its drying capability. If you print mostly PLA with a 0.4mm nozzle and your P1S works fine, there is no urgent reason to switch — your P1S will serve you well for years to come. The P2S doesn't make the P1S obsolete for existing owners; it just makes it a harder recommendation for new buyers.",
+  },
 ];

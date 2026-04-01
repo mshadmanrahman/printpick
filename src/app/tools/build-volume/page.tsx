@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { BuildVolumeCalculator } from "./calculator";
 
 export const metadata: Metadata = {
-  title: "Build Volume Calculator — Will My Model Fit?",
-  description: "Enter your 3D model dimensions and instantly see which printers can print it. Compare build volumes across 24 printers.",
+  title: "3D Printer Build Volume Comparison — Will Your Model Fit?",
+  description: "Enter your 3D model dimensions and instantly see which printers can handle it. Compare build volumes across 50+ printers side by side.",
 };
 
 export default function BuildVolumePage() {

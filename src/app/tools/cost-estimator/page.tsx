@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { CostEstimator } from "./cost-estimator";
 
 export const metadata: Metadata = {
-  title: "3D Print Cost Estimator",
+  title: "3D Printing Cost Calculator — How Much Does Each Print Cost?",
   description:
-    "Calculate the real cost of any 3D print. Factor in filament, electricity, printer depreciation, and print time to know exactly what each print costs you.",
+    "Calculate the real cost of any 3D print — filament, electricity, printer wear, and time. Find out exactly how much 3D printing costs per hour and per part.",
 };
 
 export default function CostEstimatorPage() {
