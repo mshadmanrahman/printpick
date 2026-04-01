@@ -22,7 +22,9 @@ export function GET() {
       <g:availability>in_stock</g:availability>
       <g:brand>${escapeXml(p.brand)}</g:brand>
       <g:condition>new</g:condition>
+      <g:identifier_exists>false</g:identifier_exists>
       <g:product_type>Electronics &gt; Print, Copy, Scan &amp; Fax &gt; 3D Printers</g:product_type>
+      <g:google_product_category>6996</g:google_product_category>
     </item>`,
     )
     .join("\n");
