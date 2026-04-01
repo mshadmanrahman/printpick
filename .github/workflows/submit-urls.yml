@@ -1,0 +1,25 @@
+name: Submit URLs to Search Engines
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/data/**"
+      - "src/app/**"
+      - "public/**"
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for Vercel deployment
+        run: sleep 90
+
+      - name: Submit URLs to search engines
+        run: node scripts/submit-urls.mjs
