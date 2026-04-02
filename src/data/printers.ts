@@ -54,17 +54,10 @@ export interface Printer {
   readonly alsoNeed?: readonly string[];
 }
 
-export const AFFILIATE_TAG = "printpick20-20";
-
-export function getAmazonUrl(asin: string, printerName?: string): string {
-  // Use search URL for reliable links — always finds the product even if ASIN changes
-  // The affiliate tag works on search pages too
-  if (printerName) {
-    const query = encodeURIComponent(printerName + " 3D Printer");
-    return `https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAG}`;
-  }
-  return `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAG}`;
-}
+// Re-export affiliate link utilities from the centralized module.
+// All consumers can continue importing from "@/data/printers" or use "@/lib/amazon-affiliate" directly.
+export { AFFILIATE_TAG, getAmazonUrl, getAmazonLink } from "@/lib/amazon-affiliate";
+export type { AmazonLink, AmazonLinkType } from "@/lib/amazon-affiliate";
 
 export const printers: readonly Printer[] = [
   // ─── BAMBU LAB ───────────────────────────────────────────────

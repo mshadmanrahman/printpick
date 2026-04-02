@@ -1,7 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { track } from "@vercel/analytics";
-import { getAmazonUrl } from "@/data/printers";
+import { getAmazonLink } from "@/lib/amazon-affiliate";
 import { cn } from "@/lib/utils";
 
 interface AmazonButtonProps {
@@ -12,9 +13,16 @@ interface AmazonButtonProps {
 }
 
 export function AmazonButton({ asin, printerName, label = "Check Price on Amazon", className }: AmazonButtonProps) {
+  const link = useMemo(
+    () => getAmazonLink(asin, printerName ?? asin),
+    [asin, printerName],
+  );
+
   const handleClick = () => {
     track("affiliate_click", {
       asin,
+      resolved_asin: link.resolvedAsin ?? "none",
+      link_type: link.type,
       printer: printerName ?? asin,
       destination: "amazon",
     });
@@ -22,7 +30,7 @@ export function AmazonButton({ asin, printerName, label = "Check Price on Amazon
 
   return (
     <a
-      href={getAmazonUrl(asin, printerName)}
+      href={link.url}
       target="_blank"
       rel="noopener noreferrer nofollow sponsored"
       onClick={handleClick}
