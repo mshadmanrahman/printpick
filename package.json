@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "catalog:refresh": "node scripts/catalog-refresh.mjs",
+    "catalog:refresh:verified": "node scripts/catalog-refresh.mjs --verification-file reports/asin-verification.json"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
