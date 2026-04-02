@@ -3,6 +3,7 @@ import type { WebSite, WithContext } from "schema-dts";
 import Image from "next/image";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import { SearchCommand } from "@/components/search-command";
@@ -124,6 +125,9 @@ export default function RootLayout({
           </nav>
         </header>
         <Analytics />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
         <main className="flex-1">{children}</main>
         <footer className="border-t border-border/50 py-10 mt-16 bg-muted/30">
           <div className="mx-auto max-w-5xl px-4">
