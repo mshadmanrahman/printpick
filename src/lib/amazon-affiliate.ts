@@ -25,6 +25,8 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0P2S00000": null,
   // Bambu Lab H2D — not sold on Amazon, only through Bambu store + Best Buy
   "B0H2D00000": null,
+  // Elegoo Saturn 4 Ultra — ASIN delisted/404 as of 2026-04-04, fallback to search
+  "B0D9FM4KFN": null,
 };
 
 export type AmazonLinkType = "direct" | "search";
