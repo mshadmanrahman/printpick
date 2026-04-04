@@ -38,7 +38,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
           src={printer.image}
           alt={printer.name}
           fill
-          className="object-contain p-8 transition-transform duration-500 group-hover:scale-[1.04]"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-card to-transparent" />
