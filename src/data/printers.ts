@@ -142,32 +142,7 @@ export const printers: readonly Printer[] = [
     communityBadges: ["Reddit Favorite", "Pro Workhorse"],
     alsoNeed: ["AMS (multi-material system)", "ABS/ASA filament", "Hardened steel nozzle", "Extra HEPA filters"],
   },
-  {
-    slug: "bambu-lab-x1-carbon",
-    name: "Bambu Lab X1 Carbon",
-    brand: "Bambu Lab",
-    type: "fdm",
-    image: "/images/printers/bambu-lab-x1-carbon.png",
-    price: 1199,
-    amazonAsin: "B0BZ3CR7WW",
-    buildVolume: { x: 256, y: 256, z: 256 },
-    layerResolution: { min: 0.05, max: 0.35 },
-    printSpeed: 500,
-    weight: 14.13,
-    features: ["Enclosed", "Multi-material (AMS)", "Hardened steel nozzle", "LiDAR", "Camera", "Active chamber heating"],
-    bestFor: ["engineering", "carbon-fiber", "professional"],
-    scores: { value: 7, beginner: 7, printQuality: 10, speed: 9, reliability: 10 },
-    pros: ["Hardened nozzle for abrasive filaments", "LiDAR for first-layer inspection", "Best-in-class reliability", "Handles every material"],
-    cons: ["Expensive", "Same build volume as P1S", "Overkill for PLA-only users"],
-    summary: "The prosumer benchmark. Hardened nozzle handles carbon fiber and glass-filled filaments.",
-    verdict: "Only buy this over the P1S if you regularly print carbon fiber, glass-filled nylon, or other abrasive materials. For everything else, the P1S is the smarter buy.",
-    reviews: [
-      { quote: "If you print carbon fiber or glass-filled nylon regularly, nothing else at this price does it this well.", source: "CNC Kitchen (YouTube)" },
-      { quote: "The X1C is the benchmark every new printer gets compared to. That says everything.", source: "r/BambuLab" },
-    ],
-    communityBadges: ["Pro Workhorse", "Editor's Choice"],
-    alsoNeed: ["Carbon fiber filament", "AMS (multi-material system)", "Spare hardened nozzles", "Drybox for hygroscopic filament"],
-  },
+  // X1 Carbon removed — discontinued by Bambu Lab (replaced by H2D series)
   // ─── CREALITY ────────────────────────────────────────────────
   {
     slug: "creality-ender-3-v3-se",

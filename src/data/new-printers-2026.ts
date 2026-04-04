@@ -31,11 +31,11 @@ export const newPrinters2026: readonly Printer[] = [
       "Quick-swap nozzle system",
       "PMSM servo extruder (8.5kg force)",
     ],
-    bestFor: ["speed", "enclosed", "multi-color"],
+    bestFor: ["speed", "enclosed", "multi-color", "engineering"],
     scores: {
       value: 9,
-      beginner: 8,
-      printQuality: 9,
+      beginner: 9,
+      printQuality: 10,
       speed: 9,
       reliability: 9,
     },
@@ -570,6 +570,77 @@ export const newPrinters2026: readonly Printer[] = [
       },
     ],
     communityBadges: ["Hidden Gem"],
+    alsoNeed: [
+      "ABS/ASA filament",
+      "Nylon/PA-CF filament",
+      "Drybox for hygroscopic materials",
+      "Spare tri-metal nozzles",
+    ],
+  },
+
+  // ─── 9. QIDI Q2 ─────────────────────────────────────────────
+  {
+    slug: "qidi-q2",
+    name: "Qidi Q2",
+    brand: "Qidi Tech",
+    type: "fdm",
+    image: "/images/printers/qidi-q2.png",
+    price: 499,
+    amazonAsin: "B0DX2YGHB4",
+    buildVolume: { x: 230, y: 230, z: 240 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 16.5,
+    features: [
+      "Enclosed CoreXY with 65C heated chamber",
+      "350C tri-metal hotend",
+      "WiFi 6 + Ethernet",
+      "1080p AI camera monitoring",
+      "Quick-swap nozzle system",
+      "PEI spring steel build plate",
+    ],
+    bestFor: ["engineering", "enclosed", "speed"],
+    scores: {
+      value: 9,
+      beginner: 8,
+      printQuality: 9,
+      speed: 9,
+      reliability: 8,
+    },
+    pros: [
+      "65C heated chamber handles ABS, nylon, PC, and carbon fiber",
+      "Quick-swap nozzle rivaling Bambu's convenience",
+      "Excellent value at $499 for enclosed CoreXY with chamber heating",
+      "Improved firmware over Q1 Pro with better material profiles",
+    ],
+    cons: [
+      "Qidi ecosystem still smaller than Bambu's",
+      "Build volume slightly smaller than competitors at this price",
+      "Community resources less developed than Bambu/Creality",
+      "Heavier than open-frame printers at 16.5kg",
+    ],
+    summary:
+      "Qidi's refined enclosed CoreXY with 65C heated chamber — the best-value engineering printer under $500.",
+    verdict:
+      "The Qidi Q2 is the engineering printer to beat under $500. If you print ABS, nylon, or carbon-fiber composites regularly, the heated chamber and 350C hotend at this price are unmatched. The only reason to spend more is for Bambu's software polish.",
+    reviews: [
+      {
+        quote:
+          "The Q2 is what the Q1 Pro should have been. Qidi finally nailed the firmware.",
+        source: "r/3Dprinting",
+      },
+      {
+        quote:
+          "Best enclosed printer under $500. The heated chamber is the real deal for engineering materials.",
+        source: "All3DP",
+      },
+      {
+        quote:
+          "I'd put the Q2 above the P1S for anyone printing engineering materials. The chamber heating makes that much difference.",
+        source: "r/3Dprinting",
+      },
+    ],
+    communityBadges: ["Best Value", "Hidden Gem"],
     alsoNeed: [
       "ABS/ASA filament",
       "Nylon/PA-CF filament",
