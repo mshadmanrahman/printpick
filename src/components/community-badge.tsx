@@ -19,7 +19,7 @@ export function CommunityBadge({ badge, compact }: { readonly badge: BadgeType; 
 
   if (compact) {
     return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold backdrop-blur-sm ${config.bg} ${config.color}`}>
+      <span className={`inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/75 px-2 py-0.5 text-[10px] font-semibold backdrop-blur-sm ${config.color}`}>
         <Icon className="h-2.5 w-2.5" />
         {badge}
       </span>
