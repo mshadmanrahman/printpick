@@ -36,11 +36,6 @@ export const metadata: Metadata = {
   description:
     "Data-driven 3D printer comparisons, interactive tools, and honest reviews. Find the right printer for your budget and use case.",
   metadataBase: new URL("https://printpick.dev"),
-  verification: {
-    other: {
-      "google-adsense-account": "ca-pub-4427522210484094",
-    },
-  },
   alternates: {
     canonical: "https://printpick.dev",
   },
@@ -118,6 +113,9 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${dmSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-4427522210484094" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <JsonLd data={websiteSchema} />
         <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
