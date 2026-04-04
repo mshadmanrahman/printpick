@@ -36,6 +36,11 @@ export const metadata: Metadata = {
   description:
     "Data-driven 3D printer comparisons, interactive tools, and honest reviews. Find the right printer for your budget and use case.",
   metadataBase: new URL("https://printpick.dev"),
+  verification: {
+    other: {
+      "google-adsense-account": "ca-pub-4427522210484094",
+    },
+  },
   alternates: {
     canonical: "https://printpick.dev",
   },
