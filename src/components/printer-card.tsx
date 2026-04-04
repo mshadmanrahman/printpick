@@ -16,8 +16,8 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
     <div className="group relative flex flex-col rounded-2xl border border-border/60 bg-card overflow-hidden hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-black/20">
       <a href={`/printers/${printer.slug}`} className="absolute inset-0 z-0" aria-label={`View ${printer.name}`} />
 
-      {/* Image — dominant, fills width */}
-      <div className="relative w-full aspect-[4/3] bg-muted/20 overflow-hidden">
+      {/* Image — fixed aspect, consistent framing */}
+      <div className="relative w-full aspect-[4/3] bg-card overflow-hidden">
         {rank !== undefined && rank <= 3 && (
           <span className="absolute top-2.5 left-2.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground shadow">
             #{rank}
@@ -29,18 +29,19 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
           </span>
         )}
         {topBadge && (
-          <div className="absolute top-2.5 right-2.5 z-10 relative">
+          <div className="absolute top-2.5 right-2.5 z-10">
             <CommunityBadge badge={topBadge} compact />
           </div>
         )}
+        {/* Consistent padding + object-contain so all images feel same visual weight */}
         <Image
           src={printer.image}
           alt={printer.name}
           fill
-          className="object-contain p-5 transition-transform duration-500 group-hover:scale-105"
+          className="object-contain p-8 transition-transform duration-500 group-hover:scale-[1.04]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-card/80 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-card to-transparent" />
         <span className="absolute bottom-2 left-2.5 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
           {printer.type}
         </span>
