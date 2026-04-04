@@ -155,12 +155,26 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
   };
 
   return (
-    <div>
+    <div className="pb-20 sm:pb-0">
       <JsonLd data={productSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
-      {/* ── Hero Section — Bambu Lab inspired ── */}
-      <section className="bg-gradient-to-b from-zinc-100 to-background">
+      {/* ── Sticky mobile CTA ── */}
+      <div className="fixed bottom-0 inset-x-0 z-50 sm:hidden border-t border-border/60 bg-background/95 backdrop-blur-lg px-4 py-3 flex items-center gap-3">
+        <div className="flex-1 min-w-0">
+          <p className="text-xs font-semibold truncate">{printer.name}</p>
+          <p className="text-lg font-extrabold leading-none" style={{ fontFamily: "var(--font-mono)" }}>${printer.price}</p>
+        </div>
+        <AmazonButton
+          asin={printer.amazonAsin}
+          printerName={printer.name}
+          label="Buy on Amazon"
+          className="shrink-0 text-sm py-2.5 px-4"
+        />
+      </div>
+
+      {/* ── Hero Section ── */}
+      <section className="bg-gradient-to-b from-card/60 to-background">
         <div className="mx-auto max-w-5xl px-4 pt-6 pb-10">
           {/* Breadcrumb */}
           <nav className="text-xs text-muted-foreground mb-6">
@@ -281,24 +295,24 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
         {/* ── Pros & Cons ── */}
         <section className="pb-10 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 p-5">
-            <h3 className="font-semibold text-emerald-700">Pros</h3>
+          <div className="rounded-xl border border-emerald-600/25 bg-emerald-950/20 p-5">
+            <h3 className="font-semibold text-emerald-400">Pros</h3>
             <ul className="mt-3 space-y-2">
               {printer.pros.map((pro) => (
                 <li key={pro} className="flex gap-2 text-sm">
-                  <span className="text-emerald-600 shrink-0 font-bold">+</span>
-                  <span className="text-emerald-900">{pro}</span>
+                  <span className="text-emerald-500 shrink-0 font-bold">+</span>
+                  <span className="text-foreground/80">{pro}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border border-red-600/20 bg-red-50 p-5">
-            <h3 className="font-semibold text-red-700">Cons</h3>
+          <div className="rounded-xl border border-red-600/25 bg-red-950/20 p-5">
+            <h3 className="font-semibold text-red-400">Cons</h3>
             <ul className="mt-3 space-y-2">
               {printer.cons.map((con) => (
                 <li key={con} className="flex gap-2 text-sm">
-                  <span className="text-red-600 shrink-0 font-bold">-</span>
-                  <span className="text-red-900">{con}</span>
+                  <span className="text-red-500 shrink-0 font-bold">−</span>
+                  <span className="text-foreground/80">{con}</span>
                 </li>
               ))}
             </ul>

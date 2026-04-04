@@ -75,7 +75,6 @@ function Logo({ size = 28 }: { readonly size?: number }) {
       alt="PrintPick logo"
       width={size}
       height={size}
-      className="rounded-lg"
     />
   );
 }

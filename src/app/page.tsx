@@ -46,7 +46,7 @@ const IDENTITY_PATHS = [
     description: "Easy setup, massive community support, forgiving of mistakes.",
     priceRange: "$150 – $400",
     image: "/images/gallery/first-printer-hero.png",
-    href: "/best/beginners",
+    href: "/tier/first-printer",
   },
   {
     id: "maker",
@@ -55,7 +55,7 @@ const IDENTITY_PATHS = [
     description: "More speed, more materials, more control over every print.",
     priceRange: "$300 – $700",
     image: "/images/gallery/maker-hero.png",
-    href: "/best/speed",
+    href: "/tier/maker",
   },
   {
     id: "professional",
@@ -64,7 +64,7 @@ const IDENTITY_PATHS = [
     description: "Engineering-grade filaments, enclosed chambers, zero babysitting.",
     priceRange: "$600+",
     image: "/images/gallery/professional-hero.png",
-    href: "/best/professional",
+    href: "/tier/professional",
   },
   {
     id: "resin",
@@ -73,7 +73,7 @@ const IDENTITY_PATHS = [
     description: "Miniatures, jewelry, dental. 20-micron layers.",
     priceRange: "$200 – $600",
     image: "/images/gallery/resin-hero.png",
-    href: "/best/resin",
+    href: "/tier/resin",
   },
 ] as const;
 

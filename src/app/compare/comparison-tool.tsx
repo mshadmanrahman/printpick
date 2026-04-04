@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
+import { Trophy, ArrowUp, Link } from "lucide-react";
 import { printers, type Printer, getOverallScore, getAmazonUrl } from "@/data/printers";
 import { AmazonButton } from "@/components/amazon-button";
 
@@ -82,6 +83,16 @@ function ScoreCompare({
 export function ComparisonTool() {
   const [printerA, setPrinterA] = useState<Printer | null>(null);
   const [printerB, setPrinterB] = useState<Printer | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = useCallback(() => {
+    if (!printerA || !printerB) return;
+    const url = `${window.location.origin}/compare/${printerA.slug}-vs-${printerB.slug}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [printerA, printerB]);
 
   return (
     <div className="mt-8">
@@ -90,8 +101,46 @@ export function ComparisonTool() {
         <PrinterSelector label="Printer B" selected={printerB} onSelect={setPrinterB} exclude={printerA?.slug ?? null} />
       </div>
 
-      {printerA && printerB && (
+      {printerA && printerB && (() => {
+          const overallA = getOverallScore(printerA);
+          const overallB = getOverallScore(printerB);
+          const winner = overallA > overallB ? printerA : overallB > overallA ? printerB : null;
+          const priceDelta = Math.abs(printerA.price - printerB.price);
+          const moreExpensive = printerA.price > printerB.price ? printerA : printerB;
+          const cheaper = printerA.price > printerB.price ? printerB : printerA;
+          const winnerScore = winner ? (winner.slug === printerA.slug ? overallA : overallB) : null;
+          const loserScore = winner ? (winner.slug === printerA.slug ? overallB : overallA) : null;
+          return (
         <div className="mt-8">
+          {/* Winner banner */}
+          {winner && (
+            <div className="mb-6 flex items-center gap-3 rounded-xl border border-[color:var(--winner)]/40 bg-[color:var(--winner)]/8 px-4 py-3.5">
+              <Trophy className="h-5 w-5 text-[color:var(--winner)] shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold">
+                  <span className="text-[color:var(--winner)]">{winner.name}</span>
+                  {" "}wins overall
+                  <span className="ml-2 text-xs font-normal text-muted-foreground">({winnerScore}/10 vs {loserScore}/10)</span>
+                </p>
+                {priceDelta > 0 && (
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {moreExpensive.slug === winner.slug
+                      ? `Better performance for $${priceDelta} more — worth it if this is your primary tool`
+                      : `Better performance AND $${priceDelta} cheaper than the ${moreExpensive.name}`}
+                  </p>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={handleShare}
+                className="shrink-0 flex items-center gap-1.5 rounded-lg border border-border/60 bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground hover:border-border transition-all"
+              >
+                <Link className="h-3 w-3" />
+                {copied ? "Copied!" : "Share"}
+              </button>
+            </div>
+          )}
+
           {/* Header with images */}
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="text-center">
@@ -204,7 +253,8 @@ export function ComparisonTool() {
             Green = unique to that printer. Gray = both printers have this feature.
           </p>
         </div>
-      )}
+          );
+      })()}
 
       {/* Popular Comparisons */}
       {(!printerA || !printerB) && (
