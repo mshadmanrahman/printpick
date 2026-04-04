@@ -267,7 +267,7 @@ export function ComparisonTool() {
               ["elegoo-mars-5-ultra", "anycubic-photon-mono-4"],
               ["bambu-lab-a1-combo", "anycubic-kobra-3-combo"],
               ["creality-k1-max", "sovol-sv08"],
-              ["bambu-lab-x1-carbon", "prusa-mk4s"],
+              ["bambu-lab-p2s", "prusa-core-one"],
             ].map(([slugA, slugB]) => {
               const a = printers.find((p) => p.slug === slugA);
               const b = printers.find((p) => p.slug === slugB);
