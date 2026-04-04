@@ -42,7 +42,7 @@ function PrinterCardAnchor({
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border transition-all ${
+      className={`flex flex-col rounded-2xl border overflow-hidden transition-all ${
         isBest
           ? "border-[color:var(--winner)] bg-card shadow-lg shadow-black/30 sm:-translate-y-3 z-10"
           : variant === "step-up"
@@ -50,17 +50,18 @@ function PrinterCardAnchor({
           : "border-border/60 bg-card/60 hover:border-border"
       }`}
     >
-      {/* Label badge */}
+      {/* Label strip — inline, no absolute positioning */}
       <div
-        className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${
+        className={`flex items-center justify-center gap-1.5 py-2 text-[10px] font-bold uppercase tracking-widest border-b ${
           isBest
-            ? "bg-[color:var(--winner)] text-black"
+            ? "bg-[color:var(--winner)]/15 border-[color:var(--winner)]/30 text-[color:var(--winner)]"
             : variant === "step-up"
-            ? "bg-[color:var(--step-up)] text-black"
-            : "bg-secondary text-muted-foreground border border-border"
+            ? "bg-[color:var(--step-up)]/10 border-[color:var(--step-up)]/20 text-[color:var(--step-up)]"
+            : "bg-secondary/50 border-border/40 text-muted-foreground"
         }`}
       >
-        {isBest ? "★ Best Value" : label}
+        {isBest && <span>★</span>}
+        {isBest ? "Best Value" : label}
       </div>
 
       {/* Printer image */}

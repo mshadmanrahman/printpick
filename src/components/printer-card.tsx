@@ -6,6 +6,88 @@ import { type Printer, getOverallScore } from "@/data/printers";
 import { AmazonButton } from "./amazon-button";
 import { CommunityBadge } from "./community-badge";
 
+// ─── Grid card (image-forward, used on /best page) ───────────────────────────
+
+export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; readonly rank?: number }) {
+  const overall = getOverallScore(printer);
+  const topBadge = printer.communityBadges[0];
+
+  return (
+    <div className="group relative flex flex-col rounded-2xl border border-border/60 bg-card overflow-hidden hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-black/20">
+      <a href={`/printers/${printer.slug}`} className="absolute inset-0 z-0" aria-label={`View ${printer.name}`} />
+
+      {/* Image — dominant, fills width */}
+      <div className="relative w-full aspect-[4/3] bg-muted/20 overflow-hidden">
+        {rank !== undefined && rank <= 3 && (
+          <span className="absolute top-2.5 left-2.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground shadow">
+            #{rank}
+          </span>
+        )}
+        {rank !== undefined && rank > 3 && (
+          <span className="absolute top-2.5 left-2.5 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-[10px] font-bold text-white">
+            {rank}
+          </span>
+        )}
+        {topBadge && (
+          <div className="absolute top-2.5 right-2.5 z-10 relative">
+            <CommunityBadge badge={topBadge} compact />
+          </div>
+        )}
+        <Image
+          src={printer.image}
+          alt={printer.name}
+          fill
+          className="object-contain p-5 transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-card/80 to-transparent" />
+        <span className="absolute bottom-2 left-2.5 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
+          {printer.type}
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col gap-2.5 p-4 flex-1">
+        <div>
+          <p className="text-[11px] text-muted-foreground">{printer.brand}</p>
+          <h3
+            className="font-semibold text-sm leading-tight mt-0.5 group-hover:text-primary transition-colors"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            {printer.name}
+          </h3>
+        </div>
+
+        {/* Score bar */}
+        <div className="flex items-center gap-2">
+          <div className="flex-1 h-1 rounded-full bg-border overflow-hidden">
+            <div className="h-full bg-primary rounded-full" style={{ width: `${overall * 10}%` }} />
+          </div>
+          <span className="text-[11px] font-mono font-semibold text-primary tabular-nums">{overall}/10</span>
+        </div>
+
+        {/* Price + CTA */}
+        <div className="flex items-center justify-between mt-auto pt-1">
+          <span
+            className="text-xl font-bold tabular-nums"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            ${printer.price}
+          </span>
+          <div className="relative z-10">
+            <AmazonButton
+              asin={printer.amazonAsin}
+              printerName={printer.name}
+              label="Buy"
+              className="text-xs px-3 py-1.5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface PrinterCardProps {
   readonly printer: Printer;
   readonly rank?: number;

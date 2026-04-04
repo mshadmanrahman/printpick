@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { WebSite, WithContext } from "schema-dts";
 import Image from "next/image";
-import { Sora, Outfit, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { MobileNav } from "@/components/mobile-nav";
@@ -10,13 +10,13 @@ import { SearchCommand } from "@/components/search-command";
 import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
-const sora = Sora({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -110,7 +110,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${outfit.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${dmSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <JsonLd data={websiteSchema} />
