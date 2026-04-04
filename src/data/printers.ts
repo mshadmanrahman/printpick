@@ -52,6 +52,8 @@ export interface Printer {
   readonly reviews: readonly Review[];
   readonly communityBadges: readonly CommunityBadge[];
   readonly alsoNeed?: readonly string[];
+  /** Direct brand store URL with affiliate tracking (e.g., Bambu, Elegoo, Creality). */
+  readonly brandUrl?: string;
 }
 
 // Re-export affiliate link utilities from the centralized module.

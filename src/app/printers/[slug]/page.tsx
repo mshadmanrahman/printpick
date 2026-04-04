@@ -6,6 +6,7 @@ import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
 import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersByBestFor } from "@/data/printers";
 import { getPostsForPrinter } from "@/data/blog-posts";
 import { AmazonButton } from "@/components/amazon-button";
+import { BrandButton } from "@/components/brand-button";
 import { PrinterCard } from "@/components/printer-card";
 import { CommunityBadge } from "@/components/community-badge";
 import { JsonLd } from "@/components/json-ld";
@@ -251,13 +252,21 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     <div className="text-2xl font-bold text-primary">{overall}<span className="text-sm font-normal text-muted-foreground">/10</span></div>
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col gap-2">
                   <AmazonButton
                     asin={printer.amazonAsin}
                     printerName={printer.name}
                     label={`Buy on Amazon — $${printer.price}`}
                     className="w-full justify-center py-3 text-base font-semibold"
                   />
+                  {printer.brandUrl && (
+                    <BrandButton
+                      brandUrl={printer.brandUrl}
+                      printerName={printer.name}
+                      brand={printer.brand}
+                      className="w-full justify-center py-2.5 text-sm"
+                    />
+                  )}
                 </div>
               </div>
             </div>

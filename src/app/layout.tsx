@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { WebSite, WithContext } from "schema-dts";
+import Script from "next/script";
 import Image from "next/image";
 import { Space_Grotesk, DM_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -133,6 +134,13 @@ export default function RootLayout({
         <Analytics />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
         )}
         <main className="flex-1">{children}</main>
         <footer className="border-t border-border/50 py-10 mt-16 bg-muted/30">
