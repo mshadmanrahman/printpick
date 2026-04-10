@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils";
 interface AmazonButtonProps {
   readonly asin: string;
   readonly printerName?: string;
+  readonly price?: number;
   readonly label?: string;
   readonly className?: string;
 }
 
-export function AmazonButton({ asin, printerName, label = "Check Price on Amazon", className }: AmazonButtonProps) {
+export function AmazonButton({ asin, printerName, price, label = "Check Price on Amazon", className }: AmazonButtonProps) {
   const link = useMemo(
     () => getAmazonLink(asin, printerName ?? asin),
     [asin, printerName],
@@ -26,6 +27,17 @@ export function AmazonButton({ asin, printerName, label = "Check Price on Amazon
       printer: printerName ?? asin,
       destination: "amazon",
     });
+
+    fetch("/api/affiliate-notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        printer: printerName ?? asin,
+        price: price ?? null,
+        asin,
+        linkType: link.type,
+      }),
+    }).catch(() => {});
   };
 
   return (

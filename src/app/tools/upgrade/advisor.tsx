@@ -101,7 +101,7 @@ export function UpgradeAdvisor() {
                           {scoreDiff > 0 ? `+${scoreDiff.toFixed(1)}` : scoreDiff.toFixed(1)} score
                         </div>
                       </div>
-                      <AmazonButton asin={target.amazonAsin} printerName={target.name} label="Check Price" className="text-xs px-3 py-1.5" />
+                      <AmazonButton asin={target.amazonAsin} printerName={target.name} price={target.price} label="Check Price" className="text-xs px-3 py-1.5" />
                     </div>
                   </div>
                 </div>

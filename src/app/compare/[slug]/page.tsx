@@ -288,6 +288,7 @@ export default async function ComparisonPage({
                 <AmazonButton
                   asin={printer.amazonAsin}
                   printerName={printer.name}
+                  price={printer.price}
                 />
               </div>
             </div>
@@ -444,6 +445,7 @@ export default async function ComparisonPage({
                   <AmazonButton
                     asin={printer.amazonAsin}
                     printerName={printer.name}
+                    price={printer.price}
                     label={`Get ${printer.name} — $${printer.price}`}
                   />
                 </div>

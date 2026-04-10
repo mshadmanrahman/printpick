@@ -139,6 +139,7 @@ function PrinterCardAnchor({
           <AmazonButton
             asin={printer.amazonAsin}
             printerName={printer.name}
+            price={printer.price}
             label={isBest ? "Check Best Price" : "Check Price"}
             className={`w-full justify-center text-sm py-2.5 ${isBest ? "" : "opacity-80 hover:opacity-100"}`}
           />

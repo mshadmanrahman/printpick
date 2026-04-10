@@ -79,6 +79,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
             <AmazonButton
               asin={printer.amazonAsin}
               printerName={printer.name}
+              price={printer.price}
               label="Buy"
               className="text-xs px-3 py-1.5"
             />
@@ -210,7 +211,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             </div>
           </div>
           <div className="relative z-10">
-            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} label="Check Price" className="text-xs px-3 py-1.5" />
+            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} price={printer.price} label="Check Price" className="text-xs px-3 py-1.5" />
           </div>
         </div>
       </div>

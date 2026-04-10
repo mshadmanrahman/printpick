@@ -167,7 +167,7 @@ export function FdmVsResinQuiz() {
                 </div>
                 <div className="shrink-0 ml-4 text-right">
                   <div className="font-bold">${p.price}</div>
-                  <AmazonButton asin={p.amazonAsin} printerName={p.name} label="Buy" className="mt-1 text-xs px-3 py-1" />
+                  <AmazonButton asin={p.amazonAsin} printerName={p.name} price={p.price} label="Buy" className="mt-1 text-xs px-3 py-1" />
                 </div>
               </div>
             ))}

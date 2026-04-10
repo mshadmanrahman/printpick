@@ -167,7 +167,7 @@ export function PrinterFinder() {
             {top.printer.verdict}
           </p>
           <div className="mt-4">
-            <AmazonButton asin={top.printer.amazonAsin} printerName={top.printer.name} />
+            <AmazonButton asin={top.printer.amazonAsin} printerName={top.printer.name} price={top.printer.price} />
           </div>
         </div>
 
@@ -188,7 +188,7 @@ export function PrinterFinder() {
                       <p className="text-xs text-muted-foreground">{p.brand} &middot; ${p.price}</p>
                     </div>
                   </div>
-                  <AmazonButton asin={p.amazonAsin} printerName={p.name} label="Buy" className="text-xs px-3 py-1" />
+                  <AmazonButton asin={p.amazonAsin} printerName={p.name} price={p.price} label="Buy" className="text-xs px-3 py-1" />
                 </div>
               ))}
             </div>

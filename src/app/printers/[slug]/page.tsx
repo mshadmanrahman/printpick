@@ -169,6 +169,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         <AmazonButton
           asin={printer.amazonAsin}
           printerName={printer.name}
+          price={printer.price}
           label="Buy on Amazon"
           className="shrink-0 text-sm py-2.5 px-4"
         />
@@ -256,6 +257,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                   <AmazonButton
                     asin={printer.amazonAsin}
                     printerName={printer.name}
+                    price={printer.price}
                     label={`Buy on Amazon — $${printer.price}`}
                     className="w-full justify-center py-3 text-base font-semibold"
                   />
@@ -376,6 +378,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
             <AmazonButton
               asin={printer.amazonAsin}
               printerName={printer.name}
+              price={printer.price}
               label={`Buy ${printer.name} on Amazon — $${printer.price}`}
               className="py-3 text-base"
             />
