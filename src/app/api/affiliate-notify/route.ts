@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID ?? "160135380";
-const AMAZON_COMMISSION_RATE = 0.04;
+const AMAZON_COMMISSION_RATE = 0.03;
 
 const bodySchema = z.object({
   printer: z.string().min(1),
@@ -21,7 +21,7 @@ function formatMessage(data: z.infer<typeof bodySchema>): string {
     lines.push(`\u{1F4B0} If they buy, you earn ~$${commission}`);
   } else {
     lines.push(`\u{1F6D2} Someone clicked on ${data.printer}`);
-    lines.push(`\u{1F4B0} Commission: ~4% of purchase`);
+    lines.push(`\u{1F4B0} Commission: ~3% of purchase`);
   }
 
   lines.push("");
