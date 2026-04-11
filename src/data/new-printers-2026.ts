@@ -648,4 +648,215 @@ export const newPrinters2026: readonly Printer[] = [
       "Spare tri-metal nozzles",
     ],
   },
+
+  // ─── 10. ANYCUBIC KOBRA S1 COMBO ─────────────────────────────
+  {
+    slug: "anycubic-kobra-s1-combo",
+    name: "Anycubic Kobra S1 Combo",
+    brand: "Anycubic",
+    type: "fdm",
+    image: "/images/printers/anycubic-kobra-s1-combo.png",
+    price: 499,
+    amazonAsin: "B0DZ9Y2FQV",
+    brandUrl: "https://store.anycubic.com/products/kobra-s1-combo",
+    buildVolume: { x: 250, y: 250, z: 260 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 12.5,
+    features: [
+      "8-color ACE Pro 2 multi-color system",
+      "CoreXY architecture",
+      "Auto bed leveling",
+      "WiFi + camera monitoring",
+      "Direct drive extruder",
+      "PEI spring steel build plate",
+    ],
+    bestFor: ["multi-color", "speed", "beginners"],
+    scores: {
+      value: 8,
+      beginner: 8,
+      printQuality: 8,
+      speed: 9,
+      reliability: 8,
+    },
+    pros: [
+      "8 colors out of the box (double the Bambu A1 Combo's 4)",
+      "CoreXY speed at a competitive price",
+      "Improved ACE Pro 2 reduces filament waste on color swaps",
+      "Strong Anycubic slicer with paint-on multi-color tools",
+    ],
+    cons: [
+      "Anycubic software ecosystem still behind Bambu Studio",
+      "Community smaller than Bambu or Creality",
+      "Open frame design (no enclosure)",
+      "ACE Pro 2 adds significant footprint",
+    ],
+    summary:
+      "Anycubic's 8-color flagship CoreXY. The successor to the Kobra 3 Combo, doubling color capacity with improved filament handling.",
+    verdict:
+      "The Kobra S1 Combo is the best multi-color printer for users who want more than 4 colors without spending over $500. If you make multi-color figurines, cosplay badges, or decorative prints, the jump from 4 to 8 colors is a game-changer.",
+    reviews: [
+      {
+        quote:
+          "8 colors out of the box changes the game. My multi-color prints are finally as detailed as I imagined them.",
+        source: "r/3Dprinting",
+      },
+      {
+        quote:
+          "The ACE Pro 2 is a massive improvement. Less waste, more reliable color swaps, and double the colors.",
+        source: "Teaching Tech (YouTube)",
+      },
+      {
+        quote:
+          "Anycubic's answer to Bambu's multi-color dominance. Competitive on every front.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: [
+      "Multi-color PLA filament 8-pack",
+      "Spare ACE Pro 2 tubes",
+      "Build plate adhesive",
+      "Nozzle cleaning kit",
+    ],
+  },
+
+  // ─── 11. CREALITY SPARKX I7 ──────────────────────────────────
+  {
+    slug: "creality-sparkx-i7",
+    name: "Creality SPARKX i7",
+    brand: "Creality",
+    type: "fdm",
+    image: "/images/printers/creality-sparkx-i7.png",
+    price: 449,
+    amazonAsin: "B0DWGQN1JM",
+    brandUrl: "https://www.creality.com/products/sparkx-i7",
+    buildVolume: { x: 260, y: 260, z: 255 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 11.8,
+    features: [
+      "4-color multi-color system",
+      "AI-assisted print monitoring",
+      "Auto bed leveling",
+      "WiFi + touchscreen",
+      "Direct drive extruder",
+      "Tom's Hardware CES 2026 Best 3D Printer",
+    ],
+    bestFor: ["multi-color", "beginners", "speed"],
+    scores: {
+      value: 9,
+      beginner: 9,
+      printQuality: 8,
+      speed: 8,
+      reliability: 8,
+    },
+    pros: [
+      "Won Tom's Hardware Best 3D Printer at CES 2026",
+      "AI monitoring catches failures before they waste filament",
+      "4-color multi-color at a competitive price",
+      "Creality's massive community for support and mods",
+    ],
+    cons: [
+      "Brand new product (limited long-term reliability data)",
+      "Creality's software less polished than Bambu Studio",
+      "Open frame design",
+      "AI monitoring requires cloud connection",
+    ],
+    summary:
+      "Creality's CES 2026 award-winner. A 4-color multi-color printer with AI monitoring that brings Creality into the modern multi-color era.",
+    verdict:
+      "The SPARKX i7 is Creality's strongest entry into multi-color printing. With CES 2026 recognition and AI monitoring, it signals a real competitor to the Bambu A1 Combo. Best for buyers who prefer Creality's ecosystem and community.",
+    reviews: [
+      {
+        quote:
+          "Tom's Hardware Best 3D Printer of CES 2026. Creality finally has a real Bambu competitor.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "The AI monitoring actually works. Caught a spaghetti failure at layer 12 and paused the print automatically.",
+        source: "r/Creality",
+      },
+      {
+        quote:
+          "Creality's best printer in years. The multi-color system is competitive with Bambu's AMS Lite.",
+        source: "3D Printing Nerd (YouTube)",
+      },
+    ],
+    communityBadges: ["Editor's Choice"],
+    alsoNeed: [
+      "PLA filament multi-color pack",
+      "Spare nozzles (0.4mm, 0.6mm)",
+      "Build plate (textured PEI)",
+      "Enclosure (DIY or IKEA Lack)",
+    ],
+  },
+
+  // ─── 12. BAMBU LAB X2D (UPCOMING - ANNOUNCED APR 14, 2026) ──
+  {
+    slug: "bambu-lab-x2d",
+    name: "Bambu Lab X2D",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-x2d.png",
+    price: 1049,
+    amazonAsin: "B0X2D00000",
+    brandUrl: "https://bambulab.com/en-us/x2d",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 22,
+    features: [
+      "Dual extruder (direct drive + bowden combo)",
+      "65C actively heated chamber",
+      "350C hotend",
+      "LiDAR bed leveling",
+      "AI camera with failure detection",
+      "AMS 2 Pro compatible",
+    ],
+    bestFor: ["professional", "enclosed", "engineering", "speed"],
+    scores: {
+      value: 8,
+      beginner: 7,
+      printQuality: 10,
+      speed: 10,
+      reliability: 9,
+    },
+    pros: [
+      "Dual nozzle at half the price of the H2D",
+      "65C heated chamber for any engineering material",
+      "LiDAR sensor from the X1 series returns",
+      "Slots perfectly between P2S ($549) and H2D ($1,899)",
+    ],
+    cons: [
+      "Not yet released (announcement April 14, 2026)",
+      "Expected $1,049 standalone, $1,299 Combo",
+      "Build volume same as P2S (not the H2D's larger 325mm)",
+      "Early adopter risk with new product",
+    ],
+    summary:
+      "The successor to the beloved X1 Carbon. Dual nozzles, 65C heated chamber, and LiDAR sensing at roughly half the H2D's price.",
+    verdict:
+      "The X2D fills the massive gap between the P2S ($549) and the H2D ($1,899). If you need dual nozzles and a heated chamber but don't need the H2D's massive build volume, the X2D is the most exciting printer announcement of 2026.",
+    reviews: [
+      {
+        quote:
+          "The X1 Carbon successor we've been waiting for. Dual nozzles at $1,049 is a game-changer.",
+        source: "3dmania.it",
+      },
+      {
+        quote:
+          "Bambu filling the gap between P2S and H2D. This is going to be the sweet spot for serious hobbyists.",
+        source: "r/BambuLab",
+      },
+    ],
+    communityBadges: ["Editor's Choice"],
+    alsoNeed: [
+      "AMS 2 Pro (for multi-material)",
+      "Engineering filaments (ABS, ASA, PA-CF)",
+      "Hardened steel nozzle set",
+      "Extra HEPA filters",
+    ],
+  },
 ];

@@ -54,6 +54,10 @@ export interface Printer {
   readonly alsoNeed?: readonly string[];
   /** Direct brand store URL with affiliate tracking (e.g., Bambu, Elegoo, Creality). */
   readonly brandUrl?: string;
+  /** True if the printer has been officially discontinued by the manufacturer. */
+  readonly discontinued?: boolean;
+  /** Slug of the recommended replacement printer (shown on discontinued product pages). */
+  readonly replacedBy?: string;
 }
 
 // Re-export affiliate link utilities from the centralized module.
@@ -71,6 +75,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/bambu-lab-a1-combo.png",
     price: 399,
     amazonAsin: "B0CJPKFQPN",
+    brandUrl: "https://bambulab.com/en-us/a1",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -98,6 +103,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/bambu-lab-a1-mini.png",
     price: 199,
     amazonAsin: "B0CL2KMFM4",
+    brandUrl: "https://bambulab.com/en-us/a1-mini",
     buildVolume: { x: 180, y: 180, z: 180 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -122,8 +128,9 @@ export const printers: readonly Printer[] = [
     brand: "Bambu Lab",
     type: "fdm",
     image: "/images/printers/bambu-lab-p1s.png",
-    price: 599,
+    price: 449,
     amazonAsin: "B0C9KMRH6Z",
+    brandUrl: "https://bambulab.com/en-us/p1s",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -255,6 +262,7 @@ export const printers: readonly Printer[] = [
     brand: "Elegoo",
     type: "resin",
     image: "/images/printers/elegoo-mars-5-ultra.png",
+    brandUrl: "https://www.elegoo.com/products/elegoo-mars-5-ultra",
     price: 284,
     amazonAsin: "B0D9FQWK7N",
     buildVolume: { x: 153, y: 89, z: 200 },
@@ -307,6 +315,7 @@ export const printers: readonly Printer[] = [
     brand: "Elegoo",
     type: "fdm",
     image: "/images/printers/elegoo-neptune-4-pro.png",
+    brandUrl: "https://www.elegoo.com/products/elegoo-neptune-4-pro",
     price: 259,
     amazonAsin: "B0C74BVCFC",
     buildVolume: { x: 225, y: 225, z: 265 },
@@ -359,6 +368,8 @@ export const printers: readonly Printer[] = [
     brand: "Anycubic",
     type: "fdm",
     image: "/images/printers/anycubic-kobra-3-combo.png",
+    discontinued: true,
+    replacedBy: "anycubic-kobra-s1-combo",
     price: 399,
     amazonAsin: "B0DDX1C2V5",
     buildVolume: { x: 250, y: 250, z: 260 },
@@ -412,8 +423,9 @@ export const printers: readonly Printer[] = [
     brand: "Prusa Research",
     type: "fdm",
     image: "/images/printers/prusa-mk4s.png",
-    price: 799,
+    price: 929,
     amazonAsin: "B0DRMTFZ9X",
+    brandUrl: "https://www.prusa3d.com/product/original-prusa-mk4s/",
     buildVolume: { x: 250, y: 210, z: 220 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 200,
@@ -488,6 +500,7 @@ export const printers: readonly Printer[] = [
   // ─── QIDI ────────────────────────────────────────────────────
   {
     slug: "qidi-x-plus-3",
+    brandUrl: "https://qidi3d.com/products/x-plus-3",
     name: "QIDI X-Plus 3",
     brand: "QIDI",
     type: "fdm",
@@ -681,6 +694,8 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/bambu-lab-p1p.png",
     price: 499,
     amazonAsin: "B0C6HGJQ8N",
+    discontinued: true,
+    replacedBy: "bambu-lab-p2s",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -707,6 +722,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/bambu-lab-a1.png",
     price: 299,
     amazonAsin: "B0CJPKFQLN",
+    brandUrl: "https://bambulab.com/en-us/a1",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -973,6 +989,8 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/anycubic-kobra-3.png",
     price: 299,
     amazonAsin: "B0DDX1B3V6",
+    discontinued: true,
+    replacedBy: "anycubic-kobra-s1-combo",
     buildVolume: { x: 250, y: 250, z: 260 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
@@ -999,6 +1017,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/anycubic-kobra-2-max.png",
     price: 399,
     amazonAsin: "B0CL8ZQM3J",
+    discontinued: true,
     buildVolume: { x: 420, y: 420, z: 500 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -1025,6 +1044,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/anycubic-photon-mono-m5s.png",
     price: 339,
     amazonAsin: "B0CJPKFQR7",
+    discontinued: true,
     buildVolume: { x: 218, y: 123, z: 220 },
     layerResolution: { min: 0.01, max: 0.15 },
     printSpeed: 150,
@@ -1051,6 +1071,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/anycubic-photon-mono-2.png",
     price: 169,
     amazonAsin: "B0BTRM8KKY",
+    discontinued: true,
     buildVolume: { x: 143, y: 89, z: 165 },
     layerResolution: { min: 0.02, max: 0.2 },
     printSpeed: 80,

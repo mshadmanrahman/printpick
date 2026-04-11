@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID ?? "160135380";
+const BRRR_ENDPOINT = process.env.BRRR_ENDPOINT;
 const AMAZON_COMMISSION_RATE = 0.03;
 
 const bodySchema = z.object({
@@ -33,8 +32,8 @@ function formatMessage(data: z.infer<typeof bodySchema>): string {
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
-  if (!TELEGRAM_BOT_TOKEN) {
-    return NextResponse.json({ ok: false, reason: "no_token" }, { status: 200 });
+  if (!BRRR_ENDPOINT) {
+    return NextResponse.json({ ok: false, reason: "no_endpoint" }, { status: 200 });
   }
 
   const parsed = bodySchema.safeParse(await request.json());
@@ -44,23 +43,19 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const message = formatMessage(parsed.data);
 
-  const telegramRes = await fetch(
-    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: "HTML",
-        disable_notification: false,
-      }),
-    },
-  );
+  const brrrRes = await fetch(BRRR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: "PrintPick",
+      message,
+      sound: "cha_ching",
+    }),
+  });
 
-  if (!telegramRes.ok) {
-    console.error("Telegram send failed:", await telegramRes.text());
-    return NextResponse.json({ ok: false, reason: "telegram_failed" }, { status: 200 });
+  if (!brrrRes.ok) {
+    console.error("brrr send failed:", await brrrRes.text());
+    return NextResponse.json({ ok: false, reason: "brrr_failed" }, { status: 200 });
   }
 
   return NextResponse.json({ ok: true });

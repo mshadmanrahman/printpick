@@ -49,10 +49,10 @@ export const metadata: Metadata = {
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
     images: [
       {
-        url: "https://printpick.dev/api/og",
+        url: "https://printpick.dev/og-home.png",
         width: 1200,
         height: 630,
-        alt: "PrintPick — Find Your Perfect 3D Printer",
+        alt: "PrintPick — What will you build? Honest scores, no sponsored rankings.",
       },
     ],
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "PrintPick — Find Your Perfect 3D Printer",
     description:
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
-    images: ["https://printpick.dev/api/og"],
+    images: ["https://printpick.dev/og-home.png"],
   },
   robots: {
     index: true,

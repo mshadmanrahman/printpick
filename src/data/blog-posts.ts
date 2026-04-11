@@ -95,13 +95,13 @@ const blogPosts: readonly BlogPost[] = [
         body: "If you want fast prints without the Bambu price tag, the Neptune 4 Pro delivers 500mm/s speeds with Klipper firmware pre-installed. Where the standard Ender 3 takes 2 hours for a benchy, the Neptune 4 Pro does it in 15 minutes. Speed changes how you use a printer — quick iterations, rapid prototyping, and same-day projects become possible. The learning curve is slightly steeper than the A1. Klipper firmware gives you more control but also more settings to understand. The touchscreen interface is functional but not as intuitive as Bambu Studio. You'll spend more time in the slicer adjusting speed, acceleration, and pressure advance settings to get the best results. The Neptune 4 Pro also includes auto bed leveling, direct drive, and a PEI spring steel build plate. The 225x225x265mm build volume is competitive. At $269, it sits between the budget picks and the A1 Combo. Best for: people who know they'll print a lot and want fast results. Not recommended if you want absolute plug-and-play simplicity — the A1 Combo wins that battle.",
       },
       {
-        printerSlug: "anycubic-kobra-3-combo",
+        printerSlug: "anycubic-kobra-s1-combo",
         headline: "Best Multi-Color on a Budget",
-        body: "Anycubic's answer to the Bambu A1 Combo, at a lower price point. The ACE Pro color engine handles 4 colors smoothly with automatic filament switching. The 600mm/s rated speed edges out the A1 Combo on paper, though real-world quality at those speeds is comparable. Build quality isn't quite Bambu-level — the motion system is slightly noisier and the software less mature — but for multi-color printing under $350, nothing else comes close. The Kobra 3 Combo is worth considering if you're price-sensitive but specifically want multi-color capability. The color-change system works well for cosplay badges, branded items, multi-color figurines, and decorative pieces. Anycubic's slicer has improved dramatically and now includes paint-on multi-color tools similar to Bambu Studio. One honest caveat: Anycubic's software updates and support aren't as responsive as Bambu's. The community is smaller. If something goes wrong, you'll find fewer resources online. For most beginners, the extra $50 for the Bambu A1 Combo buys you better software, a larger community, and a more polished experience. But if $350 is your ceiling, the Kobra 3 Combo delivers genuine multi-color printing at a price that seemed impossible two years ago.",
+        body: "The Anycubic Kobra S1 Combo is the successor to the now-discontinued Kobra 3 Combo, and it doubles down on multi-color capability with 8 colors out of the box via the upgraded ACE Pro 2 system. The 600mm/s CoreXY speed matches Bambu on paper, and the jump from 4 to 8 colors opens up print possibilities that even the A1 Combo cannot match without additional AMS units. At $499, it costs more than the A1 Combo, but 8-color printing at this price is genuinely impressive. The improved ACE Pro 2 reduces filament waste on color swaps compared to the original. The Anycubic slicer includes paint-on multi-color tools similar to Bambu Studio, making multi-color design approachable for beginners. Build quality and reliability have improved significantly over the Kobra 3 generation. One honest caveat: Anycubic's software ecosystem is still less mature than Bambu's. The community is growing but smaller. For most beginners who only need 4 colors, the A1 Combo at $399 is the safer choice with better software. But if you want the most multi-color capability under $500, the Kobra S1 Combo is the only option with 8 colors at this price.",
       },
     ],
     conclusion:
-      "For most beginners, the Bambu Lab A1 Combo at $399 is the safest bet — it just works, prints in multiple colors, and has the best software in the business. If budget is tight, the A1 Mini at $199 is unbeatable value and the best way to find out if you enjoy the hobby before investing more. For the tinkerers who want to learn how 3D printing really works, the Creality Ender 3 V3 SE has the biggest community behind it and infinite upgrade paths. Whichever you pick, start with PLA filament, download some free models from Printables.com, and don't worry about perfection — your first prints won't be perfect, and that's fine. The learning is the fun part.",
+      "For most beginners, the Bambu Lab A1 Combo at $399 is the safest bet. It just works, prints in up to 4 colors, and has the best software in the business. If budget is tight, the A1 Mini at $199 is unbeatable value and the best way to find out if you enjoy the hobby before investing more. If you want the most multi-color capability, the Anycubic Kobra S1 Combo at $499 delivers 8 colors from a single machine. For the tinkerers who want to learn how 3D printing really works, the Creality Ender 3 V3 SE has the biggest community behind it and infinite upgrade paths. Whichever you pick, start with PLA filament, download some free models from Printables.com, and don't worry about perfection. Your first prints won't be perfect, and that's fine. The learning is the fun part.",
   },
   {
     slug: "best-budget-3d-printers-under-300",
@@ -1194,5 +1194,116 @@ const blogPosts: readonly BlogPost[] = [
     ],
     conclusion:
       "For new buyers: get the P2S. At the same $549 price, every upgrade is pure upside — quick-swap nozzles, better camera, improved cooling, and the option for an AMS that dries filament. There is no reason to buy a new P1S at full price when the P2S exists. For P1S owners: the upgrade is worth it if you regularly change nozzles, want AI failure detection, or plan to buy the AMS 2 Pro for its drying capability. If you print mostly PLA with a 0.4mm nozzle and your P1S works fine, there is no urgent reason to switch — your P1S will serve you well for years to come. The P2S doesn't make the P1S obsolete for existing owners; it just makes it a harder recommendation for new buyers.",
+  },
+
+  // ─── BAMBU LAB X2D PREVIEW ─────────────────────────────────
+  {
+    slug: "bambu-lab-x2d-everything-we-know",
+    title: "Bambu Lab X2D: Everything We Know (Specs, Price, Release Date)",
+    description:
+      "The successor to the X1 Carbon is here. Dual nozzles, 65C heated chamber, and a price that undercuts the H2D by almost half.",
+    publishedAt: "2026-04-12",
+    updatedAt: "2026-04-12",
+    category: "guide",
+    intro:
+      "Bambu Lab officially discontinued the X1 Carbon on March 31, 2026, leaving a massive gap in their lineup between the P2S at $549 and the H2D at $1,899. On April 14, 2026, that gap gets filled. The Bambu Lab X2D is the X1 Carbon successor the community has been waiting for: dual nozzles, a 65C actively heated chamber, LiDAR bed leveling, and an expected price around $1,049. That is half the price of the H2D while sharing many of its best features. Here is everything we know so far, what it means for the 3D printing market, and whether you should wait for it or buy something else today.",
+    items: [
+      {
+        printerSlug: "bambu-lab-x2d",
+        headline: "Expected Specs and Features",
+        body: "Based on leaks, patent filings, and pre-announcement materials, the X2D is expected to pack dual hardened steel nozzles (a direct drive primary and a bowden secondary), a 65C actively heated chamber, a 350C hotend, and the LiDAR bed leveling system that made the X1 Carbon famous. The build volume is expected at 256x256x256mm, matching the P2S rather than the H2D's larger 325mm footprint. The AI camera with spaghetti detection returns, and the X2D will be compatible with the AMS 2 Pro multi-material system. The dual nozzle system is the headline feature. On the H2D, dual nozzles let you print support material with a water-soluble filament while the primary nozzle handles the model. This eliminates the tedious support removal process and enables geometries that are impossible with single-nozzle printers. Bringing this feature down from $1,899 to ~$1,049 makes it accessible to serious hobbyists, not just prosumers. The 65C heated chamber means the X2D handles every engineering filament: ABS, ASA, Nylon, PC, PA-CF. The P2S tops out around 45-50C passively, which limits its engineering material capabilities. For anyone printing functional parts in demanding materials, the X2D's active chamber heating is a significant upgrade. Expected pricing: $1,049 standalone, $1,299 with AMS 2 Pro Combo. If that holds, it is the best value in the enclosed dual-nozzle category by a wide margin.",
+      },
+      {
+        printerSlug: "bambu-lab-p2s",
+        headline: "X2D vs P2S: Is the Upgrade Worth It?",
+        body: "The P2S ($549) and X2D (~$1,049) share the same 256mm build volume and 500-600mm/s speed class, but the differences matter for specific use cases. The X2D adds dual nozzles, active chamber heating to 65C, and LiDAR sensing. The P2S has the quick-swap nozzle system (single nozzle) and the same 1080p AI camera. For PLA and PETG printing, the P2S is all you need. The dual nozzles and heated chamber on the X2D are overkill if you are printing figurines, decorative items, or basic functional parts. The P2S's quick-swap nozzle system is arguably more useful for day-to-day printing than dual nozzles. Where the X2D pulls ahead: engineering materials (ABS, Nylon, PC, carbon fiber composites) and complex prints that benefit from soluble support material. If you print functional parts for automotive, aerospace, or industrial prototyping, the X2D's heated chamber and dual nozzles save hours of post-processing per week. The price gap is $500. For hobbyists printing PLA, the P2S wins. For engineers and advanced hobbyists, the X2D's capabilities justify the premium.",
+      },
+      {
+        printerSlug: "bambu-lab-h2d",
+        headline: "X2D vs H2D: Do You Need the Flagship?",
+        body: "The H2D ($1,899 base, up to $3,799 with laser) and X2D (~$1,049) share dual nozzles and a 65C heated chamber. The H2D adds a larger 325x320x325mm build volume, optional laser engraving (10W or 40W), and a vision encoder for ultra-precise first layers. That is an $850 premium for bigger prints, laser capability, and the highest precision Bambu offers. For most users, the X2D is the smarter buy. The 256mm build volume handles 90% of desktop 3D printing projects. The laser module is a nice-to-have but not essential for printing. And the vision encoder, while impressive, is a refinement rather than a must-have feature. The H2D makes sense for: prosumers who need the larger build volume for big functional parts, makers who want laser engraving integrated into their workflow, and small businesses where the time savings from the vision encoder's precision justify the cost. For everyone else, the X2D delivers 90% of the H2D's printing capability at 55% of the price.",
+      },
+    ],
+    conclusion:
+      "The Bambu Lab X2D is the most significant 3D printer announcement of 2026. It fills the exact gap the community has been asking for since the X1 Carbon was discontinued. Dual nozzles and a heated chamber at ~$1,049 makes engineering-grade 3D printing accessible to a much wider audience. Should you wait for it? If you are about to buy a P2S and you print engineering materials, yes. Wait two days for the official announcement and pre-order details. If you print mostly PLA and PETG, the P2S at $549 is still the better value. And if you need the largest build volume and laser capability, the H2D remains the flagship. The X2D announcement drops April 14. We will update this article with confirmed specs and pricing as soon as they are available.",
+  },
+
+  // ─── BAMBU LAB VS CREALITY 2026 ────────────────────────────
+  {
+    slug: "bambu-lab-vs-creality-2026",
+    title: "Bambu Lab vs Creality in 2026: Which Brand Should You Buy?",
+    description:
+      "The two biggest names in 3D printing go head to head. We compare ecosystems, printers, software, support, and value across every price tier.",
+    publishedAt: "2026-04-12",
+    updatedAt: "2026-04-12",
+    category: "guide",
+    intro:
+      "Bambu Lab and Creality are the two dominant brands in consumer 3D printing in 2026. Bambu disrupted the market with the X1 Carbon in 2022 and has not slowed down. Creality, the company that made 3D printing mainstream with the Ender 3, has responded with faster printers, multi-color systems, and AI-powered monitoring. If you are buying a 3D printer in 2026, you are almost certainly choosing between these two brands. This guide compares them across every dimension that matters: hardware quality, software ecosystem, community support, value at each price tier, and long-term ownership experience.",
+    items: [
+      {
+        printerSlug: "bambu-lab-a1-combo",
+        headline: "Under $500: Bambu Lab A1 Combo vs Creality SPARKX i7",
+        body: "This is the most contested price tier in 3D printing. The Bambu Lab A1 Combo ($399) has been the default recommendation for over a year. It delivers multi-color printing, auto bed leveling, a built-in camera, and Bambu's polished software ecosystem at a price that seemed impossible when it launched. The A1 Combo just works. Setup takes 15 minutes, the AMS Lite handles 4-color prints reliably, and Bambu Studio provides pre-tuned profiles for every major filament. Creality's response is the SPARKX i7 ($449), which won Best 3D Printer at CES 2026. It matches the A1 Combo on 4-color multi-color, adds AI-powered print monitoring that catches failures in real-time, and brings Creality's massive community of modders and tinkerers along for the ride. The SPARKX i7 is a genuine competitor, not just a Bambu clone. At this tier, the recommendation depends on what you value. Bambu wins on software polish, ease of use, and reliability. The A1 Combo is the safer bet for beginners and people who want zero friction. Creality wins on community size, upgrade potential, and AI monitoring. If you enjoy tinkering and want the biggest support network in 3D printing, the SPARKX i7 delivers.",
+      },
+      {
+        printerSlug: "bambu-lab-p2s",
+        headline: "The $500-$600 Tier: Bambu P2S vs Creality K2 Plus",
+        body: "The P2S ($549) is the best enclosed CoreXY in this price range. Quick-swap nozzles, a 1080p AI camera, an enclosed build chamber, and AMS 2 Pro compatibility make it the go-to for anyone printing more than PLA. The enclosure handles ABS and ASA without the usual warping headaches, and the HEPA filter keeps fumes out of your workspace. The Creality K2 Plus ($899) is more expensive but offers a significantly larger build volume (350x350x350mm vs 256mm) and multi-color capability. It is a different class of printer aimed at users who need size. If your projects fit in 256mm, the P2S is the better value. If you regularly print large functional parts, cosplay pieces, or multi-part assemblies, the K2 Plus's extra 100mm in every dimension is worth the premium. Software is the deciding factor at this tier. Bambu Studio is more polished, has better automatic profiles, and integrates seamlessly with the camera and AMS. Creality Print has improved dramatically but still requires more manual tuning. Power users who run OrcaSlicer (works with both brands) will find the software gap less relevant.",
+      },
+      {
+        printerSlug: "creality-ender-3-v3-se",
+        headline: "Budget Tier: Community vs Polish",
+        body: "The Bambu A1 Mini ($199) and Creality Ender 3 V3 SE ($218) are the two best budget printers you can buy. The A1 Mini wins on out-of-box experience: auto-leveling, WiFi, camera, and Bambu's pre-tuned profiles mean you are printing in 15 minutes with zero calibration. The Ender 3 V3 SE wins on community and learning. The Ender 3 series is the most popular 3D printer ever made. Every problem has been solved, every mod has been documented, and the aftermarket ecosystem is virtually infinite. If you want to understand how 3D printing works (not just press print), the Ender 3 teaches you. This is the fundamental philosophical difference between the two brands. Bambu builds printers for people who want results. Creality builds printers for people who want to tinker. Both approaches are valid. The question is: are you a driver or a mechanic? The US-China tariff situation adds a wrinkle in 2026. Both brands manufacture in China, but pricing impacts vary by model. At the budget tier, price changes of $20-30 can shift the value equation. Check current prices before buying, as they may have changed since this article was published.",
+      },
+      {
+        printerSlug: "prusa-core-one",
+        headline: "The Third Option: Prusa (EU-Made, Tariff-Proof)",
+        body: "Neither Bambu nor Creality? Prusa Research, based in the Czech Republic, offers a genuine third option that sidesteps the US-China tariff situation entirely. The Prusa MK4S ($929 assembled, $669 kit) and the new Prusa Core One ($1,199) are manufactured in the EU, ship globally without tariff surcharges, and come with legendary customer support. Prusa's advantage in 2026 is stability. While Chinese brands navigate tariff volatility (the H2D jumped from $1,899 to $2,399 in months), Prusa prices are consistent. The open-source ecosystem means no vendor lock-in. PrusaSlicer works with any printer. Parts are standard and available from multiple sources. For long-term ownership and repairability, Prusa is the gold standard. The downside: Prusa is more expensive per-feature than either Bambu or Creality. The Core One at $1,199 does not print faster or better than the P2S at $549. You are paying for EU manufacturing, open-source values, and the best customer support in the industry. Whether that premium is worth it depends on your priorities.",
+      },
+    ],
+    conclusion:
+      "In 2026, Bambu Lab is the default recommendation for most buyers. Their software ecosystem, out-of-box experience, and quality control set the standard that everyone else chases. If you want the printer that requires the least thinking, buy Bambu. Creality is the right choice if you value community, tinkering, and the largest support network in 3D printing. The SPARKX i7 proves that Creality can compete with Bambu on features, and the Ender 3 series remains the most accessible entry point into the hobby. Both brands manufacture in China and are subject to the same tariff pressures. For tariff-proof stability, consider Prusa from the EU. For most people: Bambu A1 Combo ($399) for beginners, Bambu P2S ($549) for enthusiasts, or Creality Ender 3 V3 SE ($218) if budget is the primary concern.",
+  },
+
+  // ─── BEST 3D PRINTER FILAMENTS 2026 ───────────────────────
+  {
+    slug: "best-3d-printer-filaments-2026",
+    title: "Best 3D Printer Filaments in 2026: PLA, PETG, ABS & More",
+    description:
+      "The filament you use matters as much as the printer. Here are the best filament brands and types for every material and budget.",
+    publishedAt: "2026-04-12",
+    updatedAt: "2026-04-12",
+    category: "listicle",
+    intro:
+      "Your 3D printer is only as good as the filament you feed it. A $400 Bambu Lab A1 Combo printing cheap no-name PLA will produce worse results than a $200 Ender 3 printing quality Polymaker filament. The filament market in 2026 has exploded with options: specialty blends, recycled materials, and engineering-grade polymers that were industrial-only two years ago. Whether you are a beginner printing your first benchy or a pro running a print farm, this guide covers the best filament for every material type and budget. We tested filaments across multiple printers, evaluated consistency, color accuracy, ease of printing, and value. These are the brands and products that earned our recommendation.",
+    items: [
+      {
+        printerSlug: "bambu-lab-a1-combo",
+        headline: "Best PLA Overall: Polymaker PolyLite PLA Pro",
+        body: "Polymaker PolyLite PLA Pro is the best all-around PLA filament in 2026. It prints consistently across every major printer brand, has excellent layer adhesion, minimal warping, and comes in over 30 colors. The Pro formulation adds impact resistance that standard PLA lacks, making functional parts viable without switching to PETG. Polymaker's quality control is industry-leading. Spool-to-spool consistency means you can dial in a profile once and trust it for months. The vacuum-sealed packaging with desiccant arrives dry every time. At $20-25 per kilogram, it costs slightly more than budget PLA but the reliability pays for itself in avoided failed prints. For beginners: start with Polymaker PolyLite PLA in white or gray. These colors expose layer lines least, print the easiest, and look clean on any model. Add colors once you are comfortable with your printer's settings. Alternative: Bambu Lab PLA Basic ($20/kg) is the other top pick, especially for Bambu printer owners. The RFID integration with AMS systems means zero-configuration printing. Hatchbox PLA ($24/kg on Amazon) is the reliable Amazon house pick with Prime shipping.",
+      },
+      {
+        printerSlug: "bambu-lab-p2s",
+        headline: "Best PETG: Polymaker PolyLite PETG",
+        body: "PETG is the next step up from PLA: better heat resistance (80C vs 60C), stronger layer bonds, and slight flexibility that prevents brittle snapping. It is the default recommendation for functional parts that see any heat or stress. Polymaker PolyLite PETG ($22/kg) prints as easily as their PLA while delivering genuine engineering improvements. The key to good PETG: dry filament and slightly higher temps. Print at 230-245C with the bed at 70-80C. If your PETG is stringing badly, it is almost certainly a moisture issue. Invest in a filament dryer or use the Bambu AMS 2 Pro's built-in drying. Polymaker, Hatchbox, and eSUN all make good PETG. The differences between premium PETG brands are smaller than PLA. Pick whichever is cheapest and available. For enclosed printers like the P2S, P1S, or Core One, PETG prints beautifully with zero draft issues. Open-frame printers may need a simple enclosure (even a cardboard box) for best results in cooler environments.",
+      },
+      {
+        printerSlug: "bambu-lab-p1s",
+        headline: "Best ABS/ASA: Polymaker PolyLite ASA",
+        body: "ABS and ASA are the workhorses of functional 3D printing: UV-resistant, heat-resistant to 100C+, and strong enough for automotive and outdoor applications. ASA is essentially ABS without the warping headaches and with better UV stability. Polymaker PolyLite ASA ($25/kg) is our top pick. It prints at 240-260C with a bed at 90-100C. An enclosed printer is mandatory for ASA. The P1S, P2S, Core One, or any QIDI enclosed printer will handle it. Open-frame printers will warp. eSUN ABS+ ($18/kg) is the budget alternative. The '+' formulation reduces warping compared to standard ABS. If you are on an enclosed Ender 3 with a DIY enclosure, eSUN ABS+ is forgiving enough to work. For UV-exposed outdoor prints (garden decorations, exterior fixtures, car parts), ASA is the clear choice over PLA or PETG. A birdhouse printed in PLA will deform in summer sun. The same birdhouse in ASA will last years.",
+      },
+      {
+        printerSlug: "bambu-lab-h2d",
+        headline: "Best Engineering Filaments: Nylon, PC, and Carbon Fiber",
+        body: "Engineering filaments require an enclosed printer with active chamber heating: Bambu H2D, X2D, Prusa Core One, QIDI Q1 Pro, or QIDI Q2. These filaments print at 260-300C+ with chambers at 50-65C. They are not beginner-friendly but produce parts with mechanical properties approaching injection molding. Polymaker PA6-CF (Nylon 6 with carbon fiber, $45/kg) is the best carbon-fiber filament available. It produces parts with exceptional stiffness and heat resistance up to 180C. Use it for drone frames, automotive jigs, and industrial prototypes. Prusament PC Blend ($38/kg from Prusa) is the best polycarbonate for desktop printing. Transparent, impact-resistant, and heat-resistant to 110C. Prusa designed it specifically for their printers, and the profiles are dialed in perfectly. All engineering filaments are hygroscopic. They absorb moisture from the air and print terribly when wet. A filament dryer is not optional, it is required. The Bambu AMS 2 Pro's built-in drying is the most convenient solution. Standalone dryers from Sunlu or eSUN cost $40-60 and work well.",
+      },
+      {
+        printerSlug: "elegoo-mars-5-ultra",
+        headline: "Best Resin: Elegoo Standard and Siraya Tech",
+        body: "Resin printing uses liquid photopolymer instead of filament spools. The material cost is higher per unit but the detail is unmatched for miniatures, jewelry, and dental models. Elegoo Standard Resin ($25-30/kg) is the default starting point. Available in dozens of colors, it cures reliably on Elegoo, Anycubic, and Phrozen printers. The results are smooth, detailed, and consistent. Start with gray: it shows detail best under any lighting. For miniatures and tabletop gaming, Siraya Tech Tenacious ($40/kg) blended 50/50 with standard resin produces parts that survive drops and rough handling. Pure standard resin is brittle. The Tenacious blend adds just enough flexibility to prevent shattering when a miniature falls off the table during game night. Safety note: resin is toxic before curing. Always wear nitrile gloves, work in a ventilated area, and never pour uncured resin down the drain. A wash and cure station ($100-150) is essential. The Elegoo Mercury X or Anycubic Wash & Cure Plus handle both washing and UV curing in one unit.",
+      },
+    ],
+    conclusion:
+      "The filament you choose matters more than most beginners realize. Start with Polymaker PolyLite PLA Pro or Bambu Lab PLA Basic. Both are reliable, consistent, and available in enough colors for any project. As you grow, add PETG for functional parts, ASA for outdoor applications, and engineering filaments once you have an enclosed printer with active chamber heating. Budget tip: Amazon frequently runs 2-for-1 deals on Hatchbox and eSUN filament. Stock up during sales. Filament stores well for years if kept sealed with desiccant. A single 1kg spool costs $18-25 and prints dozens of small projects. The ongoing cost of 3D printing is lower than most people expect.",
   },
 ];

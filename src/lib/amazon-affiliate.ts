@@ -27,6 +27,16 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0H2D00000": null,
   // Elegoo Saturn 4 Ultra — ASIN delisted/404 as of 2026-04-04, fallback to search
   "B0D9FM4KFN": null,
+  // QIDI X-Plus 3 — ASIN 404 as of 2026-04-11, fallback to search
+  "B0CM49X31W": null,
+  // Creality Ender 3 V3 — ASIN 404 as of 2026-04-11, fallback to search
+  "B0DFN3QQ3F": null,
+  // Creality K2 Plus — ASIN 404 as of 2026-04-11, fallback to search
+  "B0DHGQVYMP": null,
+  // Anycubic Photon Mono 4 — ASIN 404 as of 2026-04-11, fallback to search
+  "B0DJKFQ8JN": null,
+  // Bambu Lab X2D — not yet released, placeholder ASIN, fallback to search
+  "B0X2D00000": null,
 };
 
 export type AmazonLinkType = "direct" | "search";
