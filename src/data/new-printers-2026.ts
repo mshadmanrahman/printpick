@@ -796,7 +796,7 @@ export const newPrinters2026: readonly Printer[] = [
     ],
   },
 
-  // ─── 12. BAMBU LAB X2D (UPCOMING - ANNOUNCED APR 14, 2026) ──
+  // ─── 12. BAMBU LAB X2D (LAUNCHED APR 14, 2026) ──────────────
   {
     slug: "bambu-lab-x2d",
     name: "Bambu Lab X2D",
@@ -811,12 +811,14 @@ export const newPrinters2026: readonly Printer[] = [
     printSpeed: 600,
     weight: 22,
     features: [
-      "Dual extruder (direct drive + bowden combo)",
+      "Dual extruder (direct drive + bowden)",
       "65C actively heated chamber",
-      "350C hotend",
+      "350C hotend (2-series nozzles)",
       "LiDAR bed leveling",
       "AI camera with failure detection",
       "AMS 2 Pro compatible",
+      "Stainless steel linear rails",
+      "Dedicated TPU feeding system",
     ],
     bestFor: ["professional", "enclosed", "engineering", "speed"],
     scores: {
@@ -833,10 +835,10 @@ export const newPrinters2026: readonly Printer[] = [
       "Slots perfectly between P2S ($549) and H2D ($1,899)",
     ],
     cons: [
-      "Not yet released (announcement April 14, 2026)",
-      "Expected $1,049 standalone, $1,299 Combo",
+      "$1,299 for the Combo adds up quickly",
       "Build volume same as P2S (not the H2D's larger 325mm)",
-      "Early adopter risk with new product",
+      "Reduced build volume (~235mm) in dual-extrusion mode",
+      "Brand new product (limited long-term reliability data)",
     ],
     summary:
       "The successor to the beloved X1 Carbon. Dual nozzles, 65C heated chamber, and LiDAR sensing at roughly half the H2D's price.",

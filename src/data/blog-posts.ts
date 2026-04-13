@@ -1203,22 +1203,22 @@ const blogPosts: readonly BlogPost[] = [
       "For new buyers: get the P2S. At the same $549 price, every upgrade is pure upside — quick-swap nozzles, better camera, improved cooling, and the option for an AMS that dries filament. There is no reason to buy a new P1S at full price when the P2S exists. For P1S owners: the upgrade is worth it if you regularly change nozzles, want AI failure detection, or plan to buy the AMS 2 Pro for its drying capability. If you print mostly PLA with a 0.4mm nozzle and your P1S works fine, there is no urgent reason to switch — your P1S will serve you well for years to come. The P2S doesn't make the P1S obsolete for existing owners; it just makes it a harder recommendation for new buyers.",
   },
 
-  // ─── BAMBU LAB X2D PREVIEW ─────────────────────────────────
+  // ─── BAMBU LAB X2D ─────────────────────────────────────────
   {
     slug: "bambu-lab-x2d-everything-we-know",
-    title: "Bambu Lab X2D: Everything We Know (Specs, Price, Release Date)",
+    title: "Bambu Lab X2D: Full Specs, Price, and What You Need to Know",
     description:
-      "The successor to the X1 Carbon is here. Dual nozzles, 65C heated chamber, and a price that undercuts the H2D by almost half.",
+      "The successor to the X1 Carbon is here. Dual nozzles, 65C heated chamber, stainless steel rails, and a $1,049 price that undercuts the H2D by almost half.",
     publishedAt: "2026-04-12",
-    updatedAt: "2026-04-12",
+    updatedAt: "2026-04-14",
     category: "guide",
     intro:
-      "Bambu Lab officially discontinued the X1 Carbon on March 31, 2026, leaving a massive gap in their lineup between the P2S at $549 and the H2D at $1,899. On April 14, 2026, that gap gets filled. The Bambu Lab X2D is the X1 Carbon successor the community has been waiting for: dual nozzles, a 65C actively heated chamber, LiDAR bed leveling, and an expected price around $1,049. That is half the price of the H2D while sharing many of its best features. Here is everything we know so far, what it means for the 3D printing market, and whether you should wait for it or buy something else today.",
+      "Bambu Lab officially discontinued the X1 Carbon on March 31, 2026, leaving a massive gap in their lineup between the P2S at $549 and the H2D at $1,899. The Bambu Lab X2D fills that gap. Launched on April 14, 2026, the X2D is the X1 Carbon successor the community has been waiting for: dual nozzles (direct drive + bowden), a 65C actively heated chamber, stainless steel linear rails, a dedicated TPU feeding system, LiDAR bed leveling, and a $1,049 price point. That is half the price of the H2D while sharing many of its best features. Here is the full breakdown of specs, comparisons, and whether the X2D is the right printer for you.",
     items: [
       {
         printerSlug: "bambu-lab-x2d",
-        headline: "Expected Specs and Features",
-        body: "Based on leaks, patent filings, and pre-announcement materials, the X2D is expected to pack dual hardened steel nozzles (a direct drive primary and a bowden secondary), a 65C actively heated chamber, a 350C hotend, and the LiDAR bed leveling system that made the X1 Carbon famous. The build volume is expected at 256x256x256mm, matching the P2S rather than the H2D's larger 325mm footprint. The AI camera with spaghetti detection returns, and the X2D will be compatible with the AMS 2 Pro multi-material system. The dual nozzle system is the headline feature. On the H2D, dual nozzles let you print support material with a water-soluble filament while the primary nozzle handles the model. This eliminates the tedious support removal process and enables geometries that are impossible with single-nozzle printers. Bringing this feature down from $1,899 to ~$1,049 makes it accessible to serious hobbyists, not just prosumers. The 65C heated chamber means the X2D handles every engineering filament: ABS, ASA, Nylon, PC, PA-CF. The P2S tops out around 45-50C passively, which limits its engineering material capabilities. For anyone printing functional parts in demanding materials, the X2D's active chamber heating is a significant upgrade. Expected pricing: $1,049 standalone, $1,299 with AMS 2 Pro Combo. If that holds, it is the best value in the enclosed dual-nozzle category by a wide margin.",
+        headline: "Confirmed Specs and Features",
+        body: "The X2D packs dual hardened steel nozzles (a direct drive primary and a bowden secondary), a 65C actively heated chamber, a 350C hotend with 2-series nozzles, stainless steel linear rails (replacing the X1 Carbon's carbon fiber rods), and the LiDAR bed leveling system that made the X1 Carbon famous. The build volume is 256x256x256mm in single-nozzle mode, reduced to approximately 235x235x250mm in dual-extrusion mode. The AI camera with spaghetti detection returns, and the X2D is compatible with the AMS 2 Pro multi-material system. A dedicated TPU feeding system is included for flexible filament printing. The dual nozzle system is the headline feature. Dual nozzles let you print support material with a water-soluble filament while the primary nozzle handles the model. This eliminates the tedious support removal process and enables geometries that are impossible with single-nozzle printers. Bringing this feature down from $1,899 (H2D) to $1,049 makes it accessible to serious hobbyists, not just prosumers. The 65C heated chamber means the X2D handles every engineering filament: ABS, ASA, Nylon, PC, PA-CF. The P2S tops out around 45-50C passively, which limits its engineering material capabilities. For anyone printing functional parts in demanding materials, the X2D's active chamber heating is a significant upgrade. Pricing: $1,049 standalone, $1,299 with AMS 2 Pro Combo. It is the best value in the enclosed dual-nozzle category by a wide margin.",
       },
       {
         printerSlug: "bambu-lab-p2s",
@@ -1232,7 +1232,7 @@ const blogPosts: readonly BlogPost[] = [
       },
     ],
     conclusion:
-      "The Bambu Lab X2D is the most significant 3D printer announcement of 2026. It fills the exact gap the community has been asking for since the X1 Carbon was discontinued. Dual nozzles and a heated chamber at ~$1,049 makes engineering-grade 3D printing accessible to a much wider audience. Should you wait for it? If you are about to buy a P2S and you print engineering materials, yes. Wait two days for the official announcement and pre-order details. If you print mostly PLA and PETG, the P2S at $549 is still the better value. And if you need the largest build volume and laser capability, the H2D remains the flagship. The X2D announcement drops April 14. We will update this article with confirmed specs and pricing as soon as they are available.",
+      "The Bambu Lab X2D is the most significant 3D printer launch of 2026. It fills the exact gap the community has been asking for since the X1 Carbon was discontinued. Dual nozzles, a 65C heated chamber, stainless steel rails, and a dedicated TPU system at $1,049 makes engineering-grade 3D printing accessible to a much wider audience. Should you buy it? If you print engineering materials (ABS, Nylon, PC, carbon fiber) and want dual nozzles for soluble supports, the X2D is the clear choice. If you print mostly PLA and PETG, the P2S at $549 is still the better value. And if you need the largest build volume and laser capability, the H2D remains the flagship. The X2D is available now at bambulab.com and select retailers.",
   },
 
   // ─── BAMBU LAB VS CREALITY 2026 ────────────────────────────

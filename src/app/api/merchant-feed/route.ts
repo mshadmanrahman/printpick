@@ -13,8 +13,6 @@ function escapeXml(str: string): string {
 
 /** Slugs with missing image files — excluded until real images are added */
 const MISSING_IMAGES = new Set([
-  "qidi-q2",
-  "anycubic-kobra-s1-combo",
   "bambu-lab-x2d",
 ]);
 
