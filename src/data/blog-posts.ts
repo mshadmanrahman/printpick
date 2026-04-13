@@ -14,6 +14,13 @@ export interface BlogPost {
     readonly body: string;
   }[];
   readonly conclusion: string;
+  readonly affiliateCta?: {
+    readonly brand: string;
+    readonly text: string;
+    readonly url: string;
+    readonly code?: string;
+    readonly discount?: string;
+  };
 }
 
 export function getBlogPost(slug: string): BlogPost | undefined {
@@ -1305,5 +1312,12 @@ const blogPosts: readonly BlogPost[] = [
     ],
     conclusion:
       "The filament you choose matters more than most beginners realize. Start with Polymaker PolyLite PLA Pro or Bambu Lab PLA Basic. Both are reliable, consistent, and available in enough colors for any project. As you grow, add PETG for functional parts, ASA for outdoor applications, and engineering filaments once you have an enclosed printer with active chamber heating. Budget tip: Amazon frequently runs 2-for-1 deals on Hatchbox and eSUN filament. Stock up during sales. Filament stores well for years if kept sealed with desiccant. A single 1kg spool costs $18-25 and prints dozens of small projects. The ongoing cost of 3D printing is lower than most people expect.",
+    affiliateCta: {
+      brand: "Polymaker",
+      text: "Polymaker PolyLite is our #1 filament pick across PLA, PETG, and ASA. Use our code for 15% off your first order.",
+      url: "https://shop.polymaker.com/SHADMANRAHMAN",
+      code: "SHADMANRAHMAN",
+      discount: "15% off first order",
+    },
   },
 ];

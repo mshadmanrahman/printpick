@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { BlogPosting, BreadcrumbList, WithContext } from "schema-dts";
 import { notFound } from "next/navigation";
-import { Calendar, ArrowLeft } from "lucide-react";
+import { Calendar, ArrowLeft, ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost, getPostPrinters, getRelatedPosts } from "@/data/blog-posts";
 import { getOverallScore } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
@@ -175,6 +175,39 @@ export default async function BlogPostPage({
           {post.conclusion}
         </p>
       </section>
+
+      {/* Affiliate CTA */}
+      {post.affiliateCta && (
+        <section className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">
+                Our Pick
+              </p>
+              <p className="text-base font-semibold text-foreground mb-1">
+                {post.affiliateCta.text}
+              </p>
+              {post.affiliateCta.code && (
+                <p className="text-sm text-muted-foreground">
+                  Code: <code className="rounded bg-emerald-500/10 px-1.5 py-0.5 font-mono text-emerald-400">{post.affiliateCta.code}</code>
+                  {post.affiliateCta.discount && (
+                    <span className="ml-2 text-emerald-400 font-medium">({post.affiliateCta.discount})</span>
+                  )}
+                </p>
+              )}
+            </div>
+            <a
+              href={post.affiliateCta.url}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="inline-flex items-center gap-1.5 shrink-0 rounded-lg bg-emerald-500/15 border border-emerald-500/30 px-4 py-2.5 text-sm font-medium text-emerald-400 transition-all hover:bg-emerald-500/25 hover:border-emerald-500/50 active:scale-[0.97]"
+            >
+              Shop {post.affiliateCta.brand}
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (

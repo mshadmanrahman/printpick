@@ -10,7 +10,8 @@ function escapeXml(str: string): string {
 }
 
 export function GET() {
-  const items = printers
+  const activePrinters = printers.filter((p) => !p.discontinued);
+  const items = activePrinters
     .map(
       (p) => `    <item>
       <g:id>${escapeXml(p.slug)}</g:id>

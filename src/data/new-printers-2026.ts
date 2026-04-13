@@ -374,6 +374,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/prusa-core-one.png",
     price: 1199, // Core One+ assembled; kit ~$949
     amazonAsin: "B0FCFKYXYS", // Original Core One listing
+    brandUrl: "https://www.prusa3d.com/product/original-prusa-core-one/#a_aid=shadman",
     buildVolume: { x: 250, y: 220, z: 270 },
     layerResolution: { min: 0.05, max: 0.3 },
     printSpeed: 500, // Competitive with 500-600mm/s class printers
@@ -516,6 +517,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/qidi-q1-pro.png",
     price: 449, // MSRP ~$399-469; varies by retailer
     amazonAsin: "B0CSDB9QTF",
+    brandUrl: "https://eu.qidi3d.com/products/q1-pro?sca_ref=11024304.4Uzfukd79yq",
     buildVolume: { x: 245, y: 245, z: 240 },
     layerResolution: { min: 0.1, max: 0.32 }, // Based on 0.4mm nozzle typical range
     printSpeed: 600,
@@ -587,6 +589,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/qidi-q2.png",
     price: 499,
     amazonAsin: "B0DX2YGHB4",
+    brandUrl: "https://eu.qidi3d.com/products/q2?sca_ref=11024304.4Uzfukd79yq",
     buildVolume: { x: 230, y: 230, z: 240 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
@@ -658,7 +661,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/anycubic-kobra-s1-combo.png",
     price: 499,
     amazonAsin: "B0DZ9Y2FQV",
-    brandUrl: "https://store.anycubic.com/products/kobra-s1-combo",
+    brandUrl: "https://eu.anycubic.com/products/kobra-s1-combo?ref=zppplkze",
     buildVolume: { x: 250, y: 250, z: 260 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
