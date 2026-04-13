@@ -1,5 +1,3 @@
-import { existsSync } from "fs";
-import { join } from "path";
 import { printers } from "@/data/printers";
 
 function escapeXml(str: string): string {
@@ -11,15 +9,8 @@ function escapeXml(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-/** Slugs with missing image files — excluded until real images are added */
-const MISSING_IMAGES = new Set([
-  "bambu-lab-x2d",
-]);
-
 export function GET() {
-  const activePrinters = printers.filter(
-    (p) => !p.discontinued && !MISSING_IMAGES.has(p.slug),
-  );
+  const activePrinters = printers.filter((p) => !p.discontinued);
   const items = activePrinters
     .map(
       (p) => `    <item>
