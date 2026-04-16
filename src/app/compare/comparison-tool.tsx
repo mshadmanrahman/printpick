@@ -33,7 +33,7 @@ function PrinterSelector({
           .filter((p) => p.slug !== exclude)
           .map((p) => (
             <option key={p.slug} value={p.slug}>
-              {p.name} — ${p.price}
+              {p.name}, ${p.price}
             </option>
           ))}
       </select>
@@ -125,7 +125,7 @@ export function ComparisonTool() {
                 {priceDelta > 0 && (
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {moreExpensive.slug === winner.slug
-                      ? `Better performance for $${priceDelta} more — worth it if this is your primary tool`
+                      ? `Better performance for $${priceDelta} more, worth it if this is your primary tool`
                       : `Better performance AND $${priceDelta} cheaper than the ${moreExpensive.name}`}
                   </p>
                 )}

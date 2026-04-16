@@ -30,7 +30,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "PrintPick — Find Your Perfect 3D Printer",
+    default: "PrintPick, Find Your Perfect 3D Printer",
     template: "%s | PrintPick",
   },
   description:
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://printpick.dev",
     siteName: "PrintPick",
-    title: "PrintPick — Find Your Perfect 3D Printer",
+    title: "PrintPick, Find Your Perfect 3D Printer",
     description:
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
     images: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
         url: "https://printpick.dev/og-home.png",
         width: 1200,
         height: 630,
-        alt: "PrintPick — What will you build? Honest scores, no sponsored rankings.",
+        alt: "PrintPick, What will you build? Honest scores, no sponsored rankings.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PrintPick — Find Your Perfect 3D Printer",
+    title: "PrintPick, Find Your Perfect 3D Printer",
     description:
       "Data-driven 3D printer comparisons, interactive tools, and honest reviews.",
     images: ["https://printpick.dev/og-home.png"],
@@ -125,7 +125,7 @@ export default function RootLayout({
               <span>Print<span className="text-primary">Pick</span></span>
             </a>
             <div className="flex items-center gap-2">
-              {/* Desktop nav — highlights based on current path */}
+              {/* Desktop nav, highlights based on current path */}
               <DesktopNav links={NAV_LINKS} />
               {/* Search */}
               <SearchCommand />
@@ -184,7 +184,7 @@ export default function RootLayout({
               <p className="text-xs text-muted-foreground">
                 As an Amazon Associate, PrintPick earns from qualifying purchases.
                 Product data is updated regularly but prices and availability may change.
-                Photos by talented photographers on Unsplash — <a href="/credits" className="text-primary hover:underline">view credits</a>.
+                Photos by talented photographers on Unsplash, <a href="/credits" className="text-primary hover:underline">view credits</a>.
                 &copy; {new Date().getFullYear()} PrintPick. All rights reserved.
               </p>
             </div>

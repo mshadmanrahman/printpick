@@ -39,7 +39,7 @@ export function parseComparisonSlug(
   return null;
 }
 
-/** Canonical slug — both halves sorted alphabetically. */
+/** Canonical slug, both halves sorted alphabetically. */
 export function getCanonicalSlug(slugA: string, slugB: string): string {
   const [a, b] = [slugA, slugB].sort();
   return `${a}-vs-${b}`;
@@ -107,7 +107,7 @@ export function generateIntro(a: Printer, b: Printer): string {
     return `Choosing between two ${a.brand} printers? The ${a.name} ($${a.price}) and ${b.name} ($${b.price}) both come from one of the most trusted names in 3D printing${priceDiff > 0 ? `, with a $${priceDiff} gap between them` : ""}. Here's how they compare across every category that matters.`;
   }
   if (sameType) {
-    return `The ${a.name} and ${b.name} are both ${a.type.toUpperCase()} 3D printers competing in ${priceDiff < 100 ? "the same price bracket" : "different tiers"} — $${a.price} vs $${b.price}. We scored both across value, beginner-friendliness, quality, speed, and reliability. Here's the full breakdown.`;
+    return `The ${a.name} and ${b.name} are both ${a.type.toUpperCase()} 3D printers competing in ${priceDiff < 100 ? "the same price bracket" : "different tiers"}, $${a.price} vs $${b.price}. We scored both across value, beginner-friendliness, quality, speed, and reliability. Here's the full breakdown.`;
   }
   return `Comparing FDM to resin? The ${a.name} ($${a.price}, ${a.type.toUpperCase()}) and ${b.name} ($${b.price}, ${b.type.toUpperCase()}) use fundamentally different technologies. FDM melts filament layer by layer; resin cures liquid with UV light. Here's how they stack up.`;
 }
@@ -120,7 +120,7 @@ export function generateVerdict(a: Printer, b: Printer): string {
   const bWins = results.filter((r) => r.winner === "b").map((r) => r.label);
 
   if (scoreA === scoreB) {
-    return `It's a dead heat — both score ${scoreA}/10 overall. The ${a.name} wins in ${aWins.join(", ") || "no specific category"}, while the ${b.name} takes ${bWins.join(", ") || "none either"}. Pick based on which strengths matter more to you.`;
+    return `It's a dead heat, both score ${scoreA}/10 overall. The ${a.name} wins in ${aWins.join(", ") || "no specific category"}, while the ${b.name} takes ${bWins.join(", ") || "none either"}. Pick based on which strengths matter more to you.`;
   }
 
   const winner = scoreA > scoreB ? a : b;
@@ -158,7 +158,7 @@ export function generateFaqs(
       answer:
         scoreA === scoreB
           ? `They tie at ${scoreA}/10. The ${a.name} suits ${a.bestFor.slice(0, 2).join(" and ") || "general printing"}, while the ${b.name} is aimed at ${b.bestFor.slice(0, 2).join(" and ") || "different needs"}.`
-          : `By the numbers, the ${winner.name} scores higher (${winnerScore}/10). But "better" depends on your use case — the ${winner === a ? b.name : a.name} may be the smarter buy if you need ${(winner === a ? b : a).bestFor[0] || "its specific strengths"}.`,
+          : `By the numbers, the ${winner.name} scores higher (${winnerScore}/10). But "better" depends on your use case, the ${winner === a ? b.name : a.name} may be the smarter buy if you need ${(winner === a ? b : a).bestFor[0] || "its specific strengths"}.`,
     },
     {
       question: `Which is better for beginners, ${a.name} or ${b.name}?`,

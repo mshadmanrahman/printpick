@@ -54,7 +54,7 @@ export async function generateMetadata({
       url: `https://printpick.dev/compare/${slug}`,
       images: [
         {
-          url: `https://printpick.dev/api/og?title=${encodeURIComponent(`${a.name} vs ${b.name}`)}&subtitle=${encodeURIComponent(`$${a.price} vs $${b.price} — Head-to-Head`)}`,
+          url: `https://printpick.dev/api/og?title=${encodeURIComponent(`${a.name} vs ${b.name}`)}&subtitle=${encodeURIComponent(`$${a.price} vs $${b.price}, Head-to-Head`)}`,
           width: 1200,
           height: 630,
         },
@@ -244,7 +244,7 @@ export default async function ComparisonPage({
           {a.name} vs {b.name}
         </h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Head-to-head 3D printer comparison — 2026
+          Head-to-head 3D printer comparison, 2026
         </p>
 
         {/* ── Hero cards ────────────────────────────── */}
@@ -446,7 +446,7 @@ export default async function ComparisonPage({
                     asin={printer.amazonAsin}
                     printerName={printer.name}
                     price={printer.price}
-                    label={`Get ${printer.name} — $${printer.price}`}
+                    label={`Get ${printer.name}, $${printer.price}`}
                   />
                 </div>
               </div>

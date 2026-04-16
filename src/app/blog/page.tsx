@@ -3,9 +3,9 @@ import { ChevronRight, Calendar } from "lucide-react";
 import { getAllBlogPosts } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
-  title: "3D Printing Blog — Buying Guides & Listicles",
+  title: "3D Printer Buying Guides, PrintPick",
   description:
-    "In-depth 3D printer buying guides, ranked listicles, and comparison articles. Updated regularly with honest, data-driven recommendations.",
+    "Buying guides, ranked lists, and honest comparisons. No sponsored placements. Updated regularly.",
 };
 
 export default function BlogPage() {
@@ -13,9 +13,9 @@ export default function BlogPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
+      <h1 className="text-3xl font-bold tracking-tight">Buying Guides</h1>
       <p className="mt-2 text-muted-foreground">
-        Buying guides, ranked lists, and honest comparisons. Updated regularly.
+        Ranked lists and honest comparisons. No affiliate-first fluff.
       </p>
 
       <div className="mt-8 grid gap-4">

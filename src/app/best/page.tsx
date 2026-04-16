@@ -3,9 +3,9 @@ import { printers } from "@/data/printers";
 import { PrinterFilters } from "@/components/printer-filters";
 
 export const metadata: Metadata = {
-  title: "Best 3D Printers 2026 — Ranked & Scored",
+  title: "Best 3D Printers 2026, Ranked & Scored",
   description:
-    "The best 3D printers in 2026, scored across value, beginner-friendliness, print quality, speed, and reliability. Updated regularly.",
+    "Every 3D printer we track, scored across value, beginner-friendliness, print quality, speed, and reliability. No sponsored placements.",
 };
 
 const fdmCount = printers.filter((p) => p.type === "fdm").length;
@@ -28,8 +28,8 @@ export default function BestPage() {
             Every 3D Printer, Ranked.
           </h1>
           <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
-            Scored across 5 dimensions — value, beginner-friendliness, print quality, speed, and reliability.
-            No sponsored placements. Rankings based on data, not deals.
+            Scored across five dimensions: value, beginner-friendliness, print quality, speed, and reliability.
+            Rankings based on data. No sponsored placements.
           </p>
 
           {/* Stat pills */}

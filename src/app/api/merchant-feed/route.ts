@@ -33,7 +33,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>PrintPick — 3D Printer Product Feed</title>
+    <title>PrintPick, 3D Printer Product Feed</title>
     <link>https://printpick.dev</link>
     <description>Data-driven 3D printer comparisons, interactive tools, and honest reviews.</description>
 ${items}

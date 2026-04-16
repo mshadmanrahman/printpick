@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Search, DollarSign, Layers, GitCompare, Ruler, Beaker, TrendingUp, Volume2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "3D Printing Tools & Calculators — Free Interactive Tools",
+  title: "3D Printing Tools & Calculators, Free Interactive Tools",
   description:
-    "Free interactive tools for 3D printing: printer finder quiz, cost estimator, material finder, build volume calculator, upgrade advisor, noise estimator, and more.",
+    "Tools I built to answer the questions I kept getting asked: which printer to buy, what it actually costs to run, whether FDM or resin makes sense for your use case, and more.",
 };
 
 export default function ToolsPage() {
@@ -12,61 +12,60 @@ export default function ToolsPage() {
     <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold tracking-tight">Tools &amp; Calculators</h1>
       <p className="mt-2 text-muted-foreground">
-        Free interactive tools to help you make smarter 3D printing decisions.
-        No signup required.
+        I built these because the same questions kept coming up. Which printer, what does it actually cost, FDM or resin. No signup, no email wall.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <ToolLink
           href="/tools/finder"
           icon={<Search className="h-5 w-5" />}
           title="Printer Finder Quiz"
-          description="Answer 6 questions about your budget, experience, and goals. Get a personalized printer recommendation."
+          description="6 questions about budget, experience, and what you want to make. I give you a specific printer to buy."
           badge="Most Popular"
         />
         <ToolLink
           href="/tools/cost-estimator"
           icon={<DollarSign className="h-5 w-5" />}
           title="Print Cost Estimator"
-          description="Calculate the real cost per print including filament, electricity, and printer depreciation."
+          description="Real cost per print: filament, electricity, and depreciation. Not the number Bambu puts on their homepage."
         />
         <ToolLink
           href="/tools/fdm-vs-resin"
           icon={<Layers className="h-5 w-5" />}
           title="FDM vs Resin Quiz"
-          description="Not sure which 3D printing technology is right for you? Answer 5 questions and find out."
+          description="They're genuinely different tools. 5 questions, and you'll know which one fits your use case."
         />
         <ToolLink
           href="/compare"
           icon={<GitCompare className="h-5 w-5" />}
           title="Head-to-Head Comparison"
-          description="Pick any two printers and compare scores, specs, features, and pricing side by side."
+          description="Pick any two printers. Scores, specs, features, price. All in one view."
         />
         <ToolLink
           href="/tools/build-volume"
           icon={<Ruler className="h-5 w-5" />}
           title="Build Volume Calculator"
-          description="Enter your model dimensions and see which printers can print it. Instantly check fit across all 24 printers."
+          description="Enter your model dimensions. Instantly see which printers can actually fit it, across all 24 in the catalog."
           badge="New"
         />
         <ToolLink
           href="/tools/materials"
           icon={<Beaker className="h-5 w-5" />}
           title="Material Compatibility Finder"
-          description="Select a material (PLA, ABS, Nylon, resin) and see which printers support it. Includes difficulty ratings."
+          description="Select a material (PLA, ABS, Nylon, resin) and see which printers handle it. Difficulty ratings included."
           badge="New"
         />
         <ToolLink
           href="/tools/upgrade"
           icon={<TrendingUp className="h-5 w-5" />}
           title="Upgrade Path Advisor"
-          description="Already have a printer? Tell us which one and we'll recommend the best upgrade with price and score comparisons."
+          description="Already own a printer? Tell me which one. I'll show you the best upgrade with score and price comparisons."
           badge="New"
         />
         <ToolLink
           href="/tools/noise"
           icon={<Volume2 className="h-5 w-5" />}
           title="Noise Level Estimator"
-          description="Compare printer noise levels for bedroom, office, or workshop. Find the quietest printer for your space."
+          description="Bedroom, office, or workshop. Find the quietest printer for your actual space, not a soundproofed lab."
           badge="New"
         />
       </div>

@@ -16,7 +16,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
     <div className="group relative flex flex-col rounded-2xl border border-border/60 bg-card overflow-hidden hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-black/20">
       <a href={`/printers/${printer.slug}`} className="absolute inset-0 z-0" aria-label={`View ${printer.name}`} />
 
-      {/* Image — fixed aspect, consistent framing */}
+      {/* Image, fixed aspect, consistent framing */}
       <div className="relative w-full aspect-[4/3] bg-card overflow-hidden">
         {rank !== undefined && rank <= 3 && (
           <span className="absolute top-2.5 left-2.5 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground shadow">
@@ -174,7 +174,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
               </h3>
               {isTopPick && (
                 <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
-                  #1 Pick
+                  Top Pick
                 </span>
               )}
             </div>
@@ -207,11 +207,11 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             <Stat label="Build" value={`${printer.buildVolume.x}mm`} />
             <Stat label="Speed" value={`${printer.printSpeed}mm/s`} />
             <div className="hidden sm:block">
-              <Stat label="Resolution" value={`${printer.layerResolution.min}mm`} />
+              <Stat label="Layer" value={`${printer.layerResolution.min}mm`} />
             </div>
           </div>
           <div className="relative z-10">
-            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} price={printer.price} label="Check Price" className="text-xs px-3 py-1.5" />
+            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} price={printer.price} label="See Price" className="text-xs px-3 py-1.5" />
           </div>
         </div>
       </div>

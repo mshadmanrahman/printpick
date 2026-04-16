@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!config) return { title: "Not Found" };
 
   return {
-    title: `Best ${config.label} 3D Printers 2026 — Ranked & Scored`,
+    title: `Best ${config.label} 3D Printers 2026, Ranked & Scored`,
     description: config.editorialCopy[0],
     alternates: { canonical: `https://printpick.dev/tier/${tier}` },
     openGraph: {
@@ -76,7 +76,7 @@ export default async function TierPage({
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <Image
           src={`/images/gallery/${config.slug}-hero.png`}
-          alt={`${config.label} — ${config.tagline}`}
+          alt={`${config.label}, ${config.tagline}`}
           fill
           priority
           className="object-cover"
@@ -140,7 +140,7 @@ export default async function TierPage({
               The Full List
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              {catalogPrinters.length} printers · ranked by overall score
+              {catalogPrinters.length} printers, ranked by overall score
             </p>
           </div>
           <div className="grid gap-3">
@@ -161,7 +161,7 @@ export default async function TierPage({
                 Not sure this is the right tier?
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Take the 60-second quiz. Answer 6 questions and we&apos;ll match you to the right printer for your exact situation.
+                Answer 6 questions in about a minute. We&apos;ll point you at the right printer for your situation.
               </p>
             </div>
             <a
@@ -180,7 +180,7 @@ export default async function TierPage({
             className="text-lg font-bold tracking-tight mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Other Paths
+            Looking at a different budget?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {otherTiers.map((t) => {

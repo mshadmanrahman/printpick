@@ -25,7 +25,7 @@ export function UpgradeAdvisor() {
           <option value="">Select your printer...</option>
           {printers.map((p) => (
             <option key={p.slug} value={p.slug}>
-              {p.name} — ${p.price}
+              {p.name}, ${p.price}
             </option>
           ))}
         </select>

@@ -20,16 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const printer = getPrinterBySlug(slug);
   if (!printer) return { title: "Printer Not Found" };
   return {
-    title: `${printer.name} Review — Score ${getOverallScore(printer)}/10`,
-    description: `${printer.summary} Price: $${printer.price}. Scored ${getOverallScore(printer)}/10 across value, beginner-friendliness, print quality, speed, and reliability.`,
+    title: `${printer.name} Review, ${getOverallScore(printer)}/10`,
+    description: `${printer.summary} $${printer.price}. Scored ${getOverallScore(printer)}/10 across value, beginner-friendliness, print quality, speed, and reliability.`,
     alternates: {
       canonical: `https://printpick.dev/printers/${slug}`,
     },
     openGraph: {
-      title: `${printer.name} Review — Score ${getOverallScore(printer)}/10`,
+      title: `${printer.name} Review, Score ${getOverallScore(printer)}/10`,
       description: `${printer.summary} Price: $${printer.price}.`,
       url: `https://printpick.dev/printers/${slug}`,
-      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} — Score ${getOverallScore(printer)}/10 — ${printer.brand}`)}`, width: 1200, height: 630, alt: printer.name }],
+      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price}, Score ${getOverallScore(printer)}/10, ${printer.brand}`)}`, width: 1200, height: 630, alt: printer.name }],
     },
   };
 }
@@ -188,7 +188,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           </nav>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
-            {/* Product Image — Big, clean, fills the space */}
+            {/* Product Image, Big, clean, fills the space */}
             <div className="flex-1">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
                 <Image
@@ -246,7 +246,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-3xl font-bold">${printer.price}</div>
-                    <p className="text-xs text-muted-foreground mt-0.5">on Amazon</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">via Amazon</p>
                   </div>
                   <div className="text-right">
                     <div className="text-sm text-muted-foreground">PrintPick Score</div>
@@ -258,7 +258,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     asin={printer.amazonAsin}
                     printerName={printer.name}
                     price={printer.price}
-                    label={`Buy on Amazon — $${printer.price}`}
+                    label={`Buy on Amazon, $${printer.price}`}
                     className="w-full justify-center py-3 text-base font-semibold"
                   />
                   {printer.brandUrl && (
@@ -276,7 +276,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* ── Key Specs — Visual cards like Bambu Lab ── */}
+      {/* ── Key Specs, Visual cards like Bambu Lab ── */}
       <section className="border-y border-border/50 bg-muted/20">
         <div className="mx-auto max-w-5xl px-4 py-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -293,7 +293,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         <section className="py-10">
           <h2 className="text-xl font-bold flex items-center gap-2">
             <Award className="h-5 w-5 text-primary" />
-            PrintPick Scores
+            How It Scores
           </h2>
           <div className="mt-4 rounded-xl border border-border/60 bg-card p-5 space-y-3">
             <ScoreRow label="Value" score={printer.scores.value} />
@@ -330,12 +330,12 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           </div>
         </section>
 
-        {/* ── Community Reviews — "What the Pros Are Saying" ── */}
+        {/* ── Community Reviews, "What the Pros Are Saying" ── */}
         {printer.reviews.length > 0 && (
           <section className="py-10 border-t border-border/50">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-primary" />
-              What the Community Says
+              What Owners Say
             </h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {printer.reviews.map((review) => (
@@ -353,7 +353,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
         {/* ── Full Specs Table ── */}
         <section className="py-10 border-t border-border/50">
-          <h2 className="text-xl font-bold">Full Specifications</h2>
+          <h2 className="text-xl font-bold">Specs</h2>
           <div className="mt-4 rounded-xl border border-border/60 bg-card overflow-hidden">
             <table className="w-full text-sm">
               <tbody>
@@ -370,7 +370,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
         {/* ── Verdict ── */}
         <section className="py-10 border-t border-border/50">
-          <h2 className="text-xl font-bold">Our Verdict</h2>
+          <h2 className="text-xl font-bold">Verdict</h2>
           <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-6">
             <p className="text-base leading-relaxed">{printer.verdict}</p>
           </div>
@@ -379,7 +379,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
               asin={printer.amazonAsin}
               printerName={printer.name}
               price={printer.price}
-              label={`Buy ${printer.name} on Amazon — $${printer.price}`}
+              label={`Buy ${printer.name} on Amazon, $${printer.price}`}
               className="py-3 text-base"
             />
           </div>
@@ -390,9 +390,9 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           <section className="py-10 border-t border-border/50">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <ShoppingCart className="h-5 w-5 text-primary" />
-              What You&apos;ll Also Need
+              You&apos;ll Also Need
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">Essential accessories to get started with this printer.</p>
+            <p className="mt-1 text-sm text-muted-foreground">Things you&apos;ll want before your first print.</p>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
               {printer.alsoNeed.map((item) => (
                 <a
@@ -415,9 +415,9 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         {/* ── Featured In Blog Posts ── */}
         {featuredInPosts.length > 0 && (
           <section className="py-10 border-t border-border/50">
-            <h2 className="text-xl font-bold">Featured In</h2>
+            <h2 className="text-xl font-bold">In Our Guides</h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Read more about the {printer.name} in our buying guides.
+              The {printer.name} shows up in these buying guides.
             </p>
             <div className="mt-4 grid gap-2">
               {featuredInPosts.map((post) => (
@@ -443,7 +443,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
         {/* ── Related Printers ── */}
         {related.length > 0 && (
           <section className="py-10 border-t border-border/50">
-            <h2 className="text-xl font-bold">Similar Printers</h2>
+            <h2 className="text-xl font-bold">Also Worth Considering</h2>
             <div className="mt-4 grid gap-4 lg:grid-cols-2">
               {related.map((p) => (
                 <PrinterCard key={p.slug} printer={p} />

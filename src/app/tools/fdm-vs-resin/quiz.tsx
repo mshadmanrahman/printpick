@@ -148,7 +148,7 @@ export function FdmVsResinQuiz() {
             <h3 className="font-bold">Why Resin?</h3>
             <p className="text-muted-foreground">
               Resin printers use liquid photopolymer cured by UV light. They produce incredibly
-              fine detail that FDM can&apos;t match — perfect for miniatures, jewelry, and figures.
+              fine detail that FDM can&apos;t match, perfect for miniatures, jewelry, and figures.
               The trade-off is messier post-processing (washing and curing) and smaller build volumes.
             </p>
           </div>

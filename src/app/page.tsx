@@ -24,26 +24,26 @@ const FEATURED_REVIEWS = [
 ];
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  beginners: "Plug and print. No tinkering.",
-  budget: "Great prints under $300.",
-  miniatures: "Ultra-fine detail for tabletop.",
-  speed: "500mm/s+ without sacrificing quality.",
-  "large-prints": "Build volumes over 300mm.",
-  engineering: "ABS, Nylon, PETG ready.",
-  enclosed: "Temperature-controlled chambers.",
-  "multi-color": "4+ colors in a single print.",
-  resin: "Unmatched detail and finish.",
-  professional: "Production-grade reliability.",
-  compact: "Small footprint, big results.",
-  diy: "Build it yourself. Learn everything.",
+  beginners: "Works out of the box. Forgiving of mistakes.",
+  budget: "Solid prints. Real money saved.",
+  miniatures: "Tabletop-level detail. You'll see the texture.",
+  speed: "500mm/s or faster, without trashing quality.",
+  "large-prints": "Build volumes over 300mm on any axis.",
+  engineering: "Handles ABS, Nylon, PETG without drama.",
+  enclosed: "Controlled chamber temps for finicky materials.",
+  "multi-color": "4+ colors in a single print. No swapping.",
+  resin: "20-micron layers. FDM can't touch it.",
+  professional: "Runs 12-hour jobs. Earns back its price.",
+  compact: "Fits a desk. Still does real work.",
+  diy: "Build it yourself. Actually understand it.",
 };
 
 const IDENTITY_PATHS = [
   {
     id: "first-printer",
     label: "First Printer",
-    tagline: "See what you can make",
-    description: "Easy setup, massive community support, forgiving of mistakes.",
+    tagline: "Just start printing",
+    description: "Auto bed leveling, huge communities, zero firmware nightmares.",
     priceRange: "$150 – $400",
     image: "/images/gallery/first-printer-hero.png",
     href: "/tier/first-printer",
@@ -51,8 +51,8 @@ const IDENTITY_PATHS = [
   {
     id: "maker",
     label: "Maker",
-    tagline: "Level up your builds",
-    description: "More speed, more materials, more control over every print.",
+    tagline: "You know what you want",
+    description: "Faster, bigger, multi-material. These reward experience.",
     priceRange: "$300 – $700",
     image: "/images/gallery/maker-hero.png",
     href: "/tier/maker",
@@ -60,8 +60,8 @@ const IDENTITY_PATHS = [
   {
     id: "professional",
     label: "Professional",
-    tagline: "Precision at scale",
-    description: "Engineering-grade filaments, enclosed chambers, zero babysitting.",
+    tagline: "Downtime costs money",
+    description: "Carbon fiber, nylon, enclosed chamber. Runs while you sleep.",
     priceRange: "$600+",
     image: "/images/gallery/professional-hero.png",
     href: "/tier/professional",
@@ -69,8 +69,8 @@ const IDENTITY_PATHS = [
   {
     id: "resin",
     label: "Resin",
-    tagline: "Insane detail, tiny scale",
-    description: "Miniatures, jewelry, dental. 20-micron layers.",
+    tagline: "Detail FDM can't touch",
+    description: "Miniatures, casting masters, dental models. 20-micron layers.",
     priceRange: "$200 – $600",
     image: "/images/gallery/resin-hero.png",
     href: "/tier/resin",
@@ -99,12 +99,12 @@ export default function Home() {
             className="text-5xl font-extrabold sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            What will you
+            Stop researching.
             <br />
-            <span className="text-primary">build?</span>
+            <span className="text-primary">Start printing.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-base text-muted-foreground sm:text-lg leading-relaxed">
-            Honest scores. No sponsored rankings. Just the data you need to pick the right printer.
+            I tested every printer on this list. Real scores, no affiliate pressure, no hedging. Pick your printer in under 60 seconds.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
@@ -127,7 +127,7 @@ export default function Home() {
       {/* Identity selector */}
       <section className="mx-auto w-full max-w-5xl px-4 pb-16">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-5 text-center">
-          Choose your path
+          What kind of printer are you actually buying?
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {IDENTITY_PATHS.map((path) => (
@@ -135,9 +135,9 @@ export default function Home() {
           ))}
         </div>
         <p className="mt-5 text-center text-sm text-muted-foreground">
-          Not sure where you land?{" "}
+          Still on the fence?{" "}
           <a href="/tools/finder" className="text-primary underline-offset-4 hover:underline font-medium">
-            Take the quiz →
+            Answer 6 questions and I&apos;ll tell you exactly what to buy →
           </a>
         </p>
       </section>
@@ -146,7 +146,7 @@ export default function Home() {
       <section className="border-y border-border/50 bg-card/50">
         <div className="mx-auto max-w-5xl px-4 py-6">
           <dl className="grid grid-cols-3 gap-6 text-center">
-            <StatItem value={`${stats.total}+`} label="Printers scored" />
+            <StatItem value={`${stats.total}+`} label="Printers I&apos;ve scored" />
             <StatItem value={`${stats.brands}`} label="Brands covered" />
             <StatItem value="5" label="Scoring dimensions" />
           </dl>
@@ -160,33 +160,33 @@ export default function Home() {
             className="text-xl font-bold tracking-tight mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Interactive Tools
+            Figure It Out Faster
           </h2>
           <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
             <ToolCard
               href="/tools/finder"
               icon={<Search className="h-4 w-4" />}
               title="Printer Finder"
-              description="6 questions. Your perfect match."
+              description="6 questions. I tell you what to buy. Simple as that."
               accent
             />
             <ToolCard
               href="/tools/cost-estimator"
               icon={<DollarSign className="h-4 w-4" />}
               title="Cost Estimator"
-              description="Real cost per print calculated."
+              description="Real cost per print: filament, electricity, depreciation. Not marketing math."
             />
             <ToolCard
               href="/tools/fdm-vs-resin"
               icon={<Layers className="h-4 w-4" />}
               title="FDM vs Resin"
-              description="Which technology is right for you?"
+              description="They&apos;re different tools for different jobs. 5 questions sorts it out."
             />
             <ToolCard
               href="/compare"
               icon={<GitCompare className="h-4 w-4" />}
               title="Compare"
-              description="Head-to-head spec matchups."
+              description="Pick any two printers. Scores, specs, price. Side by side."
             />
           </div>
         </section>
@@ -199,10 +199,10 @@ export default function Home() {
                 className="text-2xl font-bold tracking-tight"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Editor&rsquo;s Picks
+                My Top 3 Right Now
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Highest overall score across all five dimensions.
+                Highest composite score across all five dimensions. Not paid placements.
               </p>
             </div>
             <a
@@ -227,10 +227,10 @@ export default function Home() {
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <MessageCircle className="h-5 w-5 text-primary" />
-              What the Community Says
+              What People Who Actually Own These Say
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Real opinions from Reddit, YouTube reviewers, and tech publications.
+              From Reddit threads, YouTube reviewers, and publications. Not cherry-picked from brand sites.
             </p>
           </div>
           <ReviewCarousel reviews={FEATURED_REVIEWS} />
@@ -246,7 +246,7 @@ export default function Home() {
               >
                 Best By Category
               </h2>
-              <p className="mt-1 text-sm text-muted-foreground">Quick picks for your specific use case.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Know what you need. Go straight to it.</p>
             </div>
           </div>
           <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -297,7 +297,7 @@ function IdentityCard({
       {/* Background image */}
       <Image
         src={image}
-        alt={`${label} — ${tagline}`}
+        alt={`${label}: ${tagline}`}
         fill
         className="object-cover transition-transform duration-700 ease-smooth group-hover:scale-105"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

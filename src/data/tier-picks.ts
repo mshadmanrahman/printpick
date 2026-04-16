@@ -17,11 +17,11 @@ export const TIER_CONFIG: Record<Tier, TierConfig> = {
   "first-printer": {
     slug: "first-printer",
     label: "First Printer",
-    tagline: "See what you can make",
+    tagline: "Just start printing",
     editorialCopy: [
-      "You don't need the best printer on the market. You need one that works out of the box, doesn't punish mistakes, and makes you want to print again tomorrow.",
-      "Every printer here scores 7+ on beginner-friendliness. They have auto bed leveling, don't require a PhD in firmware, and the communities behind them are massive — so when you Google \"why is my first layer ugly,\" you'll find the answer in 30 seconds.",
-      "Start here. Upgrade later when you know what you actually need.",
+      "You don't need the best printer. You need one that works out of the box, doesn't punish beginner mistakes, and makes you want to print something else tomorrow.",
+      "Every printer here scores 7 or higher on beginner-friendliness. Auto bed leveling is standard. Firmware won't require a weekend to configure. And the communities are big enough that when you Google \"why is my first layer lifting,\" someone already answered it.",
+      "Start here. Upgrade when you know what you're actually missing.",
     ],
     priceRange: "$150 – $400",
     budgetPick: "bambu-lab-a1-mini",
@@ -42,11 +42,11 @@ export const TIER_CONFIG: Record<Tier, TierConfig> = {
   "maker": {
     slug: "maker",
     label: "Maker",
-    tagline: "Level up your builds",
+    tagline: "You know what you want",
     editorialCopy: [
-      "You've already got prints on your desk, filament dust on your floor, and opinions about bed adhesion. Now you want more — bigger build volumes, faster speeds, multi-material, or just fewer failed prints at 3am.",
-      "These printers reward experience. They have features that don't matter to beginners but matter a lot to you: input shaping, direct drive extruders, enclosed chambers, Klipper firmware.",
-      "You know what you're doing. Pick the tool that matches your ambition.",
+      "You've got prints on your desk, filament dust on your floor, and strong opinions about bed adhesion. Now you want more: bigger volumes, faster speeds, multi-material, or just fewer 3am failures.",
+      "These printers reward experience. Input shaping, direct drive extruders, enclosed chambers, Klipper. None of that matters on your first printer. It all matters on your second.",
+      "You know what you're doing. Pick the tool that matches it.",
     ],
     priceRange: "$300 – $700",
     budgetPick: "creality-ender-3-v3-ke",
@@ -68,11 +68,11 @@ export const TIER_CONFIG: Record<Tier, TierConfig> = {
   "professional": {
     slug: "professional",
     label: "Professional",
-    tagline: "Precision at scale",
+    tagline: "Downtime costs money",
     editorialCopy: [
-      "This isn't a hobby purchase. You need dimensional accuracy, material versatility, and a machine that runs 12 hours without babysitting. Downtime costs money. Failed prints cost more.",
-      "Every printer here handles engineering-grade filaments — carbon fiber, nylon, ASA, polycarbonate. Enclosed chambers, hardened nozzles, and filtration aren't luxuries at this level. They're requirements.",
-      "These machines earn back their price.",
+      "This isn't a hobby purchase. You need dimensional accuracy, material versatility, and a machine that runs 12 hours without someone watching it. Failed prints aren't annoying at this level. They're expensive.",
+      "Every printer here handles engineering-grade filaments: carbon fiber, nylon, ASA, polycarbonate. Enclosed chambers, hardened nozzles, filtration. Those aren't upgrades at this tier. They're the baseline.",
+      "These machines earn back their price. That's the only metric that matters.",
     ],
     priceRange: "$600+",
     budgetPick: "bambu-lab-p2s",
@@ -93,11 +93,11 @@ export const TIER_CONFIG: Record<Tier, TierConfig> = {
   "resin": {
     slug: "resin",
     label: "Resin",
-    tagline: "Insane detail, tiny scale",
+    tagline: "Detail FDM can't touch",
     editorialCopy: [
-      "If you're here, you probably already know what you want — miniatures with skin texture you can see, jewelry casting masters, dental models, or cosplay pieces with surface finishes that look injection-molded.",
-      "Resin printing is a different world from FDM. The resolution is absurd — we're talking 20-micron layers. But it comes with trade-offs: post-processing with isopropyl alcohol, UV curing, and handling liquid resin safely.",
-      "Worth it? Look at the prints below and decide.",
+      "If you're here, you probably already know what you want. Miniatures with skin texture you can actually see. Jewelry casting masters. Dental models. Cosplay parts that look injection-molded.",
+      "Resin is a different world from FDM. The resolution is 20-micron layers. That's not a marketing number. But there are real trade-offs: post-processing with isopropyl alcohol, UV curing, and liquid resin that you have to handle carefully.",
+      "Worth it? Look at what comes off these machines and decide for yourself.",
     ],
     priceRange: "$200 – $600",
     budgetPick: "elegoo-mars-4-ultra",

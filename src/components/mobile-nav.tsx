@@ -42,7 +42,7 @@ export function MobileNav({ links }: { readonly links: readonly NavLink[] }) {
         ref={buttonRef}
         onClick={() => setOpen((prev) => !prev)}
         className="rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? "Close navigation" : "Open navigation"}
         aria-expanded={open}
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

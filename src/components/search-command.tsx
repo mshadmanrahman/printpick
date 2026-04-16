@@ -12,10 +12,10 @@ interface SearchResult {
 }
 
 const TOOLS: readonly SearchResult[] = [
-  { type: "tool", label: "Printer Finder", sublabel: "Quiz — find your match", href: "/tools/finder" },
-  { type: "tool", label: "Cost Estimator", sublabel: "Calculate cost per print", href: "/tools/cost-estimator" },
-  { type: "tool", label: "FDM vs Resin", sublabel: "Which tech is right?", href: "/tools/fdm-vs-resin" },
-  { type: "tool", label: "Compare", sublabel: "Head-to-head specs", href: "/compare" },
+  { type: "tool", label: "Printer Finder", sublabel: "Answer a few questions, get a shortlist", href: "/tools/finder" },
+  { type: "tool", label: "Cost Estimator", sublabel: "What does that print actually cost?", href: "/tools/cost-estimator" },
+  { type: "tool", label: "FDM vs Resin", sublabel: "Not sure which tech fits you? Start here.", href: "/tools/fdm-vs-resin" },
+  { type: "tool", label: "Compare", sublabel: "Spec-for-spec, side by side", href: "/compare" },
 ];
 
 function getAllResults(): readonly SearchResult[] {
@@ -135,7 +135,7 @@ export function SearchCommand() {
             {/* Results */}
             <div className="max-h-[40vh] overflow-y-auto py-2">
               {filtered.length === 0 ? (
-                <p className="px-4 py-6 text-center text-sm text-muted-foreground">No results found.</p>
+                <p className="px-4 py-6 text-center text-sm text-muted-foreground">Nothing matched. Try a brand name or keyword.</p>
               ) : (
                 filtered.map((result, i) => (
                   <button
@@ -164,9 +164,9 @@ export function SearchCommand() {
 
             {/* Footer hint */}
             <div className="border-t border-border px-4 py-2 flex items-center gap-3 text-[10px] text-muted-foreground">
-              <span>↑↓ Navigate</span>
-              <span>↵ Select</span>
-              <span>esc Close</span>
+              <span>↑↓ move</span>
+              <span>↵ open</span>
+              <span>esc dismiss</span>
             </div>
           </div>
         </div>

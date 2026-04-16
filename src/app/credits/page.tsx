@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Photo Credits",
-  description: "Credits and attribution for all photographers whose work appears on PrintPick.",
+  title: "Photo Credits, PrintPick",
+  description: "Attribution for all photographers whose work appears on PrintPick.",
 };
 
 interface Credit {
@@ -15,7 +15,7 @@ interface Credit {
 }
 
 const credits: readonly Credit[] = [
-  // New batch — photographer names in filenames
+  // New batch, photographer names in filenames
   { photographer: "Jakub Zerdzicki", unsplashUrl: "https://unsplash.com/@jakubzerdzicki", photoId: "DAebxanbCaA", image: "/images/printing-closeup.jpg", description: "3D printer manufacturing orange prototype" },
   { photographer: "Jakub Zerdzicki", unsplashUrl: "https://unsplash.com/@jakubzerdzicki", photoId: "GSgCqLoTM7Q", image: "/images/speed.jpg", description: "3D printer with red light illumination" },
   { photographer: "Jakub Zerdzicki", unsplashUrl: "https://unsplash.com/@jakubzerdzicki", photoId: "NbJLUsYKUUI", image: "/images/nozzle-glow.jpg", description: "Printer head with purple and green lights" },
@@ -30,7 +30,7 @@ const credits: readonly Credit[] = [
   { photographer: "Xiaole Tao", unsplashUrl: "https://unsplash.com/@xiaole_tao", photoId: "Fo-HQUlRGkU", image: "/images/compact.jpg", description: "Laptop beside compact 3D printer" },
   { photographer: "Declan Sun", unsplashUrl: "https://unsplash.com/@declansun", photoId: "7c-WPgFRjFU", image: "/images/wave-art.jpg", description: "3D printed wave art with vibrant colors" },
   { photographer: "EProjets Lab", unsplashUrl: "https://unsplash.com/@eprojets_lab", photoId: "dgvD77juPZ8", image: "/images/lamp.jpg", description: "3D printed minimalist lamp" },
-  // Original AVIF batch — photographers unknown (downloaded without slug metadata)
+  // Original AVIF batch, photographers unknown (downloaded without slug metadata)
   // If you recognize these photos, please let us know so we can properly credit the photographers
   { photographer: "Unsplash Photographer", unsplashUrl: "https://unsplash.com", photoId: "hero", image: "/images/hero.avif", description: "FDM printer with glowing orange model" },
   { photographer: "Unsplash Photographer", unsplashUrl: "https://unsplash.com", photoId: "fdm", image: "/images/fdm.avif", description: "Multi-color printer printing rabbit figurine" },
@@ -70,15 +70,15 @@ export default function CreditsPage() {
     <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold tracking-tight">Photo Credits</h1>
       <p className="mt-2 text-muted-foreground">
-        PrintPick uses photographs from talented photographers on{" "}
+        All photos are from{" "}
         <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
           Unsplash
         </a>
-        . All photos are used under the{" "}
+        , used under the{" "}
         <a href="https://unsplash.com/license" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
           Unsplash License
         </a>
-        . We believe in giving credit where it&apos;s due.
+        . Attribution isn&apos;t required, but these photographers deserve the credit.
       </p>
 
       <div className="mt-10 space-y-10">
@@ -133,12 +133,11 @@ export default function CreditsPage() {
               </span>
             </h2>
             <p className="mt-1 text-xs text-muted-foreground">
-              These photos were downloaded from Unsplash without photographer metadata.
-              If you recognize your work here, please{" "}
+              Downloaded without photographer metadata. If you recognize your work here,{" "}
               <a href="mailto:connectshadman@gmail.com" className="text-primary hover:underline">
-                contact us
+                let us know
               </a>{" "}
-              so we can properly credit you.
+              and we&apos;ll credit you properly.
             </p>
             <div className="mt-3 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2">
               {unknownPhotographers.map((photo) => (
@@ -160,15 +159,13 @@ export default function CreditsPage() {
       </div>
 
       <div className="mt-12 rounded-lg border border-primary/20 bg-primary/5 p-5 text-sm">
-        <h3 className="font-semibold">About Photo Usage</h3>
+        <h3 className="font-semibold">Photo Usage</h3>
         <p className="mt-1 text-muted-foreground">
-          All photographs on PrintPick are sourced from{" "}
+          All photos sourced from{" "}
           <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
             Unsplash
           </a>{" "}
-          and used under their free license. While Unsplash doesn&apos;t require attribution,
-          we believe photographers deserve recognition for their work. If you&apos;re a
-          photographer and would like your photo removed, please contact us.
+          under their free license. If you want your photo removed, email us.
         </p>
       </div>
     </div>

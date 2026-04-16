@@ -50,7 +50,7 @@ function PrinterCardAnchor({
           : "border-border/60 bg-card/60 hover:border-border"
       }`}
     >
-      {/* Label strip — inline, no absolute positioning */}
+      {/* Label strip, inline, no absolute positioning */}
       <div
         className={`flex items-center justify-center gap-1.5 py-2 text-[10px] font-bold uppercase tracking-widest border-b ${
           isBest

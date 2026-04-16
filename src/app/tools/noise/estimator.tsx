@@ -7,9 +7,9 @@ import { printers, getPrinterBySlug, getOverallScore } from "@/data/printers";
 import { NOISE_LEVELS, getNoiseColor, getNoiseBg } from "@/data/tool-data";
 
 const ENVIRONMENTS = [
-  { id: "bedroom", label: "Bedroom", icon: Moon, maxDb: 45, description: "Needs to be very quiet — you'll sleep near it" },
-  { id: "office", label: "Office / Living Room", icon: Building, maxDb: 52, description: "Moderate noise OK — background hum level" },
-  { id: "workshop", label: "Workshop / Garage", icon: Wrench, maxDb: 100, description: "Noise doesn't matter — dedicated space" },
+  { id: "bedroom", label: "Bedroom", icon: Moon, maxDb: 45, description: "Needs to be very quiet, you'll sleep near it" },
+  { id: "office", label: "Office / Living Room", icon: Building, maxDb: 52, description: "Moderate noise OK, background hum level" },
+  { id: "workshop", label: "Workshop / Garage", icon: Wrench, maxDb: 100, description: "Noise doesn't matter, dedicated space" },
 ] as const;
 
 const REFERENCE_LEVELS = [

@@ -14,13 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
   const category = CATEGORIES.find((c) => c.tag === tag);
   if (!category) return { title: "Category Not Found" };
   return {
-    title: `${category.label} 2026 — Ranked & Scored`,
+    title: `${category.label} 2026, Ranked & Scored`,
     description: `${category.description}. Every printer scored across 5 dimensions. Updated regularly.`,
     alternates: {
       canonical: `https://printpick.dev/best/${tag}`,
     },
     openGraph: {
-      title: `Best ${category.label} 2026 — Ranked & Scored`,
+      title: `Best ${category.label} 2026, Ranked & Scored`,
       description: `${category.description}. Every printer scored across 5 dimensions.`,
       url: `https://printpick.dev/best/${tag}`,
       images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(`Best ${category.label} 2026`)}&subtitle=${encodeURIComponent(category.description)}`, width: 1200, height: 630, alt: `Best ${category.label}` }],

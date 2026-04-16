@@ -129,7 +129,7 @@ export default async function BlogPostPage({
                   {i + 1}.
                 </span>
                 {item.printer!.name}{" "}
-                <span className="text-xs">— {item.headline}</span>
+                <span className="text-xs">: {item.headline}</span>
               </a>
             </li>
           ))}
@@ -154,7 +154,7 @@ export default async function BlogPostPage({
                   {item.printer!.name}
                 </h2>
                 <p className="text-sm text-primary font-medium">
-                  {item.headline} — Score: {getOverallScore(item.printer!)}/10 — ${item.printer!.price}
+                  {item.headline}, Score: {getOverallScore(item.printer!)}/10, ${item.printer!.price}
                 </p>
               </div>
             </div>
