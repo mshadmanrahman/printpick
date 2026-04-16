@@ -661,7 +661,7 @@ export const newPrinters2026: readonly Printer[] = [
     name: "Anycubic Kobra S1 Combo",
     brand: "Anycubic",
     type: "fdm",
-    image: "/images/printers/anycubic-kobra-s1-combo.png",
+    image: "/images/printers/anycubic-kobra-s1-combo.webp",
     price: 499,
     amazonAsin: "B0DZ9Y2FQV",
     brandUrl: "https://eu.anycubic.com/products/kobra-s1-combo?ref=zppplkze",
