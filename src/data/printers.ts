@@ -1,4 +1,5 @@
 import { newPrinters2026 } from "./new-printers-2026";
+import { ELEGOO_AFFILIATE_URLS } from "@/lib/awin-affiliate";
 
 export interface Review {
   readonly quote: string;
@@ -262,7 +263,7 @@ export const printers: readonly Printer[] = [
     brand: "Elegoo",
     type: "resin",
     image: "/images/printers/elegoo-mars-5-ultra.png",
-    brandUrl: "https://www.elegoo.com/products/elegoo-mars-5-ultra",
+    brandUrl: ELEGOO_AFFILIATE_URLS.mars5Ultra,
     price: 284,
     amazonAsin: "B0D9FQWK7N",
     buildVolume: { x: 153, y: 89, z: 200 },
@@ -289,6 +290,7 @@ export const printers: readonly Printer[] = [
     brand: "Elegoo",
     type: "resin",
     image: "/images/printers/elegoo-saturn-4-ultra.png",
+    brandUrl: ELEGOO_AFFILIATE_URLS.saturn4Ultra,
     price: 459,
     amazonAsin: "B0D9FM4KFN",
     buildVolume: { x: 218, y: 123, z: 220 },
@@ -315,7 +317,7 @@ export const printers: readonly Printer[] = [
     brand: "Elegoo",
     type: "fdm",
     image: "/images/printers/elegoo-neptune-4-pro.png",
-    brandUrl: "https://www.elegoo.com/products/elegoo-neptune-4-pro",
+    brandUrl: ELEGOO_AFFILIATE_URLS.neptune4Pro,
     price: 259,
     amazonAsin: "B0C74BVCFC",
     buildVolume: { x: 225, y: 225, z: 265 },

@@ -8,6 +8,7 @@
  */
 
 import type { Printer } from "./printers";
+import { ELEGOO_AFFILIATE_URLS } from "@/lib/awin-affiliate";
 
 export const newPrinters2026: readonly Printer[] = [
   // ─── 1. BAMBU LAB P2S ───────────────────────────────────────────
@@ -230,6 +231,7 @@ export const newPrinters2026: readonly Printer[] = [
     brand: "Elegoo",
     type: "fdm",
     image: "/images/printers/elegoo-centauri-carbon.png",
+    brandUrl: ELEGOO_AFFILIATE_URLS.centauriCarbon,
     price: 299,
     amazonAsin: "B0FDQP54X8",
     buildVolume: { x: 256, y: 256, z: 256 },
@@ -301,6 +303,7 @@ export const newPrinters2026: readonly Printer[] = [
     brand: "Elegoo",
     type: "fdm",
     image: "/images/printers/elegoo-centauri-carbon-2-combo.png",
+    brandUrl: ELEGOO_AFFILIATE_URLS.centauriCarbon2Combo,
     price: 449,
     amazonAsin: "B0G4TPZPZM",
     buildVolume: { x: 256, y: 256, z: 256 },
@@ -865,6 +868,72 @@ export const newPrinters2026: readonly Printer[] = [
       "Engineering filaments (ABS, ASA, PA-CF)",
       "Vision Encoder module (optional, for 50-micron accuracy)",
       "Extra HEPA filters (3-stage system built in)",
+    ],
+  },
+
+  // ─── 11. ANYCUBIC KOBRA S1 ACE 2 PRO COMBO ───────────────────
+  // Launched April 24, 2026. Early bird price €459 through May 31, 2026.
+  // 16-color variant (upgraded ACE 2 Pro) — distinct from the 8-color Kobra S1 Combo (slug: anycubic-kobra-s1-combo).
+  {
+    slug: "anycubic-kobra-s1-ace-2-pro-combo",
+    name: "Anycubic Kobra S1 ACE 2 Pro Combo",
+    brand: "Anycubic",
+    type: "fdm",
+    image: "/images/printers/anycubic-kobra-s1-ace-2-pro-combo.png",
+    price: 499, // Early bird €459 (Apr 24 – May 31); reverts to ~€549 after promo. USD TBC.
+    amazonAsin: "B0KS1ACE00", // NOTE: Not confirmed on Amazon at launch — Anycubic EU direct store is primary.
+    brandUrl:
+      "https://eu.anycubic.com/pages/kobra-s1-ace-2-pro-combo-new-launch?ref=zppplkze",
+    buildVolume: { x: 250, y: 250, z: 250 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 13.0,
+    features: [
+      "ACE 2 Pro multi-color system (up to 16 colors)",
+      "Fully-enclosed CoreXY architecture",
+      "Upgraded hotend (all-filament compatible)",
+      "Quiet print mode (~44dB)",
+      "600mm/s ultra-fast printing",
+      "250x250x250mm build volume",
+    ],
+    bestFor: ["multi-color", "speed", "enclosed"],
+    scores: {
+      value: 9,
+      beginner: 7,
+      printQuality: 8,
+      speed: 9,
+      reliability: 7,
+    },
+    pros: [
+      "16 colors out of the box — doubles the 8-color S1 Combo and quadruples the Bambu A1 Combo (4)",
+      "Fully enclosed CoreXY handles ABS, ASA, and engineering filaments without warping",
+      "44dB quiet mode is unusually low for a 600mm/s CoreXY — apartment-friendly",
+      "Upgraded hotend is rated for the full Anycubic filament range",
+      "Early bird €459 undercuts the Bambu P2S (€549) and matches pricing of the older 8-color S1 Combo",
+    ],
+    cons: [
+      "Brand new product — early adopter risk on firmware and ACE 2 Pro reliability",
+      "Anycubic slicer still trails Bambu Studio on automation and profile polish",
+      "ACE 2 Pro adds significant desk footprint",
+      "Early bird pricing ends May 31 — regular price expected to climb",
+    ],
+    summary:
+      "Anycubic's 16-color enclosed CoreXY flagship. Successor to the Kobra S1 Combo with a fully-enclosed chamber, quieter print mode (44dB), and the upgraded ACE 2 Pro multi-material system that doubles color capacity from 8 to 16.",
+    verdict:
+      "At €459 early bird, this is the most aggressive 16-color enclosed CoreXY on the market. If you already know you want multi-color and don't want Bambu's walled garden, the early bird window (April 24 to May 31) makes this a near-automatic recommendation. For casual multi-color users, the 8-color Kobra S1 Combo remains the better value — 16 colors is overkill unless you print flags, pixel art, or multi-material models regularly.",
+    reviews: [
+      {
+        quote:
+          "16 colors on an enclosed CoreXY for under €500 was not on my 2026 bingo card. Anycubic is swinging hard at Bambu's multi-color dominance.",
+        source: "Press announcement — awaiting independent reviews",
+      },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: [
+      "ACE 2 Pro filament bundles (16-color packs)",
+      "Anycubic PLA Ultra / PETG multi-color spools",
+      "Drybox for hygroscopic filaments",
+      "Spare upgraded hotend",
     ],
   },
 ];

@@ -1320,4 +1320,45 @@ const blogPosts: readonly BlogPost[] = [
       discount: "15% off first order",
     },
   },
+
+  // ─── ANYCUBIC KOBRA S1 ACE 2 PRO COMBO LAUNCH ──────────────
+  {
+    slug: "anycubic-kobra-s1-ace-2-pro-combo-launch-2026",
+    title:
+      "Anycubic Kobra S1 ACE 2 Pro Combo: 16-Color CoreXY at €459 Early Bird",
+    description:
+      "Anycubic's new enclosed CoreXY with 16-color multi-material printing launches April 24 at €459 early bird. How it stacks up against the Bambu P2S and the 8-color Kobra S1 Combo.",
+    publishedAt: "2026-04-16",
+    updatedAt: "2026-04-16",
+    category: "guide",
+    intro:
+      "Anycubic announced the Kobra S1 ACE 2 Pro Combo on April 16, 2026, with general availability on April 24 and an early bird price of €459 running through May 31. At that price, Anycubic is making an aggressive move against the Bambu P2S (€549) and the older Kobra S1 Combo (€499 at launch). The headline upgrade is the ACE 2 Pro multi-material system, which doubles color capacity from 8 to 16. The printer also adds a fully-enclosed CoreXY frame with a 44dB quiet mode, an upgraded hotend compatible with the full Anycubic filament range, 600mm/s print speeds, and a 250x250x250mm build volume. The early bird window is short and generous: first 1,000 buyers get two free filament spools, there are 300 €20 gift card slots up for grabs, and bundled discounts take 50% off filament and accessory packs. If you have been waiting for a multi-color enclosed CoreXY that does not require buying into Bambu's ecosystem, this is the most interesting option launched in 2026.",
+    items: [
+      {
+        printerSlug: "anycubic-kobra-s1-ace-2-pro-combo",
+        headline: "What the Kobra S1 ACE 2 Pro Combo Brings to the Table",
+        body: "The standout feature is the ACE 2 Pro multi-material unit. The previous Kobra S1 Combo topped out at 8 colors using the original ACE Pro 2 (yes, Anycubic flipped the naming — the ACE 2 Pro is the newer and more capable unit). The new ACE 2 Pro supports 16-color prints out of the box, which puts Anycubic ahead of the Bambu A1 Combo (4 colors) and the Bambu P2S with AMS 2 Pro (up to 16 colors, but at €549 for the printer plus AMS). Beyond the color count, the hotend has been upgraded to handle all mainstream filaments — PLA, PETG, TPU, ABS, ASA, PA and carbon fiber blends — without needing aftermarket parts. The CoreXY architecture is fully enclosed, which matters for engineering filaments that warp in open-frame printers. The 44dB quiet mode is unusually low for a 600mm/s CoreXY and makes the machine apartment-friendly. Build volume is 250x250x250mm, which is smaller than the P2S's 256mm³ but large enough for the vast majority of hobbyist prints. Where Anycubic still lags Bambu is slicer polish. Anycubic's Slicer Next has improved over the last 12 months but still requires more manual profile work than Bambu Studio. Power users who run OrcaSlicer can sidestep this entirely — OrcaSlicer supports the Kobra S1 family and works well across both brands.",
+      },
+      {
+        printerSlug: "anycubic-kobra-s1-combo",
+        headline:
+          "Should You Buy the 8-Color S1 Combo or the New 16-Color ACE 2 Pro Combo?",
+        body: "Anycubic is not retiring the 8-color Kobra S1 Combo (€499). The two printers will sit side by side: the S1 Combo for users who want a solid multi-color CoreXY at a mature price point, and the S1 ACE 2 Pro Combo for users who want 16 colors and a fully-enclosed chamber. Decision rule: if you print multi-color models more than once a week and have ever felt constrained by 8 colors, the ACE 2 Pro Combo at €459 early bird is a near-automatic upgrade. If you mostly print single-color or occasional 3-4 color models, the 8-color S1 Combo is already more than you need and likely to drop in price as the ACE 2 Pro Combo takes over the premium slot. The enclosed chamber on the new model is the quiet differentiator. If you print ABS, ASA or engineering filaments and live in an apartment where smell or noise is an issue, the enclosure matters far more than the extra color count. Open-frame multi-color printers like the Bambu A1 Combo cannot handle these materials well. The ACE 2 Pro Combo can.",
+      },
+      {
+        printerSlug: "bambu-lab-p2s",
+        headline:
+          "Kobra S1 ACE 2 Pro Combo vs Bambu Lab P2S: The Real Comparison",
+        body: "At €459 (early bird) vs €549, the Anycubic undercuts the Bambu P2S by €90 before you even factor in the AMS. To match the 16-color capability of the ACE 2 Pro Combo out of the box, you would pair the P2S with the AMS 2 Pro (~€349), pushing the Bambu bundle past €900. That is a €440 gap for a similar output. Where the P2S pulls ahead: software. Bambu Studio is the most polished slicer in consumer 3D printing. Profiles work on the first print, the camera and AI failure detection are best in class, and the ecosystem (Makerworld, cloud slicing, mobile app) is years ahead of anything Anycubic has shipped. If you value frictionless out-of-box experience, the P2S is still the safer buy. Where the Anycubic wins: price, color count, noise (44dB is roughly 3-5dB quieter than the P2S in quiet mode), and openness. You can run any slicer, modify any part, and you are not locked into Bambu's cloud. For tinkerers and for anyone philosophically uncomfortable with Bambu's ecosystem lock-in, the ACE 2 Pro Combo is the more appealing choice. Verdict: if you want the smoothest ride, get the P2S. If you want the most color for the least money in an enclosed CoreXY, the ACE 2 Pro Combo at €459 early bird is the obvious pick. The €90 savings pay for a lot of filament.",
+      },
+    ],
+    conclusion:
+      "The Anycubic Kobra S1 ACE 2 Pro Combo is the most aggressively priced 16-color enclosed CoreXY ever launched. At €459 early bird (April 24 to May 31), it undercuts the Bambu P2S by €90 and includes a multi-material unit that would cost another €349 on the Bambu side. The early bird perks — two free filament spools for the first 1,000 buyers, 300 €20 gift card slots, and 50% off filament and accessory bundles — make the opening window the right time to buy. After May 31, pricing reverts to the regular MSRP (expected around €549), which narrows the value case considerably. If you have been sitting on the fence waiting for a multi-color CoreXY that is not a Bambu, stop waiting. If you are set on Bambu's polish and ecosystem, the P2S is still an excellent printer and the AMS 2 Pro is a superior multi-material unit. But for every other buyer, the ACE 2 Pro Combo at €459 is the best multi-color deal of 2026 so far.",
+    affiliateCta: {
+      brand: "Anycubic EU",
+      text: "Grab the early bird €459 price on the Kobra S1 ACE 2 Pro Combo direct from Anycubic EU. Valid April 24 to May 31, 2026.",
+      url: "https://eu.anycubic.com/pages/kobra-s1-ace-2-pro-combo-new-launch?ref=zppplkze",
+      discount: "Early bird €459 (first 1,000 buyers get 2 free filament spools)",
+    },
+  },
 ];
