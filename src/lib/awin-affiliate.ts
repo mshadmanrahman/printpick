@@ -54,26 +54,32 @@ export function getAwinDeepLink(
  * the printer catalog. Centralising these here means every Elegoo product
  * page across the catalog and blog uses the same tracked URL, and a rate
  * change or merchant ID update is a single-file edit.
+ *
+ * Destination URLs verified against elegoo.com/collections/3d-printers on
+ * 2026-04-17 (all return HTTP 200 with a real browser user-agent). Elegoo's
+ * Shopify slugs are inconsistent: some carry the "elegoo-" brand prefix and
+ * long spec descriptors, others are bare product names. Do not guess new
+ * slugs; pull them from the collection page before adding a product here.
  */
 export const ELEGOO_AFFILIATE_URLS = {
   mars5Ultra: getAwinDeepLink(
     "elegoo",
-    "https://www.elegoo.com/products/elegoo-mars-5-ultra",
+    "https://www.elegoo.com/products/mars-5-ultra-9k-7inch-monochrome-lcd-resin-3d-printer",
   ),
   saturn4Ultra: getAwinDeepLink(
     "elegoo",
-    "https://www.elegoo.com/products/elegoo-saturn-4-ultra",
+    "https://www.elegoo.com/products/saturn-4-ultra-12k-10inch-monochrome-lcd-resin-3d-printer",
   ),
   neptune4Pro: getAwinDeepLink(
     "elegoo",
-    "https://www.elegoo.com/products/elegoo-neptune-4-pro",
+    "https://www.elegoo.com/products/elegoo-neptune-4-pro-fdm-3d-printer",
   ),
   centauriCarbon: getAwinDeepLink(
     "elegoo",
-    "https://www.elegoo.com/products/elegoo-centauri-carbon",
+    "https://www.elegoo.com/products/centauri-carbon",
   ),
   centauriCarbon2Combo: getAwinDeepLink(
     "elegoo",
-    "https://www.elegoo.com/products/elegoo-centauri-carbon-2-combo",
+    "https://www.elegoo.com/products/centauri-carbon-2-combo",
   ),
 } as const;
