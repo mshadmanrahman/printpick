@@ -1,0 +1,595 @@
+{
+  "generatedAt": "2026-04-02T19:17:30.285Z",
+  "sourceDataset": "src/data/printers.ts",
+  "staleThresholdDays": 30,
+  "totals": {
+    "records": 58,
+    "duplicateAsins": 0,
+    "rowsWithMissingRequiredFields": 0,
+    "staleRecords": 58
+  },
+  "duplicateAsins": [],
+  "missingRequiredFields": [],
+  "staleRecords": [
+    {
+      "slug": "anycubic-kobra-2-max",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-kobra-3",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-kobra-3-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-photon-mono-2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-photon-mono-4",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-photon-mono-m5s",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "artillery-genius-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "artillery-sidewinder-x4-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-a1",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-a1-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-a1-mini",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-h2d",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-p1p",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-p1s",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-p2s",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-x1-carbon",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-cr-m4",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-ender-3-v3",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-ender-3-v3-ke",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-ender-3-v3-se",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-ender-5-s1",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-halot-mage-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-hi-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-k1",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-k1-max",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-k2-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-sparkx-i7",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-centauri-carbon",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-centauri-carbon-2-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-mars-4",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-mars-4-ultra",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-mars-5-ultra",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-neptune-4",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-neptune-4-max",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-neptune-4-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-saturn-3-ultra",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-saturn-4-ultra",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "flashforge-adventurer-5m",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "flashforge-adventurer-5m-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "kingroon-klp1",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "kingroon-kp3s-pro-v2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "longer-orange-4k",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "longer-orange-4k-v2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "phrozen-sonic-mega-8k-s2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "phrozen-sonic-mini-4k",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "phrozen-sonic-mini-8k-s",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "prusa-core-one",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "prusa-mk4s",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "prusa-xl",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-ibox-mono2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-q1-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-x-max-3",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-x-plus-3",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-x-smart-3",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "sovol-sv06-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "sovol-sv07-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "sovol-sv08",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "voxelab-aquila-x2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    }
+  ]
+}

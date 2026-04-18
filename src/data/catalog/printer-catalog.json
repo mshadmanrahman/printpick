@@ -1,0 +1,3433 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-02T19:17:30.285Z",
+  "sourceDataset": "src/data/printers.ts",
+  "totalRecords": 58,
+  "stats": {
+    "inserted": 0,
+    "updated": 0,
+    "unchanged": 58
+  },
+  "countsByValidationState": {
+    "verified": 0,
+    "unverified": 58,
+    "needs_review": 0
+  },
+  "records": [
+    {
+      "slug": "anycubic-kobra-2-max",
+      "name": "Anycubic Kobra 2 Max",
+      "brand": "Anycubic",
+      "type": "fdm",
+      "image": "/images/printers/anycubic-kobra-2-max.png",
+      "price": 399,
+      "amazonAsin": "B0CL8ZQM3J",
+      "metadata": {
+        "buildVolume": {
+          "x": 420,
+          "y": 420,
+          "z": 500
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 20.5,
+        "bestFor": [
+          "large-prints",
+          "cosplay",
+          "budget"
+        ],
+        "features": [
+          "420x420x500mm build",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "WiFi"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 5,
+          "printQuality": 7,
+          "speed": 7,
+          "reliability": 7
+        },
+        "summary": "420x420x500mm large-format printer at $399. One of the biggest beds available at this price.",
+        "verdict": "For cosplay makers who want the biggest bed without spending over $400. The build volume alone makes it a contender despite the open frame."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "aa6c1b6206de11cfc367076a4215585d1300f2014462cf1b96a458dc41b543e6"
+      }
+    },
+    {
+      "slug": "anycubic-kobra-3",
+      "name": "Anycubic Kobra 3",
+      "brand": "Anycubic",
+      "type": "fdm",
+      "image": "/images/printers/anycubic-kobra-3.png",
+      "price": 299,
+      "amazonAsin": "B0DDX1B3V6",
+      "metadata": {
+        "buildVolume": {
+          "x": 250,
+          "y": 250,
+          "z": 260
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 9,
+        "bestFor": [
+          "speed",
+          "beginners",
+          "budget"
+        ],
+        "features": [
+          "CoreXY",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Direct drive"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 9,
+          "reliability": 7
+        },
+        "summary": "Standalone Kobra 3 without the ACE Pro color changer. Fast CoreXY at $299.",
+        "verdict": "Strong competitor to the Bambu A1 at the same price. Choose it over the A1 if you want Anycubic's ecosystem or prefer saving the ACE Pro cost for later."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "cbb8a875dda7319e8d69f14c2f58c4cc81c65b349cdf5ee91b694363ae3b7968"
+      }
+    },
+    {
+      "slug": "anycubic-kobra-3-combo",
+      "name": "Anycubic Kobra 3 Combo",
+      "brand": "Anycubic",
+      "type": "fdm",
+      "image": "/images/printers/anycubic-kobra-3-combo.png",
+      "price": 399,
+      "amazonAsin": "B0DDX1C2V5",
+      "metadata": {
+        "buildVolume": {
+          "x": 250,
+          "y": 250,
+          "z": 260
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 10,
+        "bestFor": [
+          "multi-color",
+          "speed",
+          "beginners"
+        ],
+        "features": [
+          "Multi-color (ACE Pro)",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Direct drive"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 9,
+          "reliability": 7
+        },
+        "summary": "Anycubic's multi-color competitor to the Bambu A1 Combo. Fast and feature-packed.",
+        "verdict": "A solid alternative to the A1 Combo if you want multi-color and prefer Anycubic's ecosystem. Wait for more community reviews before committing."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "90860664e3f1cfc5e77f255e677865424ba1efe81b2e4722dede24352be96cb7"
+      }
+    },
+    {
+      "slug": "anycubic-photon-mono-2",
+      "name": "Anycubic Photon Mono 2",
+      "brand": "Anycubic",
+      "type": "resin",
+      "image": "/images/printers/anycubic-photon-mono-2.png",
+      "price": 169,
+      "amazonAsin": "B0BTRM8KKY",
+      "metadata": {
+        "buildVolume": {
+          "x": 143,
+          "y": 89,
+          "z": 165
+        },
+        "layerResolution": {
+          "min": 0.02,
+          "max": 0.2
+        },
+        "printSpeed": 80,
+        "weight": 5.5,
+        "bestFor": [
+          "budget",
+          "resin",
+          "miniatures"
+        ],
+        "features": [
+          "6K mono LCD",
+          "USB",
+          "Anycubic Photon Workshop slicer"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 6,
+          "printQuality": 8,
+          "speed": 5,
+          "reliability": 7
+        },
+        "summary": "Budget entry-level resin from Anycubic. 6K resolution for miniatures on a tight budget.",
+        "verdict": "If you're picking between this and the Elegoo Mars 4, go with whichever brand you prefer — they're nearly identical at this tier. Both are solid starters."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "e4437323f74c2e979807bf4678ed07c70d8ee84cb496dc89229832c4953b5251"
+      }
+    },
+    {
+      "slug": "anycubic-photon-mono-4",
+      "name": "Anycubic Photon Mono 4",
+      "brand": "Anycubic",
+      "type": "resin",
+      "image": "/images/printers/anycubic-photon-mono-4.png",
+      "price": 159,
+      "amazonAsin": "B0DJKFQ8JN",
+      "metadata": {
+        "buildVolume": {
+          "x": 134,
+          "y": 75,
+          "z": 130
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 100,
+        "weight": 5,
+        "bestFor": [
+          "miniatures",
+          "resin",
+          "budget"
+        ],
+        "features": [
+          "10K mono LCD",
+          "Laser-cut build plate",
+          "USB"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 6,
+          "printQuality": 9,
+          "speed": 5,
+          "reliability": 7
+        },
+        "summary": "Cheapest entry into high-detail resin printing. Great for tabletop miniatures on a tight budget.",
+        "verdict": "The absolute lowest cost of entry for resin. If you just want to try resin printing without a big investment, start here."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "0dc929e71664cde051e4e48ebe90ec2de970056d84c1b56db02b943a67d22e08"
+      }
+    },
+    {
+      "slug": "anycubic-photon-mono-m5s",
+      "name": "Anycubic Photon Mono M5s",
+      "brand": "Anycubic",
+      "type": "resin",
+      "image": "/images/printers/anycubic-photon-mono-m5s.png",
+      "price": 339,
+      "amazonAsin": "B0CJPKFQR7",
+      "metadata": {
+        "buildVolume": {
+          "x": 218,
+          "y": 123,
+          "z": 220
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 150,
+        "weight": 9.5,
+        "bestFor": [
+          "resin",
+          "miniatures",
+          "detail"
+        ],
+        "features": [
+          "14K mono LCD",
+          "Anti-warping release",
+          "Dual cooling",
+          "App monitoring"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 10,
+          "speed": 7,
+          "reliability": 8
+        },
+        "summary": "14K resolution on a large build plate. Anycubic's premium resin offering for serious hobbyists.",
+        "verdict": "Competes directly with the Elegoo Saturn 3 Ultra. Choose it if you want 14K (vs 12K) and prefer Anycubic's brand. Detail is genuinely hard to tell apart at this resolution."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "359d13512008fb921bc2fc5010c5dda38b5b29e2c4e664d0a281b317feca7475"
+      }
+    },
+    {
+      "slug": "artillery-genius-pro",
+      "name": "Artillery Genius Pro",
+      "brand": "Artillery",
+      "type": "fdm",
+      "image": "/images/printers/artillery-genius-pro.png",
+      "price": 249,
+      "amazonAsin": "B0B5RJQXGP",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 250
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 200,
+        "weight": 9.5,
+        "bestFor": [
+          "beginners",
+          "budget",
+          "compact"
+        ],
+        "features": [
+          "Direct drive",
+          "Auto bed leveling",
+          "Dual Z axis",
+          "PEI build plate",
+          "Silent stepper drivers"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 5,
+          "reliability": 8
+        },
+        "summary": "Reliable compact FDM with dual Z and silent steppers. Great for beginners who want quiet printing.",
+        "verdict": "A quiet, reliable beginner machine that produces great prints. Not fast, but the dual Z and direct drive mean fewer failed prints for new users learning the hobby."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "f89cfce892edc7637020e992eda6f46481a7154b1b65efc7a32dd4edb89beb10"
+      }
+    },
+    {
+      "slug": "artillery-sidewinder-x4-plus",
+      "name": "Artillery Sidewinder X4 Plus",
+      "brand": "Artillery",
+      "type": "fdm",
+      "image": "/images/printers/artillery-sidewinder-x4-plus.png",
+      "price": 349,
+      "amazonAsin": "B0D5RX8MHS",
+      "metadata": {
+        "buildVolume": {
+          "x": 300,
+          "y": 300,
+          "z": 400
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 14.5,
+        "bestFor": [
+          "large-prints",
+          "budget",
+          "speed"
+        ],
+        "features": [
+          "300x300x400mm build",
+          "Klipper",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 6,
+          "printQuality": 7,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "300x300x400mm at $349. The cheapest way to print large.",
+        "verdict": "Best value large-format printer. If you need 300mm+ and your budget is tight, nothing else comes close at this price."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "bf0a50ed9e98104f8659af33ffd6c0e9bd0c25dba7e0607e38043c2cc0117f7c"
+      }
+    },
+    {
+      "slug": "bambu-lab-a1",
+      "name": "Bambu Lab A1",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-a1.png",
+      "price": 299,
+      "amazonAsin": "B0CJPKFQLN",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 9.05,
+        "bestFor": [
+          "beginners",
+          "speed",
+          "budget"
+        ],
+        "features": [
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Vibration compensation",
+          "Direct drive",
+          "Full-size A1 bed"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 10,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 9
+        },
+        "summary": "The A1 Combo without the AMS Lite. Full 256mm build volume and all Bambu's reliability at $299.",
+        "verdict": "If you don't need multi-color and want the best single-color printer at this price, the A1 is the answer. Add AMS Lite later if you catch the multi-color bug."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "f996885643fcb1cb1551eea95c5c27b40fae3a5b63f020de2fbcd6cfb740a11a"
+      }
+    },
+    {
+      "slug": "bambu-lab-a1-combo",
+      "name": "Bambu Lab A1 Combo",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-a1-combo.png",
+      "price": 399,
+      "amazonAsin": "B0CJPKFQPN",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 9.65,
+        "bestFor": [
+          "beginners",
+          "multi-color",
+          "speed"
+        ],
+        "features": [
+          "Auto bed leveling",
+          "Multi-color (AMS Lite)",
+          "WiFi",
+          "Camera",
+          "Vibration compensation"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 10,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 9
+        },
+        "summary": "The best all-around 3D printer for most people. Comes with AMS Lite for multi-color printing out of the box.",
+        "verdict": "If you can only buy one printer, this is it. The A1 Combo delivers multi-color printing, blazing speed, and Bambu's polished software at a price that undercuts nearly everything else at this quality level."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "44f7f2030e25bc0e3614b18818582edc34aa5b3770f36082b3442202af8425a8"
+      }
+    },
+    {
+      "slug": "bambu-lab-a1-mini",
+      "name": "Bambu Lab A1 Mini",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-a1-mini.png",
+      "price": 199,
+      "amazonAsin": "B0CL2KMFM4",
+      "metadata": {
+        "buildVolume": {
+          "x": 180,
+          "y": 180,
+          "z": 180
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 5.5,
+        "bestFor": [
+          "beginners",
+          "budget",
+          "compact"
+        ],
+        "features": [
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Compact footprint",
+          "All-metal hotend"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 10,
+          "printQuality": 8,
+          "speed": 9,
+          "reliability": 9
+        },
+        "summary": "The best sub-$200 printer. Bambu quality in a compact package that fits on any desk.",
+        "verdict": "Perfect first printer. If your prints fit in 180mm, there is no reason to spend more. Add an AMS Lite later if you want multi-color."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "4156f998f8bd3c2caefd1f2d1b2fc411cb07ee0d63b6df10de306a2187af8fbd"
+      }
+    },
+    {
+      "slug": "bambu-lab-h2d",
+      "name": "Bambu Lab H2D",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-h2d.png",
+      "price": 1899,
+      "amazonAsin": "B0H2D00000",
+      "metadata": {
+        "buildVolume": {
+          "x": 325,
+          "y": 320,
+          "z": 325
+        },
+        "layerResolution": {
+          "min": 0.08,
+          "max": 0.28
+        },
+        "printSpeed": 600,
+        "weight": 31,
+        "bestFor": [
+          "professional",
+          "large-format",
+          "precision"
+        ],
+        "features": [
+          "Dual hardened steel nozzles",
+          "65C actively heated chamber",
+          "350C hotend temperature",
+          "50um vision encoder accuracy",
+          "Optional 10W/40W laser module",
+          "AI nozzle camera failure detection"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 5,
+          "printQuality": 10,
+          "speed": 10,
+          "reliability": 9
+        },
+        "summary": "Bambu Lab's prosumer flagship — dual nozzles, the largest build volume in their lineup, and optional laser engraving in one machine.",
+        "verdict": "The H2D is the most capable desktop 3D printer money can buy in 2026. If you are a prosumer, small business owner, or dedicated hobbyist who needs dual nozzles, a massive build volume, and the option for laser work, nothing else comes close."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "a92ca5a7061defed6e8db0a9e9399bce24f578a5944a5f2b194c6456e86ec3bf"
+      }
+    },
+    {
+      "slug": "bambu-lab-p1p",
+      "name": "Bambu Lab P1P",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-p1p.png",
+      "price": 499,
+      "amazonAsin": "B0C6HGJQ8N",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 13.5,
+        "bestFor": [
+          "speed",
+          "beginners",
+          "budget"
+        ],
+        "features": [
+          "CoreXY",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Vibration compensation",
+          "Direct drive"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 9,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 9
+        },
+        "summary": "The open-frame version of the P1S. Same CoreXY mechanics and speed, minus the enclosure.",
+        "verdict": "If you want Bambu's CoreXY platform but don't need an enclosure, the P1P is a solid pick. Most users are better served by the A1 Combo at this price, but P1P is easily enclosed with aftermarket panels."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "8764ad40336aeeee8e2540aa3076217ed0b1be53f54632141aed3d4c3b849c36"
+      }
+    },
+    {
+      "slug": "bambu-lab-p1s",
+      "name": "Bambu Lab P1S",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-p1s.png",
+      "price": 599,
+      "amazonAsin": "B0C9KMRH6Z",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 14.13,
+        "bestFor": [
+          "engineering",
+          "abs",
+          "enclosed"
+        ],
+        "features": [
+          "Enclosed",
+          "Multi-material (AMS)",
+          "WiFi",
+          "Camera",
+          "HEPA filter",
+          "Active chamber heating"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 8,
+          "printQuality": 10,
+          "speed": 9,
+          "reliability": 10
+        },
+        "summary": "Enclosed CoreXY with HEPA filter. Handles ABS, ASA, and engineering filaments with ease.",
+        "verdict": "The sweet spot for serious hobbyists. If you print with anything beyond PLA, the enclosure and filtration justify the premium over the A1."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "700d9ff56688f6c17ff500addb90fd682d42bf8cb78aa50eab2445b77ccade86"
+      }
+    },
+    {
+      "slug": "bambu-lab-p2s",
+      "name": "Bambu Lab P2S",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-p2s.png",
+      "price": 549,
+      "amazonAsin": "B0P2S00000",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 14.9,
+        "bestFor": [
+          "speed",
+          "enclosed",
+          "multi-color"
+        ],
+        "features": [
+          "Enclosed CoreXY",
+          "AMS 2 Pro compatible",
+          "5-inch touchscreen",
+          "1080p AI camera",
+          "Quick-swap nozzle system",
+          "PMSM servo extruder (8.5kg force)"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 8,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 9
+        },
+        "summary": "The successor to the beloved P1S, bringing quick-swap nozzles, a 5-inch touchscreen, and AI-powered monitoring at a $549 price point.",
+        "verdict": "The P2S is the best enclosed CoreXY under $600 in 2026. If you are upgrading from a P1S, the quick-swap nozzle and AMS 2 Pro drying make it worthwhile. For new buyers, this is the go-to enclosed printer."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "d96445007932f651b27211b49554c382c33758be5e3945d202ed7943c82a180e"
+      }
+    },
+    {
+      "slug": "bambu-lab-x1-carbon",
+      "name": "Bambu Lab X1 Carbon",
+      "brand": "Bambu Lab",
+      "type": "fdm",
+      "image": "/images/printers/bambu-lab-x1-carbon.png",
+      "price": 1199,
+      "amazonAsin": "B0BZ3CR7WW",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 14.13,
+        "bestFor": [
+          "engineering",
+          "carbon-fiber",
+          "professional"
+        ],
+        "features": [
+          "Enclosed",
+          "Multi-material (AMS)",
+          "Hardened steel nozzle",
+          "LiDAR",
+          "Camera",
+          "Active chamber heating"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 7,
+          "printQuality": 10,
+          "speed": 9,
+          "reliability": 10
+        },
+        "summary": "The prosumer benchmark. Hardened nozzle handles carbon fiber and glass-filled filaments.",
+        "verdict": "Only buy this over the P1S if you regularly print carbon fiber, glass-filled nylon, or other abrasive materials. For everything else, the P1S is the smarter buy."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "3ef7a8d8fe7e8e26cf7f72f5eb670cf6f9b47a1e7364ea7fba4a7b90332f7aab"
+      }
+    },
+    {
+      "slug": "creality-cr-m4",
+      "name": "Creality CR-M4",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-cr-m4.png",
+      "price": 599,
+      "amazonAsin": "B0C5LQ7KND",
+      "metadata": {
+        "buildVolume": {
+          "x": 450,
+          "y": 450,
+          "z": 470
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.4
+        },
+        "printSpeed": 200,
+        "weight": 38,
+        "bestFor": [
+          "large-prints",
+          "cosplay",
+          "professional"
+        ],
+        "features": [
+          "450x450x470mm build volume",
+          "Auto bed leveling",
+          "Dual Z motors",
+          "Direct drive",
+          "Filament runout sensor"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 4,
+          "printQuality": 7,
+          "speed": 4,
+          "reliability": 7
+        },
+        "summary": "450x450x470mm — one of the largest consumer FDM printers available. Built for cosplay and industrial prototyping.",
+        "verdict": "Buy this if print size is your only metric. Nothing else at $599 even comes close to 450mm. Just accept that speed is not the point here."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "3c606642ae255c88ac54fb06bae8cedb740454b50653c47a4e5cb3caa62dd443"
+      }
+    },
+    {
+      "slug": "creality-ender-3-v3",
+      "name": "Creality Ender 3 V3",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-ender-3-v3.png",
+      "price": 289,
+      "amazonAsin": "B0DFN3QQ3F",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 250
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 8.6,
+        "bestFor": [
+          "beginners",
+          "budget",
+          "speed"
+        ],
+        "features": [
+          "CoreXZ",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "Klipper firmware"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 9,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 8
+        },
+        "summary": "The budget speed demon. CoreXZ kinematics with Klipper firmware for under $300.",
+        "verdict": "Best pick if you want speed on a budget and don't need Bambu's polished app experience. A serious step up from the V3 SE."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "3b1a92e210b4666a3a0dd16e0831feaef4f7a308ce219a1836607bcb1abee0e1"
+      }
+    },
+    {
+      "slug": "creality-ender-3-v3-ke",
+      "name": "Creality Ender 3 V3 KE",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-ender-3-v3-ke.png",
+      "price": 199,
+      "amazonAsin": "B0CML9QXZK",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 240
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 8,
+        "bestFor": [
+          "budget",
+          "beginners",
+          "speed"
+        ],
+        "features": [
+          "Klipper firmware",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "WiFi",
+          "Color screen"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 8
+        },
+        "summary": "Klipper-powered Ender 3 at $199. The budget king for speed and connectivity.",
+        "verdict": "The best budget printer if you want Klipper features without breaking $200. It competes directly with the Bambu A1 Mini and often wins on value."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "c90b0606b0ff52eb90cff710aab610d63b91bc2c40b2e723ca2b1d63ebb0e3eb"
+      }
+    },
+    {
+      "slug": "creality-ender-3-v3-se",
+      "name": "Creality Ender 3 V3 SE",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-ender-3-v3-se.png",
+      "price": 218,
+      "amazonAsin": "B0C5KXMPZ8",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 250
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 250,
+        "weight": 7.8,
+        "bestFor": [
+          "beginners",
+          "budget"
+        ],
+        "features": [
+          "Auto bed leveling",
+          "Direct drive extruder",
+          "PEI build plate"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 9,
+          "printQuality": 7,
+          "speed": 6,
+          "reliability": 8
+        },
+        "summary": "Best budget printer. Auto-leveling and direct drive at under $220 make it the top pick for getting started.",
+        "verdict": "If your budget is under $250 and you want to learn 3D printing with a machine that just works, this is the one. Massive community means help is always a Google search away."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "89addc5e3560272026f973f2ae0e71351baf4b20f84969fb5d3226174be0c699"
+      }
+    },
+    {
+      "slug": "creality-ender-5-s1",
+      "name": "Creality Ender 5 S1",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-ender-5-s1.png",
+      "price": 399,
+      "amazonAsin": "B0BSLR9J4M",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 280
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 250,
+        "weight": 10.2,
+        "bestFor": [
+          "beginners",
+          "reliability"
+        ],
+        "features": [
+          "Cube frame",
+          "Direct drive",
+          "Auto bed leveling",
+          "PEI build plate",
+          "Sprite extruder",
+          "CR Touch"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 6,
+          "reliability": 8
+        },
+        "summary": "Cube frame rigidity with direct drive. Tall prints with excellent first-layer consistency.",
+        "verdict": "The cube frame makes it one of the most rigid printers at this price, which shows in print quality. Not the fastest, but a reliable workhorse for those who prioritize quality over speed."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "9c80ef591d0e19e7521d3d564ee050c6efec83d3e0085df82bc8db7699e2a09b"
+      }
+    },
+    {
+      "slug": "creality-halot-mage-pro",
+      "name": "Creality Halot-Mage Pro",
+      "brand": "Creality",
+      "type": "resin",
+      "image": "/images/printers/creality-halot-mage-pro.png",
+      "price": 299,
+      "amazonAsin": "B0BLY6P37G",
+      "metadata": {
+        "buildVolume": {
+          "x": 228,
+          "y": 128,
+          "z": 230
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 120,
+        "weight": 9.8,
+        "bestFor": [
+          "resin",
+          "miniatures",
+          "detail"
+        ],
+        "features": [
+          "8K mono LCD",
+          "Integral light source",
+          "WiFi",
+          "Air purifier"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 9,
+          "speed": 6,
+          "reliability": 7
+        },
+        "summary": "Creality's 8K resin printer with integral light source for uniform exposure across the build plate.",
+        "verdict": "A solid alternative to the Elegoo Saturn line if you prefer Creality's ecosystem. The integral light source is a genuine advantage for even curing across the full plate."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "1e7cece677ba17134ccbf45bc80642523ddd3da5297f42f57971e027c3fa2c63"
+      }
+    },
+    {
+      "slug": "creality-hi-combo",
+      "name": "Creality Hi Combo",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-hi-combo.png",
+      "price": 399,
+      "amazonAsin": "B0DN69LXDW",
+      "metadata": {
+        "buildVolume": {
+          "x": 260,
+          "y": 260,
+          "z": 300
+        },
+        "layerResolution": {
+          "min": 0.1,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 13.31,
+        "bestFor": [
+          "multi-color",
+          "speed",
+          "budget"
+        ],
+        "features": [
+          "CoreXY motion system",
+          "Up to 16-color printing (4x CFS)",
+          "Die-cast aluminum unibody",
+          "Tri-metal quick-swap nozzle",
+          "Auto calibration",
+          "Direct drive extruder"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 7,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "Creality's answer to the Bambu A1 Combo — a CoreXY multi-color printer supporting up to 16 colors at $399.",
+        "verdict": "The Hi Combo offers impressive multi-color specs on paper, but real-world reliability lags behind Bambu's AMS system. Best for users who want a CoreXY with multi-color potential and can tolerate some tinkering."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "6784b3c75a383f00176de10594652ca7b6969aae620f894b782d3fb25fa90f4f"
+      }
+    },
+    {
+      "slug": "creality-k1",
+      "name": "Creality K1",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-k1.png",
+      "price": 419,
+      "amazonAsin": "B0CG2P8RQN",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 250
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 12.5,
+        "bestFor": [
+          "speed",
+          "enclosed",
+          "beginners"
+        ],
+        "features": [
+          "Enclosed CoreXY",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera",
+          "Direct drive",
+          "Quick-release nozzle"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 10,
+          "reliability": 8
+        },
+        "summary": "600mm/s enclosed CoreXY at $419. Speed and enclosure without the K1 Max price tag.",
+        "verdict": "The sweet spot in Creality's speed lineup. If you want fast + enclosed but don't need the 300mm bed of the K1 Max, the K1 saves you $180 and still delivers."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "2d8897cfed2bb95c5a409089d83e13c162b79ec84558bf2230491d4adaa7fb90"
+      }
+    },
+    {
+      "slug": "creality-k1-max",
+      "name": "Creality K1 Max",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-k1-max.png",
+      "price": 599,
+      "amazonAsin": "B0CG2P8QQN",
+      "metadata": {
+        "buildVolume": {
+          "x": 300,
+          "y": 300,
+          "z": 300
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 18,
+        "bestFor": [
+          "large-prints",
+          "speed",
+          "cosplay"
+        ],
+        "features": [
+          "Large build volume",
+          "AI camera",
+          "Auto bed leveling",
+          "Direct drive",
+          "WiFi"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 7,
+          "printQuality": 8,
+          "speed": 10,
+          "reliability": 7
+        },
+        "summary": "Massive 300mm build volume with 600mm/s speed. Perfect for cosplay props and large functional parts.",
+        "verdict": "The go-to for anyone printing large. If your prints don't fit on a 256mm bed, this is the answer. Just budget for a desk that can hold it."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "c0796b8a5bc79da4d127aae6c7d4fe8dc3567b836f1110da6a69fef9795e71d7"
+      }
+    },
+    {
+      "slug": "creality-k2-plus",
+      "name": "Creality K2 Plus",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-k2-plus.png",
+      "price": 899,
+      "amazonAsin": "B0DHGQVYMP",
+      "metadata": {
+        "buildVolume": {
+          "x": 350,
+          "y": 350,
+          "z": 350
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 27,
+        "bestFor": [
+          "large-prints",
+          "professional",
+          "multi-color"
+        ],
+        "features": [
+          "Enclosed",
+          "350mm build volume",
+          "CFS multi-color",
+          "WiFi",
+          "Camera",
+          "Active carbon filter"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 6,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 8
+        },
+        "summary": "The largest enclosed consumer printer. 350mm cube with multi-color and active filtration.",
+        "verdict": "For serious makers who need enclosed large-format printing. If 300mm isn't enough, this is the only game in town at this price."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "e31caa3df5b92afa71764b04673086711e950cd9f0cffbd3d2a281cffe2c9f6d"
+      }
+    },
+    {
+      "slug": "creality-sparkx-i7",
+      "name": "Creality SparkX i7",
+      "brand": "Creality",
+      "type": "fdm",
+      "image": "/images/printers/creality-sparkx-i7.png",
+      "price": 399,
+      "amazonAsin": "B0GJSBSLQ6",
+      "metadata": {
+        "buildVolume": {
+          "x": 260,
+          "y": 260,
+          "z": 255
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.3
+        },
+        "printSpeed": 500,
+        "weight": 9.12,
+        "bestFor": [
+          "beginners",
+          "multi-color",
+          "budget"
+        ],
+        "features": [
+          "AI camera monitoring",
+          "CFS Lite multi-color (4 colors)",
+          "Auto bed leveling",
+          "RGB status lighting",
+          "95% pre-assembled",
+          "Pressure advance"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 10,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 8
+        },
+        "summary": "Creality's CES 2026 winner targeting absolute beginners with AI features, multi-color printing, and a plug-and-play setup.",
+        "verdict": "The SparkX i7 is the most beginner-friendly multi-color printer on the market. If you want the simplest path from unboxing to multi-color prints, this is it — though power users may find the ecosystem limiting."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "7c358da20b0b0a3e2f2949b44efc190d930bfee58fa65280724d6b2ab96f9d03"
+      }
+    },
+    {
+      "slug": "elegoo-centauri-carbon",
+      "name": "Elegoo Centauri Carbon",
+      "brand": "Elegoo",
+      "type": "fdm",
+      "image": "/images/printers/elegoo-centauri-carbon.png",
+      "price": 299,
+      "amazonAsin": "B0FDQP54X8",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.1,
+          "max": 0.4
+        },
+        "printSpeed": 500,
+        "weight": 17.5,
+        "bestFor": [
+          "budget",
+          "enclosed",
+          "beginners"
+        ],
+        "features": [
+          "Enclosed CoreXY",
+          "Auto bed leveling (4 pressure sensors)",
+          "Chamber camera monitoring",
+          "320C all-metal hotend",
+          "Pre-assembled and calibrated",
+          "Steel + aluminum + glass enclosure"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "The budget CoreXY that disrupted the market. A fully enclosed, pre-assembled CoreXY at $299 that rivals printers at twice the price.",
+        "verdict": "At $299, the Centauri Carbon is the best value in 3D printing today. It would be excellent at twice the price. If you can accept less polished firmware, there is no reason to buy anything else at this budget."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "4cd6a5d8abf73abfb4e7a715a4b8465f69af0f4490229a43eef9612c39768812"
+      }
+    },
+    {
+      "slug": "elegoo-centauri-carbon-2-combo",
+      "name": "Elegoo Centauri Carbon 2 Combo",
+      "brand": "Elegoo",
+      "type": "fdm",
+      "image": "/images/printers/elegoo-centauri-carbon-2-combo.png",
+      "price": 449,
+      "amazonAsin": "B0G4TPZPZM",
+      "metadata": {
+        "buildVolume": {
+          "x": 256,
+          "y": 256,
+          "z": 256
+        },
+        "layerResolution": {
+          "min": 0.08,
+          "max": 0.4
+        },
+        "printSpeed": 500,
+        "weight": 19.35,
+        "bestFor": [
+          "multi-color",
+          "budget",
+          "enclosed"
+        ],
+        "features": [
+          "Enclosed CoreXY",
+          "4-color Canvas multi-color system",
+          "350C hardened steel nozzle",
+          "RFID filament detection",
+          "Auto filament loading & tangle detection",
+          "5-inch touchscreen"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 7,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 8
+        },
+        "summary": "The multi-color variant of the Centauri Carbon, adding 4-color Canvas printing to an enclosed CoreXY at just $449.",
+        "verdict": "The best sub-$500 multi-color 3D printer in 2026. It comes with quirks, but the combination of enclosed CoreXY, 4-color printing, and RFID filament management at this price is unmatched by any competitor."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "4d045b6867eeb3218e9aa24b0c35d4e543488e31c31eaac0b369b78942578849"
+      }
+    },
+    {
+      "slug": "elegoo-mars-4",
+      "name": "Elegoo Mars 4",
+      "brand": "Elegoo",
+      "type": "resin",
+      "image": "/images/printers/elegoo-mars-4.png",
+      "price": 149,
+      "amazonAsin": "B0CKVQJRP9",
+      "metadata": {
+        "buildVolume": {
+          "x": 153,
+          "y": 77,
+          "z": 165
+        },
+        "layerResolution": {
+          "min": 0.02,
+          "max": 0.2
+        },
+        "printSpeed": 80,
+        "weight": 6.2,
+        "bestFor": [
+          "budget",
+          "resin",
+          "miniatures"
+        ],
+        "features": [
+          "7K mono LCD",
+          "WiFi",
+          "USB"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 6,
+          "printQuality": 8,
+          "speed": 5,
+          "reliability": 7
+        },
+        "summary": "The ultra-budget entry into Elegoo's Mars lineup. 7K WiFi resin printing at $149.",
+        "verdict": "The starting point for resin printing on a strict budget. Spend $50 more for the Mars 4 Ultra if possible — the tilt release alone justifies it."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "310d5c89b82bb76edc59ea676c4df6fb4cf2371ccbb7315c40a4a4411860d566"
+      }
+    },
+    {
+      "slug": "elegoo-mars-4-ultra",
+      "name": "Elegoo Mars 4 Ultra",
+      "brand": "Elegoo",
+      "type": "resin",
+      "image": "/images/printers/elegoo-mars-4-ultra.png",
+      "price": 199,
+      "amazonAsin": "B0CKVQJLP3",
+      "metadata": {
+        "buildVolume": {
+          "x": 153,
+          "y": 77,
+          "z": 165
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 100,
+        "weight": 6.8,
+        "bestFor": [
+          "miniatures",
+          "resin",
+          "budget"
+        ],
+        "features": [
+          "9K mono LCD",
+          "Tilt release",
+          "WiFi",
+          "Air purifier"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 7,
+          "printQuality": 9,
+          "speed": 6,
+          "reliability": 8
+        },
+        "summary": "9K resolution resin printing at $199. Step up from the entry-level Mars 4 with tilt release mechanics.",
+        "verdict": "Excellent middle ground in the Mars lineup. If you want better FEP longevity and 9K detail without paying Saturn prices, the Mars 4 Ultra delivers."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "f68022a5d38ece9db1742c95ec1941cd9f2cced73571e670c39f0405a9c85eb8"
+      }
+    },
+    {
+      "slug": "elegoo-mars-5-ultra",
+      "name": "Elegoo Mars 5 Ultra",
+      "brand": "Elegoo",
+      "type": "resin",
+      "image": "/images/printers/elegoo-mars-5-ultra.png",
+      "price": 284,
+      "amazonAsin": "B0D9FQWK7N",
+      "metadata": {
+        "buildVolume": {
+          "x": 153,
+          "y": 89,
+          "z": 200
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 150,
+        "weight": 7.5,
+        "bestFor": [
+          "miniatures",
+          "resin",
+          "detail"
+        ],
+        "features": [
+          "14K mono LCD",
+          "Tilt release",
+          "Air purifier",
+          "WiFi"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 7,
+          "printQuality": 10,
+          "speed": 7,
+          "reliability": 8
+        },
+        "summary": "The go-to resin printer for miniature painters. 14K resolution delivers insane detail at a great price.",
+        "verdict": "If you paint tabletop miniatures, this is non-negotiable. The detail level at this price point is unmatched. Just be prepared for the resin workflow."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "15f476d1ef6af1e7509c5270c7712d44d847f021a49c156aeadc8e1cdd3d293c"
+      }
+    },
+    {
+      "slug": "elegoo-neptune-4",
+      "name": "Elegoo Neptune 4",
+      "brand": "Elegoo",
+      "type": "fdm",
+      "image": "/images/printers/elegoo-neptune-4.png",
+      "price": 199,
+      "amazonAsin": "B0C74BKJL6",
+      "metadata": {
+        "buildVolume": {
+          "x": 225,
+          "y": 225,
+          "z": 265
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 9.5,
+        "bestFor": [
+          "budget",
+          "speed",
+          "beginners"
+        ],
+        "features": [
+          "Klipper firmware",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "High-speed mode"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "Budget Klipper machine at $199. Elegoo's answer to the Creality Ender 3 V3 KE.",
+        "verdict": "Neck-and-neck with the Ender 3 V3 KE. Both are $199 Klipper printers — go with Neptune 4 if you prefer Elegoo's support ecosystem."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "27a4da06000e51d2989a5fcc2029d166cc1f45c947f33ba52a79e00e34049556"
+      }
+    },
+    {
+      "slug": "elegoo-neptune-4-max",
+      "name": "Elegoo Neptune 4 Max",
+      "brand": "Elegoo",
+      "type": "fdm",
+      "image": "/images/printers/elegoo-neptune-4-max.png",
+      "price": 469,
+      "amazonAsin": "B0C74BJRXM",
+      "metadata": {
+        "buildVolume": {
+          "x": 420,
+          "y": 420,
+          "z": 480
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 22,
+        "bestFor": [
+          "large-prints",
+          "budget",
+          "cosplay"
+        ],
+        "features": [
+          "Klipper firmware",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "420x420x480mm build"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 5,
+          "printQuality": 7,
+          "speed": 7,
+          "reliability": 7
+        },
+        "summary": "420x420x480mm with Klipper for under $500. The value pick for large-format printing.",
+        "verdict": "The best value large-format printer with modern firmware. If Artillery's Sidewinder X4 doesn't appeal, the Neptune 4 Max is the alternative — and arguably better software support."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "647def298f069df6b431bf07fd38083335197402d716a3299f8b2586480f48b0"
+      }
+    },
+    {
+      "slug": "elegoo-neptune-4-pro",
+      "name": "Elegoo Neptune 4 Pro",
+      "brand": "Elegoo",
+      "type": "fdm",
+      "image": "/images/printers/elegoo-neptune-4-pro.png",
+      "price": 259,
+      "amazonAsin": "B0C74BVCFC",
+      "metadata": {
+        "buildVolume": {
+          "x": 225,
+          "y": 225,
+          "z": 265
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 10.5,
+        "bestFor": [
+          "budget",
+          "speed"
+        ],
+        "features": [
+          "Klipper firmware",
+          "Auto bed leveling",
+          "Direct drive",
+          "PEI build plate",
+          "Linear rails"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "Elegoo's answer to the Ender 3 V3. Linear rails and Klipper at $259.",
+        "verdict": "Strong budget option. If you want linear rails and don't want to pay Bambu prices, the Neptune 4 Pro delivers."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "6a4eea1546322e3e26228df5ade85ff4c2b7d1f05a6e2b7071b772600fd979c0"
+      }
+    },
+    {
+      "slug": "elegoo-saturn-3-ultra",
+      "name": "Elegoo Saturn 3 Ultra",
+      "brand": "Elegoo",
+      "type": "resin",
+      "image": "/images/printers/elegoo-saturn-3-ultra.png",
+      "price": 299,
+      "amazonAsin": "B0CGTH1GPD",
+      "metadata": {
+        "buildVolume": {
+          "x": 218,
+          "y": 123,
+          "z": 260
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 150,
+        "weight": 10.5,
+        "bestFor": [
+          "resin",
+          "miniatures",
+          "large-prints"
+        ],
+        "features": [
+          "12K mono LCD",
+          "Tilt release",
+          "Air purifier",
+          "WiFi",
+          "Larger build plate"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 6,
+          "printQuality": 10,
+          "speed": 7,
+          "reliability": 8
+        },
+        "summary": "12K resolution on a Saturn-size build plate. The enthusiast's batch-printing resin machine.",
+        "verdict": "If you've outgrown the Mars and need to batch print miniatures or tackle larger terrain pieces, the Saturn 3 Ultra is the definitive upgrade path."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "5db1c5bcb0489aee314d3fb86db9e5240f8b0ecdc57b83aa8f6bbc4527e45829"
+      }
+    },
+    {
+      "slug": "elegoo-saturn-4-ultra",
+      "name": "Elegoo Saturn 4 Ultra",
+      "brand": "Elegoo",
+      "type": "resin",
+      "image": "/images/printers/elegoo-saturn-4-ultra.png",
+      "price": 459,
+      "amazonAsin": "B0D9FM4KFN",
+      "metadata": {
+        "buildVolume": {
+          "x": 218,
+          "y": 123,
+          "z": 220
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 150,
+        "weight": 11,
+        "bestFor": [
+          "resin",
+          "miniatures",
+          "large-prints"
+        ],
+        "features": [
+          "12K mono LCD",
+          "Tilt release",
+          "Air purifier",
+          "WiFi",
+          "Larger build plate"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 10,
+          "speed": 7,
+          "reliability": 8
+        },
+        "summary": "The Mars 5 Ultra's bigger sibling. Same insane detail, but fits larger models and batch prints.",
+        "verdict": "Step up to the Saturn when the Mars build plate is too small. Perfect for terrain pieces, busts, and batch-printing a full army."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "7dc95c2d9d9b6444e7d23d6a4a0c80ab037af20ef57fb9cedd41fedfbb1419c7"
+      }
+    },
+    {
+      "slug": "flashforge-adventurer-5m",
+      "name": "Flashforge Adventurer 5M",
+      "brand": "Flashforge",
+      "type": "fdm",
+      "image": "/images/printers/flashforge-adventurer-5m.png",
+      "price": 299,
+      "amazonAsin": "B0D8K2MNQR",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 220
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.4
+        },
+        "printSpeed": 600,
+        "weight": 11,
+        "bestFor": [
+          "enclosed",
+          "beginners",
+          "speed"
+        ],
+        "features": [
+          "Enclosed",
+          "Auto leveling",
+          "Quick-swap nozzle",
+          "600mm/s speed",
+          "HEPA filter"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 9,
+          "printQuality": 8,
+          "speed": 9,
+          "reliability": 8
+        },
+        "summary": "Enclosed, fast, and beginner-friendly at $299. The non-Pro Adventurer 5M is the budget enclosed sweet spot.",
+        "verdict": "Best value enclosed printer. If you want an enclosure, HEPA filter, and fast printing for under $300, there is genuinely nothing else at this price that delivers this well."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "2186df7ce3ce62d7318e0373cd48cd3053707669d215d7847009b67da62c2321"
+      }
+    },
+    {
+      "slug": "flashforge-adventurer-5m-pro",
+      "name": "Flashforge Adventurer 5M Pro",
+      "brand": "Flashforge",
+      "type": "fdm",
+      "image": "/images/printers/flashforge-adventurer-5m-pro.png",
+      "price": 379,
+      "amazonAsin": "B0D8K2MNFL",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 220
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.4
+        },
+        "printSpeed": 600,
+        "weight": 12.5,
+        "bestFor": [
+          "beginners",
+          "enclosed",
+          "speed"
+        ],
+        "features": [
+          "Enclosed",
+          "Auto leveling",
+          "Quick-swap nozzle",
+          "Camera",
+          "HEPA filter"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 9,
+          "printQuality": 8,
+          "speed": 9,
+          "reliability": 8
+        },
+        "summary": "Enclosed and fast with toolless nozzle swaps. A strong alternative to the Bambu A1 for beginners who want an enclosure.",
+        "verdict": "Best enclosed printer under $400. If safety matters (kids, classroom, office), the enclosure and filtration make this the top pick."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "8f311ebd0fed9f9c09264dffa16fddbc47b8547896049763aebb493e7b53540c"
+      }
+    },
+    {
+      "slug": "kingroon-klp1",
+      "name": "Kingroon KLP1",
+      "brand": "Kingroon",
+      "type": "fdm",
+      "image": "/images/printers/kingroon-klp1.png",
+      "price": 299,
+      "amazonAsin": "B0CKVQJLR5",
+      "metadata": {
+        "buildVolume": {
+          "x": 200,
+          "y": 200,
+          "z": 200
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 8.5,
+        "bestFor": [
+          "enclosed",
+          "compact",
+          "diy"
+        ],
+        "features": [
+          "Enclosed",
+          "Linear rails",
+          "CoreXY",
+          "Auto bed leveling",
+          "Klipper firmware",
+          "WiFi"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 6,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 7
+        },
+        "summary": "Compact enclosed CoreXY with linear rails and Klipper. A hidden gem for tinkerers on a budget.",
+        "verdict": "If you want enclosed + CoreXY + Klipper at $299, the KLP1 is one of the only options. The 200mm volume limits large prints but the quality and feature set punch above the price."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "3137261bdc58ee48a5b6066d09d074d92cc158c0f925e82be7086726be8ef838"
+      }
+    },
+    {
+      "slug": "kingroon-kp3s-pro-v2",
+      "name": "Kingroon KP3S Pro V2",
+      "brand": "Kingroon",
+      "type": "fdm",
+      "image": "/images/printers/kingroon-kp3s-pro-v2.png",
+      "price": 159,
+      "amazonAsin": "B0BVL3BGWH",
+      "metadata": {
+        "buildVolume": {
+          "x": 200,
+          "y": 200,
+          "z": 200
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 250,
+        "weight": 6.5,
+        "bestFor": [
+          "budget",
+          "compact"
+        ],
+        "features": [
+          "Linear rails",
+          "Direct drive",
+          "Auto bed leveling",
+          "PEI build plate"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 7,
+          "printQuality": 7,
+          "speed": 5,
+          "reliability": 7
+        },
+        "summary": "Linear rails and direct drive for $159. Incredible value for a compact printer.",
+        "verdict": "Hidden gem. If you want linear rails on a budget and don't need a huge build plate, this punches way above its price."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "874065519e6dfaf781055ad406a6ccf67d0d65043dbf6b93f117d4144d269813"
+      }
+    },
+    {
+      "slug": "longer-orange-4k",
+      "name": "Longer Orange 4K",
+      "brand": "Longer",
+      "type": "resin",
+      "image": "/images/printers/longer-orange-4k.png",
+      "price": 129,
+      "amazonAsin": "B0BGY93HWX",
+      "metadata": {
+        "buildVolume": {
+          "x": 118,
+          "y": 66,
+          "z": 190
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 80,
+        "weight": 4.5,
+        "bestFor": [
+          "budget",
+          "resin"
+        ],
+        "features": [
+          "5.5\" 4K mono LCD",
+          "WiFi",
+          "USB"
+        ],
+        "scores": {
+          "value": 10,
+          "beginner": 5,
+          "printQuality": 7,
+          "speed": 4,
+          "reliability": 6
+        },
+        "summary": "The absolute cheapest way into resin printing. $129 with WiFi.",
+        "verdict": "Only buy this to test whether you like resin printing at all. If you get hooked, upgrade to an Elegoo Mars within 6 months."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "21d091fe8f027ccb7f33d0f55f6011924fd2b2d45bb3f9159f177d54a40c58ec"
+      }
+    },
+    {
+      "slug": "longer-orange-4k-v2",
+      "name": "Longer Orange 4K V2",
+      "brand": "Longer",
+      "type": "resin",
+      "image": "/images/printers/longer-orange-4k-v2.png",
+      "price": 199,
+      "amazonAsin": "B0BGY93HZX",
+      "metadata": {
+        "buildVolume": {
+          "x": 120,
+          "y": 68,
+          "z": 195
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 90,
+        "weight": 4.8,
+        "bestFor": [
+          "budget",
+          "resin",
+          "miniatures"
+        ],
+        "features": [
+          "5.5\" 4K mono LCD",
+          "WiFi",
+          "USB",
+          "Improved light unit vs V1"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 5,
+          "printQuality": 7,
+          "speed": 4,
+          "reliability": 6
+        },
+        "summary": "Revised 4K resin with better light uniformity. A compact budget option from Longer.",
+        "verdict": "A step up from the original Orange 4K. If budget is king and Elegoo is out of stock, the V2 is a reasonable choice — just manage expectations on long-term support."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "7998af2127b871421bc2a151330b5ab1376898472a9a7b3dbcf9d531b89aec62"
+      }
+    },
+    {
+      "slug": "phrozen-sonic-mega-8k-s2",
+      "name": "Phrozen Sonic Mega 8K S2",
+      "brand": "Phrozen",
+      "type": "resin",
+      "image": "/images/printers/phrozen-sonic-mega-8k-s2.png",
+      "price": 749,
+      "amazonAsin": "B0CGVQHB2P",
+      "metadata": {
+        "buildVolume": {
+          "x": 330,
+          "y": 185,
+          "z": 400
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.2
+        },
+        "printSpeed": 100,
+        "weight": 22,
+        "bestFor": [
+          "resin",
+          "large-prints",
+          "professional"
+        ],
+        "features": [
+          "8K mono LCD",
+          "33cm build plate",
+          "Dual tilt release",
+          "Phrozen OS",
+          "WiFi"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 4,
+          "printQuality": 9,
+          "speed": 5,
+          "reliability": 8
+        },
+        "summary": "330mm large-format resin printing at 8K. The professional's batch resin machine.",
+        "verdict": "For resin users who need to print large. Whether it's life-size busts, large terrain boards, or bulk miniature production, nothing in consumer resin touches the Mega 8K S2's build volume."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "b04ab87449a85958e9de15897ee29505d4222f5ddf0255d44309ec9587797f51"
+      }
+    },
+    {
+      "slug": "phrozen-sonic-mini-4k",
+      "name": "Phrozen Sonic Mini 4K",
+      "brand": "Phrozen",
+      "type": "resin",
+      "image": "/images/printers/phrozen-sonic-mini-4k.png",
+      "price": 199,
+      "amazonAsin": "B09BQHJ5ZQ",
+      "metadata": {
+        "buildVolume": {
+          "x": 134,
+          "y": 75,
+          "z": 130
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 80,
+        "weight": 5,
+        "bestFor": [
+          "miniatures",
+          "detail",
+          "resin"
+        ],
+        "features": [
+          "5.5\" 4K mono LCD",
+          "35-micron XY resolution",
+          "ParaLED 2.0"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 9,
+          "speed": 4,
+          "reliability": 8
+        },
+        "summary": "Phrozen's entry mini resin with proven 4K reliability. Great for miniatures on a smaller budget.",
+        "verdict": "The 4K resolution is showing its age next to 8K and 12K competitors, but Phrozen's build quality and reliability make this a trustworthy choice. If detail beyond 35-micron matters, step up to the 8K S."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "54174d789e1640b70439bc9676b6a6452d81f5d42800bfc393000c50dbceae99"
+      }
+    },
+    {
+      "slug": "phrozen-sonic-mini-8k-s",
+      "name": "Phrozen Sonic Mini 8K S",
+      "brand": "Phrozen",
+      "type": "resin",
+      "image": "/images/printers/phrozen-sonic-mini-8k-s.png",
+      "price": 329,
+      "amazonAsin": "B0BN7XMFWR",
+      "metadata": {
+        "buildVolume": {
+          "x": 165,
+          "y": 72,
+          "z": 180
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 80,
+        "weight": 6.5,
+        "bestFor": [
+          "miniatures",
+          "detail",
+          "resin"
+        ],
+        "features": [
+          "7.1\" 8K mono LCD",
+          "22-micron XY resolution",
+          "ParaLED 3.0"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 10,
+          "speed": 4,
+          "reliability": 8
+        },
+        "summary": "22-micron resolution for the finest detail possible. The jeweler's and miniature painter's dream.",
+        "verdict": "If detail is everything and speed doesn't matter, the Sonic Mini 8K S produces results that make even the Mars 5 Ultra look coarse."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "3f983cdd6e00df7ee46a06b709d851dea88d047b7ab5f4564cfac2fb667e14aa"
+      }
+    },
+    {
+      "slug": "prusa-core-one",
+      "name": "Prusa Core One",
+      "brand": "Prusa Research",
+      "type": "fdm",
+      "image": "/images/printers/prusa-core-one.png",
+      "price": 1199,
+      "amazonAsin": "B0FCFKYXYS",
+      "metadata": {
+        "buildVolume": {
+          "x": 250,
+          "y": 220,
+          "z": 270
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.3
+        },
+        "printSpeed": 500,
+        "weight": 22.5,
+        "bestFor": [
+          "precision",
+          "professional",
+          "enclosed"
+        ],
+        "features": [
+          "Enclosed CoreXY with active chamber heating (55C)",
+          "Nextruder direct drive (10:1 planetary)",
+          "360-degree cooling duct",
+          "Ethernet + WiFi + NFC",
+          "MMU3 multi-material compatible",
+          "Open-source firmware (PrusaSlicer)"
+        ],
+        "scores": {
+          "value": 6,
+          "beginner": 7,
+          "printQuality": 10,
+          "speed": 8,
+          "reliability": 10
+        },
+        "summary": "Prusa's first CoreXY — an enclosed, actively heated chamber printer built for reliability and open-source enthusiasts.",
+        "verdict": "The Prusa Core One is for people who value reliability, open-source, and Prusa's legendary support above all else. The print quality is outstanding but the price premium is hard to justify unless you specifically value the Prusa ecosystem."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "bb68113224d67d06b1d4f36912717ceff45efe6481d3778f6d5f89872751e338"
+      }
+    },
+    {
+      "slug": "prusa-mk4s",
+      "name": "Prusa MK4S",
+      "brand": "Prusa Research",
+      "type": "fdm",
+      "image": "/images/printers/prusa-mk4s.png",
+      "price": 799,
+      "amazonAsin": "B0DRMTFZ9X",
+      "metadata": {
+        "buildVolume": {
+          "x": 250,
+          "y": 210,
+          "z": 220
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 200,
+        "weight": 7,
+        "bestFor": [
+          "reliability",
+          "open-source"
+        ],
+        "features": [
+          "Open source",
+          "PrusaSlicer",
+          "Nextruder",
+          "Auto bed leveling",
+          "Input shaping",
+          "Ethernet"
+        ],
+        "scores": {
+          "value": 6,
+          "beginner": 8,
+          "printQuality": 9,
+          "speed": 6,
+          "reliability": 10
+        },
+        "summary": "The reliable workhorse. Open-source heritage with Prusa's legendary quality control.",
+        "verdict": "Buy this if you value open source, long-term support, and a printer that just works for years. Don't buy it if you care about speed."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "e48dceffd8934ee0f3d4c6f3439d5757aafa1c937f4e8e99d3adbdaf193563c6"
+      }
+    },
+    {
+      "slug": "prusa-xl",
+      "name": "Prusa XL",
+      "brand": "Prusa Research",
+      "type": "fdm",
+      "image": "/images/printers/prusa-xl.png",
+      "price": 1999,
+      "amazonAsin": "B0DSPDQNF3",
+      "metadata": {
+        "buildVolume": {
+          "x": 360,
+          "y": 360,
+          "z": 360
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 200,
+        "weight": 25,
+        "bestFor": [
+          "professional",
+          "large-prints",
+          "multi-color"
+        ],
+        "features": [
+          "Multi-tool (up to 5 heads)",
+          "360mm build volume",
+          "Segmented heatbed",
+          "Open source",
+          "Ethernet"
+        ],
+        "scores": {
+          "value": 5,
+          "beginner": 5,
+          "printQuality": 10,
+          "speed": 5,
+          "reliability": 9
+        },
+        "summary": "Prusa's flagship. 5-tool changer with 360mm build volume for professional multi-material printing.",
+        "verdict": "A professional machine for production use. If you need true multi-material (not just multi-color), this is the best consumer option. But the price is steep."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "32274a1f4f01bf48f9fd02d7c0b205f148e83c4fb32eedbd56e58c5138e78c0d"
+      }
+    },
+    {
+      "slug": "qidi-ibox-mono2",
+      "name": "QIDI iBox Mono2",
+      "brand": "QIDI",
+      "type": "resin",
+      "image": "/images/printers/qidi-ibox-mono2.png",
+      "price": 229,
+      "amazonAsin": "B0CM49W3NK",
+      "metadata": {
+        "buildVolume": {
+          "x": 120,
+          "y": 68,
+          "z": 200
+        },
+        "layerResolution": {
+          "min": 0.01,
+          "max": 0.15
+        },
+        "printSpeed": 90,
+        "weight": 5.2,
+        "bestFor": [
+          "resin",
+          "miniatures",
+          "compact"
+        ],
+        "features": [
+          "4K mono LCD",
+          "Enclosed design",
+          "WiFi",
+          "Compact form factor"
+        ],
+        "scores": {
+          "value": 7,
+          "beginner": 6,
+          "printQuality": 7,
+          "speed": 5,
+          "reliability": 7
+        },
+        "summary": "Compact enclosed resin from QIDI. The enclosure helps contain resin fumes better than open designs.",
+        "verdict": "An unusual choice — a compact enclosed resin printer. If you're in a shared space and odor control matters even more than usual, the enclosed design helps. Otherwise, the Elegoo Mars 4 offers more for less."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "e2e00fe6aac52f3917d37c71ea887eef109d8f2e7e0a323aca7d7e0aa7ac90d7"
+      }
+    },
+    {
+      "slug": "qidi-q1-pro",
+      "name": "Qidi Q1 Pro",
+      "brand": "Qidi Tech",
+      "type": "fdm",
+      "image": "/images/printers/qidi-q1-pro.png",
+      "price": 449,
+      "amazonAsin": "B0CSDB9QTF",
+      "metadata": {
+        "buildVolume": {
+          "x": 245,
+          "y": 245,
+          "z": 240
+        },
+        "layerResolution": {
+          "min": 0.1,
+          "max": 0.32
+        },
+        "printSpeed": 600,
+        "weight": 20.3,
+        "bestFor": [
+          "enclosed",
+          "professional",
+          "precision"
+        ],
+        "features": [
+          "Enclosed CoreXY with 60C heated chamber",
+          "350C tri-metal hotend",
+          "WiFi 6 + LAN connectivity",
+          "1080p camera with timelapse",
+          "Dual Z-axis motors",
+          "120C heated bed"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 7,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 7
+        },
+        "summary": "An enclosed CoreXY with a 60C heated chamber and 350C hotend — engineering-grade material capability at a mid-range price.",
+        "verdict": "The Qidi Q1 Pro packs industrial-grade features into a consumer price bracket. Perfect for users who need reliable ABS, nylon, and carbon fiber printing. Just be aware of the reported safety issues with the chamber heater."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "186bbcf5d6815c143e70269fbf2070d189228927b2eb93867a67f356790754e2"
+      }
+    },
+    {
+      "slug": "qidi-x-max-3",
+      "name": "QIDI X-Max 3",
+      "brand": "QIDI",
+      "type": "fdm",
+      "image": "/images/printers/qidi-x-max-3.png",
+      "price": 799,
+      "amazonAsin": "B0CM4QVY5Z",
+      "metadata": {
+        "buildVolume": {
+          "x": 325,
+          "y": 325,
+          "z": 315
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 25,
+        "bestFor": [
+          "large-prints",
+          "engineering",
+          "professional"
+        ],
+        "features": [
+          "Enclosed",
+          "Large CoreXY",
+          "Chamber heating (60C)",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 6,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 8
+        },
+        "summary": "Large-format enclosed CoreXY with active chamber heating. For serious engineering prints.",
+        "verdict": "When you need large + enclosed + engineering materials. Competes with printers costing 2-3x more in the professional space."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "46d23e9c692435e024153ba611636c2d0dda038895e356118a762d2d5ed474af"
+      }
+    },
+    {
+      "slug": "qidi-x-plus-3",
+      "name": "QIDI X-Plus 3",
+      "brand": "QIDI",
+      "type": "fdm",
+      "image": "/images/printers/qidi-x-plus-3.png",
+      "price": 499,
+      "amazonAsin": "B0CM49X31W",
+      "metadata": {
+        "buildVolume": {
+          "x": 280,
+          "y": 280,
+          "z": 270
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 17,
+        "bestFor": [
+          "engineering",
+          "abs",
+          "enclosed",
+          "speed"
+        ],
+        "features": [
+          "Enclosed",
+          "CoreXY",
+          "Chamber heating (60C)",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 7,
+          "printQuality": 9,
+          "speed": 9,
+          "reliability": 8
+        },
+        "summary": "The best enclosed printer under $500. Active chamber heating to 60C for engineering materials.",
+        "verdict": "If you need an enclosed printer with active heating but can't stretch to $600 for a P1S, the X-Plus 3 is the answer. Incredible value."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "40adbc251142227ef72ff3b20cd00f138d5ec68e279f1329185925b28101caa3"
+      }
+    },
+    {
+      "slug": "qidi-x-smart-3",
+      "name": "QIDI X-Smart 3",
+      "brand": "QIDI",
+      "type": "fdm",
+      "image": "/images/printers/qidi-x-smart-3.png",
+      "price": 349,
+      "amazonAsin": "B0CM49W2LK",
+      "metadata": {
+        "buildVolume": {
+          "x": 175,
+          "y": 175,
+          "z": 165
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 600,
+        "weight": 9.5,
+        "bestFor": [
+          "compact",
+          "enclosed",
+          "beginners"
+        ],
+        "features": [
+          "Enclosed CoreXY",
+          "Chamber heating (35C)",
+          "Auto bed leveling",
+          "WiFi",
+          "Camera"
+        ],
+        "scores": {
+          "value": 8,
+          "beginner": 8,
+          "printQuality": 8,
+          "speed": 8,
+          "reliability": 8
+        },
+        "summary": "Compact enclosed CoreXY with chamber heating. QIDI's desktop-friendly machine for small spaces.",
+        "verdict": "Best compact enclosed printer under $400. If desk space is limited but you still want enclosure benefits, the X-Smart 3 delivers what larger machines can't fit."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "259153eb2232c5d34085c9c7a91e466a52b80811fda688560c5b0621025a4d77"
+      }
+    },
+    {
+      "slug": "sovol-sv06-plus",
+      "name": "Sovol SV06 Plus",
+      "brand": "Sovol",
+      "type": "fdm",
+      "image": "/images/printers/sovol-sv06-plus.png",
+      "price": 299,
+      "amazonAsin": "B0CGVQHCZP",
+      "metadata": {
+        "buildVolume": {
+          "x": 300,
+          "y": 300,
+          "z": 340
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 250,
+        "weight": 12,
+        "bestFor": [
+          "large-prints",
+          "budget",
+          "reliability"
+        ],
+        "features": [
+          "All-metal direct drive",
+          "Auto bed leveling",
+          "PEI build plate",
+          "300x300mm bed",
+          "Linear rails"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 6,
+          "printQuality": 8,
+          "speed": 5,
+          "reliability": 8
+        },
+        "summary": "300x300mm bed with linear rails at $299. The large-format Ender 3 alternative.",
+        "verdict": "If you want a bigger bed than the Ender 3 without breaking $300, the SV06 Plus is your machine. The linear rails add print quality benefits that show in the output."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "c50c475e21f8977ae71c38f8357a4064c6df7bcef6ad0aaabd8af21bf1da4587"
+      }
+    },
+    {
+      "slug": "sovol-sv07-plus",
+      "name": "Sovol SV07 Plus",
+      "brand": "Sovol",
+      "type": "fdm",
+      "image": "/images/printers/sovol-sv07-plus.png",
+      "price": 339,
+      "amazonAsin": "B0CGVQHBZN",
+      "metadata": {
+        "buildVolume": {
+          "x": 300,
+          "y": 300,
+          "z": 350
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 500,
+        "weight": 16.5,
+        "bestFor": [
+          "large-prints",
+          "budget",
+          "diy"
+        ],
+        "features": [
+          "Klipper firmware",
+          "Auto bed leveling",
+          "Direct drive",
+          "300x300mm bed",
+          "WiFi",
+          "Large build"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 5,
+          "printQuality": 7,
+          "speed": 7,
+          "reliability": 7
+        },
+        "summary": "300x300x350mm Klipper machine at $339. Sovol's large-format budget answer.",
+        "verdict": "Great value if you need a big bed and Klipper. Just expect some tuning time before it sings. Not for impatient beginners."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "51d4e12bf5efde35f7f6ae86bf013c535dd32366b9a90aa144c279676cf03205"
+      }
+    },
+    {
+      "slug": "sovol-sv08",
+      "name": "Sovol SV08",
+      "brand": "Sovol",
+      "type": "fdm",
+      "image": "/images/printers/sovol-sv08.png",
+      "price": 479,
+      "amazonAsin": "B0D4FZPWV6",
+      "metadata": {
+        "buildVolume": {
+          "x": 350,
+          "y": 350,
+          "z": 400
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.35
+        },
+        "printSpeed": 700,
+        "weight": 20,
+        "bestFor": [
+          "large-prints",
+          "speed",
+          "diy"
+        ],
+        "features": [
+          "Voron-inspired CoreXY",
+          "Klipper",
+          "Auto bed leveling",
+          "350mm build volume",
+          "Open design"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 5,
+          "printQuality": 8,
+          "speed": 10,
+          "reliability": 7
+        },
+        "summary": "A Voron-inspired speed machine at a fraction of DIY cost. Massive build volume, serious speed.",
+        "verdict": "For tinkerers who want Voron-level performance without building from scratch. Not for beginners, but incredible value for experienced users."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "96918c2632b91f1c11c38c31dba4b0d1a57ab17e9474ffd0acf1bddccb229953"
+      }
+    },
+    {
+      "slug": "voxelab-aquila-x2",
+      "name": "Voxelab Aquila X2",
+      "brand": "Voxelab",
+      "type": "fdm",
+      "image": "/images/printers/voxelab-aquila-x2.png",
+      "price": 179,
+      "amazonAsin": "B09J4P9JRQ",
+      "metadata": {
+        "buildVolume": {
+          "x": 220,
+          "y": 220,
+          "z": 250
+        },
+        "layerResolution": {
+          "min": 0.05,
+          "max": 0.4
+        },
+        "printSpeed": 180,
+        "weight": 7.8,
+        "bestFor": [
+          "budget",
+          "beginners"
+        ],
+        "features": [
+          "Resume printing",
+          "Filament runout sensor",
+          "Glass build plate",
+          "Silent stepper drivers"
+        ],
+        "scores": {
+          "value": 9,
+          "beginner": 7,
+          "printQuality": 6,
+          "speed": 4,
+          "reliability": 7
+        },
+        "summary": "A budget Ender 3 alternative. Good for learning the basics of FDM printing.",
+        "verdict": "A fine first printer if the Ender 3 V3 SE is out of budget. Just know you'll want to upgrade within a year."
+      },
+      "validation": {
+        "state": "unverified",
+        "lastVerifiedAt": null,
+        "notes": null
+      },
+      "qa": {
+        "missingRequiredFields": []
+      },
+      "timestamps": {
+        "createdAt": "2026-04-02T19:16:06.310Z",
+        "updatedAt": "2026-04-02T19:16:06.310Z"
+      },
+      "source": {
+        "dataset": "src/data/printers.ts",
+        "hash": "142ae03656db8d416c2beb3feec5561d338fdd5d90b5805e03d62ecf13ed7bc2"
+      }
+    }
+  ]
+}
