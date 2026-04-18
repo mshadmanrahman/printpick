@@ -10,7 +10,12 @@ function escapeXml(str: string): string {
 }
 
 export function GET() {
-  const activePrinters = printers.filter((p) => !p.discontinued);
+  // 3DJake's Awin program terms prohibit promotion through Google Shopping / CSS,
+  // so any printer whose primary brand link routes through our /go/3djake/ redirect
+  // is excluded from the Merchant Center feed to avoid accidental violation.
+  const activePrinters = printers.filter(
+    (p) => !p.discontinued && !p.brandUrl?.startsWith("/go/3djake/"),
+  );
   const items = activePrinters
     .map(
       (p) => `    <item>

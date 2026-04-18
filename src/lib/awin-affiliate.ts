@@ -29,9 +29,46 @@ export const AWIN_ADVERTISER_IDS = {
    * timeline showing 5.00%-5.00% through at least 2026-05-31.
    */
   elegoo: "61127",
+  /**
+   * 3DJake UK — approved 2026-04-17. Commission: 5% flat.
+   * Restrictions: no SEM/SEA, no Google Shopping/CSS, no remarketing, no post-view.
+   * UK store domain: www.3djake.uk (note: 3djake.co.uk is a parked Sedo domain, do not use).
+   */
+  jake3dUk: "21809",
+  /**
+   * 3DJake FR — approved 2026-04-17. Commission: 5% flat.
+   * Same restrictions as UK. FR store domain: www.3djake.fr.
+   * Used as the default for all non-UK EU traffic since 3DJake ships EU-wide from FR.
+   */
+  jake3dFr: "44479",
 } as const;
 
 export type AwinAdvertiser = keyof typeof AWIN_ADVERTISER_IDS;
+
+/**
+ * 3DJake store hosts per region. Keyed by the same region code we use to
+ * pick the Awin advertiser, so the merchant ID and the destination host
+ * stay in sync (a UK merchant ID with a FR destination URL would likely
+ * fail attribution).
+ */
+export const JAKE3D_HOSTS = {
+  uk: "www.3djake.uk",
+  fr: "www.3djake.fr",
+} as const;
+
+export type Jake3dRegion = keyof typeof JAKE3D_HOSTS;
+
+/**
+ * Build an Awin-wrapped 3DJake deep link for a given region.
+ *
+ * @param region "uk" or "fr" — picks both the Awin merchant ID and the store host
+ * @param path Path on the 3DJake store (e.g. "/bambu-lab/p1s"). Must start with "/".
+ */
+export function getJake3dDeepLink(region: Jake3dRegion, path: string): string {
+  const advertiser: AwinAdvertiser = region === "uk" ? "jake3dUk" : "jake3dFr";
+  const host = JAKE3D_HOSTS[region];
+  return getAwinDeepLink(advertiser, `https://${host}${path}`);
+}
 
 /**
  * Wrap a destination URL with an Awin tracking redirect.

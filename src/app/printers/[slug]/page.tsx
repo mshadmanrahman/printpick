@@ -266,6 +266,11 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                       brandUrl={printer.brandUrl}
                       printerName={printer.name}
                       brand={printer.brand}
+                      label={
+                        printer.brandUrl.startsWith("/go/3djake/")
+                          ? "Buy at 3DJake"
+                          : undefined
+                      }
                       className="w-full justify-center py-2.5 text-sm"
                     />
                   )}

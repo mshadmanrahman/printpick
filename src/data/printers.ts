@@ -131,7 +131,7 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/bambu-lab-p1s.png",
     price: 449,
     amazonAsin: "B0C9KMRH6Z",
-    brandUrl: "https://bambulab.com/en-us/p1s",
+    brandUrl: "/go/3djake/bambu-p1s",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,

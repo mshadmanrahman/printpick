@@ -20,6 +20,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/bambu-lab-p2s.png",
     price: 549,
     amazonAsin: "B0P2S00000", // NOTE: Not sold on Amazon directly, Bambu Lab sells through own store + Best Buy. Use search URL fallback.
+    brandUrl: "/go/3djake/bambu-p2s",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 }, // Based on 0.4mm nozzle; supports 0.2/0.4/0.6/0.8mm nozzles
     printSpeed: 500, // 500 mm/s (some sources say 600 mm/s toolhead speed)
@@ -449,6 +450,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/bambu-lab-h2d.png",
     price: 1899, // Base model; Combo $2,199; Laser combos $2,799-$3,499
     amazonAsin: "B0H2D00000", // NOTE: Not sold on Amazon, Bambu Lab store + Best Buy only. Use search URL fallback.
+    brandUrl: "/go/3djake/bambu-h2d",
     buildVolume: { x: 325, y: 320, z: 325 }, // Single nozzle; dual = 300x320x325
     layerResolution: { min: 0.08, max: 0.28 }, // With 0.4mm nozzle
     printSpeed: 600, // Practical print speed; toolhead speed up to 1000 mm/s
@@ -808,7 +810,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/bambu-lab-x2d.jpg",
     price: 649,
     amazonAsin: "B0X2D00000",
-    brandUrl: "https://bambulab.com/en-us/x2d",
+    brandUrl: "/go/3djake/bambu-x2d",
     buildVolume: { x: 256, y: 256, z: 260 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
