@@ -1,0 +1,56 @@
+name: Verify Amazon ASINs
+
+# Runs scripts/verify-amazon-asins.mjs against live Amazon from GitHub's US
+# runners (ubuntu-latest = us-east-1 region), which avoids the bot/geo filter
+# that affects local runs from EU IPs. Reliable, free, automated drift
+# detection.
+#
+# Schedule: weekly on Monday 09:00 UTC (Monday 11:00 Uppsala). Catches any
+# ASIN that broke over the weekend before the week's first push goes out.
+#
+# Strict mode is on for scheduled runs: any broken ASIN fails the workflow,
+# GitHub emails the commit author. Manual runs via workflow_dispatch can
+# disable strict to inspect the report without failing.
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: "Fail workflow if broken ASINs are detected"
+        required: false
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify Amazon ASINs (strict)
+        if: >-
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && inputs.strict == 'true')
+        run: npm run verify:amazon:strict
+
+      - name: Verify Amazon ASINs (warn only)
+        if: >-
+          github.event_name == 'workflow_dispatch' && inputs.strict == 'false'
+        run: npm run verify:amazon
+
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: asin-verification-report
+          path: reports/asin-verification.json
+          retention-days: 30
