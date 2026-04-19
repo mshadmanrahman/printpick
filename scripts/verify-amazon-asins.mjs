@@ -1,20 +1,23 @@
 #!/usr/bin/env node
 /**
- * Verifies every Amazon ASIN in the printer catalog against live Amazon,
- * detecting ASINs that silently redirect to search results (the Apr 11 2026
- * incident pattern). Writes results to reports/asin-verification.json in the
- * schema consumed by `scripts/catalog-refresh.mjs --verification-file`.
+ * Verifies every Amazon ASIN in the printer catalog against live Amazon using
+ * a real Chromium browser (Playwright). Using a full browser defeats Amazon's
+ * bot-detection page that fires on plain fetch() from datacenter or EU IPs.
+ *
+ * Writes reports/asin-verification.json in the schema consumed by
+ * `scripts/catalog-refresh.mjs --verification-file`.
  *
  * Usage:
  *   node scripts/verify-amazon-asins.mjs              # warn-only, exit 0
  *   node scripts/verify-amazon-asins.mjs --strict     # exit 1 if any broken
  *   node scripts/verify-amazon-asins.mjs --verbose    # also print unverified
  *
- * Run from a US IP (GitHub Actions default, Vercel iad1 region) for best
- * coverage. Non-US IPs hit Amazon's geo filter on some SKUs and those ASINs
- * get marked "unverified" rather than "broken" to avoid false positives.
+ * Requires `playwright` and a Chromium install:
+ *   npm install
+ *   npx playwright install --with-deps chromium
  */
 
+import { chromium } from "playwright";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,11 +30,12 @@ const AFFILIATE_LIB_PATH = path.join(REPO_ROOT, "src/lib/amazon-affiliate.ts");
 const REPORT_PATH = path.join(REPO_ROOT, "reports/asin-verification.json");
 
 const AFFILIATE_TAG = "printpick20-20";
+const CONCURRENCY = 3;
+const NAV_TIMEOUT_MS = 20_000;
+const LOCATOR_TIMEOUT_MS = 2_000;
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
-const CONCURRENCY = 5;
-const TIMEOUT_MS = 15_000;
 
 const args = new Set(process.argv.slice(2));
 const STRICT = args.has("--strict");
@@ -66,82 +70,113 @@ async function loadPrinters() {
     )
     .map((p) => ({
       slug: String(p.slug ?? ""),
-      name: String(p.name ?? p.slug ?? p.amazonAsin),
+      name: String(p.name ?? p.slug ?? ""),
+      brand: String(p.brand ?? ""),
       asin: p.amazonAsin.toUpperCase(),
     }));
 }
 
-function classifyResponse({ asin, status, finalUrl, body }) {
-  // Amazon's bot-detection / geo-filter response contains this marker. When it
-  // appears, we cannot distinguish a dead ASIN from a blocked fetch, so mark
-  // as unverified rather than broken. Re-run from a US IP (or via a cleaner
-  // UA / cookie session) to get a real verdict.
-  const botFiltered =
-    body.includes("To discuss automated access to Amazon data") ||
-    body.includes("Enter the characters you see below");
+function normalizeForMatch(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
 
-  if (botFiltered) {
+function brandMatches(productTitle, brand) {
+  if (!brand) return true;
+  // Split brand into tokens (min 3 chars to skip "of", "3d", etc.) and
+  // accept a match if ANY token appears. Handles "Prusa Research" → "Prusa"
+  // and "Bambu Lab" → "Bambu" in abbreviated Amazon titles.
+  const tokens = normalizeForMatch(brand)
+    .split(" ")
+    .filter((t) => t.length >= 3);
+  if (tokens.length === 0) return true;
+  const haystack = normalizeForMatch(productTitle);
+  return tokens.some((t) => haystack.includes(t));
+}
+
+function classify({ httpStatus, finalUrl, pageTitle, productTitle, bodyText, brand }) {
+  let pathname;
+  try {
+    pathname = new URL(finalUrl).pathname;
+  } catch {
+    pathname = "";
+  }
+
+  // Origin-level redirect-to-search — reliable even behind bot filters.
+  if (/^\/(s|b|errors)(\/|$)/.test(pathname) || pathname === "/s") {
+    return { state: "broken", notes: `Redirected to ${pathname}` };
+  }
+
+  // Amazon's 404: HTTP 404 OR a near-empty shell with "Page Not Found" title.
+  // The shell body is ~300 chars and contains only a JS error-image loader —
+  // no "Sorry!" text, so we can't rely on body text alone.
+  const isPageNotFound =
+    httpStatus === 404 ||
+    /^page not found$/i.test((pageTitle || "").trim()) ||
+    bodyText.includes("Sorry! We couldn't find that page") ||
+    bodyText.includes("Looking for something?");
+  if (isPageNotFound) {
+    return { state: "broken", notes: `Amazon 404 (${pageTitle || "no title"})` };
+  }
+
+  // Bot filter even on rendered browser — rare, surface for retry.
+  if (
+    bodyText.includes("To discuss automated access to Amazon data") ||
+    bodyText.includes("Enter the characters you see below")
+  ) {
     return {
       state: "unverified",
-      notes: "Amazon bot/geo filter hit (re-run from US IP or with cookies)",
+      notes: "Bot filter hit even on rendered browser (retry later)",
     };
   }
 
-  // Explicit geo-mismatch signals in the page shell.
-  if (body.includes('sp-cdn="L5Z9:SE"') || body.includes("i18n-prefs=SEK")) {
-    return { state: "unverified", notes: "Geo-blocked from this IP (try US region)" };
-  }
-
-  // Valid product markers — must come before the 404 checks because some
-  // valid product pages also include the word "Sorry" in recommendation rows.
-  if (
-    body.includes('id="productTitle"') ||
-    body.includes(`"asin":"${asin}"`) ||
-    body.includes(`"parentAsin":"${asin}"`)
-  ) {
+  // Valid product page — but check brand match. ASIN slots get reassigned:
+  // e.g. B0C5KXMPZ8 in our catalog was Creality K1 Max but is now a dining
+  // mat. Page renders fine, so without this check we'd mark it "verified".
+  if (productTitle && productTitle.trim().length > 0) {
+    if (!brandMatches(productTitle, brand)) {
+      const preview = productTitle.trim().slice(0, 60).replace(/\s+/g, " ");
+      return {
+        state: "broken",
+        notes: `ASIN reassigned to unrelated product: "${preview}"`,
+      };
+    }
     return { state: "verified", notes: null };
   }
 
-  // Redirect-to-search / browse fallback. This signal is reliable even from
-  // non-US IPs because Amazon redirects on the origin side.
-  try {
-    const parsed = new URL(finalUrl);
-    if (/^\/(s|b|errors)(\/|\?|$)/.test(parsed.pathname)) {
-      return { state: "broken", notes: `Redirected to ${parsed.pathname}${parsed.search}` };
-    }
-  } catch {
-    // fall through
-  }
-
-  // Genuine 404 page without bot-filter markers. Only rely on this when
-  // status is 404 AND no bot-filter markers AND no product markers.
-  if (
-    status === 404 &&
-    (body.includes("Sorry! We couldn't find that page") ||
-      body.includes("Looking for something?"))
-  ) {
-    return { state: "broken", notes: "Amazon 404 (product not found)" };
-  }
-
-  return { state: "unverified", notes: "Ambiguous response (no clear markers)" };
+  return { state: "unverified", notes: "No product markers found" };
 }
 
-async function checkAsin({ slug, name, asin }) {
+async function checkAsin(context, { slug, name, brand, asin }) {
   const url = `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAG}`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  const page = await context.newPage();
   try {
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent": UA,
-        "Accept-Language": "en-US,en;q=0.9",
-        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      },
-      redirect: "follow",
-      signal: controller.signal,
+    const response = await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: NAV_TIMEOUT_MS,
     });
-    const body = await res.text();
-    const verdict = classifyResponse({ asin, status: res.status, finalUrl: res.url, body });
+    const httpStatus = response?.status() ?? 0;
+    const finalUrl = page.url();
+    const pageTitle = await page.title();
+    const [productTitle, bodyText] = await Promise.all([
+      page
+        .locator("#productTitle")
+        .first()
+        .textContent({ timeout: LOCATOR_TIMEOUT_MS })
+        .catch(() => null),
+      page
+        .locator("body")
+        .first()
+        .textContent({ timeout: LOCATOR_TIMEOUT_MS })
+        .catch(() => ""),
+    ]);
+    const verdict = classify({
+      httpStatus,
+      finalUrl,
+      pageTitle,
+      productTitle,
+      bodyText,
+      brand,
+    });
     return { slug, name, asin, ...verdict };
   } catch (err) {
     return {
@@ -149,22 +184,25 @@ async function checkAsin({ slug, name, asin }) {
       name,
       asin,
       state: "unverified",
-      notes: `Fetch error: ${err instanceof Error ? err.message : String(err)}`,
+      notes: `Navigation error: ${err instanceof Error ? err.message : String(err)}`,
     };
   } finally {
-    clearTimeout(timer);
+    await page.close().catch(() => {});
   }
 }
 
 async function runPool(items, worker, concurrency) {
   const results = new Array(items.length);
   let cursor = 0;
-  const workers = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
-    while (cursor < items.length) {
-      const i = cursor++;
-      results[i] = await worker(items[i]);
-    }
-  });
+  const workers = Array.from(
+    { length: Math.min(concurrency, items.length) },
+    async () => {
+      while (cursor < items.length) {
+        const i = cursor++;
+        results[i] = await worker(items[i]);
+      }
+    },
+  );
   await Promise.all(workers);
   return results;
 }
@@ -175,11 +213,34 @@ async function main() {
   const skipped = printers.length - targets.length;
 
   console.log(
-    `Verifying ${targets.length} ASINs against Amazon (${skipped} already in ASIN_REMAP)...`,
+    `Verifying ${targets.length} ASINs via Playwright (${skipped} in ASIN_REMAP)...`,
   );
 
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--disable-blink-features=AutomationControlled"],
+  });
+  const context = await browser.newContext({
+    userAgent: UA,
+    viewport: { width: 1280, height: 800 },
+    locale: "en-US",
+    timezoneId: "America/New_York",
+    extraHTTPHeaders: {
+      "Accept-Language": "en-US,en;q=0.9",
+    },
+  });
+  // Hide navigator.webdriver — Amazon's bot filter checks this flag.
+  await context.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+  });
+
   const start = Date.now();
-  const results = await runPool(targets, checkAsin, CONCURRENCY);
+  let results;
+  try {
+    results = await runPool(targets, (item) => checkAsin(context, item), CONCURRENCY);
+  } finally {
+    await browser.close();
+  }
   const elapsed = ((Date.now() - start) / 1000).toFixed(1);
 
   const broken = results.filter((r) => r.state === "broken");
@@ -206,9 +267,9 @@ async function main() {
   );
 
   console.log(`\nResults (${elapsed}s):`);
-  console.log(`  ✅ Verified:   ${verified.length}`);
-  console.log(`  ⚠️  Broken:     ${broken.length}`);
-  console.log(`  ❓ Unverified: ${unverified.length}`);
+  console.log(`  Verified:   ${verified.length}`);
+  console.log(`  Broken:     ${broken.length}`);
+  console.log(`  Unverified: ${unverified.length}`);
 
   if (broken.length > 0) {
     console.log("\nBroken ASINs (add to ASIN_REMAP in src/lib/amazon-affiliate.ts):");
@@ -218,7 +279,7 @@ async function main() {
   }
 
   if (VERBOSE && unverified.length > 0) {
-    console.log("\nUnverified ASINs (re-run from US IP to confirm):");
+    console.log("\nUnverified ASINs:");
     for (const r of unverified) {
       console.log(`  ${r.asin}  ${r.slug.padEnd(36)}  ${r.notes}`);
     }

@@ -1,9 +1,8 @@
 name: Verify Amazon ASINs
 
-# Runs scripts/verify-amazon-asins.mjs against live Amazon from GitHub's US
-# runners (ubuntu-latest = us-east-1 region), which avoids the bot/geo filter
-# that affects local runs from EU IPs. Reliable, free, automated drift
-# detection.
+# Runs scripts/verify-amazon-asins.mjs via Playwright (real Chromium browser)
+# against live Amazon. Using a real browser defeats Amazon's bot-filter page
+# that fires on plain fetch() from datacenter IPs (including GitHub runners).
 #
 # Schedule: weekly on Monday 09:00 UTC (Monday 11:00 Uppsala). Catches any
 # ASIN that broke over the weekend before the week's first push goes out.
@@ -35,6 +34,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: playwright-${{ runner.os }}-
+
+      - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps (cache hit path)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Verify Amazon ASINs (strict)
         if: >-
