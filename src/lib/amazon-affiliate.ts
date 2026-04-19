@@ -45,6 +45,60 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0FDQP54X8": null,
   // Elegoo Centauri Carbon 2 Combo, ASIN redirects to search as of 2026-04-19 (brandUrl routes via Awin; this is a defensive fallback)
   "B0G4TPZPZM": null,
+
+  // === Batch remap 2026-04-19 — Playwright US-runner verification ===
+  // All below were confirmed "Page Not Found" on Amazon (or reassigned to an
+  // unrelated product) by scripts/verify-amazon-asins.mjs. Falling back to
+  // search preserves the printpick20-20 tag while the catalog ASINs get
+  // hand-refreshed. Re-verify weekly via the GitHub Actions workflow.
+  "B0CL8ZQM3J": null, // anycubic-kobra-2-max
+  "B0DDX1B3V6": null, // anycubic-kobra-3
+  "B0DDX1C2V5": null, // anycubic-kobra-3-combo
+  "B0BTRM8KKY": null, // anycubic-photon-mono-2
+  "B0CJPKFQR7": null, // anycubic-photon-mono-m5s
+  "B0B5RJQXGP": null, // artillery-genius-pro
+  "B0D5RX8MHS": null, // artillery-sidewinder-x4-plus
+  "B0CJPKFQLN": null, // bambu-lab-a1
+  "B0CJPKFQPN": null, // bambu-lab-a1-combo
+  "B0CL2KMFM4": null, // bambu-lab-a1-mini
+  "B0C6HGJQ8N": null, // bambu-lab-p1p
+  "B0C9KMRH6Z": null, // bambu-lab-p1s
+  "B0BZ3CR7WW": null, // bambu-lab-x1-carbon
+  "B0C5LQ7KND": null, // creality-cr-m4
+  "B0CML9QXZK": null, // creality-ender-3-v3-ke
+  // DANGER: ASIN below was reassigned to a Scandinavian dining mat. Shipping
+  // users there from a K1 Max CTA and claiming commission would breach
+  // Amazon Associates ToS. Null-remap defuses this immediately.
+  "B0C5KXMPZ8": null, // creality-ender-3-v3-se — reassigned to unrelated product
+  "B0BSLR9J4M": null, // creality-ender-5-s1
+  "B0BLY6P37G": null, // creality-halot-mage-pro
+  "B0CG2P8RQN": null, // creality-k1
+  "B0CG2P8QQN": null, // creality-k1-max
+  "B0CKVQJRP9": null, // elegoo-mars-4
+  "B0CKVQJLP3": null, // elegoo-mars-4-ultra
+  "B0D9FQWK7N": null, // elegoo-mars-5-ultra
+  "B0C74BKJL6": null, // elegoo-neptune-4
+  "B0C74BJRXM": null, // elegoo-neptune-4-max
+  "B0C74BVCFC": null, // elegoo-neptune-4-pro
+  "B0CGTH1GPD": null, // elegoo-saturn-3-ultra
+  "B0D8K2MNQR": null, // flashforge-adventurer-5m
+  "B0D8K2MNFL": null, // flashforge-adventurer-5m-pro
+  "B0CKVQJLR5": null, // kingroon-klp1
+  "B0BVL3BGWH": null, // kingroon-kp3s-pro-v2
+  "B0BGY93HWX": null, // longer-orange-4k
+  "B0BGY93HZX": null, // longer-orange-4k-v2
+  "B0CGVQHB2P": null, // phrozen-sonic-mega-8k-s2
+  "B09BQHJ5ZQ": null, // phrozen-sonic-mini-4k
+  "B0BN7XMFWR": null, // phrozen-sonic-mini-8k-s
+  "B0DRMTFZ9X": null, // prusa-mk4s
+  "B0DSPDQNF3": null, // prusa-xl
+  "B0CM49W3NK": null, // qidi-ibox-mono2
+  "B0CM4QVY5Z": null, // qidi-x-max-3
+  "B0CM49W2LK": null, // qidi-x-smart-3
+  "B0CGVQHCZP": null, // sovol-sv06-plus
+  "B0CGVQHBZN": null, // sovol-sv07-plus
+  "B0D4FZPWV6": null, // sovol-sv08
+  "B09J4P9JRQ": null, // voxelab-aquila-x2
 };
 
 export type AmazonLinkType = "direct" | "search";
