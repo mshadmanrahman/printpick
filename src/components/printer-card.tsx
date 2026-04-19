@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import { type Printer, getOverallScore } from "@/data/printers";
 import { AmazonButton } from "./amazon-button";
+import { BrandButton } from "./brand-button";
 import { CommunityBadge } from "./community-badge";
 
 // ─── Grid card (image-forward, used on /best page) ───────────────────────────
@@ -76,13 +77,23 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
             ${printer.price}
           </span>
           <div className="relative z-10">
-            <AmazonButton
-              asin={printer.amazonAsin}
-              printerName={printer.name}
-              price={printer.price}
-              label="Buy"
-              className="text-xs px-3 py-1.5"
-            />
+            {printer.brandUrl ? (
+              <BrandButton
+                brandUrl={printer.brandUrl}
+                printerName={printer.name}
+                brand={printer.brand}
+                label="Buy"
+                className="text-xs px-3 py-1.5"
+              />
+            ) : (
+              <AmazonButton
+                asin={printer.amazonAsin}
+                printerName={printer.name}
+                price={printer.price}
+                label="Buy"
+                className="text-xs px-3 py-1.5"
+              />
+            )}
           </div>
         </div>
       </div>
@@ -211,7 +222,23 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             </div>
           </div>
           <div className="relative z-10">
-            <AmazonButton asin={printer.amazonAsin} printerName={printer.name} price={printer.price} label="See Price" className="text-xs px-3 py-1.5" />
+            {printer.brandUrl ? (
+              <BrandButton
+                brandUrl={printer.brandUrl}
+                printerName={printer.name}
+                brand={printer.brand}
+                label="See Price"
+                className="text-xs px-3 py-1.5"
+              />
+            ) : (
+              <AmazonButton
+                asin={printer.amazonAsin}
+                printerName={printer.name}
+                price={printer.price}
+                label="See Price"
+                className="text-xs px-3 py-1.5"
+              />
+            )}
           </div>
         </div>
       </div>
