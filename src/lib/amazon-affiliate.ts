@@ -37,6 +37,14 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0DJKFQ8JN": null,
   // Bambu Lab X2D, not yet released, placeholder ASIN, fallback to search
   "B0X2D00000": null,
+  // Creality Hi Combo, ASIN redirects to search as of 2026-04-19, fallback to search
+  "B0DN69LXDW": null,
+  // Creality SPARKX I7 Combo, ASIN redirects to search as of 2026-04-19, fallback to search
+  "B0GJSBSLQ6": null,
+  // Elegoo Centauri Carbon, ASIN redirects to search as of 2026-04-19 (brandUrl routes via Awin; this is a defensive fallback)
+  "B0FDQP54X8": null,
+  // Elegoo Centauri Carbon 2 Combo, ASIN redirects to search as of 2026-04-19 (brandUrl routes via Awin; this is a defensive fallback)
+  "B0G4TPZPZM": null,
 };
 
 export type AmazonLinkType = "direct" | "search";
