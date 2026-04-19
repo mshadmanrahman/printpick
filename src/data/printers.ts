@@ -375,6 +375,7 @@ export const printers: readonly Printer[] = [
     replacedBy: "anycubic-kobra-s1-combo",
     price: 399,
     amazonAsin: "B0DDX1C2V5",
+    brandUrl: "https://eu.anycubic.com/products/kobra-3-combo?ref=zppplkze",
     buildVolume: { x: 250, y: 250, z: 260 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
