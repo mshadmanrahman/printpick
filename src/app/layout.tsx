@@ -159,7 +159,7 @@ export default function RootLayout({
                   No sponsored rankings.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-8 text-sm">
+              <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
                 <div>
                   <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Tools</h4>
                   <ul className="space-y-2 text-sm">
@@ -176,6 +176,15 @@ export default function RootLayout({
                     <li><a href="/best/budget" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best Budget</a></li>
                     <li><a href="/best/miniatures" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best for Miniatures</a></li>
                     <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">View All</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Site</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">About</a></li>
+                    <li><a href="/methodology" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Methodology</a></li>
+                    <li><a href="/returns" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Returns</a></li>
+                    <li><a href="/credits" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Credits</a></li>
                   </ul>
                 </div>
               </div>

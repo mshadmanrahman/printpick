@@ -104,7 +104,13 @@ export default function Home() {
             <span className="text-primary">Start printing.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-base text-muted-foreground sm:text-lg leading-relaxed">
-            I tested every printer on this list. Real scores, no affiliate pressure, no hedging. Pick your printer in under 60 seconds.
+            Every printer scored on 5 dimensions from public benchmarks, owner reviews, and community signals. No sponsors, no paid placement.{" "}
+            <a
+              href="/methodology"
+              className="underline decoration-dotted underline-offset-4 hover:text-foreground transition-colors"
+            >
+              See how I score.
+            </a>
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a

@@ -107,7 +107,7 @@ export function generateIntro(a: Printer, b: Printer): string {
     return `Choosing between two ${a.brand} printers? The ${a.name} ($${a.price}) and ${b.name} ($${b.price}) both come from one of the most trusted names in 3D printing${priceDiff > 0 ? `, with a $${priceDiff} gap between them` : ""}. Here's how they compare across every category that matters.`;
   }
   if (sameType) {
-    return `The ${a.name} and ${b.name} are both ${a.type.toUpperCase()} 3D printers competing in ${priceDiff < 100 ? "the same price bracket" : "different tiers"}, $${a.price} vs $${b.price}. We scored both across value, beginner-friendliness, quality, speed, and reliability. Here's the full breakdown.`;
+    return `The ${a.name} and ${b.name} are both ${a.type.toUpperCase()} 3D printers competing in ${priceDiff < 100 ? "the same price bracket" : "different tiers"}, $${a.price} vs $${b.price}. Both are scored across value, beginner-friendliness, quality, speed, and reliability. Here's the full breakdown.`;
   }
   return `Comparing FDM to resin? The ${a.name} ($${a.price}, ${a.type.toUpperCase()}) and ${b.name} ($${b.price}, ${b.type.toUpperCase()}) use fundamentally different technologies. FDM melts filament layer by layer; resin cures liquid with UV light. Here's how they stack up.`;
 }
