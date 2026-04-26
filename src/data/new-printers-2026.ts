@@ -874,16 +874,17 @@ export const newPrinters2026: readonly Printer[] = [
   },
 
   // ─── 11. ANYCUBIC KOBRA S1 ACE 2 PRO COMBO ───────────────────
-  // Launched April 24, 2026. Early bird price €459 through May 31, 2026.
+  // Launched April 24, 2026. Early bird $459 / €459 through May 31, 2026 (verified 2026-04-26).
   // 16-color variant (upgraded ACE 2 Pro) — distinct from the 8-color Kobra S1 Combo (slug: anycubic-kobra-s1-combo).
+  // Amazon listing not available at launch — Anycubic EU direct store is the primary purchase path; ASIN set to null so any Amazon CTA falls back to search.
   {
     slug: "anycubic-kobra-s1-ace-2-pro-combo",
     name: "Anycubic Kobra S1 ACE 2 Pro Combo",
     brand: "Anycubic",
     type: "fdm",
     image: "/images/printers/anycubic-kobra-s1-ace-2-pro-combo.png",
-    price: 499, // Early bird €459 (Apr 24 – May 31); reverts to ~€549 after promo. USD TBC.
-    amazonAsin: "B0KS1ACE00", // NOTE: Not confirmed on Amazon at launch — Anycubic EU direct store is primary.
+    price: 459,
+    amazonAsin: "B0KS1ACE00",
     brandUrl:
       "https://eu.anycubic.com/pages/kobra-s1-ace-2-pro-combo-new-launch?ref=zppplkze",
     buildVolume: { x: 250, y: 250, z: 250 },

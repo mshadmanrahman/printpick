@@ -37,6 +37,9 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0DJKFQ8JN": null,
   // Bambu Lab X2D, not yet released, placeholder ASIN, fallback to search
   "B0X2D00000": null,
+  // Anycubic Kobra S1 ACE 2 Pro Combo (16-color variant). Launched 2026-04-24
+  // Anycubic-EU-direct-only at launch (verified 2026-04-26). Brand affiliate via brandUrl is primary; Amazon CTA falls back to search.
+  "B0KS1ACE00": null,
   // Re-verified live on Amazon 2026-04-26 via verify-amazon-asins.mjs --all.
   // Removed from null-remap so direct /dp/ links generate again:
   //   B0DN69LXDW Creality Hi Combo
