@@ -449,7 +449,7 @@ export const newPrinters2026: readonly Printer[] = [
     type: "fdm",
     image: "/images/printers/bambu-lab-h2d.png",
     price: 1899, // Base model; Combo $2,199; Laser combos $2,799-$3,499
-    amazonAsin: "B0H2D00000", // NOTE: Not sold on Amazon, Bambu Lab store + Best Buy only. Use search URL fallback.
+    amazonAsin: "B0FPKNK7QF", // NOTE: Not sold on Amazon, Bambu Lab store + Best Buy only. Use search URL fallback.
     brandUrl: "/go/3djake/bambu-h2d",
     buildVolume: { x: 325, y: 320, z: 325 }, // Single nozzle; dual = 300x320x325
     layerResolution: { min: 0.08, max: 0.28 }, // With 0.4mm nozzle

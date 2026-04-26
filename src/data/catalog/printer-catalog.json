@@ -21,7 +21,7 @@
       "type": "fdm",
       "image": "/images/printers/anycubic-kobra-2-max.png",
       "price": 399,
-      "amazonAsin": "B0CL8ZQM3J",
+      "amazonAsin": "B0CPT3B4PN",
       "metadata": {
         "buildVolume": {
           "x": 420,
@@ -80,7 +80,7 @@
       "type": "fdm",
       "image": "/images/printers/anycubic-kobra-3.png",
       "price": 299,
-      "amazonAsin": "B0DDX1B3V6",
+      "amazonAsin": "B0CZ78KQKB",
       "metadata": {
         "buildVolume": {
           "x": 250,
@@ -139,7 +139,7 @@
       "type": "fdm",
       "image": "/images/printers/anycubic-kobra-3-combo.png",
       "price": 399,
-      "amazonAsin": "B0DDX1C2V5",
+      "amazonAsin": "B0D6R6D26W",
       "metadata": {
         "buildVolume": {
           "x": 250,
@@ -198,7 +198,7 @@
       "type": "resin",
       "image": "/images/printers/anycubic-photon-mono-2.png",
       "price": 169,
-      "amazonAsin": "B0BTRM8KKY",
+      "amazonAsin": "B0BWHGK525",
       "metadata": {
         "buildVolume": {
           "x": 143,
@@ -255,7 +255,7 @@
       "type": "resin",
       "image": "/images/printers/anycubic-photon-mono-4.png",
       "price": 159,
-      "amazonAsin": "B0DJKFQ8JN",
+      "amazonAsin": "B0DB887MCD",
       "metadata": {
         "buildVolume": {
           "x": 134,
@@ -312,7 +312,7 @@
       "type": "resin",
       "image": "/images/printers/anycubic-photon-mono-m5s.png",
       "price": 339,
-      "amazonAsin": "B0CJPKFQR7",
+      "amazonAsin": "B0BZ7TLWWR",
       "metadata": {
         "buildVolume": {
           "x": 218,
@@ -370,7 +370,7 @@
       "type": "fdm",
       "image": "/images/printers/artillery-genius-pro.png",
       "price": 249,
-      "amazonAsin": "B0B5RJQXGP",
+      "amazonAsin": "B098THRN1X",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -429,7 +429,7 @@
       "type": "fdm",
       "image": "/images/printers/artillery-sidewinder-x4-plus.png",
       "price": 349,
-      "amazonAsin": "B0D5RX8MHS",
+      "amazonAsin": "B0CSFLZ1YQ",
       "metadata": {
         "buildVolume": {
           "x": 300,
@@ -488,7 +488,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-a1.png",
       "price": 299,
-      "amazonAsin": "B0CJPKFQLN",
+      "amazonAsin": "B0D17TMWFB",
       "metadata": {
         "buildVolume": {
           "x": 256,
@@ -548,7 +548,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-a1-combo.png",
       "price": 399,
-      "amazonAsin": "B0CJPKFQPN",
+      "amazonAsin": "B0D17V4SKM",
       "metadata": {
         "buildVolume": {
           "x": 256,
@@ -607,7 +607,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-a1-mini.png",
       "price": 199,
-      "amazonAsin": "B0CL2KMFM4",
+      "amazonAsin": "B0CRYJBKQQ",
       "metadata": {
         "buildVolume": {
           "x": 180,
@@ -666,7 +666,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-h2d.png",
       "price": 1899,
-      "amazonAsin": "B0H2D00000",
+      "amazonAsin": "B0FPKNK7QF",
       "metadata": {
         "buildVolume": {
           "x": 325,
@@ -726,7 +726,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-p1p.png",
       "price": 499,
-      "amazonAsin": "B0C6HGJQ8N",
+      "amazonAsin": "B0DMPQF96B",
       "metadata": {
         "buildVolume": {
           "x": 256,
@@ -786,7 +786,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-p1s.png",
       "price": 599,
-      "amazonAsin": "B0C9KMRH6Z",
+      "amazonAsin": "B0CHDM8VVZ",
       "metadata": {
         "buildVolume": {
           "x": 256,
@@ -906,7 +906,7 @@
       "type": "fdm",
       "image": "/images/printers/bambu-lab-x1-carbon.png",
       "price": 1199,
-      "amazonAsin": "B0BZ3CR7WW",
+      "amazonAsin": "B0DMPXXSZX",
       "metadata": {
         "buildVolume": {
           "x": 256,
@@ -966,7 +966,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-cr-m4.png",
       "price": 599,
-      "amazonAsin": "B0C5LQ7KND",
+      "amazonAsin": "B0BV6L9GQW",
       "metadata": {
         "buildVolume": {
           "x": 450,
@@ -1025,7 +1025,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-ender-3-v3.png",
       "price": 289,
-      "amazonAsin": "B0DFN3QQ3F",
+      "amazonAsin": "B0CTJZXQ3Q",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -1084,7 +1084,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-ender-3-v3-ke.png",
       "price": 199,
-      "amazonAsin": "B0CML9QXZK",
+      "amazonAsin": "B0CWNQXZKW",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -1144,7 +1144,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-ender-3-v3-se.png",
       "price": 218,
-      "amazonAsin": "B0C5KXMPZ8",
+      "amazonAsin": "B0CD1KWF1G",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -1200,7 +1200,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-ender-5-s1.png",
       "price": 399,
-      "amazonAsin": "B0BSLR9J4M",
+      "amazonAsin": "B0BKT1J8ML",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -1259,7 +1259,7 @@
       "type": "resin",
       "image": "/images/printers/creality-halot-mage-pro.png",
       "price": 299,
-      "amazonAsin": "B0BLY6P37G",
+      "amazonAsin": "B0C4KVR71F",
       "metadata": {
         "buildVolume": {
           "x": 228,
@@ -1377,7 +1377,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-k1.png",
       "price": 419,
-      "amazonAsin": "B0CG2P8RQN",
+      "amazonAsin": "B0C276WYST",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -1437,7 +1437,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-k1-max.png",
       "price": 599,
-      "amazonAsin": "B0CG2P8QQN",
+      "amazonAsin": "B0C4TP1DBN",
       "metadata": {
         "buildVolume": {
           "x": 300,
@@ -1496,7 +1496,7 @@
       "type": "fdm",
       "image": "/images/printers/creality-k2-plus.png",
       "price": 899,
-      "amazonAsin": "B0DHGQVYMP",
+      "amazonAsin": "B0DFH5Q5YF",
       "metadata": {
         "buildVolume": {
           "x": 350,
@@ -1736,7 +1736,7 @@
       "type": "resin",
       "image": "/images/printers/elegoo-mars-4.png",
       "price": 149,
-      "amazonAsin": "B0CKVQJRP9",
+      "amazonAsin": "B0DK545LJ2",
       "metadata": {
         "buildVolume": {
           "x": 153,
@@ -1793,7 +1793,7 @@
       "type": "resin",
       "image": "/images/printers/elegoo-mars-4-ultra.png",
       "price": 199,
-      "amazonAsin": "B0CKVQJLP3",
+      "amazonAsin": "B0C5JLSZ3M",
       "metadata": {
         "buildVolume": {
           "x": 153,
@@ -1851,7 +1851,7 @@
       "type": "resin",
       "image": "/images/printers/elegoo-mars-5-ultra.png",
       "price": 284,
-      "amazonAsin": "B0D9FQWK7N",
+      "amazonAsin": "B0FRMGLQZL",
       "metadata": {
         "buildVolume": {
           "x": 153,
@@ -1909,7 +1909,7 @@
       "type": "fdm",
       "image": "/images/printers/elegoo-neptune-4.png",
       "price": 199,
-      "amazonAsin": "B0C74BKJL6",
+      "amazonAsin": "B0C745237N",
       "metadata": {
         "buildVolume": {
           "x": 225,
@@ -1968,7 +1968,7 @@
       "type": "fdm",
       "image": "/images/printers/elegoo-neptune-4-max.png",
       "price": 469,
-      "amazonAsin": "B0C74BJRXM",
+      "amazonAsin": "B0D3WVRBSD",
       "metadata": {
         "buildVolume": {
           "x": 420,
@@ -2027,7 +2027,7 @@
       "type": "fdm",
       "image": "/images/printers/elegoo-neptune-4-pro.png",
       "price": 259,
-      "amazonAsin": "B0C74BVCFC",
+      "amazonAsin": "B0C749177C",
       "metadata": {
         "buildVolume": {
           "x": 225,
@@ -2085,7 +2085,7 @@
       "type": "resin",
       "image": "/images/printers/elegoo-saturn-3-ultra.png",
       "price": 299,
-      "amazonAsin": "B0CGTH1GPD",
+      "amazonAsin": "B0C5JM4WF6",
       "metadata": {
         "buildVolume": {
           "x": 218,
@@ -2144,7 +2144,7 @@
       "type": "resin",
       "image": "/images/printers/elegoo-saturn-4-ultra.png",
       "price": 459,
-      "amazonAsin": "B0D9FM4KFN",
+      "amazonAsin": "B0D12Q82KC",
       "metadata": {
         "buildVolume": {
           "x": 218,
@@ -2203,7 +2203,7 @@
       "type": "fdm",
       "image": "/images/printers/flashforge-adventurer-5m.png",
       "price": 299,
-      "amazonAsin": "B0D8K2MNQR",
+      "amazonAsin": "B0CHJGFVSL",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -2262,7 +2262,7 @@
       "type": "fdm",
       "image": "/images/printers/flashforge-adventurer-5m-pro.png",
       "price": 379,
-      "amazonAsin": "B0D8K2MNFL",
+      "amazonAsin": "B0CNR6WCJ4",
       "metadata": {
         "buildVolume": {
           "x": 220,
@@ -2438,7 +2438,7 @@
       "type": "resin",
       "image": "/images/printers/longer-orange-4k.png",
       "price": 129,
-      "amazonAsin": "B0BGY93HWX",
+      "amazonAsin": "B0831JH5LX",
       "metadata": {
         "buildVolume": {
           "x": 118,
@@ -2552,7 +2552,7 @@
       "type": "resin",
       "image": "/images/printers/phrozen-sonic-mega-8k-s2.png",
       "price": 749,
-      "amazonAsin": "B0CGVQHB2P",
+      "amazonAsin": "B0CF24PTPD",
       "metadata": {
         "buildVolume": {
           "x": 330,
@@ -2668,7 +2668,7 @@
       "type": "resin",
       "image": "/images/printers/phrozen-sonic-mini-8k-s.png",
       "price": 329,
-      "amazonAsin": "B0BN7XMFWR",
+      "amazonAsin": "B0C42WYCXK",
       "metadata": {
         "buildVolume": {
           "x": 165,
@@ -2785,7 +2785,7 @@
       "type": "fdm",
       "image": "/images/printers/prusa-mk4s.png",
       "price": 799,
-      "amazonAsin": "B0DRMTFZ9X",
+      "amazonAsin": "B0DLKM9FZY",
       "metadata": {
         "buildVolume": {
           "x": 250,
@@ -2844,7 +2844,7 @@
       "type": "fdm",
       "image": "/images/printers/prusa-xl.png",
       "price": 1999,
-      "amazonAsin": "B0DSPDQNF3",
+      "amazonAsin": "B0D4ZCR48N",
       "metadata": {
         "buildVolume": {
           "x": 360,
@@ -3021,7 +3021,7 @@
       "type": "fdm",
       "image": "/images/printers/qidi-x-max-3.png",
       "price": 799,
-      "amazonAsin": "B0CM4QVY5Z",
+      "amazonAsin": "B0D8S2KR97",
       "metadata": {
         "buildVolume": {
           "x": 325,
@@ -3081,7 +3081,7 @@
       "type": "fdm",
       "image": "/images/printers/qidi-x-plus-3.png",
       "price": 499,
-      "amazonAsin": "B0CM49X31W",
+      "amazonAsin": "B0BWXH5V8V",
       "metadata": {
         "buildVolume": {
           "x": 280,
@@ -3142,7 +3142,7 @@
       "type": "fdm",
       "image": "/images/printers/qidi-x-smart-3.png",
       "price": 349,
-      "amazonAsin": "B0CM49W2LK",
+      "amazonAsin": "B0C8HPZZX9",
       "metadata": {
         "buildVolume": {
           "x": 175,
@@ -3201,7 +3201,7 @@
       "type": "fdm",
       "image": "/images/printers/sovol-sv06-plus.png",
       "price": 299,
-      "amazonAsin": "B0CGVQHCZP",
+      "amazonAsin": "B0BXKK765N",
       "metadata": {
         "buildVolume": {
           "x": 300,
@@ -3260,7 +3260,7 @@
       "type": "fdm",
       "image": "/images/printers/sovol-sv07-plus.png",
       "price": 339,
-      "amazonAsin": "B0CGVQHBZN",
+      "amazonAsin": "B0CC8XTCBH",
       "metadata": {
         "buildVolume": {
           "x": 300,
@@ -3320,7 +3320,7 @@
       "type": "fdm",
       "image": "/images/printers/sovol-sv08.png",
       "price": 479,
-      "amazonAsin": "B0D4FZPWV6",
+      "amazonAsin": "B0D4QXFY3T",
       "metadata": {
         "buildVolume": {
           "x": 350,
@@ -3379,7 +3379,7 @@
       "type": "fdm",
       "image": "/images/printers/voxelab-aquila-x2.png",
       "price": 179,
-      "amazonAsin": "B09J4P9JRQ",
+      "amazonAsin": "B092Z47XDV",
       "metadata": {
         "buildVolume": {
           "x": 220,
