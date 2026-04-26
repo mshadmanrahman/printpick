@@ -25,7 +25,10 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, "..");
 
-const CATALOG_PATH = path.join(REPO_ROOT, "src/data/catalog/printer-catalog.json");
+const PRINTERS_TS_PATHS = [
+  path.join(REPO_ROOT, "src/data/printers.ts"),
+  path.join(REPO_ROOT, "src/data/new-printers-2026.ts"),
+];
 const AFFILIATE_LIB_PATH = path.join(REPO_ROOT, "src/lib/amazon-affiliate.ts");
 const REPORT_PATH = path.join(REPO_ROOT, "reports/asin-verification.json");
 
@@ -40,6 +43,7 @@ const UA =
 const args = new Set(process.argv.slice(2));
 const STRICT = args.has("--strict");
 const VERBOSE = args.has("--verbose");
+const SCAN_ALL = args.has("--all");
 
 async function loadRemapAsins() {
   const src = await fs.readFile(AFFILIATE_LIB_PATH, "utf8");
@@ -49,31 +53,31 @@ async function loadRemapAsins() {
   return new Set(entries.map((m) => m[1]));
 }
 
+// Reads printer entries directly from the TS source files via regex.
+// Avoids depending on a generated JSON dump that drifts when the TS files are
+// edited (or when catalog-refresh.mjs fails on its tsc path-alias issue).
 async function loadPrinters() {
-  const raw = await fs.readFile(CATALOG_PATH, "utf8");
-  const parsed = JSON.parse(raw);
-  const list = Array.isArray(parsed)
-    ? parsed
-    : Array.isArray(parsed.records)
-      ? parsed.records
-      : Array.isArray(parsed.printers)
-        ? parsed.printers
-        : Array.isArray(parsed.data)
-          ? parsed.data
-          : [];
-  return list
-    .filter(
-      (p) =>
-        p &&
-        typeof p.amazonAsin === "string" &&
-        /^B0[A-Z0-9]{8}$/.test(p.amazonAsin),
-    )
-    .map((p) => ({
-      slug: String(p.slug ?? ""),
-      name: String(p.name ?? p.slug ?? ""),
-      brand: String(p.brand ?? ""),
-      asin: p.amazonAsin.toUpperCase(),
-    }));
+  const out = [];
+  for (const p of PRINTERS_TS_PATHS) {
+    const src = await fs.readFile(p, "utf8");
+    const blocks = src.split(/\n  \{\n/).slice(1);
+    for (const blk of blocks) {
+      const slugM = blk.match(/slug:\s*"([^"]+)"/);
+      const nameM = blk.match(/name:\s*"([^"]+)"/);
+      const brandM = blk.match(/brand:\s*"([^"]+)"/);
+      const asinM = blk.match(/amazonAsin:\s*"([A-Z0-9]+)"/);
+      if (!slugM || !asinM) continue;
+      const asin = asinM[1].toUpperCase();
+      if (!/^B0[A-Z0-9]{8}$/.test(asin)) continue;
+      out.push({
+        slug: slugM[1],
+        name: nameM ? nameM[1] : slugM[1],
+        brand: brandM ? brandM[1] : "",
+        asin,
+      });
+    }
+  }
+  return out;
 }
 
 function normalizeForMatch(value) {
@@ -147,7 +151,9 @@ function classify({ httpStatus, finalUrl, pageTitle, productTitle, bodyText, bra
 }
 
 async function checkAsin(context, { slug, name, brand, asin }) {
-  const url = `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAG}`;
+  // Verification hits Amazon as a bot. Stripping the affiliate tag prevents
+  // bot pageloads from polluting the affiliate click report ("Unknown" bucket).
+  const url = `https://www.amazon.com/dp/${asin}`;
   const page = await context.newPage();
   try {
     const response = await page.goto(url, {
@@ -209,11 +215,13 @@ async function runPool(items, worker, concurrency) {
 
 async function main() {
   const [remap, printers] = await Promise.all([loadRemapAsins(), loadPrinters()]);
-  const targets = printers.filter((p) => !remap.has(p.asin));
+  const targets = SCAN_ALL ? printers : printers.filter((p) => !remap.has(p.asin));
   const skipped = printers.length - targets.length;
 
   console.log(
-    `Verifying ${targets.length} ASINs via Playwright (${skipped} in ASIN_REMAP)...`,
+    SCAN_ALL
+      ? `Verifying ALL ${targets.length} ASINs via Playwright (--all overrides ASIN_REMAP)...`
+      : `Verifying ${targets.length} ASINs via Playwright (${skipped} in ASIN_REMAP)...`,
   );
 
   const browser = await chromium.launch({
