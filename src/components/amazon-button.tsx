@@ -19,6 +19,14 @@ export function AmazonButton({ asin, printerName, price, label = "Check Price on
     [asin, printerName],
   );
 
+  // Suppress the CTA when getAmazonLink falls back to a search URL.
+  // Apr 24 data: 362/374 search-URL clicks attributed zero orders. A search
+  // page that doesn't return the user's product is worse for trust than no
+  // button. Callers that have a brandUrl already render BrandButton instead.
+  if (link.type === "search") {
+    return null;
+  }
+
   const handleClick = () => {
     track("affiliate_click", {
       asin,

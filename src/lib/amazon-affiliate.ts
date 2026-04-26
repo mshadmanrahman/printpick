@@ -37,14 +37,12 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0DJKFQ8JN": null,
   // Bambu Lab X2D, not yet released, placeholder ASIN, fallback to search
   "B0X2D00000": null,
-  // Creality Hi Combo, ASIN redirects to search as of 2026-04-19, fallback to search
-  "B0DN69LXDW": null,
-  // Creality SPARKX I7 Combo, ASIN redirects to search as of 2026-04-19, fallback to search
-  "B0GJSBSLQ6": null,
-  // Elegoo Centauri Carbon, ASIN redirects to search as of 2026-04-19 (brandUrl routes via Awin; this is a defensive fallback)
-  "B0FDQP54X8": null,
-  // Elegoo Centauri Carbon 2 Combo, ASIN redirects to search as of 2026-04-19 (brandUrl routes via Awin; this is a defensive fallback)
-  "B0G4TPZPZM": null,
+  // Re-verified live on Amazon 2026-04-26 via verify-amazon-asins.mjs --all.
+  // Removed from null-remap so direct /dp/ links generate again:
+  //   B0DN69LXDW Creality Hi Combo
+  //   B0GJSBSLQ6 Creality SparkX i7
+  //   B0FDQP54X8 Elegoo Centauri Carbon
+  //   B0G4TPZPZM Elegoo Centauri Carbon 2 Combo
 
   // === Batch remap 2026-04-19 — Playwright US-runner verification ===
   // All below were confirmed "Page Not Found" on Amazon (or reassigned to an

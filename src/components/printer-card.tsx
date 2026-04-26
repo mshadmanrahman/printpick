@@ -10,22 +10,6 @@ import { BrandButton } from "./brand-button";
 import { CommunityBadge } from "./community-badge";
 
 /**
- * A brandUrl is only preferred over the Amazon CTA when it carries
- * affiliate tracking. Bare brand-store URLs (e.g. https://bambulab.com/...)
- * would generate zero commission, worse than the tagged Amazon search
- * fallback. Keep this list in sync with the affiliate programs we join.
- */
-function isTrackedBrandUrl(url: string): boolean {
-  return (
-    url.startsWith("/go/") || // 3DJake geo-router (Awin)
-    url.includes("awin1.com") || // Awin direct (Elegoo)
-    url.includes("?ref=") || // GoAffPro (Anycubic)
-    url.includes("?sca_ref=") || // UpPromote (QIDI)
-    url.includes("#a_aid=") // Post Affiliate Pro (Prusa)
-  );
-}
-
-/**
  * Secondary "Compare on Amazon" link shown beneath a primary BrandButton.
  * Renders as a small muted link so it does not compete with the primary CTA,
  * but routes through the same tagged Amazon URL (preserves printpick20-20)
@@ -40,6 +24,9 @@ function CompareOnAmazonLink({
   readonly printerName: string;
 }) {
   const link = getAmazonLink(asin, printerName);
+  if (link.type === "search") {
+    return null;
+  }
   return (
     <a
       href={link.url}
@@ -131,7 +118,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
             ${printer.price}
           </span>
           <div className="relative z-10">
-            {printer.brandUrl && isTrackedBrandUrl(printer.brandUrl) ? (
+            {printer.brandUrl ? (
               <BrandButton
                 brandUrl={printer.brandUrl}
                 printerName={printer.name}
@@ -276,7 +263,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             </div>
           </div>
           <div className="relative z-10 flex flex-col items-end gap-1">
-            {printer.brandUrl && isTrackedBrandUrl(printer.brandUrl) ? (
+            {printer.brandUrl ? (
               <>
                 <BrandButton
                   brandUrl={printer.brandUrl}
