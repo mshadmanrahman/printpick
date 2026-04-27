@@ -83,77 +83,6 @@ export const newPrinters2026: readonly Printer[] = [
     ],
   },
 
-  // ─── 2. CREALITY SPARKX i7 ──────────────────────────────────────
-  {
-    slug: "creality-sparkx-i7",
-    name: "Creality SparkX i7",
-    brand: "Creality",
-    type: "fdm",
-    image: "/images/printers/creality-sparkx-i7.png",
-    price: 399, // Combo price; standalone ~$279
-    amazonAsin: "B0GJSBSLQ6",
-    buildVolume: { x: 260, y: 260, z: 255 },
-    layerResolution: { min: 0.05, max: 0.3 },
-    printSpeed: 500,
-    weight: 9.12,
-    features: [
-      "AI camera monitoring",
-      "CFS Lite multi-color (4 colors)",
-      "Auto bed leveling",
-      "RGB status lighting",
-      "95% pre-assembled",
-      "Pressure advance",
-    ],
-    bestFor: ["beginners", "multi-color", "budget"],
-    scores: {
-      value: 9,
-      beginner: 10,
-      printQuality: 8,
-      speed: 8,
-      reliability: 8,
-    },
-    pros: [
-      "CES 2026 winner and it shows: the out-of-box experience is genuinely polished",
-      "AI photo-to-3D is gimmicky but actually fun",
-      "Klipper under the hood, root access included",
-      "Under 10kg, quiet, easy to move around",
-    ],
-    cons: [
-      "16-page privacy policy just to set it up",
-      "CFS Lite has no spool retract",
-      "New product, thin community troubleshooting pool",
-      "Creality Cloud app is a mess",
-    ],
-    summary:
-      "Creality's CES 2026 award winner. Built for people who want multi-color printing without reading a manual.",
-    verdict:
-      "Easiest path from unboxing to multi-color prints on the market. Power users will hit walls quickly. Everyone else: this is your printer.",
-    reviews: [
-      {
-        quote:
-          "Very beginner friendly, almost plug and play. No tuning or adjustment needed out of the box.",
-        source: "Creality Community Forum",
-      },
-      {
-        quote:
-          "Not just another color bedslinger. The CFS Lite is surprisingly adaptable and low maintenance.",
-        source: "Tom's Hardware",
-      },
-      {
-        quote:
-          "When 3D printing stops feeling intimidating, that's the SparkX i7 experience.",
-        source: "The Gadgeteer",
-      },
-    ],
-    communityBadges: ["Best First Printer", "Best Value"],
-    alsoNeed: [
-      "CFS Lite (included in Combo)",
-      "PLA filament multi-pack",
-      "Textured PEI build plate",
-      "Nozzle variety pack (0.2/0.6/0.8mm)",
-    ],
-  },
-
   // ─── 3. CREALITY HI COMBO ──────────────────────────────────────
   {
     slug: "creality-hi-combo",
@@ -744,11 +673,12 @@ export const newPrinters2026: readonly Printer[] = [
     printSpeed: 500,
     weight: 11.8,
     features: [
-      "4-color multi-color system",
+      "CFS Lite multi-color (4 colors)",
       "AI-assisted print monitoring",
       "Auto bed leveling",
       "WiFi + touchscreen",
       "Direct drive extruder",
+      "95% pre-assembled",
       "Tom's Hardware CES 2026 Best 3D Printer",
     ],
     bestFor: ["multi-color", "beginners", "speed"],
@@ -764,12 +694,16 @@ export const newPrinters2026: readonly Printer[] = [
       "AI monitoring that actually pauses on failures rather than just alerting",
       "4-color multi-color at a price that doesn't sting",
       "Creality's community is enormous: mods, fixes, guides everywhere",
+      "AI photo-to-3D is gimmicky but actually fun",
+      "Klipper under the hood, root access included",
     ],
     cons: [
-      "New product. No long-term reliability data yet.",
+      "16-page privacy policy just to set it up",
       "Software trails Bambu Studio by a noticeable margin",
-      "Open frame",
       "AI monitoring needs a cloud connection to work",
+      "Creality Cloud app is a mess",
+      "CFS Lite has no spool retract",
+      "New product. No long-term reliability data yet.",
     ],
     summary:
       "Creality's CES 2026 award winner. 4-color printing, AI monitoring, and a solid entry into the multi-color era for Creality.",
@@ -783,20 +717,25 @@ export const newPrinters2026: readonly Printer[] = [
       },
       {
         quote:
+          "Very beginner friendly, almost plug and play. No tuning or adjustment needed out of the box.",
+        source: "Creality Community Forum",
+      },
+      {
+        quote:
           "The AI monitoring actually works. Caught a spaghetti failure at layer 12 and paused the print automatically.",
         source: "r/Creality",
       },
       {
         quote:
-          "Creality's best printer in years. The multi-color system is competitive with Bambu's AMS Lite.",
-        source: "3D Printing Nerd (YouTube)",
+          "When 3D printing stops feeling intimidating, that's the SparkX i7 experience.",
+        source: "The Gadgeteer",
       },
     ],
-    communityBadges: ["Editor's Choice"],
+    communityBadges: ["Best First Printer", "Editor's Choice"],
     alsoNeed: [
       "PLA filament multi-color pack",
-      "Spare nozzles (0.4mm, 0.6mm)",
-      "Build plate (textured PEI)",
+      "Nozzle variety pack (0.2/0.6/0.8mm)",
+      "Textured PEI build plate",
       "Enclosure (DIY or IKEA Lack)",
     ],
   },
