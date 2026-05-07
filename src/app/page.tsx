@@ -1,12 +1,17 @@
 import Image from "next/image";
 import { Search, DollarSign, Layers, GitCompare, ChevronRight, ArrowRight, MessageCircle } from "lucide-react";
-import { printers, getOverallScore, CATEGORIES } from "@/data/printers";
+import { printers, getOverallScore, CATEGORIES, getAllBrands } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
 import { ReviewCarousel } from "@/components/review-carousel";
 
 const topPrinters = [...printers]
   .sort((a, b) => getOverallScore(b) - getOverallScore(a))
   .slice(0, 3);
+
+const printersByBrand = getAllBrands().map((brand) => ({
+  brand,
+  printers: printers.filter((p) => p.brand === brand).sort((a, b) => getOverallScore(b) - getOverallScore(a)),
+}));
 
 const stats = {
   total: printers.length,
@@ -272,6 +277,57 @@ export default function Home() {
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
               </a>
+            ))}
+          </div>
+        </section>
+
+        {/* All Printers by Brand */}
+        <section className="py-14 border-t border-border/50">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between mb-8">
+            <div>
+              <h2
+                className="text-2xl font-bold tracking-tight"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Browse All Printers
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {printers.length} printers, organized by brand.
+              </p>
+            </div>
+            <a
+              href="/best"
+              className="text-sm font-medium text-primary hover:underline underline-offset-4 flex items-center gap-1 shrink-0"
+            >
+              Full ranked list <ChevronRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+          <div className="space-y-8">
+            {printersByBrand.map(({ brand, printers: brandPrinters }) => (
+              <div key={brand}>
+                <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                  {brand}
+                </h3>
+                <div className="grid gap-1.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                  {brandPrinters.map((printer) => (
+                    <a
+                      key={printer.slug}
+                      href={`/printers/${printer.slug}`}
+                      className="group flex items-center justify-between gap-3 rounded-lg border border-border/40 bg-card/50 px-3.5 py-2.5 transition-all hover:border-primary/30 hover:bg-card focus-visible:outline-2 focus-visible:outline-primary"
+                    >
+                      <div className="min-w-0">
+                        <span className="font-medium text-sm group-hover:text-primary transition-colors truncate block">
+                          {printer.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          ${printer.price} &middot; {getOverallScore(printer)}/10
+                        </span>
+                      </div>
+                      <ChevronRight className="h-3.5 w-3.5 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>

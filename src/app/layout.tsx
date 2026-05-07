@@ -170,12 +170,14 @@ export default function RootLayout({
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Categories</h4>
+                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Top Printers</h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/best/beginners" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best for Beginners</a></li>
-                    <li><a href="/best/budget" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best Budget</a></li>
-                    <li><a href="/best/miniatures" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Best for Miniatures</a></li>
-                    <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">View All</a></li>
+                    <li><a href="/printers/bambu-lab-a1-combo" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab A1 Combo</a></li>
+                    <li><a href="/printers/bambu-lab-a1-mini" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab A1 Mini</a></li>
+                    <li><a href="/printers/bambu-lab-p1s" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab P1S</a></li>
+                    <li><a href="/printers/creality-ender-3-v3-se" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Creality Ender 3 V3 SE</a></li>
+                    <li><a href="/printers/elegoo-mars-5-ultra" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Elegoo Mars 5 Ultra</a></li>
+                    <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">View All Printers</a></li>
                   </ul>
                 </div>
                 <div>
