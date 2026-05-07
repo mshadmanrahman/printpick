@@ -19,17 +19,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const printer = getPrinterBySlug(slug);
   if (!printer) return { title: "Printer Not Found" };
+  const score = getOverallScore(printer);
+  const typeLabel = printer.type === "fdm" ? "FDM" : "Resin";
+  const description = `${printer.brand} ${typeLabel} printer. ${printer.summary} Build volume: ${printer.buildVolume.x}x${printer.buildVolume.y}x${printer.buildVolume.z}mm. Rated ${score}/10, priced at $${printer.price}.`;
+  const ogImageUrl = `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} · Score ${score}/10 · ${printer.brand}`)}`;
   return {
-    title: `${printer.name} Review, ${getOverallScore(printer)}/10`,
-    description: `${printer.summary} $${printer.price}. Scored ${getOverallScore(printer)}/10 across value, beginner-friendliness, print quality, speed, and reliability.`,
+    title: `${printer.name} Review & Specs (2026)`,
+    description,
     alternates: {
       canonical: `https://printpick.dev/printers/${slug}`,
     },
     openGraph: {
-      title: `${printer.name} Review, Score ${getOverallScore(printer)}/10`,
-      description: `${printer.summary} Price: $${printer.price}.`,
+      title: `${printer.name} Review & Specs (2026)`,
+      description,
       url: `https://printpick.dev/printers/${slug}`,
-      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price}, Score ${getOverallScore(printer)}/10, ${printer.brand}`)}`, width: 1200, height: 630, alt: printer.name }],
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: printer.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${printer.name} Review & Specs (2026)`,
+      description,
+      images: [ogImageUrl],
     },
   };
 }
