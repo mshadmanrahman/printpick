@@ -815,17 +815,17 @@ export const newPrinters2026: readonly Printer[] = [
   // ─── 11. ANYCUBIC KOBRA S1 ACE 2 PRO COMBO ───────────────────
   // Launched April 24, 2026. Early bird $459 / €459 through May 31, 2026 (verified 2026-04-26).
   // 16-color variant (upgraded ACE 2 Pro) — distinct from the 8-color Kobra S1 Combo (slug: anycubic-kobra-s1-combo).
-  // Amazon listing not available at launch — Anycubic EU direct store is the primary purchase path; ASIN set to null so any Amazon CTA falls back to search.
+  // Amazon listing confirmed: B0GT84VHBM (verified 2026-05-07). Anycubic EU direct store is the primary purchase path.
   {
     slug: "anycubic-kobra-s1-ace-2-pro-combo",
     name: "Anycubic Kobra S1 ACE 2 Pro Combo",
     brand: "Anycubic",
     type: "fdm",
-    image: "/images/printers/anycubic-kobra-s1-ace-2-pro-combo.png",
+    image: "/images/printers/anycubic-kobra-s1-ace-2-pro-combo.webp",
     price: 459,
-    amazonAsin: "B0KS1ACE00",
+    amazonAsin: "B0GT84VHBM",
     brandUrl:
-      "https://eu.anycubic.com/pages/kobra-s1-ace-2-pro-combo-new-launch?ref=zppplkze",
+      "https://eu.anycubic.com/products/kobra-s1-ace-2-pro-combo-3d-printer?ref=zppplkze",
     buildVolume: { x: 250, y: 250, z: 250 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 600,
@@ -847,7 +847,7 @@ export const newPrinters2026: readonly Printer[] = [
       reliability: 7,
     },
     pros: [
-      "16 colors out of the box — doubles the 8-color S1 Combo and quadruples the Bambu A1 Combo (4)",
+      "16-color capable (4 colors standard; 16 colors requires 4x ACE 2 Pro units purchased separately). Doubles the 8-color S1 Combo and quadruples the Bambu A1 Combo (4)",
       "Fully enclosed CoreXY handles ABS, ASA, and engineering filaments without warping",
       "44dB quiet mode is unusually low for a 600mm/s CoreXY — apartment-friendly",
       "Upgraded hotend is rated for the full Anycubic filament range",

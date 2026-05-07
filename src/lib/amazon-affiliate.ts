@@ -25,6 +25,8 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0P2S00000": null,
   // Bambu Lab H2D, not sold on Amazon, only through Bambu store + Best Buy
   "B0H2D00000": null,
+  // Bambu Lab H2D (real ASIN in catalog, not on Amazon), suppress Compare on Amazon link
+  "B0FPKNK7QF": null,
   // Elegoo Saturn 4 Ultra, ASIN delisted/404 as of 2026-04-04, fallback to search
   "B0D9FM4KFN": null,
   // QIDI X-Plus 3, ASIN 404 as of 2026-04-11, fallback to search
@@ -39,7 +41,7 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0X2D00000": null,
   // Anycubic Kobra S1 ACE 2 Pro Combo (16-color variant). Launched 2026-04-24
   // Anycubic-EU-direct-only at launch (verified 2026-04-26). Brand affiliate via brandUrl is primary; Amazon CTA falls back to search.
-  "B0KS1ACE00": null,
+  "B0KS1ACE00": "B0GT84VHBM", // placeholder -> confirmed ASIN (2026-05-07)
   // Re-verified live on Amazon 2026-04-26 via verify-amazon-asins.mjs --all.
   // Removed from null-remap so direct /dp/ links generate again:
   //   B0DN69LXDW Creality Hi Combo
