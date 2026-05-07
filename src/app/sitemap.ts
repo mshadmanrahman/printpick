@@ -20,28 +20,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/noise`, changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  const lastDataUpdate = new Date("2026-03-30");
+  const lastDataUpdate = new Date("2026-05-07");
 
   const printerPages: MetadataRoute.Sitemap = printers.map((p) => ({
     url: `${base}/printers/${p.slug}`,
     changeFrequency: "weekly" as const,
-    priority: 0.7,
+    priority: 0.9,
     lastModified: lastDataUpdate,
   }));
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({
     url: `${base}/best/${c.tag}`,
     changeFrequency: "weekly" as const,
-    priority: 0.7,
+    priority: 0.8,
     lastModified: lastDataUpdate,
   }));
 
   const blogPages: MetadataRoute.Sitemap = [
-    { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.7 },
     ...getAllBlogPosts().map((p) => ({
       url: `${base}/blog/${p.slug}`,
       changeFrequency: "weekly" as const,
-      priority: 0.8,
+      priority: 0.7,
       lastModified: new Date(p.updatedAt),
     })),
   ];
