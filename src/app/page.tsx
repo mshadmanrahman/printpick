@@ -281,6 +281,66 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Buying Guides */}
+        <section className="py-14 border-t border-border/50">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between mb-8">
+            <div>
+              <h2
+                className="text-2xl font-bold tracking-tight"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Buying Guides
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                In-depth picks for every budget and use case.
+              </p>
+            </div>
+            <a
+              href="/blog"
+              className="text-sm font-medium text-primary hover:underline underline-offset-4 flex items-center gap-1 shrink-0"
+            >
+              All guides <ChevronRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                href: "/blog/best-3d-printer-under-500-2026",
+                title: "Best 3D Printers Under $500",
+                description: "Multi-color, CoreXY, enclosed designs. Features that cost $1,000+ just two years ago.",
+                tag: "Buyer's Guide",
+              },
+              {
+                href: "/blog/best-enclosed-3d-printer-2026",
+                title: "Best Enclosed Printers",
+                description: "For ABS, Nylon, and engineering materials. Ranked at every price point from $379 to $1,200+.",
+                tag: "Buyer's Guide",
+              },
+              {
+                href: "/blog/best-3d-printers-beginners-2026",
+                title: "Best for Beginners",
+                description: "Auto bed leveling, huge communities, zero firmware nightmares. Start here.",
+                tag: "Buyer's Guide",
+              },
+            ].map(({ href, title, description, tag }) => (
+              <a
+                key={href}
+                href={href}
+                className="group flex flex-col justify-between rounded-xl border border-border/60 bg-card p-5 transition-all hover:border-primary/30 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary/70">{tag}</span>
+                  <h3 className="mt-2 font-semibold text-sm group-hover:text-primary transition-colors">{title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{description}</p>
+                </div>
+                <div className="mt-4 flex items-center gap-1 text-xs font-medium text-primary">
+                  Read guide <ChevronRight className="h-3 w-3" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* All Printers by Brand */}
         <section className="py-14 border-t border-border/50">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between mb-8">
