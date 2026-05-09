@@ -2,51 +2,12 @@
 
 import Image from "next/image";
 import { Star } from "lucide-react";
-import { track } from "@vercel/analytics";
 import { type Printer, getOverallScore } from "@/data/printers";
 import { getAmazonLink } from "@/lib/amazon-affiliate";
 import { AmazonButton } from "./amazon-button";
 import { BrandButton } from "./brand-button";
 import { CommunityBadge } from "./community-badge";
 
-/**
- * Secondary "Compare on Amazon" link shown beneath a primary BrandButton.
- * Renders as a small muted link so it does not compete with the primary CTA,
- * but routes through the same tagged Amazon URL (preserves printpick20-20)
- * and tracks clicks with destination="amazon_secondary" so analytics can
- * segment users who chose Amazon after seeing the direct-brand option.
- */
-function CompareOnAmazonLink({
-  asin,
-  printerName,
-}: {
-  readonly asin: string;
-  readonly printerName: string;
-}) {
-  const link = getAmazonLink(asin, printerName);
-  if (link.type === "search") {
-    return null;
-  }
-  return (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer nofollow sponsored"
-      onClick={() =>
-        track("affiliate_click", {
-          asin,
-          resolved_asin: link.resolvedAsin ?? "none",
-          link_type: link.type,
-          printer: printerName,
-          destination: "amazon_secondary",
-        })
-      }
-      className="text-[11px] text-muted-foreground hover:text-foreground underline-offset-2 hover:underline whitespace-nowrap"
-    >
-      Compare on Amazon →
-    </a>
-  );
-}
 
 // ─── Grid card (image-forward, used on /best page) ───────────────────────────
 
@@ -263,25 +224,18 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
             </div>
           </div>
           <div className="relative z-10 flex flex-col items-end gap-1">
-            {printer.brandUrl ? (
-              <>
-                <BrandButton
-                  brandUrl={printer.brandUrl}
-                  printerName={printer.name}
-                  brand={printer.brand}
-                  label="See Price"
-                  className="text-xs px-3 py-1.5"
-                />
-                <CompareOnAmazonLink
-                  asin={printer.amazonAsin}
-                  printerName={printer.name}
-                />
-              </>
-            ) : (
-              <AmazonButton
-                asin={printer.amazonAsin}
+            <AmazonButton
+              asin={printer.amazonAsin}
+              printerName={printer.name}
+              price={printer.price}
+              label="See Price"
+              className="text-xs px-3 py-1.5"
+            />
+            {printer.brandUrl && getAmazonLink(printer.amazonAsin, printer.name).type === "search" && (
+              <BrandButton
+                brandUrl={printer.brandUrl}
                 printerName={printer.name}
-                price={printer.price}
+                brand={printer.brand}
                 label="See Price"
                 className="text-xs px-3 py-1.5"
               />
