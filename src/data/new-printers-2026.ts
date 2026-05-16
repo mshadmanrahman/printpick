@@ -878,4 +878,361 @@ export const newPrinters2026: readonly Printer[] = [
       "Spare upgraded hotend",
     ],
   },
+
+  // ─── 12. CREALITY K1C ────────────────────────────────────────────
+  // Carbon-fiber-capable enclosed CoreXY at $399. Successor to the K1.
+  // Amazon ASIN B0CQKXXY98 verified 2026-05-16.
+  {
+    slug: "creality-k1c",
+    name: "Creality K1C",
+    brand: "Creality",
+    type: "fdm",
+    image: "/images/printers/creality-k1c.png",
+    price: 399,
+    amazonAsin: "B0CQKXXY98",
+    buildVolume: { x: 220, y: 220, z: 250 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 13.5,
+    features: [
+      "Enclosed CoreXY architecture",
+      "Carbon-fiber-capable all-metal hotend (up to 300°C)",
+      "600mm/s max print speed",
+      "Auto-leveling with 121-point mesh bed",
+      "AI camera with failure detection (optional)",
+      "Klipper-based firmware (Creality OS)",
+      "Input shaping via ADXL345 accelerometer",
+      "Dual Z-axis lead screws",
+    ],
+    bestFor: ["speed", "enclosed", "engineering", "value"],
+    scores: {
+      value: 9,
+      beginner: 7,
+      printQuality: 8,
+      speed: 9,
+      reliability: 8,
+    },
+    pros: [
+      "Carbon fiber and PA support at $399 — no other enclosed CoreXY comes close at this price",
+      "600mm/s with input shaping produces genuinely usable parts, not just benchmark numbers",
+      "All-metal hotend is a free upgrade vs the standard K1",
+      "Active enclosure helps with ABS/ASA warping without a separate enclosure purchase",
+      "Creality's largest installed base means community fixes land fast",
+    ],
+    cons: [
+      "220×220×250mm build volume is tight for large prints",
+      "Creality OS is Klipper-based but not stock Klipper — some community configs don't transfer cleanly",
+      "No multi-color support without third-party add-ons",
+      "Fan noise at full speed is audible",
+    ],
+    summary:
+      "Creality's carbon-fiber-ready enclosed CoreXY at $399. All-metal hotend, 600mm/s, active enclosure, and Klipper-based firmware. Best price-to-capability ratio for engineering filaments in 2025.",
+    verdict:
+      "If you need an enclosed printer that handles carbon fiber and engineering filaments under $400, the K1C is the obvious pick. The step up from the standard K1 — all-metal hotend and better thermal management — costs nothing. The build volume is a real constraint; if you regularly print parts larger than 220mm, look at the Ender 3 V3 Plus instead.",
+    reviews: [
+      {
+        quote:
+          "The K1C is an impressive upgrade over the standard K1, with the ability to print carbon fiber filaments being a major selling point.",
+        source: "3DPrintBeginner",
+      },
+      {
+        quote:
+          "For under $400, the K1C delivers exceptional speed and material versatility that was previously reserved for much pricier machines.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: [
+      "Carbon fiber filament (PA-CF or PLA-CF)",
+      "Hardened steel nozzle (stock nozzle wears with CF)",
+      "AMS-style unit for multi-color (third-party)",
+      "Enclosure temperature upgrade for ABS at scale",
+    ],
+  },
+
+  // ─── 13. PRUSA MINI+ ─────────────────────────────────────────────
+  // Compact semi-enclosed Prusa at $459. Known for reliability and Prusa support.
+  // Amazon ASIN B0933LV2JW verified 2026-05-16.
+  {
+    slug: "prusa-mini-plus",
+    name: "Prusa Mini+",
+    brand: "Prusa",
+    type: "fdm",
+    image: "/images/printers/prusa-mini-plus.png",
+    price: 459,
+    amazonAsin: "B0933LV2JW",
+    buildVolume: { x: 180, y: 180, z: 180 },
+    layerResolution: { min: 0.05, max: 0.25 },
+    printSpeed: 180,
+    weight: 4.0,
+    features: [
+      "MINI/E input shaper toolhead (NextruderMINI compatible)",
+      "SuperPINDA probe for first-layer precision",
+      "Prusa Connect remote monitoring",
+      "Open-source firmware and hardware (RepRap license)",
+      "Bondtech-style dual-drive extruder",
+      "PrusaSlicer with best-in-class supports",
+      "Magnetically removable spring-steel print sheet",
+      "USB, Wi-Fi, and Ethernet connectivity",
+    ],
+    bestFor: ["reliability", "beginner", "value", "desktop"],
+    scores: {
+      value: 8,
+      beginner: 9,
+      printQuality: 9,
+      speed: 5,
+      reliability: 10,
+    },
+    pros: [
+      "Prusa's reputation for reliability is earned — this is their most-owned printer globally",
+      "PrusaSlicer profiles are the gold standard; third-party slicers treat Prusa as the reference",
+      "Open-source means every component is documented, replaceable, and community-supported",
+      "SuperPINDA gives consistently excellent first layers without manual tramming",
+      "4kg makes it genuinely portable — fits in a carry-on with room",
+    ],
+    cons: [
+      "180×180×180mm is small — limits to desk accessories, figurines, and small functional parts",
+      "180mm/s is slow compared to Bambu or Creality CoreXY machines",
+      "Semi-enclosed means ABS warping is still a risk without an aftermarket enclosure",
+      "Prusa charges a premium; the hardware isn't exceptional by 2025 standards",
+    ],
+    summary:
+      "Prusa's compact desktop FDM at $459. Small build volume, moderate speed, but best-in-class reliability, support, and PrusaSlicer integration. The choice for users who value uptime over speed.",
+    verdict:
+      "The Mini+ is for people who want a printer that just works, forever. You're paying the Prusa premium for reliability, documentation, and a support team that actually answers. If speed or build size matters, look elsewhere. If you need something that prints correctly on the first try and keeps printing six months later, this is it.",
+    reviews: [
+      {
+        quote:
+          "The Prusa Mini+ remains one of the most reliable desktop 3D printers you can buy, backed by excellent software and community support.",
+        source: "Tom's Hardware",
+      },
+      {
+        quote:
+          "Prusa's quality control is unmatched. Out of the box, this printer just works — something you can't say about every machine at this price.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Community Pick"],
+    alsoNeed: [
+      "Prusa Enclosure (for ABS/ASA printing)",
+      "Extra spring steel sheets (textured + smooth)",
+      "Prusament PLA/PETG starter pack",
+      "MMU3 unit (for multi-material printing)",
+    ],
+  },
+
+  // ─── 14. CREALITY ENDER 3 V3 PLUS ───────────────────────────────
+  // Large-format CoreXZ at $299. 300×300×330mm, 600mm/s.
+  // Amazon ASIN B0D2SNHQMH verified 2026-05-16.
+  {
+    slug: "creality-ender-3-v3-plus",
+    name: "Creality Ender 3 V3 Plus",
+    brand: "Creality",
+    type: "fdm",
+    image: "/images/printers/creality-ender-3-v3-plus.png",
+    price: 299,
+    amazonAsin: "B0D2SNHQMH",
+    buildVolume: { x: 300, y: 300, z: 330 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 9.7,
+    features: [
+      "CoreXZ motion system (vs CoreXY on the K1C)",
+      "300×300×330mm large build volume",
+      "600mm/s max print speed with input shaping",
+      "Sprite direct-drive extruder",
+      "CR Touch auto-leveling (121-point mesh)",
+      "Klipper-based firmware",
+      "Full-color touchscreen",
+      "PEI spring steel magnetic build plate",
+    ],
+    bestFor: ["large-format", "value", "speed", "beginner"],
+    scores: {
+      value: 10,
+      beginner: 8,
+      printQuality: 8,
+      speed: 9,
+      reliability: 8,
+    },
+    pros: [
+      "$299 for 300×300×330mm and 600mm/s — no other printer at this price gets close on volume and speed simultaneously",
+      "CoreXZ keeps the gantry lightweight for reliable high-speed moves",
+      "Direct-drive Sprite extruder handles flexible filaments without a bowden gap",
+      "Klipper-based firmware means real input shaping, not marketing figures",
+      "PEI sheet gives excellent adhesion and clean part release",
+    ],
+    cons: [
+      "Open-frame means ABS and ASA warping without an aftermarket enclosure",
+      "CoreXZ means Y-axis moves the bed — large heavy prints can shift if acceleration is too high",
+      "600mm/s is achievable but real-world quality prints run at 200-300mm/s",
+      "Support quality from Creality varies; community forums are more reliable",
+    ],
+    summary:
+      "Creality's large-format budget speedster at $299. 300×300×330mm build volume, 600mm/s, Klipper-based, direct-drive. The best dollar-per-cubic-centimeter printer in its class.",
+    verdict:
+      "For $299 you're getting 330mm of height and 600mm/s — both numbers that cost $600+ two years ago. The open frame is a real limitation for engineering filaments, but for PLA, PETG, and TPU on a budget, the V3 Plus is almost absurdly good value. If you need an enclosed machine, step up to the K1C. If you just need volume and speed at minimum cost, this is the pick.",
+    reviews: [
+      {
+        quote:
+          "The Ender 3 V3 Plus is a beast for its price — huge build volume, fast speeds, and a direct-drive extruder that handles flexible filaments with ease.",
+        source: "3DPrintBeginner",
+      },
+      {
+        quote:
+          "Creality has packed in impressive specs at $299. The CoreXZ motion system keeps quality high even at speed.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: [
+      "Enclosure kit (for ABS/ASA printing)",
+      "PLA or PETG starter filament",
+      "Hardened nozzle (for abrasive filaments)",
+      "USB drive for offline printing",
+    ],
+  },
+
+  // ─── 15. QIDI X-CF PRO ──────────────────────────────────────────
+  // Industrial enclosed printer optimized for carbon fiber and engineering filaments.
+  // Older machine (2021) with slower speeds but proven in industrial settings.
+  // Amazon ASIN B09L7XCW3B verified 2026-05-16. Price on Amazon may vary from MSRP.
+  {
+    slug: "qidi-x-cf-pro",
+    name: "QIDI X-CF Pro",
+    brand: "QIDI",
+    type: "fdm",
+    image: "/images/printers/qidi-x-cf-pro.png",
+    price: 599,
+    amazonAsin: "B09L7XCW3B",
+    buildVolume: { x: 300, y: 250, z: 300 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 100,
+    weight: 21.5,
+    features: [
+      "Dual Z-axis for precise layer alignment",
+      "High-temp enclosure (up to 60°C chamber)",
+      "Hardened steel nozzle (CF-ready from factory)",
+      "Dual extruder support (independent print heads)",
+      "Industrial-grade linear rails on all axes",
+      "HEPA + carbon filter air purification",
+      "Supports PA-CF, PPS-CF, PEI, PEEK (up to 300°C hotend)",
+      "Robust steel frame — no flex under load",
+    ],
+    bestFor: ["engineering", "enclosed", "professional", "carbon-fiber"],
+    scores: {
+      value: 7,
+      beginner: 5,
+      printQuality: 9,
+      speed: 4,
+      reliability: 9,
+    },
+    pros: [
+      "One of the few sub-$600 printers with a genuine 60°C heated enclosure for PA-CF and PPS-CF",
+      "Hardened steel nozzle ships standard — no upgrade needed for carbon fiber out of the box",
+      "HEPA + active carbon filtration — safe for indoor use with engineering filaments",
+      "Linear rails on all axes mean less positional drift on long industrial prints",
+      "Proven track record in light manufacturing since 2021",
+    ],
+    cons: [
+      "60-100mm/s print speed is 6x slower than modern CoreXY machines — long print times",
+      "2021 vintage hardware; newer QIDI models (X-Plus 4, Tech Max) offer more for similar money",
+      "Dual extruder adds mechanical complexity without multi-color usefulness for most users",
+      "21.5kg — not portable, bench-only",
+      "Slicer integration (Simplify3D profiles) trails modern Bambu/Creality ecosystems",
+    ],
+    summary:
+      "QIDI's industrial-grade enclosed printer for carbon fiber and high-temp engineering filaments. 300×250×300mm, 60°C chamber, hardened nozzle standard, HEPA filtration. Slow but specialized.",
+    verdict:
+      "The X-CF Pro is for one use case: reliable production of PA-CF, PPS-CF, and similar high-temp engineering parts at sub-$600. It's not a speed machine — modern CoreXY printers print 6x faster. But if your application requires a genuine heated enclosure, industrial linear rails, and a hardened nozzle straight from the factory, few competitors exist at this price. Check whether the newer QIDI X-Plus 4 (faster, similar price) covers your material list before buying.",
+    reviews: [
+      {
+        quote:
+          "The X-CF Pro is a purpose-built workhorse. Slower than modern printers, but it handles CF composites and high-temp materials that cheaper machines can't touch.",
+        source: "All3DP",
+      },
+      {
+        quote:
+          "If carbon fiber printing reliability is your priority, the QIDI X-CF Pro delivers at a price point that most industrial machines don't.",
+        source: "3DPrintBeginner",
+      },
+    ],
+    communityBadges: ["Pro Workhorse"],
+    alsoNeed: [
+      "PA-CF or PPS-CF filament (CF-specific spools)",
+      "Extra hardened nozzles (0.4mm and 0.6mm)",
+      "HEPA filter replacements",
+      "Isopropyl alcohol for bed adhesion prep",
+    ],
+  },
+
+  // ─── 16. ELEGOO NEPTUNE 4 PLUS ──────────────────────────────────
+  // Large-format Klipper printer at $299. 320×320×385mm, 500mm/s.
+  // Amazon ASIN B0CT2ZD4KQ verified 2026-05-16.
+  {
+    slug: "elegoo-neptune-4-plus",
+    name: "Elegoo Neptune 4 Plus",
+    brand: "Elegoo",
+    type: "fdm",
+    image: "/images/printers/elegoo-neptune-4-plus.png",
+    price: 299,
+    amazonAsin: "B0CT2ZD4KQ",
+    buildVolume: { x: 320, y: 320, z: 385 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 12.5,
+    features: [
+      "Stock Klipper firmware with Mainsail web interface",
+      "320×320×385mm XL build volume",
+      "500mm/s max print speed with input shaping",
+      "Direct-drive extruder with high-flow hotend",
+      "Auto Z-offset and 121-point mesh bed leveling",
+      "PEI magnetic spring-steel build plate",
+      "Dual Z-axis lead screws",
+      "5-inch color touchscreen",
+    ],
+    bestFor: ["large-format", "value", "beginner", "speed"],
+    scores: {
+      value: 10,
+      beginner: 8,
+      printQuality: 8,
+      speed: 8,
+      reliability: 8,
+    },
+    pros: [
+      "320×320×385mm at $299 — the largest build volume at this price point",
+      "Stock Klipper means real input shaping, pressure advance, and Moonraker API access",
+      "Direct-drive handles TPU and flexible filaments without clog risk",
+      "Mainsail interface enables remote monitoring and print farm integration",
+      "Dual Z-axis prevents gantry sag on tall prints",
+    ],
+    cons: [
+      "Open-frame limits material compatibility — ABS/ASA require an enclosure",
+      "500mm/s achievable but optimal quality typically at 200-300mm/s",
+      "Large bed means longer homing and leveling cycles",
+      "Elegoo's support and community is smaller than Creality's",
+    ],
+    summary:
+      "Elegoo's large-format budget Klipper printer at $299. 320×320×385mm build volume — the biggest at this price — with stock Klipper, direct-drive, and 500mm/s. Purpose-built for large PLA/PETG prints.",
+    verdict:
+      "The Neptune 4 Plus competes directly with the Ender 3 V3 Plus for the large-budget title. It wins on raw build volume (385mm height vs 330mm) and ships with stock Klipper instead of Creality's fork. The Ender 3 V3 Plus has a larger community and is marginally faster at 600mm/s. Choose Neptune 4 Plus if height matters or you want clean stock Klipper; choose Ender 3 V3 Plus if community resources are a priority.",
+    reviews: [
+      {
+        quote:
+          "The Neptune 4 Plus offers an impressive build volume and genuine Klipper firmware at a price that makes larger, pricier printers hard to justify.",
+        source: "3DPrintBeginner",
+      },
+      {
+        quote:
+          "Elegoo's Neptune 4 Plus is a serious large-format contender — stock Klipper and a huge bed at $299 is hard to argue with.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: [
+      "Enclosure kit (for ABS/ASA printing)",
+      "PLA or PETG starter filament",
+      "Isopropyl alcohol for bed cleaning",
+      "Spare PEI sheet (for extended print runs)",
+    ],
+  },
 ];
