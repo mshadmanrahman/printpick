@@ -1389,4 +1389,44 @@ const blogPosts: readonly BlogPost[] = [
       discount: "Early bird €459 (first 1,000 buyers get 2 free filament spools)",
     },
   },
+  {
+    slug: "elegoo-centauri-carbon-review-2026",
+    title: "Elegoo Centauri Carbon Review 2026: Enclosed CoreXY for $299",
+    description:
+      "An enclosed CoreXY 3D printer for $299 shouldn't exist. The Elegoo Centauri Carbon does exist, and it's genuinely good. Here's what you get, what you give up, and how it stacks up against the Bambu A1 Combo.",
+    publishedAt: "2026-05-18",
+    updatedAt: "2026-05-18",
+    category: "comparison",
+    intro:
+      "The rules of budget 3D printing used to be simple: under $300 means open frame, no enclosure, no CoreXY. You'd get a Cartesian bed-slinger with a Bowden extruder and spend the first week leveling it. The Elegoo Centauri Carbon breaks every one of those rules. Enclosed. CoreXY. Pre-assembled. $299. That's the entire pitch. Whether the pitch holds up under actual use is what this review covers. The short version: it does, with caveats. The longer version is below.",
+    items: [
+      {
+        printerSlug: "elegoo-centauri-carbon",
+        headline: "What You Actually Get at $299",
+        body: "The Centauri Carbon ships almost fully assembled. Remove the packing foam, attach the spool holder, connect two cables, and you're printing in under 15 minutes. No side-panel assembly, no belt tensioning, no manual calibration. The enclosure is steel, aluminum, and glass, not the flimsy plastic panels bolted onto some budget machines. It feels solid. The CoreXY motion system moves only the toolhead, not the build plate, which reduces ringing artifacts at speed and lets the machine reach 500mm/s without the quality degradation you'd see from a bed-slinger at the same speed. Auto leveling uses four pressure sensors to map the bed before every print. It's accurate and consistent. PLA and PETG print well out of the box on the default profiles. ABS needs a firmware update first (download it, install it before your first ABS print), but after that it's reliable. The 320C all-metal hotend means carbon-fiber-filled PLA and PA-CF work without nozzle damage. Two real caveats: heat creep shows up on very long prints above 270C, and the slicer ecosystem is years behind Bambu's. You'll want to use OrcaSlicer with a community profile rather than Elegoo's own software. Both are manageable. Neither changes the core value case: enclosed CoreXY at $299 has no competition at this price.",
+      },
+      {
+        printerSlug: "elegoo-centauri-carbon-2-combo",
+        headline: "The Step Up: Centauri Carbon 2 Combo at $449",
+        body: "If the base Centauri Carbon is the value pick, the Centauri Carbon 2 Combo is the ambition pick. Same enclosed CoreXY frame, same 256mm build volume, same 500mm/s speed. What changes: the Canvas 4-color multi-material system is built in, the nozzle is a 350C hardened steel unit (handles abrasive filaments without wear), and the touchscreen steps up to a proper 5-inch interface. The Canvas system completed 31 out of 34 multi-color print jobs on the first attempt in independent testing. That's 91%. For context, Bambu's AMS system has a better success rate, but Bambu charges $399 for the A1 Combo and then another $249 for AMS to get to 4 colors. The Centauri Carbon 2 Combo does it for $449 all-in, enclosed. The spool holders are finicky and the Canvas software looks like it was built fast. Those are real complaints. But enclosed multi-color CoreXY under $500 has exactly one option in 2026, and this is it.",
+      },
+      {
+        printerSlug: "bambu-lab-a1-combo",
+        headline: "How It Compares to the Bambu A1 Combo at $399",
+        body: "The Bambu A1 Combo is the obvious comparison and deserves a straight answer. For most people who want a reliable, easy, multi-color machine, the A1 Combo is still the better choice. Bambu Studio is dramatically better software than anything Elegoo ships. The AMS Lite's filament switching is more reliable. The community is larger. When something goes wrong at 2am, there are ten YouTube videos explaining the fix. That last point matters more than specs. The Centauri Carbon's advantages are specific: it's enclosed and the A1 Combo is not. That difference matters if you print ABS or ASA, which warp badly in open-air environments. If you print in an apartment where fumes are a concern, the Centauri Carbon's sealed chamber is genuinely relevant. It's also $100 cheaper for single-color printing. Practical decision rule: print mostly PLA and PETG, want the best software experience, don't care about enclosure? Get the A1 Combo. Print ABS or engineering materials, on a tight budget, or specifically need an enclosure? Get the Centauri Carbon.",
+      },
+      {
+        printerSlug: "bambu-lab-p1s",
+        headline: "If You Can Stretch to $599: The Bambu P1S",
+        body: "The P1S at $599 is where Bambu's enclosed printer story begins. Same CoreXY motion as the A1 Combo, but enclosed, with a passive chamber that reaches 40-45C during printing. That handles ABS and ASA reliably. The 1080p AI camera pauses prints when it detects failure, not just notifies you. Bambu Studio's profile library for the P1S is the most dialed-in in the enclosed category. The quality and reliability gap between the P1S and the Centauri Carbon is real, not marketing. If your budget is $600 and you want the best enclosed printer at that number, the P1S wins. The Centauri Carbon's argument is purely price. At $299 it's half the P1S's cost for roughly 80% of the capability. For someone starting out who isn't sure how much enclosed printing matters to their workflow, the Centauri Carbon is the sensible way to find out before committing to $600.",
+      },
+    ],
+    conclusion:
+      "The Elegoo Centauri Carbon is the most interesting budget printer launched in 2026. Enclosed CoreXY at $299 shouldn't be possible, but it is, and it works. Install the firmware update before printing ABS. Use OrcaSlicer with a community profile rather than Elegoo's slicer. After that, the value case is hard to argue with. For ABS and engineering filaments on a tight budget, there's nothing else at this price. For single-color PLA and PETG where software and ecosystem matter, the Bambu A1 Combo at $399 is the safer call. For multi-color enclosed printing under $500, the Centauri Carbon 2 Combo at $449 has no real competition.",
+    affiliateCta: {
+      brand: "Elegoo",
+      text: "The Centauri Carbon is $299 from Elegoo directly. The Centauri Carbon 2 Combo with the 4-color Canvas system is $449.",
+      url: "https://www.elegoo.com/products/elegoo-centauri-carbon-3d-printer",
+    },
+  },
 ];
