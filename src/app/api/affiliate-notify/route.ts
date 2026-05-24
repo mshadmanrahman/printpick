@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const BRRR_ENDPOINT = process.env.BRRR_ENDPOINT;
+const KV_REST_API_URL = process.env.KV_REST_API_URL;
+const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN;
 const AMAZON_COMMISSION_RATE = 0.03;
 
 const bodySchema = z.object({
@@ -56,6 +58,14 @@ export async function POST(request: Request): Promise<NextResponse> {
   if (!brrrRes.ok) {
     console.error("brrr send failed:", await brrrRes.text());
     return NextResponse.json({ ok: false, reason: "brrr_failed" }, { status: 200 });
+  }
+
+  if (KV_REST_API_URL && KV_REST_API_TOKEN) {
+    const today = new Date().toISOString().slice(0, 10);
+    fetch(`${KV_REST_API_URL}/incr/affiliate_clicks:${today}`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
+    }).catch(() => {});
   }
 
   return NextResponse.json({ ok: true });
