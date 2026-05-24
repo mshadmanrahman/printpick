@@ -134,8 +134,8 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
     mainEntity: [
       {
         "@type": "Question",
-        name: `How much does the ${printer.name} cost?`,
-        acceptedAnswer: { "@type": "Answer", text: `The ${printer.name} costs $${printer.price} on Amazon. It's a ${printer.type.toUpperCase()} printer from ${printer.brand}.` },
+        name: `How much does the ${printer.name} cost in 2026?`,
+        acceptedAnswer: { "@type": "Answer", text: `The ${printer.name} costs $${printer.price} in 2026. It's a ${printer.type.toUpperCase()} printer from ${printer.brand}, available on Amazon with the affiliate tag.` },
       },
       {
         "@type": "Question",

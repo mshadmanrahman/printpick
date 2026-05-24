@@ -7,6 +7,7 @@ export interface BlogPost {
   readonly publishedAt: string;
   readonly updatedAt: string;
   readonly category: "listicle" | "guide" | "comparison";
+  readonly heroImage?: string;
   readonly intro: string;
   readonly items: readonly {
     readonly printerSlug: string;
@@ -1397,6 +1398,7 @@ const blogPosts: readonly BlogPost[] = [
     publishedAt: "2026-05-18",
     updatedAt: "2026-05-18",
     category: "comparison",
+    heroImage: "/images/blog/elegoo-centauri-carbon-review-2026.png",
     intro:
       "The rules of budget 3D printing used to be simple: under $300 means open frame, no enclosure, no CoreXY. You'd get a Cartesian bed-slinger with a Bowden extruder and spend the first week leveling it. The Elegoo Centauri Carbon breaks every one of those rules. Enclosed. CoreXY. Pre-assembled. $299. That's the entire pitch. Whether the pitch holds up under actual use is what this review covers. The short version: it does, with caveats. The longer version is below.",
     items: [

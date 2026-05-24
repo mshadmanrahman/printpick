@@ -1165,6 +1165,187 @@ export const newPrinters2026: readonly Printer[] = [
     ],
   },
 
+  // ─── 17. BAMBU LAB A1 MINI COMBO ────────────────────────────────
+  // A1 Mini bundled with AMS Lite for 4-color printing. ASIN B0CRYZWJLG verified 2026-05-24.
+  {
+    slug: "bambu-lab-a1-mini-combo",
+    name: "Bambu Lab A1 Mini Combo",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-a1-mini-combo.png",
+    price: 299,
+    amazonAsin: "B0CRYZWJLG",
+    brandUrl: "https://bambulab.com/en-us/a1-mini",
+    buildVolume: { x: 180, y: 180, z: 180 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 6.8,
+    features: [
+      "Multi-color (AMS Lite, 4 colors)",
+      "Auto bed leveling",
+      "WiFi",
+      "Camera",
+      "Compact footprint",
+      "All-metal hotend",
+      "Active flow rate compensation",
+    ],
+    bestFor: ["beginners", "multi-color", "compact", "budget"],
+    scores: { value: 10, beginner: 10, printQuality: 8, speed: 9, reliability: 9 },
+    pros: [
+      "Multi-color printing for $299, the cheapest entry point in the Bambu ecosystem",
+      "AMS Lite included, no separate $100 purchase required",
+      "Desk footprint smaller than a sheet of A4 paper, even with AMS Lite attached",
+      "Bambu's full software stack and reliability at the lowest price they've ever offered it",
+    ],
+    cons: [
+      "180mm cube limits you to smaller prints; anything bigger needs the A1 Combo",
+      "AMS Lite tops out at 4 colors; step up to AMS proper for more",
+      "Open frame means ABS is a non-starter without an enclosure",
+    ],
+    summary:
+      "Multi-color Bambu printing for $299. The A1 Mini with AMS Lite bundled: 4 colors, compact footprint, full Bambu software stack.",
+    verdict:
+      "The cheapest way into Bambu's multi-color ecosystem. If 180mm prints and 4 colors work for your projects, this is the obvious pick over the solo A1 Mini. The $100 premium over the solo version pays for itself the moment you want to print in more than one color.",
+    reviews: [
+      {
+        quote: "The A1 Mini Combo is the perfect starter for anyone who wants to experiment with multi-color without spending $400+.",
+        source: "r/BambuLab",
+      },
+      {
+        quote: "Bambu has figured out how to make multi-color printing accessible. The Mini Combo is proof.",
+        source: "Teaching Tech (YouTube)",
+      },
+    ],
+    communityBadges: ["Best Value", "Best First Printer"],
+    alsoNeed: [
+      "Multi-color PLA filament pack",
+      "Spare AMS Lite tubes",
+      "Textured PEI build plate",
+      "Nozzle cleaning kit",
+    ],
+  },
+
+  // ─── 18. BAMBU LAB P1S COMBO ────────────────────────────────────
+  // P1S bundled with AMS for up to 16-color printing. ASIN B0CHDS1DMC verified 2026-05-24.
+  {
+    slug: "bambu-lab-p1s-combo",
+    name: "Bambu Lab P1S Combo",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-p1s-combo.png",
+    price: 699,
+    amazonAsin: "B0CHDS1DMC",
+    brandUrl: "https://bambulab.com/en-us/p1s",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 17.5,
+    features: [
+      "Enclosed CoreXY",
+      "Multi-material (AMS, up to 16 colors with 4 units)",
+      "WiFi",
+      "Camera",
+      "HEPA filter",
+      "Active chamber heating",
+    ],
+    bestFor: ["engineering", "abs", "enclosed", "multi-color"],
+    scores: { value: 8, beginner: 7, printQuality: 10, speed: 9, reliability: 10 },
+    pros: [
+      "Enclosed chamber plus AMS multi-material in one box, no separate AMS purchase",
+      "HEPA filter handles ABS fumes; the enclosure keeps chamber temperature stable",
+      "Up to 16 colors by daisy-chaining 4 AMS units",
+      "Bambu's reliability track record is the best in the consumer market",
+    ],
+    cons: [
+      "$699 is a significant step up from the A1 Combo's $399",
+      "The P1S hardware is being superseded by the P2S; check current pricing before buying",
+      "AMS still wastes filament on color transitions; purge blocks help but don't eliminate it",
+      "Enclosure lid has to come off to reach prints mid-job",
+    ],
+    summary:
+      "Enclosed, multi-material Bambu at $699. HEPA filtration, CoreXY, and up to 16 colors. The machine for serious hobbyists who need both an enclosure and multi-color.",
+    verdict:
+      "If you need an enclosed printer and multi-color in a single package, the P1S Combo is the cleanest option. The P2S has since launched as the hardware successor, so check current pricing; you may find the P1S Combo discounted. For ABS printing with occasional multi-color work, this is a better buy than the open-frame A1 Combo regardless of generation.",
+    reviews: [
+      {
+        quote: "The P1S Combo is the answer to 'I want to print ABS in multiple colors without buying two machines.'",
+        source: "r/3Dprinting",
+      },
+      {
+        quote: "Bambu's best enclosed multi-color package. The AMS reliability inside an enclosed chamber is unmatched at this price.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Pro Workhorse"],
+    alsoNeed: [
+      "ABS/ASA filament",
+      "Multi-color PLA pack",
+      "Hardened steel nozzle (for abrasives)",
+      "Extra HEPA filters",
+    ],
+  },
+
+  // ─── 19. FLASHFORGE CREATOR 5 PRO ───────────────────────────────
+  // 4-toolhead tool-changer, 65C enclosed chamber, zero purge waste. Not sold on Amazon.
+  // Launch price $799 through June 2026; standard price $949.
+  {
+    slug: "flashforge-creator-5-pro",
+    name: "Flashforge Creator 5 Pro",
+    brand: "Flashforge",
+    type: "fdm",
+    image: "/images/printers/flashforge-creator-5-pro.png",
+    price: 949,
+    amazonAsin: "B0FFCR5P00",
+    brandUrl: "https://www.flashforge.com/products/flashforge-creator-5-pro",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 600,
+    weight: 22,
+    features: [
+      "4 independent toolheads (FlashSwap tool-changer)",
+      "Enclosed CoreXY with 65C active chamber heating",
+      "Zero purge waste (physical tool swap, no filament purging)",
+      "600mm/s print speed, 30,000mm/s2 acceleration",
+      "Dual-layer air filtration",
+      "Continuous airflow cooling",
+    ],
+    bestFor: ["multi-color", "engineering", "professional", "speed"],
+    scores: { value: 8, beginner: 5, printQuality: 10, speed: 9, reliability: 8 },
+    pros: [
+      "Zero purge waste is real: tool-changing means no filament is sacrificed on color transitions",
+      "4 toolheads swap faster than AMS/CFS-style systems on short color-change runs",
+      "65C heated chamber handles ABS, nylon, and engineering filaments without enclosure mods",
+      "Dual-layer filtration means ABS fumes stay inside the enclosure",
+    ],
+    cons: [
+      "$949 standard price (check for launch discount through June 2026)",
+      "New product, no long-term reliability data yet on the FlashSwap mechanism",
+      "Flashforge's software and community are smaller than Bambu or Creality",
+      "4 toolheads is the maximum; for more colors you need a different architecture",
+    ],
+    summary:
+      "Flashforge's 4-toolhead tool-changer. Enclosed, 65C chamber, zero purge waste, 600mm/s. A technically distinct alternative to AMS-style multi-color systems.",
+    verdict:
+      "The Creator 5 Pro is for buyers who understand why tool-changing beats filament-switching: zero waste on color transitions, true multi-material (not just multi-color), and faster swaps on short runs. At $949 it competes with the Bambu H2D range. If you don't need dual nozzles and care more about zero waste than raw build volume, the Creator 5 Pro is the better technical choice. Check for launch pricing before the June 2026 cutoff.",
+    reviews: [
+      {
+        quote: "Zero purge waste is a game-changer for multi-material work. No more purge towers ruining your prints.",
+        source: "3DWithUs",
+      },
+      {
+        quote: "Flashforge is back with something genuinely new. The Creator 5 Pro tool-changing system is faster and cleaner than anything AMS-based at this price.",
+        source: "3DPrinting.com",
+      },
+    ],
+    communityBadges: ["Pro Workhorse", "Hidden Gem"],
+    alsoNeed: [
+      "Engineering filaments (ABS, ASA, PA-CF)",
+      "Multi-color PLA filament set (4 colors)",
+      "Spare toolhead nozzles",
+      "IPA for bed adhesion prep",
+    ],
+  },
+
   // ─── 16. ELEGOO NEPTUNE 4 PLUS ──────────────────────────────────
   // Large-format Klipper printer at $299. 320×320×385mm, 500mm/s.
   // Amazon ASIN B0CT2ZD4KQ verified 2026-05-16.

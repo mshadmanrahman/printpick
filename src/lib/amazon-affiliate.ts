@@ -25,6 +25,8 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0P2S00000": null,
   // Bambu Lab H2D, not sold on Amazon, only through Bambu store + Best Buy
   "B0H2D00000": null,
+  // Flashforge Creator 5 Pro, not sold on Amazon (direct/specialty retailers only)
+  "B0FFCR5P00": null,
   // Bambu Lab H2D (real ASIN in catalog, not on Amazon), suppress Compare on Amazon link
   "B0FPKNK7QF": null,
   // Elegoo Saturn 4 Ultra, ASIN delisted/404 as of 2026-04-04, fallback to search

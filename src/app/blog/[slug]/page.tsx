@@ -32,7 +32,7 @@ export async function generateMetadata({
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       url: `https://printpick.dev/blog/${slug}`,
-      images: [{ url: `https://printpick.dev/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.description)}`, width: 1200, height: 630, alt: post.title }],
+      images: [{ url: post.heroImage ? `https://printpick.dev${post.heroImage}` : `https://printpick.dev/api/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.description)}`, width: 1200, height: 630, alt: post.title }],
     },
   };
 }
