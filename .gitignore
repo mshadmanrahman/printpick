@@ -48,3 +48,4 @@ next-env.d.ts
 
 # transient compile dir from scripts/catalog-refresh.mjs (deprecated path)
 /.tmp-catalog-refresh/
+.env*.local
