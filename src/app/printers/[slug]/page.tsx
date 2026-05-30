@@ -181,6 +181,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
           printerName={printer.name}
           price={printer.price}
           label="Buy on Amazon"
+          ctaPosition="mobile_sticky"
           className="shrink-0 text-sm py-2.5 px-4"
         />
       </div>
@@ -269,6 +270,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     printerName={printer.name}
                     price={printer.price}
                     label={`Buy on Amazon, $${printer.price}`}
+                    ctaPosition="printer_hero_primary"
                     className="w-full justify-center py-3 text-base font-semibold"
                   />
                   {printer.brandUrl && (
@@ -281,6 +283,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                           ? "Buy at 3DJake"
                           : undefined
                       }
+                      ctaPosition="printer_hero_brand"
                       className="w-full justify-center py-2.5 text-sm"
                     />
                   )}

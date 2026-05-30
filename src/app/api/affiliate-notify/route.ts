@@ -9,64 +9,106 @@ const AMAZON_COMMISSION_RATE = 0.03;
 const bodySchema = z.object({
   printer: z.string().min(1),
   price: z.number().positive().nullable(),
-  asin: z.string().min(1),
-  linkType: z.enum(["direct", "search"]),
+  asin: z.string().min(1).nullable(),
+  resolvedAsin: z.string().min(1).nullable().optional(),
+  linkType: z.enum(["direct", "search"]).nullable(),
+  partner: z.enum(["amazon", "brand_direct"]).default("amazon"),
+  brand: z.string().min(1).nullable().optional(),
+  sourcePage: z.string().min(1).default("unknown"),
+  ctaPosition: z.string().min(1).default("unknown"),
 });
 
-function formatMessage(data: z.infer<typeof bodySchema>): string {
+type AffiliateNotifyPayload = z.infer<typeof bodySchema>;
+
+function formatMessage(data: AffiliateNotifyPayload): string {
   const lines: string[] = [];
 
   if (data.price) {
-    const commission = (data.price * AMAZON_COMMISSION_RATE).toFixed(2);
+    const commission =
+      data.partner === "amazon" ? (data.price * AMAZON_COMMISSION_RATE).toFixed(2) : null;
     lines.push(`\u{1F6D2} Someone clicked on the $${data.price.toLocaleString()} ${data.printer}`);
-    lines.push(`\u{1F4B0} If they buy, you earn ~$${commission}`);
+    if (commission) {
+      lines.push(`\u{1F4B0} If they buy, you earn ~$${commission}`);
+    } else {
+      lines.push(`\u{1F4B0} Partner: ${data.brand ?? data.partner}`);
+    }
   } else {
     lines.push(`\u{1F6D2} Someone clicked on ${data.printer}`);
-    lines.push(`\u{1F4B0} Commission: ~3% of purchase`);
+    lines.push(`\u{1F4B0} Partner: ${data.brand ?? data.partner}`);
   }
 
   lines.push("");
-  lines.push(`ASIN: ${data.asin}`);
-  lines.push(`Link type: ${data.linkType}`);
-  lines.push(`Source: printpick.dev`);
+  lines.push(`Partner: ${data.partner}`);
+  if (data.brand) lines.push(`Brand: ${data.brand}`);
+  if (data.asin) lines.push(`ASIN: ${data.asin}`);
+  if (data.resolvedAsin) lines.push(`Resolved ASIN: ${data.resolvedAsin}`);
+  if (data.linkType) lines.push(`Link type: ${data.linkType}`);
+  lines.push(`Page: ${data.sourcePage}`);
+  lines.push(`CTA: ${data.ctaPosition}`);
+  lines.push("Source: printpick.dev");
 
   return lines.join("\n");
 }
 
-export async function POST(request: Request): Promise<NextResponse> {
+async function incrementKvCounters(data: AffiliateNotifyPayload): Promise<void> {
+  if (!KV_REST_API_URL || !KV_REST_API_TOKEN) {
+    return;
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const safePartner = data.partner.replace(/[^a-z0-9_-]/gi, "_");
+  const safeAsin = data.asin?.replace(/[^a-z0-9_-]/gi, "_");
+
+  const keys = [
+    `affiliate_clicks:${today}`,
+    `affiliate_clicks:${today}:partner:${safePartner}`,
+  ];
+
+  if (safeAsin) {
+    keys.push(`affiliate_clicks:${today}:asin:${safeAsin}`);
+  }
+
+  await Promise.allSettled(
+    keys.map((key) =>
+      fetch(`${KV_REST_API_URL}/incr/${encodeURIComponent(key)}`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
+      }),
+    ),
+  );
+}
+
+async function sendBrrrNotification(data: AffiliateNotifyPayload): Promise<boolean> {
   if (!BRRR_ENDPOINT) {
-    return NextResponse.json({ ok: false, reason: "no_endpoint" }, { status: 200 });
+    return false;
   }
-
-  const parsed = bodySchema.safeParse(await request.json());
-  if (!parsed.success) {
-    return NextResponse.json({ ok: false, reason: "invalid_body" }, { status: 400 });
-  }
-
-  const message = formatMessage(parsed.data);
 
   const brrrRes = await fetch(BRRR_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: "PrintPick",
-      message,
+      message: formatMessage(data),
       sound: "cha_ching",
     }),
   });
 
   if (!brrrRes.ok) {
     console.error("brrr send failed:", await brrrRes.text());
-    return NextResponse.json({ ok: false, reason: "brrr_failed" }, { status: 200 });
+    return false;
   }
 
-  if (KV_REST_API_URL && KV_REST_API_TOKEN) {
-    const today = new Date().toISOString().slice(0, 10);
-    fetch(`${KV_REST_API_URL}/incr/affiliate_clicks:${today}`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
-    }).catch(() => {});
+  return true;
+}
+
+export async function POST(request: Request): Promise<NextResponse> {
+  const parsed = bodySchema.safeParse(await request.json());
+  if (!parsed.success) {
+    return NextResponse.json({ ok: false, reason: "invalid_body" }, { status: 400 });
   }
 
-  return NextResponse.json({ ok: true });
+  await incrementKvCounters(parsed.data);
+  const notified = await sendBrrrNotification(parsed.data);
+
+  return NextResponse.json({ ok: true, notified });
 }

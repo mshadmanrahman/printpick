@@ -141,6 +141,7 @@ function PrinterCardAnchor({
             printerName={printer.name}
             price={printer.price}
             label={isBest ? "Check Best Price" : "Check Price"}
+            ctaPosition={`tier_anchor_${variant}`}
             className={`w-full justify-center text-sm py-2.5 ${isBest ? "" : "opacity-80 hover:opacity-100"}`}
           />
         </div>

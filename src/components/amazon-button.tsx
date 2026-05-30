@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { track } from "@vercel/analytics";
 import { getAmazonLink } from "@/lib/amazon-affiliate";
+import { trackAffiliateClick } from "@/lib/affiliate-tracking";
 import { cn } from "@/lib/utils";
 
 interface AmazonButtonProps {
@@ -11,9 +11,17 @@ interface AmazonButtonProps {
   readonly price?: number;
   readonly label?: string;
   readonly className?: string;
+  readonly ctaPosition?: string;
 }
 
-export function AmazonButton({ asin, printerName, price, label = "Check Price on Amazon", className }: AmazonButtonProps) {
+export function AmazonButton({
+  asin,
+  printerName,
+  price,
+  label = "Check Price on Amazon",
+  className,
+  ctaPosition = "amazon_button",
+}: AmazonButtonProps) {
   const link = useMemo(
     () => getAmazonLink(asin, printerName ?? asin),
     [asin, printerName],
@@ -28,24 +36,16 @@ export function AmazonButton({ asin, printerName, price, label = "Check Price on
   }
 
   const handleClick = () => {
-    track("affiliate_click", {
-      asin,
-      resolved_asin: link.resolvedAsin ?? "none",
-      link_type: link.type,
+    trackAffiliateClick({
+      partner: "amazon",
       printer: printerName ?? asin,
-      destination: "amazon",
+      price: price ?? null,
+      asin,
+      resolvedAsin: link.resolvedAsin ?? null,
+      linkType: link.type,
+      linkUrl: link.url,
+      ctaPosition,
     });
-
-    fetch("/api/affiliate-notify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        printer: printerName ?? asin,
-        price: price ?? null,
-        asin,
-        linkType: link.type,
-      }),
-    }).catch(() => {});
   };
 
   return (

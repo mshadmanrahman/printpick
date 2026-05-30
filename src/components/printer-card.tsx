@@ -85,6 +85,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
                 printerName={printer.name}
                 brand={printer.brand}
                 label="Buy"
+                ctaPosition="grid_card_brand"
                 className="text-xs px-3 py-1.5"
               />
             ) : (
@@ -93,6 +94,7 @@ export function PrinterGridCard({ printer, rank }: { readonly printer: Printer; 
                 printerName={printer.name}
                 price={printer.price}
                 label="Buy"
+                ctaPosition="grid_card_amazon"
                 className="text-xs px-3 py-1.5"
               />
             )}
@@ -229,6 +231,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
               printerName={printer.name}
               price={printer.price}
               label="See Price"
+              ctaPosition="list_card_amazon"
               className="text-xs px-3 py-1.5"
             />
             {printer.brandUrl && getAmazonLink(printer.amazonAsin, printer.name).type === "search" && (
@@ -237,6 +240,7 @@ export function PrinterCard({ printer, rank }: PrinterCardProps) {
                 printerName={printer.name}
                 brand={printer.brand}
                 label="See Price"
+                ctaPosition="list_card_brand"
                 className="text-xs px-3 py-1.5"
               />
             )}

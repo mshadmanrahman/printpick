@@ -1,6 +1,6 @@
 "use client";
 
-import { track } from "@vercel/analytics";
+import { trackAffiliateClick } from "@/lib/affiliate-tracking";
 import { cn } from "@/lib/utils";
 
 interface BrandButtonProps {
@@ -9,6 +9,7 @@ interface BrandButtonProps {
   readonly brand: string;
   readonly label?: string;
   readonly className?: string;
+  readonly ctaPosition?: string;
 }
 
 export function BrandButton({
@@ -17,12 +18,16 @@ export function BrandButton({
   brand,
   label,
   className,
+  ctaPosition = "brand_button",
 }: BrandButtonProps) {
   const handleClick = () => {
-    track("affiliate_click", {
+    trackAffiliateClick({
+      partner: "brand_direct",
       printer: printerName,
-      destination: "brand_direct",
+      price: null,
       brand,
+      linkUrl: brandUrl,
+      ctaPosition,
     });
   };
 
