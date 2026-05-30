@@ -28,7 +28,7 @@ function formatMessage(data: AffiliateNotifyPayload): string {
       data.partner === "amazon" ? (data.price * AMAZON_COMMISSION_RATE).toFixed(2) : null;
     lines.push(`\u{1F6D2} Someone clicked on the $${data.price.toLocaleString()} ${data.printer}`);
     if (commission) {
-      lines.push(`\u{1F4B0} If they buy, you earn ~$${commission}`);
+      lines.push(`\u{1F4B0} Estimated commission if this converts: ~$${commission}`);
     } else {
       lines.push(`\u{1F4B0} Partner: ${data.brand ?? data.partner}`);
     }
@@ -57,11 +57,14 @@ async function incrementKvCounters(data: AffiliateNotifyPayload): Promise<void> 
 
   const today = new Date().toISOString().slice(0, 10);
   const safePartner = data.partner.replace(/[^a-z0-9_-]/gi, "_");
+  const safeCta = data.ctaPosition.replace(/[^a-z0-9_-]/gi, "_");
   const safeAsin = data.asin?.replace(/[^a-z0-9_-]/gi, "_");
 
   const keys = [
     `affiliate_clicks:${today}`,
     `affiliate_clicks:${today}:partner:${safePartner}`,
+    `affiliate_clicks:${today}:cta:${safeCta}`,
+    `affiliate_clicks:${today}:partner:${safePartner}:cta:${safeCta}`,
   ];
 
   if (safeAsin) {

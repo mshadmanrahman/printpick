@@ -5,6 +5,8 @@ import { Calendar, ArrowLeft, ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost, getPostPrinters, getRelatedPosts } from "@/data/blog-posts";
 import { getOverallScore } from "@/data/printers";
 import { PrinterCard } from "@/components/printer-card";
+import { AmazonButton } from "@/components/amazon-button";
+import { TrackedAffiliateLink } from "@/components/tracked-affiliate-link";
 import { JsonLd } from "@/components/json-ld";
 
 export function generateStaticParams() {
@@ -47,6 +49,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const items = getPostPrinters(post);
+  const topPick = items[0]?.printer;
   const relatedPosts = getRelatedPosts(post, 3);
 
   const articleSchema: WithContext<BlogPosting> = {
@@ -141,6 +144,30 @@ export default async function BlogPostPage({
         {post.intro}
       </div>
 
+      {topPick && (
+        <section className="mt-6 rounded-xl border border-primary/25 bg-primary/5 p-5">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-primary mb-1">
+                Top pick in this guide
+              </p>
+              <h2 className="text-lg font-bold">{topPick.name}</h2>
+              <p className="text-sm text-muted-foreground">
+                ${topPick.price}, PrintPick score {getOverallScore(topPick)}/10. Check live Amazon price before it moves.
+              </p>
+            </div>
+            <AmazonButton
+              asin={topPick.amazonAsin}
+              printerName={topPick.name}
+              price={topPick.price}
+              label={`Check ${topPick.name} price`}
+              ctaPosition="blog_top_pick"
+              className="w-full justify-center py-3 text-sm font-semibold sm:w-auto"
+            />
+          </div>
+        </section>
+      )}
+
       {/* Listicle Items */}
       <div className="mt-10 space-y-10">
         {items.map((item, i) => (
@@ -196,15 +223,17 @@ export default async function BlogPostPage({
                 </p>
               )}
             </div>
-            <a
+            <TrackedAffiliateLink
               href={post.affiliateCta.url}
-              target="_blank"
-              rel="noopener noreferrer nofollow sponsored"
+              partner="brand_direct"
+              productName={post.affiliateCta.text}
+              brand={post.affiliateCta.brand}
+              ctaPosition="blog_bottom_affiliate"
               className="inline-flex items-center gap-1.5 shrink-0 rounded-lg bg-emerald-500/15 border border-emerald-500/30 px-4 py-2.5 text-sm font-medium text-emerald-400 transition-all hover:bg-emerald-500/25 hover:border-emerald-500/50 active:scale-[0.97]"
             >
               Shop {post.affiliateCta.brand}
               <ExternalLink className="h-3.5 w-3.5" />
-            </a>
+            </TrackedAffiliateLink>
           </div>
         </section>
       )}

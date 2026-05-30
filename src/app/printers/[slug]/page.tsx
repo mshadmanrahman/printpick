@@ -7,6 +7,7 @@ import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersB
 import { getPostsForPrinter } from "@/data/blog-posts";
 import { AmazonButton } from "@/components/amazon-button";
 import { BrandButton } from "@/components/brand-button";
+import { TrackedAffiliateLink } from "@/components/tracked-affiliate-link";
 import { PrinterCard } from "@/components/printer-card";
 import { CommunityBadge } from "@/components/community-badge";
 import { JsonLd } from "@/components/json-ld";
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!printer) return { title: "Printer Not Found" };
   const score = getOverallScore(printer);
   const typeLabel = printer.type === "fdm" ? "FDM" : "Resin";
-  const description = `${printer.brand} ${typeLabel} printer. ${printer.summary} Build volume: ${printer.buildVolume.x}x${printer.buildVolume.y}x${printer.buildVolume.z}mm. Rated ${score}/10, priced at $${printer.price}.`;
+  const rawDescription = `${printer.name} review: price, pros, cons, specs, beginner fit, and whether this ${printer.brand} ${typeLabel} 3D printer is worth buying in 2026.`;
+  const description = rawDescription.length > 158 ? `${rawDescription.slice(0, 155).trimEnd()}...` : rawDescription;
   const ogImageUrl = `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} · Score ${score}/10 · ${printer.brand}`)}`;
   return {
     title: `${printer.name} Review & Specs (2026)`,
@@ -398,6 +400,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
               printerName={printer.name}
               price={printer.price}
               label={`Buy ${printer.name} on Amazon, $${printer.price}`}
+              ctaPosition="printer_verdict_primary"
               className="py-3 text-base"
             />
           </div>
@@ -413,18 +416,20 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
             <p className="mt-1 text-sm text-muted-foreground">Things you&apos;ll want before your first print.</p>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
               {printer.alsoNeed.map((item) => (
-                <a
+                <TrackedAffiliateLink
                   key={item}
                   href={`https://www.amazon.com/s?k=${encodeURIComponent(item + " 3D printer")}&tag=printpick20-20`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  partner="amazon"
+                  productName={item}
+                  linkType="search"
+                  ctaPosition="printer_also_need_accessory"
                   className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card px-4 py-3 transition-all hover:border-primary/30 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-primary"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/8 text-primary shrink-0">
                     <ShoppingCart className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-medium group-hover:text-primary transition-colors">{item}</span>
-                </a>
+                </TrackedAffiliateLink>
               ))}
             </div>
           </section>
