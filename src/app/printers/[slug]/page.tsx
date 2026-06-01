@@ -22,24 +22,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!printer) return { title: "Printer Not Found" };
   const score = getOverallScore(printer);
   const typeLabel = printer.type === "fdm" ? "FDM" : "Resin";
-  const rawDescription = `${printer.name} review: price, pros, cons, specs, beginner fit, and whether this ${printer.brand} ${typeLabel} 3D printer is worth buying in 2026.`;
+  const rawDescription = `The ${printer.name} is $${printer.price} in 2026. ${typeLabel} printer from ${printer.brand}. Review, specs, pros, cons, and whether it's worth buying.`;
   const description = rawDescription.length > 158 ? `${rawDescription.slice(0, 155).trimEnd()}...` : rawDescription;
   const ogImageUrl = `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} · Score ${score}/10 · ${printer.brand}`)}`;
+  const title = `${printer.name} Price & Review (2026): $${printer.price}`;
   return {
-    title: `${printer.name} Review & Specs (2026)`,
+    title,
     description,
     alternates: {
       canonical: `https://printpick.dev/printers/${slug}`,
     },
     openGraph: {
-      title: `${printer.name} Review & Specs (2026)`,
+      title,
       description,
       url: `https://printpick.dev/printers/${slug}`,
       images: [{ url: ogImageUrl, width: 1200, height: 630, alt: printer.name }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${printer.name} Review & Specs (2026)`,
+      title,
       description,
       images: [ogImageUrl],
     },

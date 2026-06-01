@@ -41,6 +41,12 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0DJKFQ8JN": null,
   // Bambu Lab X2D, not yet released, placeholder ASIN, fallback to search
   "B0X2D00000": null,
+  // Anycubic Kobra 2 Pro, placeholder ASIN pending verification
+  "B0KBR2PR00": null,
+  // Bambu Lab X1 Carbon Combo, placeholder ASIN pending verification
+  "B0X1CARBCO": null,
+  // Elegoo Jupiter SE, placeholder ASIN pending verification
+  "B0JUPTRSE0": null,
   // Anycubic Kobra S1 ACE 2 Pro Combo (16-color variant). Launched 2026-04-24
   // Anycubic-EU-direct-only at launch (verified 2026-04-26). Brand affiliate via brandUrl is primary; Amazon CTA falls back to search.
   "B0KS1ACE00": "B0GT84VHBM", // placeholder -> confirmed ASIN (2026-05-07)

@@ -1416,4 +1416,193 @@ export const newPrinters2026: readonly Printer[] = [
       "Spare PEI sheet (for extended print runs)",
     ],
   },
+
+  // ─── 17. ANYCUBIC KOBRA 2 PRO ───────────────────────────────────
+  // Mid-range Klipper FDM at $249. 220x220x250mm, 500mm/s, direct drive.
+  // Fills the $249 slot between the Ender 3 V3 SE ($230) and Neptune 4 Pro ($269).
+  // ASIN unconfirmed; search fallback active.
+  {
+    slug: "anycubic-kobra-2-pro",
+    name: "Anycubic Kobra 2 Pro",
+    brand: "Anycubic",
+    type: "fdm",
+    image: "/images/printers/anycubic-kobra-2-pro.png",
+    price: 249,
+    amazonAsin: "B0KBR2PR00",
+    brandUrl: "https://www.anycubic.com/products/kobra-2-pro",
+    buildVolume: { x: 220, y: 220, z: 250 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 6.5,
+    features: [
+      "Klipper firmware with input shaping and pressure advance",
+      "500mm/s max print speed",
+      "Direct-drive extruder",
+      "26-point auto bed leveling",
+      "PEI magnetic spring-steel build plate",
+      "WiFi and Anycubic app connectivity",
+    ],
+    bestFor: ["beginners", "budget", "speed"],
+    scores: { value: 9, beginner: 9, printQuality: 8, speed: 8, reliability: 8 },
+    pros: [
+      "Klipper at $249: real input shaping and pressure advance out of the box",
+      "Direct drive handles flexibles without a fight",
+      "26-point mesh leveling means first-layer failures are rare",
+      "Anycubic's ecosystem has solid community support and replacement parts",
+    ],
+    cons: [
+      "220x220mm bed is smaller than newer $250 competitors like the Neptune 4 Plus",
+      "Open frame limits material options; ABS is borderline without modification",
+      "Anycubic's Klipper fork is more locked-down than Elegoo or Creality stock Klipper",
+    ],
+    summary:
+      "Klipper, direct drive, and 500mm/s at $249. Anycubic's mid-range FDM that competes directly with the Ender 3 V3 and Neptune 4 Pro at the same price.",
+    verdict:
+      "If you want Klipper without spending $300+, the Kobra 2 Pro delivers. The 220mm bed is the main trade-off vs the Neptune 4 Plus, but the machine is more compact and the Anycubic direct-drive setup handles PETG and TPU well. A solid choice for the $249 slot.",
+    reviews: [
+      {
+        quote: "The Kobra 2 Pro is what the original Kobra should have been. Klipper, direct drive, and it actually prints fast.",
+        source: "r/3Dprinting",
+      },
+      {
+        quote: "Anycubic hit the $249 sweet spot. If you want Klipper without the Neptune 4 Plus's larger footprint, this is it.",
+        source: "3DPrintBeginner",
+      },
+    ],
+    communityBadges: ["Best Value"],
+    alsoNeed: [
+      "PLA filament starter pack",
+      "Spare PEI sheet",
+      "PTFE tube replacement",
+      "Nozzle cleaning kit",
+    ],
+  },
+
+  // ─── 18. BAMBU LAB X1 CARBON COMBO ─────────────────────────────
+  // Enclosed CoreXY with AMS multi-material at $1,199. 256x256x256mm, 500mm/s.
+  // Adds Bambu AMS (4-color, expandable to 16) to the X1 Carbon's feature set.
+  // ASIN unconfirmed; search fallback active.
+  {
+    slug: "bambu-lab-x1-carbon-combo",
+    name: "Bambu Lab X1 Carbon Combo",
+    brand: "Bambu Lab",
+    type: "fdm",
+    image: "/images/printers/bambu-lab-x1-carbon-combo.png",
+    price: 1199,
+    amazonAsin: "B0X1CARBCO",
+    brandUrl: "https://bambulab.com/en-us/x1",
+    buildVolume: { x: 256, y: 256, z: 256 },
+    layerResolution: { min: 0.05, max: 0.35 },
+    printSpeed: 500,
+    weight: 15.8,
+    features: [
+      "Enclosed CoreXY",
+      "AMS multi-material (4 colors, expandable to 16 with 3 additional AMS units)",
+      "Lidar sensor for first-layer and flow calibration",
+      "HEPA + activated carbon dual-layer filtration",
+      "Hardened steel nozzle standard",
+      "Active chamber temperature control",
+      "AI-powered print failure detection via camera",
+      "WiFi, ethernet, and USB-C connectivity",
+    ],
+    bestFor: ["engineering", "multi-color", "speed", "professional", "enclosed"],
+    scores: { value: 8, beginner: 7, printQuality: 10, speed: 9, reliability: 10 },
+    pros: [
+      "Lidar + auto-calibration eliminates first-layer anxiety on high-value prints",
+      "AMS in the box: no separate multi-material module purchase needed",
+      "HEPA filtration makes ABS/ASA printing genuinely office-safe",
+      "Expandable to 16 colors by daisy-chaining up to 4 AMS units",
+      "Bambu's reliability track record is the strongest in the consumer market",
+    ],
+    cons: [
+      "$1,199 is a premium ask; the P1S Combo at $699 covers 90% of use cases for less",
+      "Lidar calibration adds setup time on every new filament type",
+      "AMS still purges filament on color transitions; purge blocks reduce waste but don't eliminate it",
+      "Bambu ecosystem lock-in: proprietary slicing workflow works best with Bambu Studio",
+    ],
+    summary:
+      "Enclosed, multi-color, and Lidar-calibrated at $1,199. The X1 Carbon Combo is Bambu's engineering-grade machine with AMS included, built for people who print ABS, CF, and nylon alongside multi-color PLA.",
+    verdict:
+      "The X1 Carbon Combo is the machine for serious makers who need enclosed multi-material printing without compromise. The Lidar calibration and HEPA filtration are not gimmicks: they're the reason this printer handles carbon fiber, nylon, and ABS without babysitting. If you're printing mostly PLA in multiple colors, save $500 and get the P1S Combo. If you need the full material range, this is the right buy.",
+    reviews: [
+      {
+        quote: "The X1 Carbon Combo is the printer I use for client work. Lidar calibration and the AMS mean I can run overnight multi-color jobs without worrying.",
+        source: "r/3Dprinting",
+      },
+      {
+        quote: "Bambu's X1C Combo is still the benchmark for enclosed multi-material desktop FDM. The P2S is newer hardware, but the X1C's Lidar advantage is real.",
+        source: "All3DP",
+      },
+    ],
+    communityBadges: ["Pro Workhorse", "Editor's Choice"],
+    alsoNeed: [
+      "Engineering filaments (ABS, ASA, nylon, CF-PA)",
+      "Multi-color PLA filament set",
+      "Hardened nozzle pack (for abrasive filaments)",
+      "Extra HEPA filter cartridges",
+    ],
+  },
+
+  // ─── 19. ELEGOO JUPITER SE ──────────────────────────────────────
+  // Large-format mono LCD resin at ~$340. 277x156x300mm, 12.8-inch 6K screen.
+  // Fills the gap between the Saturn 4 Ultra ($500) and the 8.9-inch desktop resins.
+  // ASIN unconfirmed; search fallback active.
+  {
+    slug: "elegoo-jupiter-se",
+    name: "Elegoo Jupiter SE",
+    brand: "Elegoo",
+    type: "resin",
+    image: "/images/printers/elegoo-jupiter-se.png",
+    price: 340,
+    amazonAsin: "B0JUPTRSE0",
+    buildVolume: { x: 277, y: 156, z: 300 },
+    layerResolution: { min: 0.01, max: 0.2 },
+    printSpeed: 70,
+    weight: 18,
+    features: [
+      "12.8-inch 6K mono LCD screen",
+      "277x156x300mm build volume",
+      "COB mono light source (60,000-hour lifespan)",
+      "Tilt-release FEP mechanism for reduced peel forces",
+      "Dual linear rail Z-axis for layer-line consistency",
+      "Air filtration module included",
+      "WiFi connectivity, Chitubox and Lychee compatible",
+    ],
+    bestFor: ["large-prints", "resin", "miniatures", "professional"],
+    scores: { value: 8, beginner: 6, printQuality: 10, speed: 7, reliability: 8 },
+    pros: [
+      "277mm wide platform prints full-size miniature armies or large costume props in one run",
+      "12.8-inch 6K mono screen gives better per-pixel resolution than smaller 8.9-inch screens",
+      "COB light source delivers more even illumination across the full platform vs edge-to-edge LED arrays",
+      "Tilt release reduces print-failure rate on large cross-sections",
+    ],
+    cons: [
+      "18kg machine: this is a semi-permanent desk fixture, not something you move around",
+      "Large FEP sheets cost more to replace and are harder to swap than smaller printer FEPs",
+      "Resin handling requires PPE and ventilation regardless of size; a large vat means more resin exposure risk",
+      "Steep beginner learning curve: hollow supports and drainage holes are mandatory at this scale",
+    ],
+    summary:
+      "Elegoo's large-format resin printer at $340. 277x156x300mm and a 12.8-inch 6K mono screen. Purpose-built for full-scale busts, large miniature bases, and props that won't fit on a standard 8.9-inch machine.",
+    verdict:
+      "If you've outgrown the Saturn 4 Ultra's 218x122mm platform and need more width for large prints, the Jupiter SE is the next step up without the Saturn 4 Ultra's premium price. The 277mm wide platform changes what's printable in one piece. Beginners should start smaller: the resin volumes, FEP costs, and post-processing scale with bed size. Experienced resin printers will find this the most cost-effective large-format option.",
+    reviews: [
+      {
+        quote: "The Jupiter SE fills a real gap. Saturn-level quality at a size that actually fits large cosplay pieces in one shot.",
+        source: "r/PrintedMinis",
+      },
+      {
+        quote: "Elegoo's Jupiter SE is bigger than the Saturn line and cheaper than commercial large-formats. The 6K mono screen is genuinely sharp across the full 277mm.",
+        source: "3DWithUs",
+      },
+    ],
+    communityBadges: ["Hidden Gem"],
+    alsoNeed: [
+      "Compatible resin (large volume, 1-2L per print job)",
+      "Wash and cure station (large format compatible)",
+      "Nitrile gloves and respirator",
+      "Large FEP replacement sheet",
+      "Resin funnel and filter papers",
+    ],
+  },
 ];
