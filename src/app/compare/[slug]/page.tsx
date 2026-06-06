@@ -10,6 +10,7 @@ import {
   type Printer,
 } from "@/data/printers";
 import { AmazonButton } from "@/components/amazon-button";
+import { BrandButton } from "@/components/brand-button";
 import { JsonLd } from "@/components/json-ld";
 import {
   generateComparisonPairs,
@@ -145,6 +146,11 @@ function buildVol(p: Printer): number {
   return p.buildVolume.x * p.buildVolume.y * p.buildVolume.z;
 }
 
+function retailerName(printer: Printer): string {
+  if (printer.brandUrl?.startsWith("/go/3djake/")) return "3DJake";
+  return printer.brand;
+}
+
 /* ── Page ──────────────────────────────────────────── */
 
 export default async function ComparisonPage({
@@ -173,6 +179,9 @@ export default async function ComparisonPage({
 
   const aWins = categories.filter((c) => c.winner === "a").length;
   const bWins = categories.filter((c) => c.winner === "b").length;
+
+  const winner = scoreA >= scoreB ? a : b;
+  const runnerUp = winner.slug === a.slug ? b : a;
 
   const relatedSlugs = [
     ...getRelatedComparisons(a.slug, slug, 3),
@@ -284,13 +293,23 @@ export default async function ComparisonPage({
                 Wins {wins} of 5 categories
               </p>
               <p className="mt-1 text-xl font-semibold">${printer.price}</p>
-              <div className="mt-4">
+              <div className="mt-4 flex flex-col gap-2">
                 <AmazonButton
                   asin={printer.amazonAsin}
                   printerName={printer.name}
                   price={printer.price}
                   ctaPosition="comparison_hero_card"
                 />
+                {printer.brandUrl && (
+                  <BrandButton
+                    brandUrl={printer.brandUrl}
+                    printerName={printer.name}
+                    brand={printer.brand}
+                    label={`Buy at ${retailerName(printer)}`}
+                    ctaPosition="comparison_hero_brand"
+                    className="justify-center"
+                  />
+                )}
               </div>
             </div>
           ))}
@@ -303,6 +322,52 @@ export default async function ComparisonPage({
         <section className="mt-8 rounded-xl border-l-4 border-primary bg-primary/5 p-6">
           <h2 className="text-xl font-bold">Our Verdict</h2>
           <p className="mt-2 leading-relaxed">{verdict}</p>
+        </section>
+
+        <section className="mt-8 rounded-xl border border-primary/25 bg-primary/5 p-6">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Direct answer</p>
+          <h2 className="mt-1 text-xl font-bold">{winner.name} is the better pick for most buyers.</h2>
+          <p className="mt-2 leading-relaxed text-muted-foreground">
+            Choose {winner.name} if you want the stronger overall score, better fit for {winner.bestFor.slice(0, 2).join(" and ")}, and the safer recommendation. Choose {runnerUp.name} only if its specific strengths matter more to you than the overall result.
+          </p>
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+            <AmazonButton
+              asin={winner.amazonAsin}
+              printerName={winner.name}
+              price={winner.price}
+              label={`Check ${winner.name} price`}
+              ctaPosition="comparison_direct_answer_winner"
+              className="justify-center"
+            />
+            {winner.brandUrl && (
+              <BrandButton
+                brandUrl={winner.brandUrl}
+                printerName={winner.name}
+                brand={winner.brand}
+                label={`Buy ${winner.name} at ${retailerName(winner)}`}
+                ctaPosition="comparison_direct_answer_brand"
+                className="justify-center"
+              />
+            )}
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-xl border border-border/60 bg-card p-6">
+          <h2 className="text-xl font-bold">Winner by buyer type</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Best overall</p>
+              <p className="mt-1 font-semibold">{winner.name}</p>
+            </div>
+            <div className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Best value</p>
+              <p className="mt-1 font-semibold">{a.price <= b.price ? a.name : b.name}</p>
+            </div>
+            <div className="rounded-lg border border-border/60 p-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Best build volume</p>
+              <p className="mt-1 font-semibold">{buildVol(a) >= buildVol(b) ? a.name : b.name}</p>
+            </div>
+          </div>
         </section>
 
         {/* ── Score comparison ──────────────────────── */}
@@ -442,7 +507,7 @@ export default async function ComparisonPage({
                     <li key={feat}>{feat}</li>
                   ))}
                 </ul>
-                <div className="mt-3">
+                <div className="mt-3 flex flex-col gap-2">
                   <AmazonButton
                     asin={printer.amazonAsin}
                     printerName={printer.name}
@@ -450,6 +515,15 @@ export default async function ComparisonPage({
                     label={`Get ${printer.name}, $${printer.price}`}
                     ctaPosition="comparison_recommendation_card"
                   />
+                  {printer.brandUrl && (
+                    <BrandButton
+                      brandUrl={printer.brandUrl}
+                      printerName={printer.name}
+                      brand={printer.brand}
+                      label={`Buy at ${retailerName(printer)}`}
+                      ctaPosition="comparison_recommendation_brand"
+                    />
+                  )}
                 </div>
               </div>
             ))}

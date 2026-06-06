@@ -51,6 +51,7 @@ export default async function BlogPostPage({
   const items = getPostPrinters(post);
   const topPick = items[0]?.printer;
   const relatedPosts = getRelatedPosts(post, 3);
+  const isEnclosedGuide = post.slug === "best-enclosed-3d-printer-2026";
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -117,6 +118,31 @@ export default async function BlogPostPage({
           {post.description}
         </p>
       </header>
+
+      {isEnclosedGuide && (
+        <section className="mt-8 rounded-xl border border-primary/25 bg-primary/5 p-5">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Quick answer</p>
+          <h2 className="text-xl font-bold">Best enclosed 3D printer picks for 2026</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <a href="#pick-1" className="rounded-lg border border-border/60 bg-card p-3 hover:border-primary/40">
+              <span className="block text-sm font-semibold">Best budget / apartment enclosed printer</span>
+              <span className="text-sm text-muted-foreground">Flashforge Adventurer 5M Pro for safe, filtered ABS/ASA printing under $400.</span>
+            </a>
+            <a href="#pick-2" className="rounded-lg border border-border/60 bg-card p-3 hover:border-primary/40">
+              <span className="block text-sm font-semibold">Best for Nylon and PC on a budget</span>
+              <span className="text-sm text-muted-foreground">QIDI X-Plus 3 because its active 60C chamber beats passive enclosures.</span>
+            </a>
+            <a href="#pick-3" className="rounded-lg border border-border/60 bg-card p-3 hover:border-primary/40">
+              <span className="block text-sm font-semibold">Best quiet premium enclosed printer</span>
+              <span className="text-sm text-muted-foreground">Bambu Lab P1S for reliability, software, filtration, and home-office noise.</span>
+            </a>
+            <a href="#pick-5" className="rounded-lg border border-border/60 bg-card p-3 hover:border-primary/40">
+              <span className="block text-sm font-semibold">Best engineering upgrade</span>
+              <span className="text-sm text-muted-foreground">Bambu Lab H2D for abrasive filaments, dual hardened nozzles, and a 65C chamber.</span>
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* Table of Contents */}
       <nav className="mt-8 rounded-xl border border-border/60 bg-muted/20 p-4">
@@ -234,6 +260,19 @@ export default async function BlogPostPage({
               Shop {post.affiliateCta.brand}
               <ExternalLink className="h-3.5 w-3.5" />
             </TrackedAffiliateLink>
+          </div>
+        </section>
+      )}
+
+      {isEnclosedGuide && (
+        <section className="mt-12 rounded-xl border border-border/60 bg-card p-6">
+          <h2 className="text-lg font-bold">Compare enclosed alternatives</h2>
+          <p className="mt-1 text-sm text-muted-foreground">If you already have two models in mind, these head-to-head pages answer the buyer-intent queries Google is surfacing now.</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <a className="rounded-lg border border-border/60 p-3 text-sm font-medium hover:border-primary/40" href="/compare/bambu-lab-x2d-vs-qidi-q2">Bambu Lab X2D vs QIDI Q2</a>
+            <a className="rounded-lg border border-border/60 p-3 text-sm font-medium hover:border-primary/40" href="/compare/bambu-lab-x2d-vs-elegoo-centauri-carbon">Bambu Lab X2D vs Elegoo Centauri Carbon</a>
+            <a className="rounded-lg border border-border/60 p-3 text-sm font-medium hover:border-primary/40" href="/compare/anycubic-kobra-s1-combo-vs-elegoo-centauri-carbon-2-combo">Anycubic Kobra S1 Combo vs Elegoo Centauri Carbon 2 Combo</a>
+            <a className="rounded-lg border border-border/60 p-3 text-sm font-medium hover:border-primary/40" href="/blog/bambu-lab-p2s-vs-p1s-comparison">Bambu Lab P2S vs P1S</a>
           </div>
         </section>
       )}

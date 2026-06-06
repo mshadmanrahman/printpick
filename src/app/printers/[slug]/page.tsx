@@ -3,7 +3,7 @@ import type { Product, BreadcrumbList, FAQPage, WithContext } from "schema-dts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
-import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getPrintersByBestFor } from "@/data/printers";
+import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getAmazonLink, getPrintersByBestFor } from "@/data/printers";
 import { getPostsForPrinter } from "@/data/blog-posts";
 import { AmazonButton } from "@/components/amazon-button";
 import { BrandButton } from "@/components/brand-button";
@@ -22,10 +22,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!printer) return { title: "Printer Not Found" };
   const score = getOverallScore(printer);
   const typeLabel = printer.type === "fdm" ? "FDM" : "Resin";
-  const rawDescription = `The ${printer.name} is $${printer.price} in 2026. ${typeLabel} printer from ${printer.brand}. Review, specs, pros, cons, and whether it's worth buying.`;
+  const queryOverrides: Record<string, { title: string; description: string }> = {
+    "bambu-lab-a1-combo": {
+      title: "Bambu Lab A1 Combo Price, Specs & Alternatives 2026",
+      description: "Bambu Lab A1 Combo price, specs, AMS Lite details, build volume, alternatives, and whether it is still the best beginner multi-color 3D printer in 2026.",
+    },
+    "bambu-lab-h2d": {
+      title: "Bambu Lab H2D Price, Specs & Alternatives 2026",
+      description: "Bambu Lab H2D price, specs, 65C chamber, dual-nozzle details, alternatives, and whether it is worth buying for engineering filaments in 2026.",
+    },
+  };
+  const rawDescription = queryOverrides[slug]?.description ?? `The ${printer.name} is $${printer.price} in 2026. ${typeLabel} printer from ${printer.brand}. Review, specs, pros, cons, and whether it's worth buying.`;
   const description = rawDescription.length > 158 ? `${rawDescription.slice(0, 155).trimEnd()}...` : rawDescription;
   const ogImageUrl = `https://printpick.dev/api/og?title=${encodeURIComponent(printer.name)}&subtitle=${encodeURIComponent(`$${printer.price} · Score ${score}/10 · ${printer.brand}`)}`;
-  const title = `${printer.name} Price & Review (2026): $${printer.price}`;
+  const title = queryOverrides[slug]?.title ?? `${printer.name} Price & Review (2026): $${printer.price}`;
   return {
     title,
     description,
@@ -96,6 +106,14 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
   const overall = getOverallScore(printer);
   const featuredInPosts = getPostsForPrinter(printer.slug);
+  const amazonLink = getAmazonLink(printer.amazonAsin, printer.name);
+  const retailerLabel = amazonLink.type === "direct"
+    ? "via Amazon"
+    : printer.brandUrl?.startsWith("/go/3djake/")
+      ? "via 3DJake"
+      : printer.brandUrl
+        ? `via ${printer.brand}`
+        : "check retailer availability";
   const related = printer.bestFor
     .flatMap((tag) => getPrintersByBestFor(tag))
     .filter((p) => p.slug !== printer.slug)
@@ -243,6 +261,18 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
 
               <p className="mt-4 text-base text-muted-foreground leading-relaxed">{printer.summary}</p>
 
+              {(printer.slug === "bambu-lab-a1-combo" || printer.slug === "bambu-lab-h2d") && (
+                <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
+                  <h2 className="font-semibold">Price, specs, and alternatives at a glance</h2>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>Current guide price: <span className="text-foreground font-medium">${printer.price}</span></li>
+                    <li>Build volume: <span className="text-foreground font-medium">{printer.buildVolume.x} x {printer.buildVolume.y} x {printer.buildVolume.z} mm</span></li>
+                    <li>Best use: <span className="text-foreground font-medium">{printer.bestFor.slice(0, 3).join(", ")}</span></li>
+                    <li>Closest alternatives are linked below in the comparison and buying-guide sections.</li>
+                  </ul>
+                </div>
+              )}
+
               <div className="mt-4 flex flex-wrap gap-2">
                 {printer.bestFor.map((tag) => (
                   <a
@@ -260,7 +290,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-3xl font-bold">${printer.price}</div>
-                    <p className="text-xs text-muted-foreground mt-0.5">via Amazon</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{retailerLabel}</p>
                   </div>
                   <div className="text-right">
                     <div className="text-sm text-muted-foreground">PrintPick Score</div>
