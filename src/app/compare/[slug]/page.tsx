@@ -42,8 +42,8 @@ export async function generateMetadata({
 
   const a = getPrinterBySlug(parsed.a)!;
   const b = getPrinterBySlug(parsed.b)!;
-  const title = `${a.name} vs ${b.name}: Which 3D Printer Wins?`;
-  const desc = `Side-by-side comparison of ${a.name} ($${a.price}) and ${b.name} ($${b.price}). Scores, specs, pros & cons, and our pick for 2026.`;
+  const title = `${a.name} vs ${b.name} (2026): Which Should You Buy?`;
+  const desc = `Head-to-head: ${a.name} ($${a.price}) vs ${b.name} ($${b.price}). Specs, scores, real-world pros & cons, and which one to buy in 2026.`;
 
   return {
     title,

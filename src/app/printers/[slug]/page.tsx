@@ -24,8 +24,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const typeLabel = printer.type === "fdm" ? "FDM" : "Resin";
   const queryOverrides: Record<string, { title: string; description: string }> = {
     "bambu-lab-a1-combo": {
-      title: "Bambu Lab A1 Combo Price, Specs & Alternatives 2026",
-      description: "Bambu Lab A1 Combo price, specs, AMS Lite details, build volume, alternatives, and whether it is still the best beginner multi-color 3D printer in 2026.",
+      title: "Bambu Lab A1 Combo: $399 in 2026, Is It Worth Buying?",
+      description: "$399 with AMS Lite included. Honest verdict on speed, multi-color reliability, and whether it is still the best beginner pick in 2026.",
+    },
+    "bambu-lab-a1-mini": {
+      title: "Bambu Lab A1 Mini: $199 in 2026, Best Budget 3D Printer?",
+      description: "Full Bambu quality at $199. Compact footprint, reliable out of the box, upgrade path to multi-color. Is the A1 Mini the best value 3D printer in 2026?",
+    },
+    "bambu-lab-p1s": {
+      title: "Bambu Lab P1S: $449 in 2026, Best Enclosed 3D Printer?",
+      description: "$449 fully enclosed with HEPA filtration. The Bambu printer for ABS, ASA, and engineering filaments. Worth it in 2026?",
+    },
+    "elegoo-mars-5-ultra": {
+      title: "Elegoo Mars 5 Ultra: $284 in 2026, Best Resin Printer for Minis?",
+      description: "14K resolution at $284. The go-to resin printer for D&D and Warhammer miniatures in 2026. Verdict, specs, and what to buy with it.",
+    },
+    "creality-ender-3-v3-se": {
+      title: "Creality Ender 3 V3 SE: $218 in 2026, Still Worth It?",
+      description: "Auto-leveling and direct drive under $220. The safe beginner answer in 2026, backed by the largest Ender 3 community in 3D printing.",
+    },
+    "creality-k1-max": {
+      title: "Creality K1 Max: $599 in 2026, Best Large-Format 3D Printer?",
+      description: "300mm cube at 600mm/s, enclosed, with an AI camera. The large-format pick for cosplay builds and props that don't fit on standard beds.",
+    },
+    "bambu-lab-p2s": {
+      title: "Bambu Lab P2S: $549 in 2026, Best Enclosed Bambu Printer?",
+      description: "$549 enclosed CoreXY with quick-swap nozzles, 1080p AI camera, and AMS 2 Pro. The P2S vs P1S question answered, with our verdict for 2026.",
     },
     "bambu-lab-h2d": {
       title: "Bambu Lab H2D Price, Specs & Alternatives 2026",
