@@ -9,6 +9,7 @@ import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import { SearchCommand } from "@/components/search-command";
 import { JsonLd } from "@/components/json-ld";
+import { PromoBanner } from "@/components/promo-banner";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -134,6 +135,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
+        <PromoBanner />
         <Analytics />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
