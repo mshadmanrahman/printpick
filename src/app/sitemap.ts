@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { printers, CATEGORIES } from "@/data/printers";
 import { getAllBlogPosts } from "@/data/blog-posts";
 import { generateComparisonPairs } from "@/lib/comparison-utils";
+import { INDEXABLE_COMPARISONS } from "@/data/indexable-comparisons";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://printpick.dev";
@@ -12,11 +13,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/best/under-300`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/compare`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/tools/cost-estimator`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/tools/fdm-vs-resin`, changeFrequency: "monthly", priority: 0.8 },
+    {
+      url: `${base}/tools/cost-estimator`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/tools/fdm-vs-resin`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     { url: `${base}/tools/finder`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/tools/build-volume`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/tools/materials`, changeFrequency: "monthly", priority: 0.8 },
+    {
+      url: `${base}/tools/build-volume`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/tools/materials`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     { url: `${base}/tools/upgrade`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/noise`, changeFrequency: "monthly", priority: 0.8 },
   ];
@@ -47,14 +64,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  const comparisonPages: MetadataRoute.Sitemap = generateComparisonPairs().map(
-    (slug) => ({
+  const comparisonPages: MetadataRoute.Sitemap = generateComparisonPairs()
+    .filter((slug) => INDEXABLE_COMPARISONS.has(slug))
+    .map((slug) => ({
       url: `${base}/compare/${slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.7,
       lastModified: lastDataUpdate,
-    }),
-  );
+    }));
 
   return [
     ...staticPages,

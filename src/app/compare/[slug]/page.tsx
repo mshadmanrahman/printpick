@@ -22,6 +22,7 @@ import {
   generateFaqs,
   getRelatedComparisons,
 } from "@/lib/comparison-utils";
+import { INDEXABLE_COMPARISONS } from "@/data/indexable-comparisons";
 
 /* ── Static generation ─────────────────────────────── */
 
@@ -44,11 +45,16 @@ export async function generateMetadata({
   const b = getPrinterBySlug(parsed.b)!;
   const title = `${a.name} vs ${b.name} (2026): Which Should You Buy?`;
   const desc = `Head-to-head: ${a.name} ($${a.price}) vs ${b.name} ($${b.price}). Specs, scores, real-world pros & cons, and which one to buy in 2026.`;
+  const canonicalSlug = getCanonicalSlug(parsed.a, parsed.b);
+  const indexable = INDEXABLE_COMPARISONS.has(canonicalSlug);
 
   return {
     title,
     description: desc,
     alternates: { canonical: `https://printpick.dev/compare/${slug}` },
+    robots: indexable
+      ? undefined
+      : { index: false, follow: true },
     openGraph: {
       title,
       description: desc,
