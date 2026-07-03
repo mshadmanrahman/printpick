@@ -1,18 +1,28 @@
 {
-  "generatedAt": "2026-04-02T19:17:30.285Z",
+  "generatedAt": "2026-07-03T19:42:25.236Z",
   "sourceDataset": "src/data/printers.ts",
   "staleThresholdDays": 30,
   "totals": {
-    "records": 58,
+    "records": 72,
     "duplicateAsins": 0,
     "rowsWithMissingRequiredFields": 0,
-    "staleRecords": 58
+    "staleRecords": 72
   },
   "duplicateAsins": [],
   "missingRequiredFields": [],
   "staleRecords": [
     {
       "slug": "anycubic-kobra-2-max",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-kobra-2-pro",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -33,6 +43,26 @@
     },
     {
       "slug": "anycubic-kobra-3-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-kobra-s1-ace-2-pro-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "anycubic-kobra-s1-combo",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -122,6 +152,16 @@
       ]
     },
     {
+      "slug": "bambu-lab-a1-mini-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
       "slug": "bambu-lab-h2d",
       "validationState": "unverified",
       "lastVerifiedAt": null,
@@ -152,6 +192,16 @@
       ]
     },
     {
+      "slug": "bambu-lab-p1s-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
       "slug": "bambu-lab-p2s",
       "validationState": "unverified",
       "lastVerifiedAt": null,
@@ -162,7 +212,17 @@
       ]
     },
     {
-      "slug": "bambu-lab-x1-carbon",
+      "slug": "bambu-lab-x1-carbon-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "bambu-lab-x2d",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -193,6 +253,16 @@
     },
     {
       "slug": "creality-ender-3-v3-ke",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "creality-ender-3-v3-plus",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -262,6 +332,16 @@
       ]
     },
     {
+      "slug": "creality-k1c",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
       "slug": "creality-k2-plus",
       "validationState": "unverified",
       "lastVerifiedAt": null,
@@ -293,6 +373,16 @@
     },
     {
       "slug": "elegoo-centauri-carbon-2-combo",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "elegoo-jupiter-se",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -352,6 +442,16 @@
       ]
     },
     {
+      "slug": "elegoo-neptune-4-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
       "slug": "elegoo-neptune-4-pro",
       "validationState": "unverified",
       "lastVerifiedAt": null,
@@ -393,6 +493,16 @@
     },
     {
       "slug": "flashforge-adventurer-5m-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "flashforge-creator-5-pro",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,
@@ -482,6 +592,16 @@
       ]
     },
     {
+      "slug": "prusa-mini-plus",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
       "slug": "prusa-mk4s",
       "validationState": "unverified",
       "lastVerifiedAt": null,
@@ -513,6 +633,26 @@
     },
     {
       "slug": "qidi-q1-pro",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-q2",
+      "validationState": "unverified",
+      "lastVerifiedAt": null,
+      "daysSinceUpdated": 0,
+      "daysSinceVerification": null,
+      "reasons": [
+        "verification>30d_or_missing"
+      ]
+    },
+    {
+      "slug": "qidi-x-cf-pro",
       "validationState": "unverified",
       "lastVerifiedAt": null,
       "daysSinceUpdated": 0,

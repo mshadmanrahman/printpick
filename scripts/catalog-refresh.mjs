@@ -2,20 +2,39 @@
 
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
-import { createRequire } from "node:module";
+import Module, { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, "..");
 
-const DEFAULT_CATALOG_OUTPUT = path.join(REPO_ROOT, "src", "data", "catalog", "printer-catalog.json");
-const DEFAULT_QA_REPORT_OUTPUT = path.join(REPO_ROOT, "reports", "catalog-qa-report.json");
+const DEFAULT_CATALOG_OUTPUT = path.join(
+  REPO_ROOT,
+  "src",
+  "data",
+  "catalog",
+  "printer-catalog.json",
+);
+const DEFAULT_QA_REPORT_OUTPUT = path.join(
+  REPO_ROOT,
+  "reports",
+  "catalog-qa-report.json",
+);
 const DEFAULT_STALE_DAYS = 30;
 const SOURCE_DATASET = "src/data/printers.ts";
-const REQUIRED_FIELDS = ["slug", "name", "brand", "type", "image", "price", "amazonAsin"];
+const REQUIRED_FIELDS = [
+  "slug",
+  "name",
+  "brand",
+  "type",
+  "image",
+  "price",
+  "amazonAsin",
+];
 
 function parseArgs(argv) {
   const args = {
@@ -95,7 +114,10 @@ async function ensureParentDir(filePath) {
 }
 
 function hashJson(value) {
-  return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
+  return crypto
+    .createHash("sha256")
+    .update(JSON.stringify(value))
+    .digest("hex");
 }
 
 function isMissing(value) {
@@ -133,7 +155,11 @@ function normalizeVerificationState(rawState) {
   if (state === "unverified") {
     return "unverified";
   }
-  if (state === "needs_review" || state === "needs-review" || state === "invalid") {
+  if (
+    state === "needs_review" ||
+    state === "needs-review" ||
+    state === "invalid"
+  ) {
     return "needs_review";
   }
   return null;
@@ -165,9 +191,12 @@ function normalizeVerificationMap(rawVerification) {
       continue;
     }
     const slug = typeof record.slug === "string" ? record.slug.trim() : "";
-    const asin = typeof record.asin === "string" ? record.asin.trim().toUpperCase() : "";
+    const asin =
+      typeof record.asin === "string" ? record.asin.trim().toUpperCase() : "";
     const state = normalizeVerificationState(record.state ?? record.status);
-    const lastVerifiedAt = normalizeIsoDate(record.lastVerifiedAt ?? record.verifiedAt ?? record.updatedAt);
+    const lastVerifiedAt = normalizeIsoDate(
+      record.lastVerifiedAt ?? record.verifiedAt ?? record.updatedAt,
+    );
     const notes = typeof record.notes === "string" ? record.notes.trim() : "";
 
     if (!state && !lastVerifiedAt && !notes) {
@@ -193,31 +222,68 @@ function normalizeVerificationMap(rawVerification) {
 function compilePrinterSourceData() {
   const tmpDir = path.join(REPO_ROOT, ".tmp-catalog-refresh");
   const tscBin = path.join(REPO_ROOT, "node_modules", ".bin", "tsc");
+  // printers.ts pulls in these two "@/lib/..." modules (added after this script was
+  // written); compile them alongside so the emitted require() calls have something
+  // to resolve to. Common root becomes "src/", so output lands under tmpDir/data
+  // and tmpDir/lib instead of flat in tmpDir.
+  const dataOutDir = path.join(tmpDir, "data");
 
-  execFileSync(
-    tscBin,
-    [
-      "src/data/printers.ts",
-      "src/data/new-printers-2026.ts",
-      "--outDir",
-      tmpDir,
-      "--module",
-      "commonjs",
-      "--target",
-      "ES2020",
-      "--moduleResolution",
-      "node",
-      "--skipLibCheck",
-      "--declaration",
-      "false",
-      "--pretty",
-      "false",
-    ],
-    { cwd: REPO_ROOT, stdio: "pipe" },
-  );
+  try {
+    execFileSync(
+      tscBin,
+      [
+        "src/data/printers.ts",
+        "src/data/new-printers-2026.ts",
+        "src/lib/awin-affiliate.ts",
+        "src/lib/amazon-affiliate.ts",
+        "--outDir",
+        tmpDir,
+        "--module",
+        "commonjs",
+        "--target",
+        "ES2020",
+        "--moduleResolution",
+        "node",
+        "--skipLibCheck",
+        "--declaration",
+        "false",
+        "--pretty",
+        "false",
+      ],
+      { cwd: REPO_ROOT, stdio: "pipe" },
+    );
+  } catch (error) {
+    // tsc exits non-zero because "@/..." path aliases are a Next.js/bundler concept,
+    // not something plain tsc resolves -- but it still emits usable JS. Only treat
+    // this as fatal if the expected output is actually missing.
+    if (!existsSync(path.join(dataOutDir, "printers.js"))) {
+      throw error;
+    }
+  }
 
-  const requireFromTmp = createRequire(path.join(tmpDir, "index.js"));
-  const moduleExports = requireFromTmp("./printers.js");
+  // tsc doesn't rewrite "@/..." import specifiers on emit, so the compiled printers.js
+  // still calls require("@/lib/awin-affiliate"). Shim resolution for the duration of
+  // this one require, then restore it.
+  const originalResolve = Module._resolveFilename;
+  Module._resolveFilename = function resolveWithAliasShim(request, ...rest) {
+    if (request.startsWith("@/")) {
+      return originalResolve.call(
+        this,
+        path.join(tmpDir, request.slice(2)),
+        ...rest,
+      );
+    }
+    return originalResolve.call(this, request, ...rest);
+  };
+
+  let moduleExports;
+  try {
+    const requireFromTmp = createRequire(path.join(dataOutDir, "index.js"));
+    moduleExports = requireFromTmp("./printers.js");
+  } finally {
+    Module._resolveFilename = originalResolve;
+  }
+
   return {
     printers: moduleExports.printers ?? [],
     cleanup: async () => {
@@ -332,7 +398,10 @@ async function main() {
       missingFieldRows.push({ slug, missingRequiredFields });
     }
 
-    const asinKey = typeof payload.amazonAsin === "string" ? payload.amazonAsin.trim().toUpperCase() : "";
+    const asinKey =
+      typeof payload.amazonAsin === "string"
+        ? payload.amazonAsin.trim().toUpperCase()
+        : "";
     if (asinKey) {
       const rows = asinToSlugs.get(asinKey) ?? [];
       rows.push(slug);
@@ -345,20 +414,17 @@ async function main() {
       (asinKey ? verificationMap.byAsin.get(asinKey) : null) ??
       null;
     const validationState =
-      verification?.state ??
-      prev?.validation?.state ??
-      "unverified";
+      verification?.state ?? prev?.validation?.state ?? "unverified";
     const lastVerifiedAt =
       normalizeIsoDate(verification?.lastVerifiedAt) ??
       normalizeIsoDate(prev?.validation?.lastVerifiedAt) ??
       null;
     const verificationNotes =
-      verification?.notes ??
-      prev?.validation?.notes ??
-      null;
+      verification?.notes ?? prev?.validation?.notes ?? null;
 
     const sourceHash = hashJson(payload);
-    const previousHash = typeof prev?.source?.hash === "string" ? prev.source.hash : null;
+    const previousHash =
+      typeof prev?.source?.hash === "string" ? prev.source.hash : null;
     const sameSource = previousHash === sourceHash;
     const sameValidation =
       prev?.validation?.state === validationState &&
@@ -368,7 +434,7 @@ async function main() {
     const createdAt = normalizeIsoDate(prev?.timestamps?.createdAt) ?? now;
     const updatedAt =
       prev && sameSource && sameValidation
-        ? normalizeIsoDate(prev?.timestamps?.updatedAt) ?? createdAt
+        ? (normalizeIsoDate(prev?.timestamps?.updatedAt) ?? createdAt)
         : now;
 
     if (!prev) {
@@ -412,11 +478,17 @@ async function main() {
   const staleRecords = mergedRecords
     .map((record) => {
       const daysSinceUpdated = addDaysSince(record.timestamps.updatedAt, nowMs);
-      const daysSinceVerification = addDaysSince(record.validation.lastVerifiedAt, nowMs);
-      const staleByUpdate = typeof daysSinceUpdated === "number" && daysSinceUpdated > args.staleDays;
+      const daysSinceVerification = addDaysSince(
+        record.validation.lastVerifiedAt,
+        nowMs,
+      );
+      const staleByUpdate =
+        typeof daysSinceUpdated === "number" &&
+        daysSinceUpdated > args.staleDays;
       const staleByVerification =
         record.validation.state === "verified"
-          ? typeof daysSinceVerification === "number" && daysSinceVerification > args.staleDays
+          ? typeof daysSinceVerification === "number" &&
+            daysSinceVerification > args.staleDays
           : true;
       if (!staleByUpdate && !staleByVerification) {
         return null;
@@ -429,7 +501,9 @@ async function main() {
         daysSinceVerification,
         reasons: [
           ...(staleByUpdate ? [`updated>${args.staleDays}d`] : []),
-          ...(staleByVerification ? [`verification>${args.staleDays}d_or_missing`] : []),
+          ...(staleByVerification
+            ? [`verification>${args.staleDays}d_or_missing`]
+            : []),
         ],
       };
     })
@@ -479,8 +553,16 @@ async function main() {
 
   await ensureParentDir(args.catalogOutput);
   await ensureParentDir(args.qaOutput);
-  await fs.writeFile(args.catalogOutput, `${JSON.stringify(catalogStore, null, 2)}\n`, "utf8");
-  await fs.writeFile(args.qaOutput, `${JSON.stringify(qaReport, null, 2)}\n`, "utf8");
+  await fs.writeFile(
+    args.catalogOutput,
+    `${JSON.stringify(catalogStore, null, 2)}\n`,
+    "utf8",
+  );
+  await fs.writeFile(
+    args.qaOutput,
+    `${JSON.stringify(qaReport, null, 2)}\n`,
+    "utf8",
+  );
 
   console.log(
     JSON.stringify(
