@@ -9,7 +9,6 @@ import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import { SearchCommand } from "@/components/search-command";
 import { JsonLd } from "@/components/json-ld";
-import { PromoBanner } from "@/components/promo-banner";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -72,12 +71,7 @@ export const metadata: Metadata = {
 
 function Logo({ size = 28 }: { readonly size?: number }) {
   return (
-    <Image
-      src="/logo.svg"
-      alt="PrintPick logo"
-      width={size}
-      height={size}
-    />
+    <Image src="/logo.svg" alt="PrintPick logo" width={size} height={size} />
   );
 }
 
@@ -121,9 +115,14 @@ export default function RootLayout({
         <JsonLd data={websiteSchema} />
         <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
           <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-            <a href="/" className="flex items-center gap-2 font-semibold text-lg tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg">
+            <a
+              href="/"
+              className="flex items-center gap-2 font-semibold text-lg tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-lg"
+            >
               <Logo />
-              <span>Print<span className="text-primary">Pick</span></span>
+              <span>
+                Print<span className="text-primary">Pick</span>
+              </span>
             </a>
             <div className="flex items-center gap-2">
               {/* Desktop nav, highlights based on current path */}
@@ -135,7 +134,6 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <PromoBanner />
         <Analytics />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
@@ -154,51 +152,162 @@ export default function RootLayout({
               <div>
                 <div className="flex items-center gap-2 font-semibold text-lg">
                   <Logo />
-                  <span>Print<span className="text-primary">Pick</span></span>
+                  <span>
+                    Print<span className="text-primary">Pick</span>
+                  </span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground max-w-xs leading-relaxed">
-                  Data-driven 3D printer comparisons. Every printer scored across 5 dimensions.
-                  No sponsored rankings.
+                  Data-driven 3D printer comparisons. Every printer scored
+                  across 5 dimensions. No sponsored rankings.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
                 <div>
-                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Tools</h4>
+                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                    Tools
+                  </h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/tools/finder" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Printer Finder</a></li>
-                    <li><a href="/tools/cost-estimator" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Cost Estimator</a></li>
-                    <li><a href="/tools/fdm-vs-resin" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">FDM vs Resin</a></li>
-                    <li><a href="/compare" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Compare</a></li>
+                    <li>
+                      <a
+                        href="/tools/finder"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Printer Finder
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/tools/cost-estimator"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Cost Estimator
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/tools/fdm-vs-resin"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        FDM vs Resin
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/compare"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Compare
+                      </a>
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Top Printers</h4>
+                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                    Top Printers
+                  </h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/printers/bambu-lab-a1-combo" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab A1 Combo</a></li>
-                    <li><a href="/printers/bambu-lab-a1-mini" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab A1 Mini</a></li>
-                    <li><a href="/printers/bambu-lab-p1s" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Bambu Lab P1S</a></li>
-                    <li><a href="/printers/creality-ender-3-v3-se" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Creality Ender 3 V3 SE</a></li>
-                    <li><a href="/printers/elegoo-mars-5-ultra" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Elegoo Mars 5 Ultra</a></li>
-                    <li><a href="/best" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">View All Printers</a></li>
+                    <li>
+                      <a
+                        href="/printers/bambu-lab-a1-combo"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Bambu Lab A1 Combo
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/printers/bambu-lab-a1-mini"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Bambu Lab A1 Mini
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/printers/bambu-lab-p1s"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Bambu Lab P1S
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/printers/creality-ender-3-v3-se"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Creality Ender 3 V3 SE
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/printers/elegoo-mars-5-ultra"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Elegoo Mars 5 Ultra
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/best"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        View All Printers
+                      </a>
+                    </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">Site</h4>
+                  <h4 className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                    Site
+                  </h4>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">About</a></li>
-                    <li><a href="/methodology" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Methodology</a></li>
-                    <li><a href="/returns" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Returns</a></li>
-                    <li><a href="/credits" className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded">Credits</a></li>
+                    <li>
+                      <a
+                        href="/about"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/methodology"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Methodology
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/returns"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Returns
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/credits"
+                        className="text-muted-foreground hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary rounded"
+                      >
+                        Credits
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="mt-8 pt-6 border-t border-border/50">
               <p className="text-xs text-muted-foreground">
-                As an Amazon Associate, PrintPick earns from qualifying purchases.
-                Product data is updated regularly but prices and availability may change.
-                Photos by talented photographers on Unsplash, <a href="/credits" className="text-primary hover:underline">view credits</a>.
-                &copy; {new Date().getFullYear()} PrintPick. All rights reserved.
+                As an Amazon Associate, PrintPick earns from qualifying
+                purchases. Product data is updated regularly but prices and
+                availability may change. Photos by talented photographers on
+                Unsplash,{" "}
+                <a href="/credits" className="text-primary hover:underline">
+                  view credits
+                </a>
+                . &copy; {new Date().getFullYear()} PrintPick. All rights
+                reserved.
               </p>
             </div>
           </div>
@@ -207,4 +316,3 @@ export default function RootLayout({
     </html>
   );
 }
-
