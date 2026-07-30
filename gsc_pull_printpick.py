@@ -125,7 +125,11 @@ def query(start_date, end_date, dimensions, row_limit=25000, dimension_filter_gr
     url = 'https://www.googleapis.com/webmasters/v3/sites/' + urllib.parse.quote(SITE, safe='') + '/searchAnalytics/query'
     req = urllib.request.Request(url, data=json.dumps(body).encode(), method='POST', headers={
         'Authorization': 'Bearer ' + TOK,
-        'X-Goog-User-Project': PROJECT,
+        # Quota-project attribution applies to user (ADC) credentials only. A service-account
+        # token already carries its own project, and sending this header makes Google additionally
+        # require serviceusage.services.use on that project, which the key does not hold. That is
+        # the USER_PROJECT_DENIED / 403 the service-account path used to fail with.
+        **({} if SERVICE_ACCOUNT_KEY else {'X-Goog-User-Project': PROJECT}),
         'Content-Type': 'application/json',
     })
     try:
