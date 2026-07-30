@@ -1223,6 +1223,8 @@ export const printers: readonly Printer[] = [
     // Amazon ASIN 404s (verify:amazon 2026-07-30) and no live kingroon.com product page
     // remains, so there is no buy path left. Keeps the page but drops it from /best lists.
     discontinued: true,
+    // Same $299, FDM, highest-scoring in-catalog machine with a live Amazon CTA.
+    replacedBy: "bambu-lab-a1",
     buildVolume: { x: 200, y: 200, z: 200 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -1367,6 +1369,8 @@ export const printers: readonly Printer[] = [
     // Amazon ASIN 404s (verify:amazon 2026-07-30) and longer3d.com no longer lists it,
     // so there is no buy path left. Keeps the page but drops it from /best lists.
     discontinued: true,
+    // Same $199, resin, 9K panel against this one's 4K, live Amazon CTA.
+    replacedBy: "elegoo-mars-4-ultra",
     buildVolume: { x: 120, y: 68, z: 195 },
     layerResolution: { min: 0.01, max: 0.15 },
     printSpeed: 90,

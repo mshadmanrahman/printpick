@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Product, BreadcrumbList, FAQPage, WithContext } from "schema-dts";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Star, Quote, ShoppingCart, Award, MessageCircle } from "lucide-react";
+import { Star, Quote, ShoppingCart, Award, MessageCircle, ChevronRight } from "lucide-react";
 import { printers, getPrinterBySlug, getOverallScore, getAmazonUrl, getAmazonLink, getPrintersByBestFor } from "@/data/printers";
 import { getPostsForPrinter } from "@/data/blog-posts";
 import { AmazonButton } from "@/components/amazon-button";
@@ -131,6 +131,12 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
   const overall = getOverallScore(printer);
   const featuredInPosts = getPostsForPrinter(printer.slug);
   const amazonLink = getAmazonLink(printer.amazonAsin, printer.name);
+  // replacedBy existed in the Printer type and on 3 entries but was never rendered,
+  // so discontinued pages dead-ended. Resolve it here and surface it in the hero.
+  const replacement =
+    printer.discontinued && printer.replacedBy
+      ? getPrinterBySlug(printer.replacedBy)
+      : undefined;
   const retailerLabel = amazonLink.type === "direct"
     ? "via Amazon"
     : printer.brandUrl?.startsWith("/go/3djake/")
@@ -347,6 +353,19 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     <div className="text-2xl font-bold text-primary">{overall}<span className="text-sm font-normal text-muted-foreground">/10</span></div>
                   </div>
                 </div>
+                {replacement && (
+                  <a
+                    href={`/printers/${replacement.slug}`}
+                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 transition-colors hover:border-amber-500/50"
+                  >
+                    <span className="text-xs text-amber-200/90">
+                      <span className="font-semibold">Discontinued.</span> We now recommend the{" "}
+                      <span className="font-semibold underline underline-offset-2">{replacement.name}</span>
+                      {" "}at ${replacement.price}.
+                    </span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-amber-300/80" />
+                  </a>
+                )}
                 <div className="mt-4 flex flex-col gap-2">
                   <AmazonButton
                     asin={printer.amazonAsin}
