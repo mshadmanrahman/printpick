@@ -75,7 +75,7 @@ export const printers: readonly Printer[] = [
     type: "fdm",
     image: "/images/printers/bambu-lab-a1-combo.png",
     price: 399,
-    amazonAsin: "B0D17V4SKM",
+    amazonAsin: "B0GQMN8VLS",
     brandUrl: "https://bambulab.com/en-us/a1",
     buildVolume: { x: 256, y: 256, z: 256 },
     layerResolution: { min: 0.05, max: 0.35 },

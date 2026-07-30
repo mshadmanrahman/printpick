@@ -29,6 +29,13 @@ const ASIN_REMAP: Readonly<Record<string, string | null>> = {
   "B0FFCR5P00": null,
   // Bambu Lab H2D (real ASIN in catalog, not on Amazon), suppress Compare on Amazon link
   "B0FPKNK7QF": null,
+  // Bambu Lab A1 Combo, correct ASIN verified 2026-07-30 (listing title "A1 Combo + LED Lamp
+  // Kit, Multi-Color 3D Printing (with AMS lite)"). Listing renders an outOfStock block with no
+  // add-to-cart or buy-now, so a direct /dp/ link dead-ends. Suppress until it restocks, then
+  // remove this entry. Previously "B0D17V4SKM", which resolves to the plain single-colour A1:
+  // the page sells AMS Lite multi-colour, so buyers landed on the wrong product (0 of 17 clicks
+  // converted, 2026-07-29 Amazon Linked-Product report).
+  "B0GQMN8VLS": null,
   // Elegoo Saturn 4 Ultra, ASIN delisted/404 as of 2026-04-04, fallback to search
   "B0D9FM4KFN": null,
   // QIDI X-Plus 3, ASIN 404 as of 2026-04-11, fallback to search
