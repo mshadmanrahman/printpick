@@ -24,9 +24,8 @@ import { resolve } from "node:path";
 
 const SITE_URL = "sc-domain:printpick.dev";
 
-const KEY_PATH =
-  process.env.GSC_KEY_FILE ||
-  resolve(import.meta.dirname, "../secrets/gsc-service-account.json");
+const DEFAULT_KEY_PATH = resolve(import.meta.dirname, "../secrets/gsc-service-account.json");
+const KEY_PATH = process.env.GSC_KEY_FILE || (existsSync(DEFAULT_KEY_PATH) ? DEFAULT_KEY_PATH : null);
 
 const PRIORITY_URLS = [
   "https://printpick.dev/",
@@ -59,17 +58,15 @@ const PRIORITY_URLS = [
 /* ── Auth ─────────────────────────────────────────── */
 
 function getAuth() {
-  if (!existsSync(KEY_PATH)) {
-    console.error(`❌ Service account key not found at: ${KEY_PATH}`);
-    console.error("   Download it from GCP Console → IAM → Service Accounts → Keys");
-    console.error("   Or set GSC_KEY_FILE env var to the path.");
-    process.exit(1);
+  const opts = {
+    scopes: ["https://www.googleapis.com/auth/webmasters"],
+  };
+
+  if (KEY_PATH) {
+    opts.keyFile = KEY_PATH;
   }
 
-  return new google.auth.GoogleAuth({
-    keyFile: KEY_PATH,
-    scopes: ["https://www.googleapis.com/auth/webmasters"],
-  });
+  return new google.auth.GoogleAuth(opts);
 }
 
 /* ── Indexing check ───────────────────────────────── */
