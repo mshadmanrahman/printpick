@@ -21,102 +21,44 @@ export const AFFILIATE_TAG = "printpick20-20";
  * - Map to `null` to force search-URL fallback (product not sold on Amazon).
  */
 const ASIN_REMAP: Readonly<Record<string, string | null>> = {
-  // Bambu Lab P2S, not sold on Amazon, only through Bambu store + Best Buy
-  "B0P2S00000": null,
-  // Bambu Lab H2D, not sold on Amazon, only through Bambu store + Best Buy
-  "B0H2D00000": null,
-  // Flashforge Creator 5 Pro, not sold on Amazon (direct/specialty retailers only)
-  "B0FFCR5P00": null,
-  // Bambu Lab H2D (real ASIN in catalog, not on Amazon), suppress Compare on Amazon link
-  "B0FPKNK7QF": null,
-  // Bambu Lab A1 Combo, correct ASIN verified 2026-07-30 (listing title "A1 Combo + LED Lamp
-  // Kit, Multi-Color 3D Printing (with AMS lite)"). Listing renders an outOfStock block with no
-  // add-to-cart or buy-now, so a direct /dp/ link dead-ends. Suppress until it restocks, then
-  // remove this entry. Previously "B0D17V4SKM", which resolves to the plain single-colour A1:
-  // the page sells AMS Lite multi-colour, so buyers landed on the wrong product (0 of 17 clicks
-  // converted, 2026-07-29 Amazon Linked-Product report).
-  "B0GQMN8VLS": null,
-  // Elegoo Saturn 4 Ultra, ASIN delisted/404 as of 2026-04-04, fallback to search
-  "B0D9FM4KFN": null,
-  // QIDI X-Plus 3, ASIN 404 as of 2026-04-11, fallback to search
-  "B0CM49X31W": null,
-  // Creality Ender 3 V3, ASIN 404 as of 2026-04-11, fallback to search
-  "B0DFN3QQ3F": null,
-  // Creality K2 Plus, ASIN 404 as of 2026-04-11, fallback to search
-  "B0DHGQVYMP": null,
-  // Anycubic Photon Mono 4, ASIN 404 as of 2026-04-11, fallback to search
-  "B0DJKFQ8JN": null,
-  // Bambu Lab X2D, not yet released, placeholder ASIN, fallback to search
-  "B0X2D00000": null,
-  // Anycubic Kobra 2 Pro, placeholder ASIN pending verification
-  "B0KBR2PR00": null,
-  // Bambu Lab X1 Carbon Combo, placeholder ASIN pending verification
-  "B0X1CARBCO": null,
-  // Elegoo Jupiter SE, placeholder ASIN pending verification
-  "B0JUPTRSE0": null,
-  // Anycubic Kobra S1 ACE 2 Pro Combo (16-color variant). Launched 2026-04-24
-  // Anycubic-EU-direct-only at launch (verified 2026-04-26). Brand affiliate via brandUrl is primary; Amazon CTA falls back to search.
-  "B0KS1ACE00": "B0GT84VHBM", // placeholder -> confirmed ASIN (2026-05-07)
-  // Re-verified live on Amazon 2026-04-26 via verify-amazon-asins.mjs --all.
-  // Removed from null-remap so direct /dp/ links generate again:
-  //   B0DN69LXDW Creality Hi Combo
-  //   B0GJSBSLQ6 Creality SparkX i7
-  //   B0FDQP54X8 Elegoo Centauri Carbon
-  //   B0G4TPZPZM Elegoo Centauri Carbon 2 Combo
+  // Verified against live Amazon by scripts/verify-amazon-asins.mjs on 2026-07-30
+  // (72 ASINs scanned: 61 verified, 11 returning Page Not Found). Pruned from 60
+  // entries to 13 on the same date: the other 47 pointed at ASINs no longer
+  // referenced anywhere in src/, so getAmazonLink was never called with them.
+  //
+  // Re-verify weekly. When an entry here starts verifying as live AND buyable,
+  // delete it so direct /dp/ links resume.
 
-  // === Batch remap 2026-04-19 — Playwright US-runner verification ===
-  // All below were confirmed "Page Not Found" on Amazon (or reassigned to an
-  // unrelated product) by scripts/verify-amazon-asins.mjs. Falling back to
-  // search preserves the printpick20-20 tag while the catalog ASINs get
-  // hand-refreshed. Re-verify weekly via the GitHub Actions workflow.
-  "B0CL8ZQM3J": null, // anycubic-kobra-2-max
-  "B0DDX1B3V6": null, // anycubic-kobra-3
-  "B0DDX1C2V5": null, // anycubic-kobra-3-combo
-  "B0BTRM8KKY": null, // anycubic-photon-mono-2
-  "B0CJPKFQR7": null, // anycubic-photon-mono-m5s
-  "B0B5RJQXGP": null, // artillery-genius-pro
-  "B0D5RX8MHS": null, // artillery-sidewinder-x4-plus
-  "B0CJPKFQLN": null, // bambu-lab-a1
-  "B0CJPKFQPN": null, // bambu-lab-a1-combo
-  "B0CL2KMFM4": null, // bambu-lab-a1-mini
-  "B0C6HGJQ8N": null, // bambu-lab-p1p
-  "B0C9KMRH6Z": null, // bambu-lab-p1s
-  "B0BZ3CR7WW": null, // bambu-lab-x1-carbon
-  "B0C5LQ7KND": null, // creality-cr-m4
-  "B0CML9QXZK": null, // creality-ender-3-v3-ke
-  // DANGER: ASIN below was reassigned to a Scandinavian dining mat. Shipping
-  // users there from a K1 Max CTA and claiming commission would breach
-  // Amazon Associates ToS. Null-remap defuses this immediately.
-  "B0C5KXMPZ8": null, // creality-ender-3-v3-se — reassigned to unrelated product
-  "B0BSLR9J4M": null, // creality-ender-5-s1
-  "B0BLY6P37G": null, // creality-halot-mage-pro
-  "B0CG2P8RQN": null, // creality-k1
-  "B0CG2P8QQN": null, // creality-k1-max
-  "B0CKVQJRP9": null, // elegoo-mars-4
-  "B0CKVQJLP3": null, // elegoo-mars-4-ultra
-  "B0D9FQWK7N": null, // elegoo-mars-5-ultra
-  "B0C74BKJL6": null, // elegoo-neptune-4
-  "B0C74BJRXM": null, // elegoo-neptune-4-max
-  "B0C74BVCFC": null, // elegoo-neptune-4-pro
-  "B0CGTH1GPD": null, // elegoo-saturn-3-ultra
-  "B0D8K2MNQR": null, // flashforge-adventurer-5m
-  "B0D8K2MNFL": null, // flashforge-adventurer-5m-pro
-  "B0CKVQJLR5": null, // kingroon-klp1
-  "B0BVL3BGWH": null, // kingroon-kp3s-pro-v2
-  "B0BGY93HWX": null, // longer-orange-4k
-  "B0BGY93HZX": null, // longer-orange-4k-v2
-  "B0CGVQHB2P": null, // phrozen-sonic-mega-8k-s2
-  "B09BQHJ5ZQ": null, // phrozen-sonic-mini-4k
-  "B0BN7XMFWR": null, // phrozen-sonic-mini-8k-s
-  "B0DRMTFZ9X": null, // prusa-mk4s
-  "B0DSPDQNF3": null, // prusa-xl
+  // --- Real ASIN, correct product, listing live but NOT currently buyable ---
+  // Both render an outOfStock block with no add-to-cart, so a direct /dp/ link
+  // dead-ends. Suppressing the Amazon CTA hands off to BrandButton instead.
+  // Delete these two once Amazon restocks.
+  "B0FPKNK7QF": null, // bambu-lab-h2d, listing titled "Bambu Lab H2D AMS Combo"
+  "B0GQMN8VLS": null, // bambu-lab-a1-combo, "A1 Combo + LED Lamp Kit (with AMS lite)"
+
+  // --- Placeholder ASINs that were never real listings ---
+  // Hand-written stand-ins from before each product had a confirmed ASIN. All
+  // 404. Replace with the real ASIN if the product ever reaches Amazon US.
+  "B0P2S00000": null, // bambu-lab-p2s, Bambu store + Best Buy only
+  "B0X2D00000": null, // bambu-lab-x2d, not yet released
+  "B0X1CARBCO": null, // bambu-lab-x1-carbon-combo
+  "B0JUPTRSE0": null, // elegoo-jupiter-se, now monetised via Awin brandUrl instead
+  "B0KBR2PR00": null, // anycubic-kobra-2-pro
+
+  // --- Real ASINs that now 404 on Amazon (delisted) ---
+  "B0FFCR5P00": null, // flashforge-creator-5-pro, direct/specialty retailers only
   "B0CM49W3NK": null, // qidi-ibox-mono2
-  "B0CM4QVY5Z": null, // qidi-x-max-3
-  "B0CM49W2LK": null, // qidi-x-smart-3
-  "B0CGVQHCZP": null, // sovol-sv06-plus
-  "B0CGVQHBZN": null, // sovol-sv07-plus
-  "B0D4FZPWV6": null, // sovol-sv08
-  "B09J4P9JRQ": null, // voxelab-aquila-x2
+  "B0BVL3BGWH": null, // kingroon-kp3s-pro-v2, brand store is the only buy path
+  "B09BQHJ5ZQ": null, // phrozen-sonic-mini-4k, brand store is the only buy path
+  "B0CKVQJLR5": null, // kingroon-klp1, no buy path anywhere, marked discontinued
+  "B0BGY93HZX": null, // longer-orange-4k-v2, no buy path anywhere, marked discontinued
+
+  // Historical warning worth keeping even though the entry is gone: B0C5KXMPZ8
+  // was once creality-ender-3-v3-se and Amazon reassigned it to an unrelated
+  // Scandinavian dining mat. If an ASIN ever verifies "live" but the title does
+  // not match the product, treat it as reassigned, not fixed. Claiming
+  // commission on a reassigned listing would breach the Associates ToS.
+
 };
 
 export type AmazonLinkType = "direct" | "search";
