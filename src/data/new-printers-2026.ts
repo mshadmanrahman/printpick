@@ -1555,6 +1555,7 @@ export const newPrinters2026: readonly Printer[] = [
     image: "/images/printers/elegoo-jupiter-se.png",
     price: 340,
     amazonAsin: "B0JUPTRSE0",
+    brandUrl: ELEGOO_AFFILIATE_URLS.jupiterSe,
     buildVolume: { x: 277, y: 156, z: 300 },
     layerResolution: { min: 0.01, max: 0.2 },
     printSpeed: 70,

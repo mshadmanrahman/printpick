@@ -671,6 +671,9 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/kingroon-kp3s-pro-v2.png",
     price: 159,
     amazonAsin: "B0BVL3BGWH",
+    // Amazon ASIN B0BVL3BGWH 404s (verify:amazon 2026-07-30). Brand store is the only live
+    // buy path; verified HTTP 200 on 2026-07-30.
+    brandUrl: "https://kingroon.com/products/kingroon-kp3s-pro-v2-with-klipper-firmware",
     buildVolume: { x: 200, y: 200, z: 200 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 250,
@@ -1217,6 +1220,9 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/kingroon-klp1.png",
     price: 299,
     amazonAsin: "B0CKVQJLR5",
+    // Amazon ASIN 404s (verify:amazon 2026-07-30) and no live kingroon.com product page
+    // remains, so there is no buy path left. Keeps the page but drops it from /best lists.
+    discontinued: true,
     buildVolume: { x: 200, y: 200, z: 200 },
     layerResolution: { min: 0.05, max: 0.35 },
     printSpeed: 500,
@@ -1299,6 +1305,9 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/phrozen-sonic-mini-4k.png",
     price: 199,
     amazonAsin: "B09BQHJ5ZQ",
+    // Amazon ASIN B09BQHJ5ZQ 404s (verify:amazon 2026-07-30). Phrozen still lists the Sonic
+    // Mini series; verified HTTP 200 on 2026-07-30.
+    brandUrl: "https://phrozen3d.com/products/sonic-mini-4k",
     buildVolume: { x: 134, y: 75, z: 130 },
     layerResolution: { min: 0.01, max: 0.15 },
     printSpeed: 80,
@@ -1355,6 +1364,9 @@ export const printers: readonly Printer[] = [
     image: "/images/printers/longer-orange-4k-v2.png",
     price: 199,
     amazonAsin: "B0BGY93HZX",
+    // Amazon ASIN 404s (verify:amazon 2026-07-30) and longer3d.com no longer lists it,
+    // so there is no buy path left. Keeps the page but drops it from /best lists.
+    discontinued: true,
     buildVolume: { x: 120, y: 68, z: 195 },
     layerResolution: { min: 0.01, max: 0.15 },
     printSpeed: 90,

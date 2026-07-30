@@ -119,4 +119,10 @@ export const ELEGOO_AFFILIATE_URLS = {
     "elegoo",
     "https://www.elegoo.com/products/centauri-carbon-2-combo",
   ),
+  // Amazon ASIN B0JUPTRSE0 is a placeholder that 404s (verify:amazon 2026-07-30), so the
+  // Awin-tracked brand link is the only buy path. Destination verified HTTP 200 2026-07-30.
+  jupiterSe: getAwinDeepLink(
+    "elegoo",
+    "https://www.elegoo.com/products/jupiter-se",
+  ),
 } as const;
