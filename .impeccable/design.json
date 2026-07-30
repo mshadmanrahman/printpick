@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-08T13:20:00Z",
+  "title": "Design System: PrintPick",
+  "extensions": {
+    "colorMeta": {
+      "deep-navy-black": {
+        "role": "neutral",
+        "displayName": "Deep Navy-Black",
+        "canonical": "oklch(0.13 0.015 250)"
+      },
+      "studio-surface": {
+        "role": "neutral",
+        "displayName": "Studio Surface",
+        "canonical": "oklch(0.17 0.012 250)"
+      },
+      "surface-elevated": {
+        "role": "neutral",
+        "displayName": "Surface Elevated",
+        "canonical": "oklch(0.21 0.01 250)"
+      },
+      "off-white-ink": {
+        "role": "neutral",
+        "displayName": "Off-White Ink",
+        "canonical": "oklch(0.95 0.005 250)"
+      },
+      "muted-text": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "oklch(0.55 0.01 250)"
+      },
+      "brand-teal": {
+        "role": "primary",
+        "displayName": "Brand Teal",
+        "canonical": "oklch(0.62 0.14 192)",
+        "tonalRamp": [
+          "oklch(0.20 0.10 192)",
+          "oklch(0.30 0.12 192)",
+          "oklch(0.40 0.13 192)",
+          "oklch(0.50 0.14 192)",
+          "oklch(0.62 0.14 192)",
+          "oklch(0.72 0.12 192)",
+          "oklch(0.82 0.09 192)",
+          "oklch(0.92 0.05 192)"
+        ]
+      },
+      "brand-teal-muted": {
+        "role": "primary",
+        "displayName": "Brand Teal, Muted",
+        "canonical": "oklch(0.62 0.14 192 / 12%)"
+      },
+      "winner-green": {
+        "role": "secondary",
+        "displayName": "Winner Green",
+        "canonical": "oklch(0.65 0.15 145)"
+      },
+      "step-up-amber": {
+        "role": "tertiary",
+        "displayName": "Step-Up Amber",
+        "canonical": "oklch(0.75 0.15 80)"
+      },
+      "border-hairline": {
+        "role": "neutral",
+        "displayName": "Border Hairline",
+        "canonical": "oklch(0.25 0.01 250)"
+      },
+      "destructive-red": {
+        "role": "neutral",
+        "displayName": "Destructive",
+        "canonical": "oklch(0.577 0.245 27.325)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines, tier page headers. Space Grotesk, bold, tight tracking."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Editorial copy, product descriptions. DM Sans."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Subtle metadata, deliberately the lightest weight (300) for contrast against bold headlines."
+      },
+      "data": {
+        "displayName": "Data/Mono",
+        "purpose": "Scores, prices, dimensions, spec tables. Geist Mono."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-quint",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Global default easing — smooth deceleration, no bounce or spring."
+      },
+      {
+        "name": "score-bar-fill",
+        "value": "600ms ease-out-quart",
+        "purpose": "Horizontal score bar fill animation on scroll-into-view."
+      },
+      {
+        "name": "card-hover-lift",
+        "value": "translateY(-2px), 200ms ease-out",
+        "purpose": "Printer card hover: lift + border-color shift to brand teal."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Brand teal CTA, scale + background transition on hover, no bounce.",
+      "html": "<button class=\"ds-btn-primary\">Check Price</button>",
+      "css": ".ds-btn-primary { background: oklch(0.62 0.14 192); color: oklch(0.13 0.015 250); padding: 10px 20px; font-weight: 600; border: none; border-radius: 0.5rem; cursor: pointer; transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), background 0.2s ease-out; } .ds-btn-primary:hover { transform: scale(1.02); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.62 0.14 192); outline-offset: 2px; }"
+    },
+    {
+      "name": "Amazon Affiliate CTA",
+      "kind": "button",
+      "refersTo": "amazon-cta",
+      "description": "Teal-tinted pill CTA, visually distinct from the primary button so affiliate intent reads at a glance. Fires click tracking.",
+      "html": "<a class=\"ds-btn-amazon\" rel=\"nofollow sponsored\">Check Price on Amazon &#8599;</a>",
+      "css": ".ds-btn-amazon { display: inline-flex; align-items: center; gap: 6px; background: oklch(0.62 0.14 192 / 12%); color: oklch(0.62 0.14 192); border: 1px solid oklch(0.62 0.14 192 / 30%); border-radius: 0.5rem; padding: 8px 16px; font-weight: 500; text-decoration: none; }"
+    },
+    {
+      "name": "Printer Card (grid)",
+      "kind": "card",
+      "description": "Product-is-hero card: rank badge, score bar, mono price, buy CTA. Grid variant uses the softer 2xl radius.",
+      "html": "<div class=\"ds-printer-card\"><div class=\"ds-rank-badge\">#1</div><div class=\"ds-score-bar\"><div class=\"ds-score-fill\" style=\"width:87%\"></div></div><div class=\"ds-price\">$249</div></div>",
+      "css": ".ds-printer-card { background: oklch(0.17 0.012 250); border: 1px solid oklch(0.25 0.01 250); border-radius: 0.9rem; padding: 20px; transition: transform 0.2s ease-out, border-color 0.2s ease-out; } .ds-printer-card:hover { transform: translateY(-2px); border-color: oklch(0.62 0.14 192); } .ds-rank-badge { width: 28px; height: 28px; border-radius: 50%; background: oklch(0.62 0.14 192); color: oklch(0.13 0.015 250); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; } .ds-score-bar { height: 4px; background: oklch(0.21 0.01 250); border-radius: 999px; overflow: hidden; margin: 12px 0; } .ds-score-fill { height: 100%; background: oklch(0.62 0.14 192); transition: width 0.6s cubic-bezier(0.22,1,0.36,1); } .ds-price { font-family: 'Geist Mono', monospace; color: oklch(0.95 0.005 250); font-size: 18px; font-weight: 600; }"
+    },
+    {
+      "name": "Anchor Pricing Winner Card",
+      "kind": "card",
+      "refersTo": "card-winner",
+      "description": "The 'Best Value' tier card: physically larger, winner-green border, lifted above its siblings.",
+      "html": "<div class=\"ds-winner-card\"><span class=\"ds-winner-star\">&#9733; Best Value</span><div class=\"ds-price\">$399</div></div>",
+      "css": ".ds-winner-card { background: oklch(0.17 0.012 250); border: 2px solid oklch(0.65 0.15 145); border-radius: 0.9rem; padding: 24px; transform: translateY(-3px); } .ds-winner-star { color: oklch(0.65 0.15 145); font-weight: 600; font-size: 13px; }"
+    },
+    {
+      "name": "Anchor Pricing Step-Up Card",
+      "kind": "card",
+      "refersTo": "card-step-up",
+      "description": "The 'Step Up' tier card: amber border, delta price framing (never the total).",
+      "html": "<div class=\"ds-stepup-card\"><span class=\"ds-stepup-label\">Step Up</span><div class=\"ds-delta\">+$200 vs Best Value</div></div>",
+      "css": ".ds-stepup-card { background: oklch(0.17 0.012 250); border: 1px solid oklch(0.75 0.15 80); border-radius: 0.9rem; padding: 20px; } .ds-stepup-label { color: oklch(0.75 0.15 80); font-weight: 600; font-size: 13px; } .ds-delta { font-family: 'Geist Mono', monospace; color: oklch(0.95 0.005 250); font-size: 14px; margin-top: 8px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Studio Spotlight",
+    "overview": "Every printer sits alone on true darkness like a product shot in MKBHD's studio: minimal chrome, generous whitespace, the physical object doing all the visual work the page needs. The site never hedges — one confident recommendation per tier, backed by data, framed like an editor who already tested fifty printers and is just walking you to the one they'd buy. Dark is the primary palette, not a toggle; the deep navy-black background and warm off-white ink exist so product photography and the single teal accent can carry all the color the page needs.\n\nThis system explicitly rejects the neutral-comparison-tool posture and the affiliate-farm listicle look: no \"these are all great,\" no purple-to-blue AI-startup gradients, no decorative glow. The conversion architecture (anchor pricing, one clear winner, loss-framed upgrades) is not a dark pattern bolted onto a review site — it's the same \"MKBHD meets Wirecutter\" editorial confidence expressed in layout, not just copy.",
+    "keyCharacteristics": [
+      "Dark-first, blue-navy-tinted neutrals throughout — even grays lean toward hue 250, never flat gray",
+      "One accent color (teal) reserved for CTAs, badges, and active states; two semantic accents (winner green, step-up amber) exist only inside the anchor-pricing mechanic",
+      "Single-level elevation: background to surface, never surface to surface",
+      "Product photography carries the visual weight; UI chrome stays minimal by design"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Teal appears on CTAs, badges, and active states only. If a new element wants to stand out, it does not reach for a new color — it earns teal only if it's asking for a click, or it earns winner-green/step-up-amber only if it's part of the pricing-tier mechanic.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Repeat-Weight Rule",
+        "body": "Never use the same font weight twice within one section. If a headline is 700, the label beneath it should be 300 or 400, not 600 — the contrast itself is the hierarchy.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Level Rule",
+        "body": "A card can sit on the background. A card cannot sit on another card. If a component needs to feel \"inside\" another, use a border or the next tonal step up, never a second nested card shape.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep dark as the primary palette, not a toggle.",
+      "Do reserve brand teal for CTAs, badges, and active states only.",
+      "Do let one card in a comparison be physically larger to signal the recommended pick.",
+      "Do frame upgrade pricing as a delta, never the total price alone.",
+      "Do make every recommendation a decision, never a hedge."
+    ],
+    "donts": [
+      "Don't use light mode as the design target.",
+      "Don't add gradient text anywhere.",
+      "Don't add glassmorphism, blur effects, or glow borders — the homepage hero's current radial teal gradient wash is a live violation of this rule, not a sanctioned exception.",
+      "Don't nest a card inside a card.",
+      "Don't build equal-sized card grids where every option looks equally weighted.",
+      "Don't use purple-to-blue gradients.",
+      "Don't use modals for anything.",
+      "Don't use stock photography."
+    ]
+  }
+}
