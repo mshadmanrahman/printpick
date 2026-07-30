@@ -216,20 +216,40 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
       {/* ── Sticky mobile CTA ── */}
-      <div className="fixed bottom-0 inset-x-0 z-50 sm:hidden border-t border-border/60 bg-background/95 backdrop-blur-lg px-4 py-3 flex items-center gap-3">
-        <div className="flex-1 min-w-0">
-          <p className="text-xs font-semibold truncate">{printer.name}</p>
-          <p className="text-lg font-extrabold leading-none" style={{ fontFamily: "var(--font-mono)" }}>${printer.price}</p>
+      {/* AmazonButton self-suppresses when getAmazonLink falls back to search, which used to
+          leave this bar showing a name and price with nothing tappable. Fall back to the brand
+          CTA the same way the hero does, and drop the bar entirely when neither exists. */}
+      {(amazonLink.type === "direct" || printer.brandUrl) && (
+        <div className="fixed bottom-0 inset-x-0 z-50 sm:hidden border-t border-border/60 bg-background/95 backdrop-blur-lg px-4 py-3 flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-semibold truncate">{printer.name}</p>
+            <p className="text-lg font-extrabold leading-none" style={{ fontFamily: "var(--font-mono)" }}>${printer.price}</p>
+          </div>
+          {amazonLink.type === "direct" ? (
+            <AmazonButton
+              asin={printer.amazonAsin}
+              printerName={printer.name}
+              price={printer.price}
+              label="Buy on Amazon"
+              ctaPosition="mobile_sticky"
+              className="shrink-0 text-sm py-2.5 px-4"
+            />
+          ) : printer.brandUrl ? (
+            <BrandButton
+              brandUrl={printer.brandUrl}
+              printerName={printer.name}
+              brand={printer.brand}
+              label={
+                printer.brandUrl.startsWith("/go/3djake/")
+                  ? "Buy at 3DJake"
+                  : undefined
+              }
+              ctaPosition="mobile_sticky_brand"
+              className="shrink-0 text-sm py-2.5 px-4"
+            />
+          ) : null}
         </div>
-        <AmazonButton
-          asin={printer.amazonAsin}
-          printerName={printer.name}
-          price={printer.price}
-          label="Buy on Amazon"
-          ctaPosition="mobile_sticky"
-          className="shrink-0 text-sm py-2.5 px-4"
-        />
-      </div>
+      )}
 
       {/* ── Hero Section ── */}
       <section className="bg-gradient-to-b from-card/60 to-background">
