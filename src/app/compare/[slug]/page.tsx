@@ -518,7 +518,7 @@ export default async function ComparisonPage({
                     asin={printer.amazonAsin}
                     printerName={printer.name}
                     price={printer.price}
-                    label={`Get ${printer.name}, $${printer.price}`}
+                    label={`Get ${printer.name}`}
                     ctaPosition="comparison_recommendation_card"
                   />
                   {printer.brandUrl && (

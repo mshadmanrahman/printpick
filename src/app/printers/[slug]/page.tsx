@@ -157,7 +157,13 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
       url: getAmazonUrl(printer.amazonAsin, printer.name),
       priceCurrency: "USD",
       price: printer.price,
-      availability: "https://schema.org/InStock",
+      // Derived, not asserted. Claiming InStock for a printer whose Amazon CTA is
+      // suppressed (dead or out-of-stock ASIN) is false structured data.
+      availability: printer.discontinued
+        ? "https://schema.org/Discontinued"
+        : amazonLink.type === "direct"
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -346,7 +352,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
                     asin={printer.amazonAsin}
                     printerName={printer.name}
                     price={printer.price}
-                    label={`Buy on Amazon, $${printer.price}`}
+                    label="Buy on Amazon"
                     ctaPosition="printer_hero_primary"
                     className="w-full justify-center py-3 text-base font-semibold"
                   />
@@ -474,7 +480,7 @@ export default async function PrinterDetailPage({ params }: { params: Promise<{ 
               asin={printer.amazonAsin}
               printerName={printer.name}
               price={printer.price}
-              label={`Buy ${printer.name} on Amazon, $${printer.price}`}
+              label={`Buy ${printer.name} on Amazon`}
               ctaPosition="printer_verdict_primary"
               className="py-3 text-base"
             />
