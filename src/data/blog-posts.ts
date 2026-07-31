@@ -1100,31 +1100,6 @@ const blogPosts: readonly BlogPost[] = [
       "Get the Mars 5 Ultra if you mostly print individual minis, jewelry, or small batches, or if you\'re new to resin and want to keep the risk low. Get the Saturn 4 Ultra if batch-printing armies or terrain is your actual workflow. The detail difference between 14K and 12K is minor at tabletop distance. The size difference is not.",
   },
   {
-    slug: "qidi-x-plus-3-vs-bambu-lab-p1s",
-    title: "QIDI X-Plus 3 vs Bambu P1S: Budget Enclosed Showdown",
-    description:
-      "QIDI X-Plus 3 ($499) vs Bambu Lab P1S ($599): the battle for best enclosed printer value. Active heating vs better software.",
-    publishedAt: "2026-03-30",
-    updatedAt: "2026-03-30",
-    category: "comparison",
-    intro:
-      "Both enclosed CoreXY machines. Both handle ABS. Both reliable. The X-Plus 3 costs $100 less and actively heats its chamber to 60C. The P1S has better software and a more proven ecosystem. This comparison comes down to one question: do you print Nylon and Polycarbonate regularly, or mostly PLA, PETG, and ABS?",
-    items: [
-      {
-        printerSlug: "qidi-x-plus-3",
-        headline: "QIDI X-Plus 3 ($499)",
-        body: "The X-Plus 3's headline is active chamber heating to 60°C. The Bambu P1S passively reaches 40-45°C; the X-Plus 3 heats the chamber on purpose. That gap matters for Nylon and Polycarbonate. At 60°C you get genuine engineering material printing without the warping issues that plague open-frame and passively-enclosed printers. The 280x280x270mm build volume beats the P1S\'s 256mm cube. CoreXY at 600mm/s. Direct drive handles flexibles and abrasives. Where it falls short: QIDI\'s slicer and app are functional but noticeably less polished than Bambu Studio. The community is smaller, troubleshooting resources less abundant, firmware updates slower. Some early X-Plus 3 units needed calibration adjustments out of the box. If material capability is your priority and you\'re comfortable with less hand-holding, the X-Plus 3 at $499 is a strong machine.",
-      },
-      {
-        printerSlug: "bambu-lab-p1s",
-        headline: "Bambu Lab P1S ($599)",
-        body: "Bambu Studio is the best slicer available, and the P1S is built around that ecosystem. One-click profiles, multi-color painting tools, remote monitoring, AI failure detection. From unboxing to printing ABS takes minutes. HEPA filtration is effective enough for bedroom or office use. AMS compatibility makes multi-color prints straightforward. Print quality is excellent out of the box: precise dimensions, clean layer lines, minimal stringing. The enclosed chamber reaches 40-45°C passively, which handles ABS and ASA reliably. For Nylon and Polycarbonate, that passive temp is a real limitation compared to the X-Plus 3\'s 60°C. The community is massive. Hundreds of thousands of users, deep libraries of profiles, abundant YouTube guides. The $100 premium over the X-Plus 3 buys software polish and community depth. For users printing PLA, PETG, and ABS with occasional engineering work, it\'s worth it.",
-      },
-    ],
-    conclusion:
-      "Get the QIDI X-Plus 3 if you regularly print Nylon, Polycarbonate, or carbon fiber composites. Active 60°C heating is the only way to do that reliably under $600. Get the Bambu P1S if you want frictionless software, a huge community, and reliability confidence. For most users printing PLA, PETG, and ABS, the P1S is the easier call. For engineers pushing material limits, the X-Plus 3 is the one that can actually do it.",
-  },
-  {
     slug: "creality-k1-max-vs-sovol-sv08",
     title: "K1 Max vs SV08: Large Fast Printers Compared",
     description:
