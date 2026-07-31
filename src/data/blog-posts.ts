@@ -9,6 +9,16 @@ export interface BlogPost {
   readonly category: "listicle" | "guide" | "comparison";
   readonly heroImage?: string;
   readonly intro: string;
+  /**
+   * Head-to-head differences, rendered as a table directly under the intro.
+   * Only meaningful on two-printer comparison posts: valueA is items[0]'s
+   * printer, valueB is items[1]'s.
+   */
+  readonly keyDifferences?: readonly {
+    readonly label: string;
+    readonly valueA: string;
+    readonly valueB: string;
+  }[];
   readonly items: readonly {
     readonly printerSlug: string;
     readonly headline: string;
@@ -1331,14 +1341,41 @@ const blogPosts: readonly BlogPost[] = [
   },
   {
     slug: "bambu-lab-p2s-vs-p1s-comparison",
-    title: "Bambu Lab P2S vs P1S: Is the Upgrade Worth It?",
+    title: "Bambu Lab P1S vs P2S Differences: Is the Upgrade Worth It?",
     description:
-      "The P2S replaces the beloved P1S. Here's exactly what changed, what got better, and whether you should upgrade or buy new.",
+      "Every difference between the Bambu Lab P1S and P2S: nozzle swaps, camera, AMS, screen, and price. Whether you should upgrade or buy new.",
     publishedAt: "2026-04-01",
-    updatedAt: "2026-04-01",
+    updatedAt: "2026-07-31",
     category: "comparison",
+    keyDifferences: [
+      {
+        label: "Price",
+        valueA: "$549",
+        valueB: "$449",
+      },
+      {
+        label: "Nozzle changes",
+        valueA: "Quick-swap, one hand, cold, under 5 seconds",
+        valueB: "Two wrenches, hotend must be hot, a few minutes",
+      },
+      {
+        label: "Screen",
+        valueA: "5-inch touchscreen, manages prints without the app",
+        valueB: "Small non-touch display",
+      },
+      {
+        label: "Camera",
+        valueA: "1080p with AI failure detection, pauses the print",
+        valueB: "720p, notification only, no AI detection",
+      },
+      {
+        label: "Filament system",
+        valueA: "AMS 2 Pro, dries filament to 50C while feeding",
+        valueB: "AMS, no drying, needs a separate drybox",
+      },
+    ],
     intro:
-      "The Bambu Lab P1S was the most recommended enclosed 3D printer of 2024-2025, reliable, fast, and reasonably priced. Now Bambu has replaced it with the P2S at the same $549 price point. The question on every forum is simple: is the P2S a meaningful upgrade or just a spec bump? We compared both printers across every dimension that matters: print quality, speed, noise, features, firmware, and ecosystem. If you own a P1S, we'll tell you whether upgrading is worth it. If you're buying your first enclosed printer, we'll tell you why the P2S makes the P1S obsolete. The short answer: the P2S is better in almost every way. The longer answer involves quick-swap nozzles, a completely redesigned AMS, and AI monitoring that actually works.",
+      "The Bambu Lab P1S was the most recommended enclosed 3D printer of 2024-2025, reliable, fast, and reasonably priced. Now Bambu has replaced it with the P2S at $549, a $100 step up from the P1S. The question on every forum is simple: is the P2S a meaningful upgrade or just a spec bump? We compared both printers across every dimension that matters: print quality, speed, noise, features, firmware, and ecosystem. If you own a P1S, we'll tell you whether upgrading is worth it. If you're buying your first enclosed printer, we'll tell you why the P2S makes the P1S obsolete. The short answer: the P2S is better in almost every way. The longer answer involves quick-swap nozzles, a completely redesigned AMS, and AI monitoring that actually works.",
     items: [
       {
         printerSlug: "bambu-lab-p2s",
@@ -1352,7 +1389,7 @@ const blogPosts: readonly BlogPost[] = [
       },
     ],
     conclusion:
-      "For new buyers: get the P2S. At the same $549 price, every upgrade is pure upside, quick-swap nozzles, better camera, improved cooling, and the option for an AMS that dries filament. There is no reason to buy a new P1S at full price when the P2S exists. For P1S owners: the upgrade is worth it if you regularly change nozzles, want AI failure detection, or plan to buy the AMS 2 Pro for its drying capability. If you print mostly PLA with a 0.4mm nozzle and your P1S works fine, there is no urgent reason to switch, your P1S will serve you well for years to come. The P2S doesn't make the P1S obsolete for existing owners; it just makes it a harder recommendation for new buyers.",
+      "For new buyers: get the P2S. The extra $100 over the P1S buys upgrades that are all pure upside, quick-swap nozzles, better camera, improved cooling, and the option for an AMS that dries filament. There is no reason to buy a new P1S at full price when the P2S exists. For P1S owners: the upgrade is worth it if you regularly change nozzles, want AI failure detection, or plan to buy the AMS 2 Pro for its drying capability. If you print mostly PLA with a 0.4mm nozzle and your P1S works fine, there is no urgent reason to switch, your P1S will serve you well for years to come. The P2S doesn't make the P1S obsolete for existing owners; it just makes it a harder recommendation for new buyers.",
     affiliateCta: {
       brand: "Bambu Lab P1S",
       text: "The P1S is still one of the best enclosed 3D printers you can buy. If the P2S is out of stock or you want to save, the P1S delivers nearly identical print quality at $449 on Amazon.",

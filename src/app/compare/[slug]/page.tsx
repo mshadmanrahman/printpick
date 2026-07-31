@@ -23,6 +23,7 @@ import {
   getRelatedComparisons,
 } from "@/lib/comparison-utils";
 import { INDEXABLE_COMPARISONS } from "@/data/indexable-comparisons";
+import { getPostsForPrinter } from "@/data/blog-posts";
 
 /* ── Static generation ─────────────────────────────── */
 
@@ -195,6 +196,18 @@ export default async function ComparisonPage({
   ]
     .filter((s, i, arr) => arr.indexOf(s) === i)
     .slice(0, 6);
+
+  /* Hand-written head-to-head posts on this exact pair. Only "comparison"
+     posts qualify: those chase the same "X vs Y" queries as this page, so
+     link them rather than leave Google to pick between two unconnected
+     pages. Listicles and guides mention the same printers without competing
+     for the query, so they stay out. */
+  const explainerPosts = getPostsForPrinter(a.slug).filter(
+    (post) =>
+      post.category === "comparison" &&
+      post.items.length === 2 &&
+      post.items.some((item) => item.printerSlug === b.slug),
+  );
 
   /* ── JSON-LD ── */
   const faqSchema: WithContext<FAQPage> = {
@@ -555,6 +568,35 @@ export default async function ComparisonPage({
             ))}
           </div>
         </section>
+
+        {/* ── Explainer article ───────────────────── */}
+        {explainerPosts.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-2xl font-bold">Read the full breakdown</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              This page is the spec-by-spec comparison. For the written
+              explanation of what actually changed between them, and whether the
+              upgrade is worth paying for, read this:
+            </p>
+            <div className="mt-4 grid gap-3">
+              {explainerPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="rounded-lg border p-4 transition-colors hover:border-primary/50"
+                >
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary/70">
+                    {post.category}
+                  </span>
+                  <p className="mt-1 font-semibold">{post.title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {post.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* ── Related comparisons ──────────────────── */}
         {relatedSlugs.length > 0 && (

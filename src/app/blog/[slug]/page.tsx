@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import type { BlogPosting, BreadcrumbList, WithContext } from "schema-dts";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Calendar, ArrowLeft, ExternalLink } from "lucide-react";
+import { Calendar, ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost, getPostPrinters, getRelatedPosts } from "@/data/blog-posts";
 import { getOverallScore } from "@/data/printers";
+import { getCanonicalSlug } from "@/lib/comparison-utils";
+import { INDEXABLE_COMPARISONS } from "@/data/indexable-comparisons";
 import { PrinterCard } from "@/components/printer-card";
 import { AmazonButton } from "@/components/amazon-button";
 import { TrackedAffiliateLink } from "@/components/tracked-affiliate-link";
@@ -52,6 +55,18 @@ export default async function BlogPostPage({
   const topPick = items[0]?.printer;
   const relatedPosts = getRelatedPosts(post, 3);
   const isEnclosedGuide = post.slug === "best-enclosed-3d-printer-2026";
+
+  /* Two-printer posts have an indexed /compare/ page chasing the same
+     "X vs Y" queries. Link it so Google reads them as one cluster instead
+     of two rival pages. */
+  const comparePair = items.length === 2 ? items : undefined;
+  const compareSlug = comparePair
+    ? getCanonicalSlug(comparePair[0].printerSlug, comparePair[1].printerSlug)
+    : undefined;
+  const compareHref =
+    compareSlug && INDEXABLE_COMPARISONS.has(compareSlug)
+      ? `/compare/${compareSlug}`
+      : undefined;
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -164,6 +179,52 @@ export default async function BlogPostPage({
           ))}
         </ol>
       </nav>
+
+      {post.keyDifferences && comparePair && (
+        <section className="mt-8">
+          <h2 className="text-xl font-bold">
+            {comparePair[0].printer!.name} vs {comparePair[1].printer!.name}:
+            the differences that matter
+          </h2>
+          <div className="mt-4 overflow-x-auto rounded-xl border">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b bg-muted/50">
+                  <th className="py-3 pl-4 text-left font-medium text-muted-foreground">
+                    Difference
+                  </th>
+                  <th className="py-3 pl-3 text-left font-medium">
+                    {comparePair[0].printer!.name}
+                  </th>
+                  <th className="py-3 pl-3 pr-4 text-left font-medium">
+                    {comparePair[1].printer!.name}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {post.keyDifferences.map((row) => (
+                  <tr key={row.label} className="border-b last:border-0">
+                    <td className="py-3 pl-4 font-medium text-muted-foreground">
+                      {row.label}
+                    </td>
+                    <td className="py-3 pl-3 pr-3">{row.valueA}</td>
+                    <td className="py-3 pl-3 pr-4">{row.valueB}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {compareHref && (
+            <Link
+              href={compareHref}
+              className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+            >
+              Use the full spec comparison tool
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          )}
+        </section>
+      )}
 
       {/* Intro */}
       <div className="mt-8 text-base leading-relaxed text-foreground/90">
